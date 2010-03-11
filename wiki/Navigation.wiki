@@ -3,4 +3,4 @@
 [ForgeGround Home]
 
   *[ForgeGround#Prerequisites]
-  *[ForgeGround#C Programming Language]
+  *[ForgeGround#C_Programming_Language]
