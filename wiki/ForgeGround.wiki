@@ -57,8 +57,8 @@ int main ( void ) {
 The project shall be assimilated with a PC. Why ? Because when you write the main function let's say, you program your PC in C, not being aware of what is done beneath. As a matter of fact your are not even interested as long as the underlying structure do its job well. The same should apply here. However, it would be wrong to say that the writer of the main function doesn't know what is under. We need a definition here. We call the universe of a module ( .c + .h / .o ) everything that is know by the module ( not by the one who created it ). Thus the main module clearly doesn't even need to know how to handle input for instance. It just knows that there is a procedure that does this and the communication with that procedure. Without degenerating I want to point out several concepts :
  * The more divided the main task is, the more easier is for us to resolve it ( remember Divide and Conquer )
  * Every module/procedure/global variable should be carefully commented. The minimum would be :
-    * For modules : The documentation shall be commented in the .h file.
-    * For procedure : Comment the description in .h just before the function declaration :
+   * For modules : The documentation shall be commented in the .h file.
+   * For procedure : Comment the description in .h just before the function declaration :
 {{{
 /*Description:
  *Determines the actual state of the game based on the past state and the last move
@@ -68,7 +68,7 @@ The project shall be assimilated with a PC. Why ? Because when you write the mai
 state update_state ( move );
 }}}
 
-    * For global variables : comment just before the variable :
+   * For global variables : comment just before the variable :
 {{{
 /*Description : Determines whether or not the engine is on move
  *0 - not on move
