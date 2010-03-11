@@ -34,6 +34,7 @@ Key factors:
  * Short descriptions of commands shall be commented after the command using // :
 {{{
 int cont; // cont counts something
+}}}
  * Block descriptions should be implemented as /* Name_of_Block */ :
 {{{
 int main ( void ) {
