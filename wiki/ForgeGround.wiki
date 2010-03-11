@@ -22,7 +22,6 @@ I have uploaded begin.c and begin.h as frameworks for the project sources. They 
 
 Key factors:
  * Commentaries should be emphasized according to the block of code they open/end.This is an example with great ambiguity :
-
 {{{
 /* --- MACROS - #define --- */
 #define ONE 1
