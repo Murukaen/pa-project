@@ -17,5 +17,7 @@ Even if the main idea is set, we shall admit that program's evolutions implies a
 
 The better the communication, the better the project. Every developer should always know exactly what he/she has to do. It is better to first argue about a task than realize something is totally messed up due to misunderstanding and lack of collaboration.
 
+== Let's get to work ! ==
 
+No time to lose, we have a lot to do. See the ForgeGround to get started.
 
