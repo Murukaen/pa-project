@@ -12,7 +12,7 @@ The main source can be found [http://home.hccnet.nl/h.g.muller/engine-intf.html 
 
 === Basic Linux Commands == 
 
-For all of us how forgot something look [http://books.google.com/books?id=KNvQniXULV4C&printsec=frontcover&dq=utilizarea+sistemelor+de+operare&ei=vDuSS8n5Aqq6yQTVxNi7BA&cd=1#v=onepage&q=&f=true here]
+For all of us who forgot something look [http://books.google.com/books?id=KNvQniXULV4C&printsec=frontcover&dq=utilizarea+sistemelor+de+operare&ei=vDuSS8n5Aqq6yQTVxNi7BA&cd=1#v=onepage&q=&f=true here]
 
 == Project Standards ==
 
