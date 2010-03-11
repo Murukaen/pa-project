@@ -4,5 +4,5 @@
 
   * [ForgeGround#Prerequisites Prerequisites]
    * [ForgeGround#C_Programming_Language C Programming Language]
-   * [ForgeGround#XBoard_Protocol XBoard Protocol
+   * [ForgeGround#XBoard_Protocol XBoard Protocol]
    * [ForgeGround#Basic_Linux_Commands Basic Linux Commands]
