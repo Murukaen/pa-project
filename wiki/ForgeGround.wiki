@@ -59,6 +59,14 @@ The project shall be assimilated with a PC. Why ? Because when you write the mai
  * Every module/procedure/global variable should be carefully commented. The minimum would be :
    * For modules : The documentation shall be commented in the .h file.
    * For procedure : Comment the description in .h just before the function declaration :
+{{{
+/*Description:
+ *Determines the actual state of the game based on the past state and the last move
+ *Input:1-move
+ *Output:1-updated state(state)
+ */
+state update_state ( move );
+}}}
    * For global variables : comment just before the variable :
 {{{
 /*Description : Determines whether or not the engine is on move
