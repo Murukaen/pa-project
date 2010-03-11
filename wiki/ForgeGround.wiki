@@ -21,7 +21,7 @@ For all of us who forgot something look [http://books.google.com/books?id=KNvQni
 I have uploaded begin.c and begin.h as frameworks for the project sources. They contain the code structures that will occur. It is very important to keep these standards because no one wants to spend hours reading somebody else's source code. The scope is to write the program in an organized hierarchical manner.
 
 Key factors:
-   * Commentaries should be emphasized according to the block of code they open/end.This is an example with great ambiguity :
+ * Commentaries should be emphasized according to the block of code they open/end.This is an example with great ambiguity :
 
 {{{
 /* --- MACROS - #define --- */
@@ -30,3 +30,18 @@ Key factors:
 /* One should look over this : */
 #define THREE 4 
 }}} 
+
+ * Short descriptions of commands shall be commented after the command using // :
+{{{
+int cont; // cont counts something
+ * Block descriptions should be implemented as /* Name_of_Block */ :
+{{{
+int main ( void ) {
+
+     /* Variables */
+     int n;
+     Stack s;
+     /* Initialization */
+     s = new_stack();
+     ...
+}}}
