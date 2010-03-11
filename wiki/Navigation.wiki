@@ -1,3 +1,6 @@
 #sidebar TableOfContents
 
 [ForgeGround Home]
+
+  *[ForgeGround#Prerequisites]
+  *[ForgeGround#C Programming Language]
