@@ -4,7 +4,7 @@
 
 === C Programming Language ===
 
-We will use 95% the C that was thought as PC and SD courses. Thus I won't post any material. If someone needs those courses or other sources please email me on razzvan.savu@gmial.com
+We will use 95% the C that was thought as PC and SD courses. Thus I won't post any material. If someone needs those courses or other sources please email me on razzvan.savu@gmail.com
 
 === XBoard Protocol ===
 
