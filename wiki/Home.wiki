@@ -1,5 +1,5 @@
 #summary Project Home
-#labels Phase-Implementation,Phase-Requirements,Phase-Design
+#labels Phase-Implementation,Phase-Requirements,Phase-Design,Featured
 
 == Introduction ==
 
@@ -20,4 +20,3 @@ The better the communication, the better the project. Every developer should alw
 == Let's get to work ! ==
 
 No time to lose, we have a lot to do. See the ForgeGround to get started.
-
