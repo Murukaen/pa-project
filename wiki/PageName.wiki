@@ -1,0 +1,5 @@
+#summary Project Home
+
+= Introduction =
+
+Welcome to our wiki! This project consists of building a chess engine compatible with XBoard(v.4.4.x ). The primary purpose of this wiki is to enable the developers to document the project and thus enhancing the understanding and the developing speed. The key is to make a common consent on 
