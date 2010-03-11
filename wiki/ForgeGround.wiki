@@ -1,0 +1,32 @@
+#summary Here we build
+
+== Prerequisites ==
+
+=== C Programming Language ===
+
+We will use 95% the C that was thought as PC and SD courses. Thus I won't post any material. If someone needs those courses or other sources please email me on razzvan.savu@gmial.com
+
+=== XBoard Protocol ===
+
+The main source can be found [http://home.hccnet.nl/h.g.muller/engine-intf.html here]. More information about SAN Standard is [http://en.wikipedia.org/wiki/Algebraic_chess_notation here].
+
+=== Basic Linux Commands == 
+
+For all of us how forgot something look [here http://books.google.com/books?id=KNvQniXULV4C&printsec=frontcover&dq=utilizarea+sistemelor+de+operare&ei=vDuSS8n5Aqq6yQTVxNi7BA&cd=1#v=onepage&q=&f=true]
+
+== Project Standards ==
+
+=== Coding style ===
+
+I have uploaded begin.c and begin.h as frameworks for the project sources. They contain the code structures that will occur. It is very important to keep these standards because no one wants to spend hours reading somebody else's source code. The scope is to write the program in an organized hierarchical manner.
+
+Key factors:
+   * Commentaries should be emphasized accordingly to the block of code they open/end.This is an example with great ambiguity :
+
+{{{
+/* --- MACROS - #define --- */
+#define ONE 1
+#define TWO 2
+/* One should look over this : */
+#define THREE 4 }}} 
+
