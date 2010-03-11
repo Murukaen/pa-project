@@ -68,7 +68,7 @@ The project shall be assimilated with a PC. Why ? Because when you write the mai
 state update_state ( move );
 }}}
 
-  * For global variables : comment just before the variable :
+   * For global variables : comment just before the variable :
 {{{
 /*Description : Determines whether or not the engine is on move
  *0 - not on move
