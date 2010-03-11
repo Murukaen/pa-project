@@ -35,7 +35,7 @@ Key factors:
 {{{
 int cont; // cont counts something
 }}}
- * Block descriptions should be implemented as '/* Name_of_Block */' :
+ * Block descriptions should be implemented as {{{/* Name_of_Block */}}} :
 {{{
 int main ( void ) {
 
