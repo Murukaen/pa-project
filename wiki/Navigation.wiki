@@ -2,5 +2,5 @@
 
 [ForgeGround Home]
 
-  *[ForgeGround#Prerequisites]
-  *[ForgeGround#C_Programming_Language]
+  * [ForgeGround#Prerequisites]
+  * [ForgeGround#C_Programming_Language]
