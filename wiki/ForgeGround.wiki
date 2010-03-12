@@ -16,13 +16,13 @@ For all of us who forgot something look [http://books.google.com/books?id=KNvQni
 
 === SVN ===
 
-We use subversion as version control system here. All about SVN can be found [http://svnbook.red-bean.com/en/1.5/index.html here].
+We use subversion as version control system here. All about SVN can be found [http://svnbook.red-bean.com/en/1.5/index.html here]. Knowing the [http://svnbook.red-bean.com/en/1.5/svn.tour.html Basic SVN Usage] should be enough for now.
 
 == Project Standards ==
 
 === Coding style ===
 
-I have uploaded begin.c and begin.h as frameworks for the project sources. They contain the code structures that will occur. It is very important to keep these standards because no one wants to spend hours reading somebody else's source code. The scope is to write the program in an organized hierarchical manner.
+I have uploaded begin.c and begin.h as frameworks for the project sources. They contain the code structures that will occur. It is very important to keep these standards because no one wants to spend hours reading somebody else's source codes. The scope is to write the program in an organized hierarchical manner.
 
 Key factors:
  * Commentaries should be emphasized according to the block of code they open/end.This is an example with great ambiguity :
@@ -58,7 +58,7 @@ int main ( void ) {
 
 === Modular strategy ===
 
-The project shall be assimilated with a PC. Why ? Because when you write the main function let's say, you program your PC in C, not being aware of what is done beneath. As a matter of fact your are not even interested as long as the underlying structure do its job well. The same should apply here. However, it would be wrong to say that the writer of the main function doesn't know what is under. We need a definition here. We call the universe of a module ( .c + .h / .o ) everything that is know by the module ( not by the one who created it ). Thus the main module clearly doesn't even need to know how to handle input for instance. It just knows that there is a procedure that does this and the communication with that procedure. Without degenerating I want to point out several concepts :
+The project shall be assimilated with a PC. Why ? Because when you write the main function let's say, you program your PC in C, not being aware of what is done beneath. As a matter of fact your are not even interested of that as long as the underlying structure does its job well. The same should apply here. However, it would be wrong to say that the writer of the main function doesn't know what is under. We need a definition here. Let's call the universe of a module ( .c + .h / .o ) everything that is know by the module ( not by the one who created it ). Thus the main module clearly doesn't even need to know how to handle input for instance. It just knows that there is a procedure that does this and the communication with that procedure. Without degenerating I want to point out several concepts :
  * The more divided the main task is, the more easier is for us to resolve it ( remember Divide and Conquer )
  * Every module/procedure/global variable should be carefully commented. The minimum would be :
    * For modules : The documentation shall be commented in the .h file.
