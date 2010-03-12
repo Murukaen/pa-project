@@ -4,7 +4,7 @@
 
 === C Programming Language ===
 
-We will use 95% the C that was thought as PC and SD courses. Thus I won't post any material. If someone needs those courses or other sources please email me on razzvan.savu@gmail.com
+We will use 95% the C that was thought at PC and SD courses. Thus I won't post any material related to this. If someone needs those courses or other resources please email me on razzvan.savu@gmail.com
 
 === XBoard Protocol ===
 
@@ -13,6 +13,10 @@ The main source can be found [http://home.hccnet.nl/h.g.muller/engine-intf.html 
 === Basic Linux Commands == 
 
 For all of us who forgot something look [http://books.google.com/books?id=KNvQniXULV4C&printsec=frontcover&dq=utilizarea+sistemelor+de+operare&ei=vDuSS8n5Aqq6yQTVxNi7BA&cd=1#v=onepage&q=&f=true here]
+
+=== SVN ===
+
+We use subversion as version control system here. All about SVN can be found [http://svnbook.red-bean.com/en/1.5/index.html here].
 
 == Project Standards ==
 
