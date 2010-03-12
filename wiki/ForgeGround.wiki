@@ -83,8 +83,8 @@ int f_ENG_ON_MOVE;
 === Notation Agreements ===
 
 We shall keep the following minimal standards regarding notation throughout the project sources:
- * Pointers that can't be assigned an intuitive/generic name shall be prefixed with {{{p_}}} 
- * Flags will have the {{{f_}}} prefix
+ * Pointers that can't be assigned an intuitive/generic name shall be prefixed with *p_*
+ * Flags will have the *f_* prefix
  * Functions describing operations with a certain "object" shall be prefixed by that object's name
  * Functions that *get* some information from a structure / generic pointer should contain the tag {{{get_}}}
  * Functions that *set* a variable within a structure / generic pointer should contain the tag {{{set_}
