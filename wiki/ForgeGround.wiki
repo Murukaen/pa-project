@@ -97,5 +97,13 @@ bitmap state_get_bitmap ( state , int );
 void state_set_bitmap ( state , bitmap , int );
 }}}
 
+== General Structure ==
+
+The project is consisted of several interrelated structures of modules, each with its own finality :
+
+=== Xboard to engine scheme ===
+
+[http://i39.tinypic.com/ixdqgl.jpg]
+
 
  
