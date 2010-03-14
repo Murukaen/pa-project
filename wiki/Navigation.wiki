@@ -13,3 +13,4 @@
    * [ForgeGround#Notation_Agreements Notation Agreements]
   * [ForgeGround#General_Structure General Structure]
    * [ForgeGround#Xboard_-_Engine_Flow Xboard - Engine Flow]
+   * [ForgeGround#Main_method Main method]
