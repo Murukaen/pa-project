@@ -101,9 +101,9 @@ void state_set_bitmap ( state , bitmap , int );
 
 The project is consisted of several interrelated structures of modules, each with its own finality :
 
-=== Xboard to engine scheme ===
+=== Xboard - Engine Flow ===
 
-[http://i41.tinypic.com/14kzn6p.jpg]
+[http://i44.tinypic.com/29xvp6v.jpg]
 
 
  
