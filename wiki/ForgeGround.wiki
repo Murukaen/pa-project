@@ -105,5 +105,9 @@ The project is consisted of several interrelated structures of modules, each wit
 
 [http://i44.tinypic.com/10yf0av.jpg]
 
+=== Main method ===
+
+[http://i43.tinypic.com/21cigav.jpg]
+
 
  
