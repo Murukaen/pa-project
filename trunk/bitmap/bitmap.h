@@ -10,32 +10,84 @@
 /* ----- Local #inlcudes ----- */
 
 /* ---- Macro #define ---- */
-#define MATRIX_SIZE 8
 
 /* --- Types --- */
-typedef long long int bitmap;
+typedef long long int BITMAP;
 
 /* --- Procedures --- */
 
-/* Description :
- * Initialize bitmap working strucures
- * Input:0
- * Output:0
- */
-void bitmap_init ( void );
 
-/* Description:
- * Gets the value from a bitmap at the location determined by the row and column
- * Input:3: bitmap , row_number , col_number
- * Output:1: value of bit at that location
- */
-int bitmap_get_bit ( bitmap , int , int);
+/* Creeaza un bitmap cu valoarea 1 pe pozitia data ca argument
+ * 0 in coltul stanga sus si 63 in coltul dreapta jos
+*/
+BITMAP BM_Make_pos(int);
 
-/* Description:
- * Sets the value from a bitmap at the location determined by the row and column with the given bit value
- * Input:4: bitmap , row_number , col_number , value_to_set
- * Output:0
+
+/* Creeaza un bitmap cu valoarea 1 pe pozitia data ca argument
+ * arg1 = linia
+ * arg2 = coloana  (INTOTDEAUNA !!!!!!!!!!!!!!!!!!!!!!)
  */
-void bitmap_set_bit ( bitmap , int , int , int );
+BITMAP BM_Make_coord(int,int);
+
+
+/* intoarce indexul primului 1 din BITMAP,pornind din coltul stga sus -> dreapta jos
+ * returneaza -1 daca nu gaseste niciun 1
+ */
+int BM_Get_first_elem (BITMAP);
+
+
+/* Intoarce valoarea bitului de la coordonatele date ca argument */
+int BM_Get_bit_from_coord(BITMAP,int ,int);
+
+
+/* Intoarce valoarea bitului de la pozitia data ca argument */
+int BM_Get_bit_from_pos(BITMAP,int);
+
+
+/* pune in BITMAP ul dat ca argument, valoarea 1 la coordonatele date ca parametru*/
+BITMAP BM_Put_piece_at_coord(BITMAP*,int,int);
+
+
+/* pune in BITMAP ul dat ca prim argument , valoarea 1 din BITMAP ul 2 dat ca argument*/
+BITMAP BM_Put_piece_at_BMAP(BITMAP*,BITMAP);
+
+
+/* intoarce 1 daca gaseste piesa la pozitia descrisa de coordonatele date ca
+ * parametru,0 daca nu
+ */
+int BM_Is_piece_at_coord(BITMAP,int,int);
+
+
+/* intoarce 1 daca gaseste piesa la pozitia indicata
+ * de BITmapul al 2 lea de la argument
+ */
+int BM_Is_piece_at_BMAP (BITMAP,BITMAP);
+
+
+/* sterge elementul de la pozitia data, nu modifica restul elementelor*/
+void BM_Clear_piece_at_coord(BITMAP*,int,int);
+
+
+/*arg 1 : bitmapul asupra caruia se efectueaza modificarea
+ * arg 2 : bitmapul care reprezinta pozitia de va fi setata pe 0 */
+void BM_Clear_piece_at_BMAP(BITMAP*,BITMAP);
+
+
+/* capitane ghici ce face asta :)) intoarce 1=exista, 0=nu exista */
+int BM_Compare_BMAPs(BITMAP,BITMAP);
+
+
+/* pune 0 peste tot */
+void BM_Clear_BMAP(BITMAP*);
+
+
+/* pune :D 1 peste tot*/
+void BM_Fill_BMAP(BITMAP*);
+
+
+/*printeaza bitmap*/
+void BM_print(BITMAP);
+
+
 
 #endif
