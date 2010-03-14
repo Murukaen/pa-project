@@ -11,3 +11,5 @@
    * [ForgeGround#Coding_style Coding style]
    * [ForgeGround#Modular_strategy Modular strategy]
    * [ForgeGround#Notation_Agreements Notation Agreements]
+  * [ForgeGround#General_Structure General Structure]
+   * [ForgeGround#Xboard_-_Engine_Flow Xboard - Engine Flow]
