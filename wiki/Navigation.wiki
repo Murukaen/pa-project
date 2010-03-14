@@ -10,3 +10,4 @@
   * [ForgeGround#Project_Standards Project Standards]
    * [ForgeGround#Coding_style Coding style]
    * [ForgeGround#Modular_strategy Modular strategy]
+   * [ForgeGround#Notation_Agreements Notation Agreements]
