@@ -66,8 +66,8 @@ The project shall be assimilated with a PC. Why ? Because when you write the mai
 {{{
 /*Description:
  *Determines the actual state of the game based on the past state and the last move
- *Input:1-move
- *Output:1-updated state(state)
+ *Input:1:move
+ *Output:1:updated_state [state]
  */
 state update_state ( move );
 }}}
