@@ -2,7 +2,7 @@
 
 test_file="test_o"
 
-build: bitmap/bitmap.o state/state.o move/move.o cur_state/cur_state.o update_state/update_state.o 
+build: bitmap/bitmap.o state/state.o move/move.o cur_state/cur_state.o update_state/update_state.o state_generator/state_generator.o
 	
 
 bitmap/bitmap.o: bitmap/bitmap.c
@@ -19,6 +19,9 @@ update_state/update_state.o: update_state/update_state.c
 
 move/move.o: move/move.c
 	gcc -c move/move.c -o move/move.o
+
+state_generator/state_generator.o: state_generator/state_generator.c
+	gcc -c state_generator/state_generator.c -o state_generator/state_generator.o
 	
 clean:
 	rm -Rf -v *.o
