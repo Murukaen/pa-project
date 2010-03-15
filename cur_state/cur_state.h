@@ -14,6 +14,12 @@
 /* ---- Macro #define ---- */
 
 /* --- Types --- */
+STATE cur_state; // Nu trebuie delarat aci extern, uite cand se fol extern:
+/* extern int myGlobalVariable;
+This tells the compiler "there's a variable defined in another module called
+myGlobalVariable, of type integer. I want you to accept my attempts to access it,
+but don't allocate storage for it because another module has already done that".
+*/
 
 /* --- Procedures --- */
 
@@ -22,14 +28,14 @@
  * Input:0
  * Output: cur_state
  */
-state cur_state_get ( void );
+STATE cur_state_get ( void );
 
 /* Desc:
  * Sets the cuurent state
  * Input:1: state_to_set
  * Output:0 
  */
-void cur_state_set ( state ); 
+void cur_state_set ( STATE );
 
 #endif
 
