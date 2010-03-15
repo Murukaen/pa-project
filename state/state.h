@@ -13,14 +13,14 @@
 /* ---- Macro #define ---- */
 
 /* Tags :*/
-#define T_WHO 0  // Jucatorul la mutare
-#define T_WPos   1  // Pozitia pieselor negre
-#define T_BPos 2  // Pozitia pieselor albe
-#define T_Ki  3  // regi
-#define T_Q  4  // regine
-#define T_R  5  // ture
-#define T_B 6  // nebuni
-#define T_Kn   7  // cai
+#define T_WPos   0  // Pozitia pieselor negre
+#define T_BPos 1    // Pozitia pieselor albe
+#define T_Ki  2     // regi
+#define T_Q  3      // regine
+#define T_R  4      // ture
+#define T_B 5       // nebuni
+#define T_Kn   6    // cai
+#define T_P 7		// pioni
 
 /* END Tags */
 #define ST_fields 8

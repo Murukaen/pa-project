@@ -7,7 +7,7 @@
 /* ----- Local #inlcudes ----- */
 
 /* ---- Macro #define ---- */
-typedef long long int BITMAP
+typedef long long int BITMAP;
 
 /* --- Types --- */
 
@@ -25,5 +25,5 @@ void Read_all_possible_moves(FILE*, BITMAP**, BITMAP**, BITMAP**, BITMAP**,
  * piese albe,rege alb, regina alba,tura alba, nebun alb,cal alb
  * imediat apoi aceleasi chestii pentru piesele negre
  */
-void Read_initial_state(FILE*, BITMAP, BITMAP, BITMAP, BITMAP, BITMAP, BITMAP,
-		BITMAP, BITMAP, BITMAP, BITMAP, BITMAP, BITMAP);
+void Read_initial_state(FILE*, BITMAP*, BITMAP*, BITMAP*, BITMAP*, BITMAP*, BITMAP*,
+		BITMAP*, BITMAP*);
