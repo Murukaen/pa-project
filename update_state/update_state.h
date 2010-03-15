@@ -9,8 +9,6 @@
 /* ----- System #includes ----- */
 
 /* ----- Local #inlcudes ----- */
-#include "../state/state.h"
-#include "../cur_state/cur_state.h"
 #include "../move/move.h"
 
 /* ---- Macro #define ---- */
@@ -18,6 +16,13 @@
 /* --- Types --- */
 
 /* --- Procedures --- */
+
+/* Desc:
+ * Initialize starting state of the game
+ * Input:0
+ * Output:1
+ */
+void update_state_init ( void );
 
 /* Desc :
  * Updates the current state based on the old one and the last move

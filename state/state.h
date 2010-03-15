@@ -13,8 +13,8 @@
 /* ---- Macro #define ---- */
 
 /* Tags :*/
-#define T_WPos   0  // Pozitia pieselor negre
-#define T_BPos 1    // Pozitia pieselor albe
+#define T_WPos   0  // Pozitia pieselor albe
+#define T_BPos 1    // Pozitia pieselor negre
 #define T_Ki  2     // regi
 #define T_Q  3      // regine
 #define T_R  4      // ture

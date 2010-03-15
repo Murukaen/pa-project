@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../bitmap/bitmap.h"
+#include "read_from_file.h"
 
 /* ----- Local #inlcudes ----- */
 
@@ -15,9 +16,7 @@
 
 /* --- Procedures --- */
 
-void Read_all_possible_moves(FILE* fin, BITMAP** King_moves,
-		BITMAP** Queen_moves, BITMAP** Rock_moves, BITMAP**Bishop_moves,
-		BITMAP** Knight_moves) {
+void Read_all_possible_moves(FILE* fin, BITMAP** King_moves, BITMAP** Queen_moves, BITMAP** Rock_moves, BITMAP**Bishop_moves, BITMAP** Knight_moves) {
 
 	if ((fin = fopen("All_moves.in", "rb")) == NULL) {
 		printf("Eroare la deschiderea fisierului All_moves.in");
@@ -39,8 +38,7 @@ void Read_all_possible_moves(FILE* fin, BITMAP** King_moves,
 	fclose(fin);
 }
 
-void Read_initial_state(FILE* fin, BITMAP *T_WPos, BITMAP *T_BPos, BITMAP *T_Ki,
-		BITMAP *T_Q, BITMAP *T_R, BITMAP *T_B, BITMAP *T_Kn, BITMAP *T_P) {
+void Read_initial_state(FILE* fin, BITMAP *T_WPos, BITMAP *T_BPos, BITMAP *T_Ki, BITMAP *T_Q, BITMAP *T_R, BITMAP *T_B, BITMAP *T_Kn, BITMAP *T_P) {
 
 	if ((fin = fopen("Initial_positions.in", "rb")) == NULL) {
 		printf("Eroare la deschiderea fisierului Initial_positions.in");
