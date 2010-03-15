@@ -13,20 +13,24 @@
 /* ---- Macro #define ---- */
 
 /* Tags :*/
-#define TAG_P 0 // Player
-#define TAG_O 1 // O
-#define TAG_PW 2 // Pawns
-#define TAG_N 3 // Knights
-#define TAG_B 4 // Bishops
-#define TAG_R 5 // Rocks
-#define TAG_Q 6 // Queens
-#define TAG_K 7 // Kings
+#define T_WHO 0  // Jucatorul la mutare
+#define T_W   1  //  Pozitia pieselor albe
+#define T_WKi 2  // Poz regelui alb
+#define T_WQ  3  // Poz reginei albe
+#define T_WR  4  // Poz turelor albe
+#define T_WB  5  // Poz nebunilor albi
+#define T_WKn 6  // Poz cailor albi
+#define T_B   7  // Pozitia pieselor negre
+#define T_BKi 8  // Pozitia regelui negru
+#define T_BQ  9  // Pozitia reginei negre
+#define	T_BR  10 // Pozitia turelor negre
+#define T_BB  11 // Pozitia nebunilor negri
+#define	T_BKn 12 // Pozitia cilor negri
 /* END Tags */
-
-#define BMPS 8
+#define ST_fields 12
 
 /* --- Types --- */
-typedef bitmap* state; // state is a pointer to a 8-elem vector of bitmaps
+typedef BITMAP* STATE; // state is a pointer to a 8-elem vector of bitmaps
 
 /* --- Procedures --- */
 
@@ -34,29 +38,28 @@ typedef bitmap* state; // state is a pointer to a 8-elem vector of bitmaps
  * State constructor with no data inside
  * Input:0
  * Output:1: new_state [state]
+*/
+STATE ST_new ( void );
 
-state state_new ( void );
-
-/* Description :
+ /* Description :
  * Gets the bitmap associated with the given tag from a state
  * Input:2: state , bitmap_TAG
  * Output:1: bitmap
  */
-bitmap state_get_bitmap ( state , int );
+BITMAP ST_get_bitmap(STATE, int);
 
 /* Description :
  * Sets the bitmap associated with the given tag from a state
  * Input:2: state , bitmap_TAG , bitmap_to_set
  * Output:0
  */
-void state_set_bitmap ( state , int , bitmap );
-
+void ST_set_bitmap(STATE, int, BITMAP);
 
 /* Desc:
  * Destructor state
  * Input:1: state
  * Output:0
  */
-void state_free ( state );
+void ST_free(STATE);
 
 #endif

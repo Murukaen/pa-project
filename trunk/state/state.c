@@ -6,6 +6,7 @@
 #include <stdlib.h>
 
 /* ----- Local #inlcudes ----- */
+#include "../bitmap/bitmap.h"
 #include "state.h"
 
 /* ---- Macro #define ---- */
@@ -18,27 +19,27 @@
 
 /* --- Procedures --- */
 
-state state_new ( void ) {
-	
-	 state new_state = ( state ) calloc ( BMPS , sizeof ( bitmap ) );
-	 
-	 return new_state;
+STATE ST_new(void) {
+
+	STATE new_state = (STATE) calloc(ST_fields, sizeof(BITMAP));
+
+	return new_state;
 }
 
-bitmap state_get_bitmap ( state st, int tag) {
-	
-	//TODO
+BITMAP ST_get_bitmap(STATE st, int tag) {
+
+	return st[tag];
 }
 
-void state_set_bitmap ( state st, int tag, bitmap bmp) {
-	
-	//TODO
+void ST_set_bitmap(STATE st, int tag, BITMAP b) {
+
+	st[tag] = b;
 }
 
-void state_free ( state st) {
-	
-		if (st == 0 ) return;
-		
-	    free(st);
+void ST_free(STATE st) {
+
+	if (st == 0)
+		return;
+	free(st);
 }
 
