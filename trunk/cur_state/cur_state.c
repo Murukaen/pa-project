@@ -11,6 +11,9 @@
 
 /* --- Types --- */
 
+/* --- Globals --- */
+STATE cur_state;
+
 /* --- Auxiliary Procedures --- */
 
 /* --- Procedures --- */

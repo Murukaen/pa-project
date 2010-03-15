@@ -2,7 +2,6 @@
  * 
  */
 
-// !!! Remove this : NAME = Name of file
 #ifndef _CUR_STATE_H
 #define _CUR_STATE_H
 
@@ -14,12 +13,7 @@
 /* ---- Macro #define ---- */
 
 /* --- Types --- */
-STATE cur_state; // Nu trebuie delarat aci extern, uite cand se fol extern:
-/* extern int myGlobalVariable;
-This tells the compiler "there's a variable defined in another module called
-myGlobalVariable, of type integer. I want you to accept my attempts to access it,
-but don't allocate storage for it because another module has already done that".
-*/
+
 
 /* --- Procedures --- */
 
