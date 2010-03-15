@@ -2,7 +2,6 @@
  * 
  */
 
-// !!! Remove this : NAME = Name of file
 #ifndef _MOVE_H
 #define _MOVE_H
 
@@ -14,7 +13,10 @@
 
 /* --- Types --- */
 struct s_move;
-typedef struct s_move * move;
+typedef struct s_move * MOVE;
+
+struct loc;
+typedef struct loc * loc;
 
 /* --- Procedures --- */
 

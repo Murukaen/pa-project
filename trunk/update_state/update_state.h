@@ -2,7 +2,6 @@
  * 
  */
 
-// !!! Remove this : NAME = Name of file
 #ifndef _UPDATE_STATE_H
 #define _UPDATE_STATE_H
 
@@ -29,7 +28,7 @@ void update_state_init ( void );
  * Input:1: move
  * Output:0
  */
-void update_state ( move );
+void update_state ( MOVE );
 
 #endif
 

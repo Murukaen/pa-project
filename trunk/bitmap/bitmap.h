@@ -11,10 +11,20 @@
 
 /* ---- Macro #define ---- */
 
+#define SIZE_BMAP 8
+#define DIM_BMAP (SIZE_BMAP) * (SIZE_BMAP)
+
 /* --- Types --- */
 typedef long long int BITMAP;
 
 /* --- Procedures --- */
+
+/* Desc:
+ * Initialize bitmap. Create masks ( 64 ) . M[i] = 2^i .
+ * Input:0
+ * Output:0
+ */
+void BM_init ( void );
 
 
 /* Creeaza un bitmap cu valoarea 1 pe pozitia data ca argument
@@ -25,7 +35,7 @@ BITMAP BM_Make_pos(int);
 
 /* Creeaza un bitmap cu valoarea 1 pe pozitia data ca argument
  * arg1 = linia
- * arg2 = coloana  (INTOTDEAUNA !!!!!!!!!!!!!!!!!!!!!!)
+ * arg2 = coloana  
  */
 BITMAP BM_Make_coord(int,int);
 
@@ -44,12 +54,12 @@ int BM_Get_bit_from_coord(BITMAP,int ,int);
 int BM_Get_bit_from_pos(BITMAP,int);
 
 
-/* pune in BITMAP ul dat ca argument, valoarea 1 la coordonatele date ca parametru*/
-BITMAP BM_Put_piece_at_coord(BITMAP*,int,int);
+/* pune in BITMAP-ul dat ca argument, valoarea 1 la coordonatele date ca parametru*/
+BITMAP BM_Put_piece_at_coord (BITMAP*,int,int);
 
 
-/* pune in BITMAP ul dat ca prim argument , valoarea 1 din BITMAP ul 2 dat ca argument*/
-BITMAP BM_Put_piece_at_BMAP(BITMAP*,BITMAP);
+/* pune in BITMAP-ul dat ca prim argument , valoarea 1 din BITMAP-ul 2 dat ca argument*/
+BITMAP BM_Put_piece_at_BMAP (BITMAP*,BITMAP);
 
 
 /* intoarce 1 daca gaseste piesa la pozitia descrisa de coordonatele date ca
