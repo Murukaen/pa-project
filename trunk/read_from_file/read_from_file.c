@@ -39,28 +39,23 @@ void Read_all_possible_moves(FILE* fin, BITMAP** King_moves,
 	fclose(fin);
 }
 
-void Read_initial_state(FILE* fin, BITMAP W_Pos, BITMAP W_Ki, BITMAP W_Q,
-		BITMAP W_R, BITMAP W_B, BITMAP W_Kn, BITMAP B_Pos, BITMAP B_Ki,
-		BITMAP B_Q, BITMAP B_R, BITMAP B_B, BITMAP B_Kn) {
+void Read_initial_state(FILE* fin, BITMAP *T_WPos, BITMAP *T_BPos, BITMAP *T_Ki,
+		BITMAP *T_Q, BITMAP *T_R, BITMAP *T_B, BITMAP *T_Kn, BITMAP *T_P) {
 
 	if ((fin = fopen("Initial_positions.in", "rb")) == NULL) {
 		printf("Eroare la deschiderea fisierului Initial_positions.in");
 		exit(0);
 	}
 
-	fread(&W_Pos, 8, 1, fin);
-	fread(&W_Ki, 8, 1, fin);
-	fread(&W_Q, 8, 1, fin);
-	fread(&W_R, 8, 1, fin);
-	fread(&W_B, 8, 1, fin);
-	fread(&W_Kn, 8, 1, fin);
+	fread(T_WPos, 8, 1, fin);
+	fread(T_BPos, 8, 1, fin);
+	fread(T_Ki, 8, 1, fin);
+	fread(T_Q, 8, 1, fin);
+	fread(T_R, 8, 1, fin);
+	fread(T_B, 8, 1, fin);
+	fread(T_Kn, 8, 1, fin);
+	fread(T_P, 8, 1, fin);
 
-	fread(&B_Pos, 8, 1, fin);
-	fread(&B_Ki, 8, 1, fin);
-	fread(&B_Q, 8, 1, fin);
-	fread(&B_R, 8, 1, fin);
-	fread(&B_B, 8, 1, fin);
-	fread(&B_Kn, 8, 1, fin);
 
 	fclose(fin);
 }
