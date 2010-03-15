@@ -30,6 +30,7 @@ int main ( void ) {
 	
 	
 	/* Input listener with no stop */
+	com_init();
 	while ( 1 ) {
 		sleep(3);
 		FILE* fout = fopen ( LOG_FILE , "a" );

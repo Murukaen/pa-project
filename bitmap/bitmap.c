@@ -3,6 +3,7 @@
  */
 
 /* ----- System #includes ----- */
+#include <stdio.h>
 
 /* ----- Local #inlcudes ----- */
 #include "bitmap.h"

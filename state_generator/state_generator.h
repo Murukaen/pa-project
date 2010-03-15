@@ -22,7 +22,7 @@
  * Input:1:first_state [state]
  * Output:1: derived_state [state]
  */
-state state_gen ( state );
+STATE state_gen ( STATE );
 
 #endif
 
