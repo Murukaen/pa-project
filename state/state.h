@@ -13,20 +13,20 @@
 /* ---- Macro #define ---- */
 
 /* Tags :*/
-#define T_WPos   0  // Pozitia pieselor albe
-#define T_BPos 1    // Pozitia pieselor negre
-#define T_Ki  2     // regi
-#define T_Q  3      // regine
-#define T_R  4      // ture
-#define T_B 5       // nebuni
-#define T_Kn   6    // cai
-#define T_P 7		// pioni
+#define T_K 0 // King
+#define T_Q 1 // Queen
+#define T_R 2 // Rock
+#define T_B 3 // Bishop
+#define T_N 4 // Knight
+#define T_P 5 // Pawn
+
+
 
 /* END Tags */
-#define ST_fields 8
 
 /* --- Types --- */
-typedef BITMAP* STATE; // state is a pointer to a 8-elem vector of bitmaps
+struct s_state;
+typedef struct s_state* STATE; // state is a pointer to a 8-elem vector of bitmaps
 
 /* --- Procedures --- */
 

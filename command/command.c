@@ -102,7 +102,7 @@ void read_com ( char * com ) {
 					FILE * fout = fopen (LOG_FILE , "a");
 					fprintf(fout , ">%s<\n" , "move d7d6" );
 					fclose(fout);	
-					write(1, "move d7d6\n" , strlen("move d7d6\n") );
+					write(1, "move Nc6\n" , strlen("move d7d6\n") );
 				
 			}
 		}

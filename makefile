@@ -2,8 +2,8 @@
 
 test_file="test_o"
 
-build: read_from_file/read_from_file.o bitmap/bitmap.o state/state.o move/move.o cur_state/cur_state.o update_state/update_state.o state_generator/state_generator.o xboard_com/xboard_com.o command/command.o main/engine.o 
-	gcc -g -Wall bitmap/bitmap.o state/state.o move/move.o cur_state/cur_state.o update_state/update_state.o state_generator/state_generator.o xboard_com/xboard_com.o command/command.o read_from_file/read_from_file.o main/engine.o -o engine
+build: read_from_file/read_from_file.o bitmap/bitmap.o state/state.o move/move.o cur_state/cur_state.o update_state/update_state.o state_generator/state_generator.o xboard_com/xboard_com.o command/command.o Flags/flags.o main/engine.o 
+	gcc -g -Wall bitmap/bitmap.o state/state.o move/move.o cur_state/cur_state.o update_state/update_state.o state_generator/state_generator.o xboard_com/xboard_com.o command/command.o read_from_file/read_from_file.o Flags/flags.o main/engine.o -o engine
 
 test: xboard_com/xboard_com.o command/command.o main/engine.o 
 	gcc -g -Wall xboard_com/xboard_com.o command/command.o main/engine.o -o engine
@@ -35,9 +35,12 @@ command/command.o: command/command.c
 read_from_file/read_from_file.o: read_from_file/read_from_file.c
 	gcc -c -Wall read_from_file/read_from_file.c -o read_from_file/read_from_file.o
 	
+Flags/flags.o: Flags/flags.c
+	gcc -c -Wall Flags/flags.c -o Flags/flags.o
+	
 main/engine.o: main/engine.c
 	gcc -c -Wall main/engine.c -o main/engine.o
 	
 clean:
-	rm -f bitmap/bitmap.o state/state.o move/move.o cur_state/cur_state.o update_state/update_state.o state_generator/state_generator.o xboard_com/xboard_com.o command/command.o read_from_file/read_from_file.o main/engine.o
+	rm -f bitmap/bitmap.o state/state.o move/move.o cur_state/cur_state.o update_state/update_state.o state_generator/state_generator.o xboard_com/xboard_com.o command/command.o read_from_file/read_from_file.o Flags/flags.o main/engine.o
 	

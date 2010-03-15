@@ -13,8 +13,18 @@
 /* --- Types --- */
 
 /* --- Globals --- */
+BITMAP M[DIM_BMAP];
 
 /* --- Auxiliary Procedures --- */
+
+/* --- Procedures --- */
+
+void BM_init ( void ) {
+        
+       /* Init Mask vector */
+       int i;
+       for (i=0 , M[0] = 1 ; i < DIM_BMAP ; ++i , M[i] = M[i-1] << 1 );
+}
 
 BITMAP BM_Make_pos(int pos) {
 
