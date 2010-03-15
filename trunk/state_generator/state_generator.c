@@ -17,7 +17,7 @@
 
 /* --- Procedures --- */
 
-state state_gen ( state start_state ) {
+STATE state_gen ( STATE start_state ) {
 	
 	 //TODO
 }

@@ -17,7 +17,7 @@
 #define COM_SEP ' '
 #define WORD_LENGTH 15
 
-#define FEATURES "feature playother=1 done=1\n"
+#define FEATURES "feature playother=1 usermove=1 done=1\n"
 
 /* --- Types --- */
 
