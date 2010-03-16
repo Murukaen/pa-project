@@ -24,12 +24,8 @@
 /* --- Procedures --- */
 
 void update_state_init ( void ) {
-	
-		STATE initial_state = ST_new ();
 		
-		//TODO : Read_initial_state (DATABASE_STARTING_POS , &(initial_state[0]) , &(initial_state[1]) , &(initial_state[2]) , &(initial_state[3]) , &(initial_state[4]) , &(initial_state[5]) , &(initial_state[6]) , &(initial_state[7]) );
-		
-		cur_state_set (initial_state);
+		cur_state_set ( Read_initial_state () );
 }
 
 void update_state ( MOVE mov ) {

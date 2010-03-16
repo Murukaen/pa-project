@@ -49,6 +49,13 @@ void ST_set_bitmap(STATE st, int tag, BITMAP b) {
 	st -> V_BMAP[tag] = b;
 }
 
+void ST_set_table(STATE st, UCHAR** T){
+
+	st -> Table_W = T;
+}
+
+
+
 void ST_free(STATE st) {
 
 	if (st == 0)
