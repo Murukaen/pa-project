@@ -21,14 +21,19 @@
  * Input:0
  * Output:0
  */
-void update_state_init ( void );
+void update_state_init(void);
 
 /* Desc :
  * Updates the current state based on the old one and the last move
  * Input:1: move
  * Output:0
  */
-void update_state ( MOVE );
+void update_state(MOVE);
+
+/* schimba pozitia initiala a pieselor(rege-regina) - pt alb sau pt negru*/
+void flip_state(void);
+
+
 
 #endif
 

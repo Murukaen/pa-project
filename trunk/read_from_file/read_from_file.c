@@ -5,10 +5,12 @@
 /* ----- System #includes ----- */
 #include <stdio.h>
 #include <stdlib.h>
-#include "../bitmap/bitmap.h"
-#include "read_from_file.h"
+
 
 /* ----- Local #inlcudes ----- */
+#include "../state/state.h"
+#include "../bitmap/bitmap.h"
+#include "read_from_file.h"
 
 /* ---- Macro #define ---- */
 
@@ -47,16 +49,7 @@ void Read_initial_state(void) {
 		exit(0);
 	}
 
-	BITMAP *T_WPos, *T_BPos, *T_Ki, *T_Q, *T_R, *T_B, *T_Kn, *T_P;
-
-	fread(&T_WPos, 8, 1, fin);
-	fread(&T_BPos, 8, 1, fin);
-	fread(&T_Ki, 8, 1, fin);
-	fread(&T_Q, 8, 1, fin);
-	fread(&T_R, 8, 1, fin);
-	fread(&T_B, 8, 1, fin);
-	fread(&T_Kn, 8, 1, fin);
-	fread(&T_P, 8, 1, fin);
+	BITMAP PPos, OPos, Ki, Q, R, B, Kn, P;
 
 	STATE S = ST_new();
 
@@ -66,16 +59,26 @@ void Read_initial_state(void) {
 			255, 255 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 5, 5, 5,
 			5, 5, 5, 5, 5 }, { 2, 4, 3, 1, 0, 3, 4, 2 } };
 
+
 	ST_set_table(S, Type_matrix);
 
-	ST_set_bitmap(S, 0, *T_Ki);
-	ST_set_bitmap(S, 1, *T_Q);
-	ST_set_bitmap(S, 2, *T_R);
-	ST_set_bitmap(S, 3, *T_B);
-	ST_set_bitmap(S, 4, *T_Kn);
-	ST_set_bitmap(S, 5, *T_P);
-	ST_set_bitmap(S, 6, *T_WPos);
-	ST_set_bitmap(S, 7, *T_BPos);
+	BITMAP Ki = 576460752303423496,
+			Q = 1152921504606846992,
+			R = -9151314442816847743,
+			B = 2594073385365405732,
+			Kn = 4755801206503243842,
+			P = 71776119061282560,
+			PPos = -281474976710656,
+			OPos = 65535;
+
+	ST_set_bitmap(S, 0, Ki);
+	ST_set_bitmap(S, 1, Q);
+	ST_set_bitmap(S, 2, R);
+	ST_set_bitmap(S, 3, B);
+	ST_set_bitmap(S, 4, Kn);
+	ST_set_bitmap(S, 5, P);
+	ST_set_bitmap(S, 6, PPos);
+	ST_set_bitmap(S, 7, OPos);
 
 	fclose(fin);
 }

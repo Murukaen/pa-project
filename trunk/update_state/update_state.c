@@ -31,8 +31,15 @@ void update_state_init ( void ) {
 void update_state ( MOVE mov ) {
 	
 		// TODO	
-		
-		
+
+}
+
+void flip_state(void){
+
+	STATE S;
+	S = cur_state_get();
+	ST_set_bitmap(S,0,1152921504606846992);
+	ST_set_bitmap(S,1,576460752303423496);
 }
 
 
