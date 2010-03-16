@@ -13,13 +13,13 @@
 
 #ifndef _UCHAR
 #define _UCHAR
-typedef unsigned char UCHAR
+typedef unsigned char UCHAR;
 #endif
 
 struct LOC;
 typedef struct LOC LOC;
 
-typedef LOC* p_loc; // --> Generic Reference
+typedef LOC* P_LOC; // --> Generic Reference
 
 /* --- Types --- */
 
@@ -27,15 +27,15 @@ typedef LOC* p_loc; // --> Generic Reference
 
 /* LOC Procedures */
 
-p_loc loc_new ( void );
+P_LOC loc_new ( void );
 
-void loc_set_both ( p_loc , UCHAR , UCHAR );
+void loc_set_both ( P_LOC , UCHAR , UCHAR );
 
-LOC loc_get_both ( p_loc );
+LOC loc_get_both ( P_LOC );
 
-UCHAR loc_get_row ( p_loc );
+UCHAR loc_get_row ( P_LOC );
 
-UCHAR loc_get_col ( p_loc );
+UCHAR loc_get_col ( P_LOC );
 
 #endif
 
