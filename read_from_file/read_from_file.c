@@ -42,7 +42,7 @@ void Read_all_possible_moves(char* fin, BITMAP** King_moves,
 
 void Read_initial_state(void) {
 
-	if ((FILE * f = fopen(fin, "rb")) == NULL) {
+	if ((FILE * f = fopen("Database/Initial_positions.in", "rb")) == NULL) {
 		printf("Eroare la deschiderea fisierului Initial_positions.in");
 		exit(0);
 	}
