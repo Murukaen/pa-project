@@ -18,6 +18,10 @@ For all of us who forgot something look [http://books.google.com/books?id=KNvQni
 
 We use subversion as version control system here. All about SVN can be found [http://svnbook.red-bean.com/en/1.5/index.html here]. Knowing the [http://svnbook.red-bean.com/en/1.5/svn.tour.html Basic SVN Usage] should be enough for now.
 
+=== Rules of chess ===
+
+You will find a general description [http://en.wikipedia.org/wiki/Rules_of_chess here]
+
 == Project Standards ==
 
 === Coding style ===
