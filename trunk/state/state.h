@@ -23,8 +23,6 @@
 #define T_OP 7 // Oponent Pieces
 #define T_NA 255 // N/A / Empty square
 
-
-
 /* END Tags */
 
 /* --- Types --- */

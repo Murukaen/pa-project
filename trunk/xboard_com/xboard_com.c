@@ -27,15 +27,16 @@
 
 /* --- Globals --- */
 
+char buffer[BUF_LENGTH];
+
 /* --- Auxiliary Procedures --- */
 
 char * get_input_buffer ( void ) {
 	
-	char * buf = (char *) calloc ( LENGTH + 1 , sizeof(char) );
-	int length = read(STDIN,buf,LENGTH-1);
-	buf[length] = '\0';
+	int length = read(STDIN,buffer,BUF_LENGTH-1);
+	buffer[length] = '\0';
 
-	return buf; 
+	return buffer;
 }
 
 void parse_buf ( char * buf ) {
@@ -45,7 +46,6 @@ void parse_buf ( char * buf ) {
 				
 					read_com ( com );
 		
-		free (buf);
 }		
 
 /* --- Procedures --- */
@@ -74,9 +74,14 @@ void poll_input ( void ) {
 				parse_buf ( get_input_buffer () );
 }
 
-void poll_output ( char * com , int com_tag) {
+void poll_output ( void * com , int com_tag) {
 	
 		write_com ( com , com_tag );
+}
+
+void write_to_xboard ( char * text) {
+	
+		write(1,text,strlen(text));
 }
 
 
