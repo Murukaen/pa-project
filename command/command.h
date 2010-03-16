@@ -24,5 +24,13 @@
  */
 void read_com ( char * );
 
+
+/* Desc:
+ * Gives a command to XBoard 
+ * Inout:2: the command string , command type [int]
+ * Output:0
+ */
+void write_com ( char * , int );
+
 #endif
 

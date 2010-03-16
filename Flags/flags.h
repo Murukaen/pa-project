@@ -1,0 +1,32 @@
+/* General description :
+ * Global Control Flags
+ * Facilitates communication between modules
+ * Store values describing various states of the game
+ */
+
+#ifndef _FLAGS_H
+#define _FLAGS_H
+
+/* ----- System #includes ----- */
+
+/* ----- Local #inlcudes ----- */
+
+/* ---- Macro #define ---- */
+
+/* --- Types --- */
+
+/* --- Procedures --- */
+
+/*Description : Determines whether or not the engine is on move
+ *0 - not on move
+ *1 - on move
+ */
+int f_ENG_ON_MOVE;
+
+
+
+void flags_init ();
+
+
+#endif
+

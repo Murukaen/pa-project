@@ -73,6 +73,13 @@ void poll_input ( void ) {
 		
 				parse_buf ( get_input_buffer () );
 }
+
+void poll_output ( char * com , int com_tag) {
+	
+		write_com ( com , com_tag );
+}
+
+
 			
 
 
