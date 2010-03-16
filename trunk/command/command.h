@@ -8,6 +8,7 @@
 /* ----- System #includes ----- */
 
 /* ----- Local #inlcudes ----- */
+#include "../xboard_com/xboard_com.h"
 
 /* ---- Macro #define ---- */
 

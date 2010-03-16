@@ -16,7 +16,7 @@
 
 /* ---- Macro #define ---- */
 #define STDIN 0
-#define LENGTH 100 /* !!! Definition of LENGTH */
+#define BUF_LENGTH 100 
 #define BUF_SEP "\n"
 
 #define LOG_FILE "./Log/log"
