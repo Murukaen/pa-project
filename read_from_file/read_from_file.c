@@ -99,6 +99,3 @@ void Read_initial_state(UCHAR player_tag) {
 		}
 	}
 }
-
-}
-
