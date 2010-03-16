@@ -21,7 +21,7 @@
  * (in afara de pioni) in vectorii dati ca parametru.
  * Ordinea parametrilor este : fisierul de intrare,rege, regina,tura,nebun,cal
  */
-void Read_all_possible_moves(char*, BITMAP**, BITMAP**, BITMAP**, BITMAP**,
+void Read_all_possible_moves(BITMAP**, BITMAP**, BITMAP**, BITMAP**,
 		BITMAP**);
 
 /* citeste din fisierul Initial_positions pozitiile initiale ale pieselor
