@@ -31,6 +31,11 @@
 struct s_state;
 typedef struct s_state* STATE; // state is a pointer to a 8-elem vector of bitmaps
 
+#ifndef _UCHAR
+#define _UCHAR
+typedef unsigned char UCHAR;
+#endif
+
 /* --- Procedures --- */
 
 /* Desc :

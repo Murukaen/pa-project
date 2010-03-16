@@ -15,7 +15,7 @@
 
 /* --- Types --- */
 
-typedef unsigned char UCHAR;
+
 
 struct s_state {
 	
