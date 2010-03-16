@@ -30,4 +30,6 @@ void Read_all_possible_moves(BITMAP**, BITMAP**, BITMAP**, BITMAP**,
  */
 STATE Read_initial_state(void);
 
+list
+
 #endif

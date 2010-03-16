@@ -9,6 +9,7 @@
 
 /* ----- Local #inlcudes ----- */
 #include "../bitmap/bitmap.h"
+#include "../list/list.h"
 
 /* ---- Macro #define ---- */
 
@@ -28,7 +29,7 @@
 
 /* --- Types --- */
 struct s_state;
-typedef struct s_state* STATE; // state is a pointer to a 8-elem vector of bitmaps
+typedef struct s_state* STATE;
 
 #ifndef _UCHAR
 #define _UCHAR
@@ -63,7 +64,7 @@ void ST_set_bitmap(STATE, int, BITMAP);
  * Input:2:STATE,UCHAR matrix
  * Output:0
  */
-void ST_set_table(STATE,UCHAR**);
+void ST_set_table_W(STATE,UCHAR**);
 
 /* Desc:
  * Destructor state
@@ -71,5 +72,7 @@ void ST_set_table(STATE,UCHAR**);
  * Output:0
  */
 void ST_free(STATE);
+
+void ST_set_table_P(STATE,int,int,lista);
 
 #endif
