@@ -11,11 +11,14 @@
 #include <stdlib.h>
 /* ----- Local #inlcudes ----- */
 #include "command.h"
+#include "../update_state/update_state.h"
+#include "../move_conv/move_conv.h"
 
 /* ---- Macro #define ---- */
 #define LOG_FILE "./Log/log"
 #define COM_SEP ' '
 #define WORD_LENGTH 15
+
 
 #define FEATURES "feature playother=1 usermove=1 done=1\n"
 
@@ -80,35 +83,29 @@ void read_com ( char * com ) {
 		/* Analyse command */
 				
 		if ( !strcmp ( word , "quit" ) ) 		exit(0);
-		if ( !strcmp ( word , "xboard" ) ) 		write(1, "\n" , strlen("\n") );
-		if ( !strcmp ( word , "protover" ) ) 	write (1, FEATURES , strlen (FEATURES) );
+		if ( !strcmp ( word , "xboard" ) ) 		write_to_xboard ("\n");
+		if ( !strcmp ( word , "protover" ) ) 	write_to_xboard (FEATURES);
 		if ( !strcmp ( word , "usermove" )) 	{
 			
 			word = parse_com ( &poz );
 			
-			// word - move ( SAN / XBord format )   
+			// Now : word is command in XBoard format
 			
-			if( !strcmp ( word , "e2e4" ) )  {
+			update_state ( Xmove_to_intern ( word ) );  
 			
-					FILE * fout = fopen (LOG_FILE , "a");
-					fprintf(fout , ">%s<\n" , "move e7e5" );
-					fclose(fout);
-					write(1, "move e7e5\n" , strlen("move e7e5\n") );
-				
 			}
-		
-			if( !strcmp ( word , "d2d3" ) )  {
-			
-					FILE * fout = fopen (LOG_FILE , "a");
-					fprintf(fout , ">%s<\n" , "move d7d6" );
-					fclose(fout);	
-					write(1, "move Nc6\n" , strlen("move Nc6\n") );
-				
-			}
-		}
 		
 		/* Free statement */
 		free(prop);
 		
 		
+}
+
+void write_com (void * com , int com_tag ) {
+	
+	switch (com_tag) {
+		
+		case T_COM_MOVE : write_to_xboard ( intern_to_Xmove ( com ) ); update_state( (MOVE) com ) ; break;
+		case T_COM_DRAW : write_to_xboard ("offer draw\n"); break;
+		case T_COM_RESIGN : write_to_xboard ("resign\n"); break;
 }
