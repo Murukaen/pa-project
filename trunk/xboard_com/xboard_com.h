@@ -32,7 +32,7 @@ void poll_input ( void );
 
 /* Desc:
  * Gives a command to XBoard 
- * Inout:2: the command string , command type
+ * Inout:2: the command string , command type [int]
  * Output:0
  */
 void poll_output ( char * , int );

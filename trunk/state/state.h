@@ -19,6 +19,8 @@
 #define T_B 3 // Bishop
 #define T_N 4 // Knight
 #define T_P 5 // Pawn
+#define T_PP 6 // Player Pieces
+#define T_OP 7 // Oponent Pieces
 #define T_NA 255 // N/A / Empty square
 
 
