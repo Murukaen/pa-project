@@ -13,14 +13,15 @@
 /* ---- Macro #define ---- */
 
 /* Tags :*/
-#define T_K 0 // King
-#define T_Q 1 // Queen
-#define T_R 2 // Rock
-#define T_B 3 // Bishop
-#define T_N 4 // Knight
-#define T_P 5 // Pawn
-#define T_PP 6 // Player Pieces
-#define T_OP 7 // Oponent Pieces
+#define T_PP 0 // Player Pieces
+#define T_OP 1 // Oponent Pieces
+#define T_K 2 // King
+#define T_Q 3 // Queen
+#define T_R 4 // Rock
+#define T_B 5 // Bishop
+#define T_N 6 // Knight
+#define T_P 7 // Pawn
+
 #define T_NA 255 // N/A / Empty square
 
 /* END Tags */
