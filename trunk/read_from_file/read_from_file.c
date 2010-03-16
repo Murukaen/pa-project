@@ -10,6 +10,7 @@
 #include "../state/state.h"
 #include "../bitmap/bitmap.h"
 #include "read_from_file.h"
+#include "../list/list.h"
 
 /* ---- Macro #define ---- */
 
@@ -40,9 +41,10 @@ void Read_all_possible_moves(BITMAP** King_moves, BITMAP** Queen_moves,
 	fclose(fin);
 }
 
-void Read_initial_state(void) {
+void Read_initial_state(UCHAR player_tag) {
 
 	BITMAP PPos, OPos, Ki, Q, R, B, Kn, P;
+	byte i, j;
 
 	STATE S = ST_new();
 
@@ -52,7 +54,7 @@ void Read_initial_state(void) {
 			255, 255 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 7, 7, 7,
 			7, 7, 7, 7, 7 }, { 4, 6, 5, 3, 2, 5, 6, 4 } };
 
-	ST_set_table(S, Type_matrix);
+	ST_set_table_W(S, Type_matrix, player_tag);
 
 	BITMAP Ki = 576460752303423496, Q = 1152921504606846992, R =
 			-9151314442816847743, B = 2594073385365405732, Kn =
@@ -67,6 +69,22 @@ void Read_initial_state(void) {
 	ST_set_bitmap(S, 5, B);
 	ST_set_bitmap(S, 6, Kn);
 	ST_set_bitmap(S, 7, P);
+
+	if ((FILE * fin = fopen("Database/poz_locuri_piese.txt", "r")) == NULL) {
+		printf("Eroare la deschiderea fisierului poz_locuri_piese.txt");
+		exit(0);
+	}
+
+	for (i = 0; i < 2; i++) {
+		for (j = 0; j < 6; j++) {
+
+			lista list = new_list();
+
+
+
+			ST_set_table_P(S, i, j, list);
+		}
+	}
 
 }
 
