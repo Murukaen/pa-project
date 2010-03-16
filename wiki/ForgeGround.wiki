@@ -20,7 +20,7 @@ We use subversion as version control system here. All about SVN can be found [ht
 
 === Rules of chess ===
 
-You will find a general description [http://en.wikipedia.org/wiki/Rules_of_chess here]
+You will find a general description [http://en.wikipedia.org/wiki/Rules_of_chess here].
 
 == Project Standards ==
 
