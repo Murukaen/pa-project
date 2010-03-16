@@ -48,7 +48,8 @@
 </toolChain>
 </folderInfo>
 <sourceEntries>
-<entry excluding="read_from_file|File_generator" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+<entry excluding="list|read_from_file|File_generator" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="list"/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="read_from_file"/>
 </sourceEntries>
 </configuration>
@@ -347,8 +348,9 @@
 </toolChain>
 </folderInfo>
 <sourceEntries>
-<entry excluding="file_generator|File_generator|read_from_file" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="read_from_file"/>
+<entry excluding="list|file_generator|File_generator|read_from_file" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="list"/>
 </sourceEntries>
 </configuration>
 </storageModule>
