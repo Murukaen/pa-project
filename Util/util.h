@@ -29,6 +29,7 @@ typedef LOC* P_LOC; // --> Generic Reference
 
 P_LOC loc_new ( void );
 
+/*linie-coloana*/
 void loc_set_both ( P_LOC , UCHAR , UCHAR );
 
 LOC loc_get_both ( P_LOC );
