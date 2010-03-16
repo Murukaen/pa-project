@@ -16,7 +16,7 @@
 
 /* --- Procedures --- */
 
-/* Desc : Initializes the communication unit.
+/* Desc : Initializes the communication unit. Wait for all features.
  * Input:0
  * Output:0
  */
@@ -29,6 +29,13 @@ void com_init ( void );
  * Output:0
  */
 void poll_input ( void );
+
+/* Desc:
+ * Gives a command to XBoard 
+ * Inout:2: the command string , command type
+ * Output:0
+ */
+void poll_output ( char * , int );
 
 #endif
 
