@@ -22,7 +22,9 @@
  * Input:1:first_state [state]
  * Output:1: derived_state [state]
  */
-STATE state_gen ( STATE );
+STATE ST_gen(STATE);
+
+void ST_gen_init(void);
 
 #endif
 

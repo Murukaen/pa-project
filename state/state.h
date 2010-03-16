@@ -54,10 +54,17 @@ BITMAP ST_get_bitmap(STATE, int);
 
 /* Description :
  * Sets the bitmap associated with the given tag from a state
- * Input:2: state , bitmap_TAG , bitmap_to_set
+ * Input:3: state , bitmap_TAG , bitmap_to_set
  * Output:0
  */
 void ST_set_bitmap(STATE, int, BITMAP);
+
+/* Description :
+ * Sets the table in a state
+ * Input:2:STATE,UCHAR matrix
+ * Output:0
+ */
+void ST_set_table(STATE,UCHAR**);
 
 /* Desc:
  * Destructor state

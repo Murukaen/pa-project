@@ -19,7 +19,7 @@
 /* Desc:
  * Initialize starting state of the game
  * Input:0
- * Output:1
+ * Output:0
  */
 void update_state_init ( void );
 
