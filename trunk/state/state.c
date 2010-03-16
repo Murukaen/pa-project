@@ -23,6 +23,7 @@ struct s_state {
 		
 		UCHAR Table_W [SIZE_BMAP][SIZE_BMAP];  // 8x8
 		
+
 };	
 
 /* --- Globals --- */
