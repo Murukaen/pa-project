@@ -38,5 +38,12 @@ UCHAR loc_get_row ( P_LOC );
 
 UCHAR loc_get_col ( P_LOC );
 
+/* Desc:
+ * Set both row and column for a LOC structure
+ * Input:3: LOC structure , row , column
+ * Output:0
+ */
+void LOC_set_both ( LOC , UCHAR , UCHAR );
+
 #endif
 
