@@ -12,11 +12,12 @@
 
 /* ---- Macro #define ---- */
 #define fin "../Database/All_moves.in"
+#define NR_PIECES 5
 
 /* --- Types --- */
 
 /* --- Globals --- */
-typedef BITMAP Moves[5][8][8];
+typedef BITMAP Moves[NR_PIECES][SIZE_TABLE][SIZE_TABLE];
 
 /* --- Auxiliary Procedures --- */
 
@@ -24,6 +25,7 @@ typedef BITMAP Moves[5][8][8];
 
 STATE state_gen ( STATE start_state ) {
 	
+		// TODO
 
 }
 

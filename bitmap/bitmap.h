@@ -12,6 +12,7 @@
 /* ---- Macro #define ---- */
 
 #define SIZE_BMAP 8
+#define SIZE_TABLE 8
 #define DIM_BMAP (SIZE_BMAP) * (SIZE_BMAP)
 
 /* --- Types --- */
