@@ -12,6 +12,8 @@
 #include "../bitmap/bitmap.h"
 
 /* ---- Macro #define ---- */
+#define M_Ki
+
 
 /* --- Types --- */
 
