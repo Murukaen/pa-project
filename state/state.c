@@ -54,7 +54,7 @@ void ST_set_table_W(STATE st, UCHAR** T, UCHAR player_tag) {
 
 void ST_set_table_P(STATE st, int player_tag, int piece_tag, lista list) {
 
-	st -> Table_P[player_tag][piece_tag - 2] = list;
+	st -> Table_P[player_tag][piece_tag-2] = list;
 }
 
 void ST_free(STATE st) {

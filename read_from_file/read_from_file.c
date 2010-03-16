@@ -11,6 +11,7 @@
 #include "../bitmap/bitmap.h"
 #include "read_from_file.h"
 #include "../list/list.h"
+#include "../Util/util.h"
 
 /* ---- Macro #define ---- */
 
@@ -75,16 +76,29 @@ void Read_initial_state(UCHAR player_tag) {
 		exit(0);
 	}
 
+	int linie, coloana;
+	P_LOC loc;
+
 	for (i = 0; i < 2; i++) {
 		for (j = 0; j < 6; j++) {
 
 			lista list = new_list();
 
+			while (1) {
 
-
-			ST_set_table_P(S, i, j, list);
+				fscanf(fin, "%d", &linie);
+				fscanf(fin, "%d", &coloana);
+				if (linie == -1 && coloana == -1) {
+					break;
+				}
+				loc = loc_new();
+				loc_set_both((UCHAR) linie, (UCHAR) coloana);
+				list = add_nod_list(list, loc);
+			}
+			ST_set_table_P(S, i, j+2, list);
 		}
 	}
+}
 
 }
 

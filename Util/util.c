@@ -21,27 +21,28 @@ struct LOC {
 
 /* --- Procedures --- */
 
-p_loc loc_new ( void ) {
+P_LOC loc_new ( void ) {
+
 	
-	//TODO
+
 }
 
-void loc_set_both ( p_loc , UCHAR , UCHAR ) {
-	
-	// TODO
-}
-
-LOC loc_get_both ( p_loc ) {
+void loc_set_both ( P_LOC , UCHAR , UCHAR ) {
 	
 	// TODO
 }
 
-UCHAR loc_get_row ( p_loc ) {
+LOC loc_get_both ( P_LOC ) {
 	
 	// TODO
 }
 
-UCHAR loc_get_col ( p_loc ) {
+UCHAR loc_get_row ( P_LOC ) {
+	
+	// TODO
+}
+
+UCHAR loc_get_col ( P_LOC ) {
 	
 	// TODO
 }
