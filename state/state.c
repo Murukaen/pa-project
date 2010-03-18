@@ -10,7 +10,8 @@
 
 /* ---- Macro #define ---- */
 
-#define BMAP_NR_ST 8
+#define BMAP_NR_ST 8 // number of bitmaps in a state
+#define BMAP_GP_OFF 2 // bitmap general pieces offset
 
 /* --- Types --- */
 
@@ -18,7 +19,7 @@ struct s_state {
 
 	BITMAP V_BMAP[BMAP_NR_ST];
 
-	UCHAR Table_W[2][SIZE_BMAP][SIZE_BMAP]; // 8x8
+	UCHAR Table_W[2][SIZE_BMAP][SIZE_BMAP]; // 8x8 
 
 	List Table_P[2][6];
 

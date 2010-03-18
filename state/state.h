@@ -10,31 +10,25 @@
 /* ----- Local #inlcudes ----- */
 #include "../bitmap/bitmap.h"
 #include "../list/list.h"
+#include "../Util/util.h"
 
 /* ---- Macro #define ---- */
 
 /* Tags :*/
-#define T_PP 0 // Player Pieces
-#define T_OP 1 // Oponent Pieces
+#define T_WP 0 // White Pieces
+#define T_BP 1 // Black Pieces
 #define T_K 2 // King
 #define T_Q 3 // Queen
 #define T_R 4 // Rock
 #define T_B 5 // Bishop
 #define T_N 6 // Knight
 #define T_P 7 // Pawn
-
 #define T_NA 255 // N/A / Empty square
-
 /* END Tags */
 
 /* --- Types --- */
 struct s_state;
 typedef struct s_state* STATE;
-
-#ifndef _UCHAR
-#define _UCHAR
-typedef unsigned char UCHAR;
-#endif
 
 /* --- Procedures --- */
 
@@ -66,13 +60,13 @@ void ST_set_bitmap(STATE, int, BITMAP);
  */
 void ST_set_table_W(STATE,UCHAR[8][8],UCHAR);
 
+void ST_set_table_P(STATE,int,int,List);
+
 /* Desc:
  * Destructor state
  * Input:1: state
  * Output:0
  */
 void ST_free(STATE);
-
-void ST_set_table_P(STATE,int,int,List);
 
 #endif

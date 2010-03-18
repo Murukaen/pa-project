@@ -8,12 +8,13 @@
 /* ----- System #includes ----- */
 
 /* ----- Local #inlcudes ----- */
+#include "../Util/util.h"
 
 /* ---- Macro #define ---- */
 
 #define SIZE_BMAP 8
-#define SIZE_TABLE 8
 #define DIM_BMAP (SIZE_BMAP) * (SIZE_BMAP)
+#define BM_NULL 0
 
 /* --- Types --- */
 typedef long long int BITMAP;
@@ -29,7 +30,7 @@ void BM_init ( void );
 
 
 /* Creeaza un bitmap cu valoarea 1 pe pozitia data ca argument
- * 0 in coltul stanga sus si 63 in coltul dreapta jos
+ * 0 in coltul stanga jos si 63 in coltul dreapta sus
 */
 BITMAP BM_Make_pos(int);
 
@@ -41,38 +42,31 @@ BITMAP BM_Make_pos(int);
 BITMAP BM_Make_coord(int,int);
 
 
-/* intoarce indexul primului 1 din BITMAP,pornind din coltul stga sus -> dreapta jos
+/* intoarce indexul primului 1 din BITMAP,pornind din coltul stanga jos -> dreapta sus
  * returneaza -1 daca nu gaseste niciun 1
  */
-int BM_Get_first_elem (BITMAP);
+UCHAR BM_Get_first_elem (BITMAP);
 
 
 /* Intoarce valoarea bitului de la coordonatele date ca argument */
-int BM_Get_bit_from_coord(BITMAP,int ,int);
+UCHAR BM_Get_bit_from_coord(BITMAP,int ,int);
 
 
 /* Intoarce valoarea bitului de la pozitia data ca argument */
-int BM_Get_bit_from_pos(BITMAP,int);
-
-
-/* pune in BITMAP-ul dat ca argument, valoarea 1 la coordonatele date ca parametru*/
-BITMAP BM_Put_piece_at_coord (BITMAP*,int,int);
-
-
-/* pune in BITMAP-ul dat ca prim argument , valoarea 1 din BITMAP-ul 2 dat ca argument*/
-BITMAP BM_Put_piece_at_BMAP (BITMAP*,BITMAP);
-
-
-/* intoarce 1 daca gaseste piesa la pozitia descrisa de coordonatele date ca
- * parametru,0 daca nu
- */
-int BM_Is_piece_at_coord(BITMAP,int,int);
-
+UCHAR BM_Get_bit_from_pos(BITMAP,int);
 
 /* intoarce 1 daca gaseste piesa la pozitia indicata
  * de BITmapul al 2 lea de la argument
  */
-int BM_Is_piece_at_BMAP (BITMAP,BITMAP);
+UCHAR BM_Get_bit_from_BMAP ( BITMAP , BITMAP );
+
+
+/* pune in BITMAP-ul dat ca argument, valoarea 1 la coordonatele date ca parametru*/
+void BM_Put_piece_at_coord (BITMAP*,int,int);
+
+
+/* pune in BITMAP-ul dat ca prim argument , valoarea 1 din BITMAP-ul 2 dat ca argument*/
+void BM_Put_piece_at_BMAP (BITMAP*,BITMAP);
 
 
 /* sterge elementul de la pozitia data, nu modifica restul elementelor*/
@@ -98,7 +92,5 @@ void BM_Fill_BMAP(BITMAP*);
 
 /*printeaza bitmap*/
 void BM_print(BITMAP);
-
-
 
 #endif

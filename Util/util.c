@@ -54,3 +54,15 @@ void LOC_set_both ( LOC l, UCHAR r, UCHAR c) {
 		l.row = r;
 		l.col = c;
 }
+
+UCHAR matrix_to_linear ( LOC l ) {
+	
+		return l.row * SIZE_TABLE + l.col;
+}
+
+void linear_to_matrix ( UCHAR pos , LOC * l ) {
+	
+		(*l).row = pos / SIZE_TABLE;
+		(*l).col = pos % SIZE_TABLE;
+}
+

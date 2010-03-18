@@ -17,6 +17,10 @@ BITMAP M[DIM_BMAP];
 
 /* --- Auxiliary Procedures --- */
 
+
+
+
+
 /* --- Procedures --- */
 
 void BM_init ( void ) {
@@ -28,20 +32,18 @@ void BM_init ( void ) {
 
 BITMAP BM_Make_pos(int pos) {
 
-	register BITMAP new_b = 1;
-
-	return new_b = (new_b << pos);
+	return M[pos];
 }
+
 BITMAP BM_Make_coord(int l, int c) {
 
-	register char pos = 8 * (l % 8) + c % 8;
-	register BITMAP new_b = 1;
-
-	return new_b = new_b << pos;
+	return M [ l * SIZE_BMAP + c ];
+	
 }
-int BM_Get_first_elem(BITMAP B) {
 
-	register char aux = 0, i;
+UCHAR BM_Get_first_elem(BITMAP B) {
+
+	register UCHAR aux = 0, i;
 
 	for (i = 0; i < 64; i++) {
 		aux = B & 1;
@@ -50,83 +52,56 @@ int BM_Get_first_elem(BITMAP B) {
 		}
 		B = B >> 1;
 	}
-	if (i == 64)
-		i = -1;
+	
 	return i;
 }
-int BM_Get_bit_from_coord(BITMAP B, int l, int c) {
 
-	register char pos = 8 * (l % 8) + c % 8;
-	register BITMAP new_b = 1;
+UCHAR BM_Get_bit_from_coord(BITMAP B, int l, int c) {
 
-	new_b = new_b << pos;
-
-	if ((B & new_b) == 0)
-		return 0;
-	return 1;
-}
-int BM_Get_bit_from_pos(BITMAP B, int pos) {
-
-	register BITMAP new_b = 1;
-
-	new_b = new_b << pos;
-
-	if ((B & new_b) == 0)
-		return 0;
-	return 1;
-}
-BITMAP BM_Put_piece_at_coord(BITMAP *B, int l, int c) {
-
-	register char pos = 8 * (l % 8) + c % 8;
-	register BITMAP new_b = 1;
-
-	new_b = new_b << pos;
-
-	*B = *B | new_b;
-
-	return *B;
-}
-BITMAP BM_Put_piece_at_BMAP(BITMAP* B, BITMAP P) {
-
-	*B = (*B | P);
-	return *B;
+	register int pos = l * SIZE_BMAP + c;
+	
+	return ( M[pos] & B ) ? 1 : 0;
 }
 
-int BM_Is_piece_at_coord(BITMAP B, int c, int l) {
+UCHAR BM_Get_bit_from_pos(BITMAP B, int pos) {
 
-	register char is, pos = 8 * (l % 8) + c % 8;
-
-	is = (B >> pos) & 1;
-	return is;
+	return ( M[pos] & B ) ? 1 : 0;
 }
 
-int BM_Is_piece_at_BMAP(BITMAP B, BITMAP B1) {
+UCHAR BM_Get_bit_from_BMAP (BITMAP B, BITMAP B1) {
 
-	if ((B & B1) == 0) {
-		return 0;
-	}
-	return 1;
-
+	return ( B & B1 ) ? 1 : 0;
 }
+
+void BM_Put_piece_at_coord(BITMAP *B, int l, int c) {
+
+	register int pos = l * SIZE_BMAP + c;
+	
+	(*B) |= M[pos];
+}
+void BM_Put_piece_at_BMAP(BITMAP* B, BITMAP P) {
+
+	(*B) |= P;
+}
+
 void BM_Clear_piece_at_coord(BITMAP* B, int l, int c) {
 
-	register char pos = 8 * (l % 8) + c % 8;
-	register BITMAP x = 1;
-
-	x = x << pos;
-	*B = *B ^ x;
+	register int pos = l * SIZE_BMAP + c;
+	
+	(*B) &= ~ M [pos];
+	
 }
 void BM_Clear_piece_at_BMAP(BITMAP* B, BITMAP P) {
 
-	*B = *B ^ P;
+	(*B) &= ~P;
 }
 
 int BM_Compare_BMAPs(BITMAP B1, BITMAP B2) {
 
-	if ((B1 & B2) == 0) {
-		return 0;
-	} else {
+	if ((B1 ^ B2) == 0) {
 		return 1;
+	} else {
+		return 0;
 	}
 
 }
@@ -138,12 +113,7 @@ void BM_Clear_BMAP(BITMAP* B) {
 
 void BM_Fill_BMAP(BITMAP* B) {
 
-	char i = 0;
-	*B = 1;
-	for (; i < 64; i++) {
-
-		*B = (*B << 1) + 1;
-	}
+	(*B) = -1;
 }
 void BM_print(BITMAP a) {
 
