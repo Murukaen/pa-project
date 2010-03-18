@@ -16,6 +16,8 @@
 typedef unsigned char UCHAR;
 #endif
 
+#define SIZE_TABLE 8
+
 struct LOC;
 typedef struct LOC LOC;
 
@@ -37,6 +39,20 @@ LOC loc_get_both ( P_LOC );
 UCHAR loc_get_row ( P_LOC );
 
 UCHAR loc_get_col ( P_LOC );
+
+/* Desc:
+ * Transforms (row,col) coordinates into linear pozition equivalent 
+ * Input:1: LOC structure
+ * Output:1: pozition
+ */
+UCHAR matrix_to_linear ( LOC );
+
+/* Desc:
+ * Transforms linear pozition into (row,col) equivalent coordinates 
+ * Input:2: pozition , address to LOC
+ * Output:0
+ */
+void linear_to_matrix ( UCHAR , LOC* ); 
 
 /* Desc:
  * Set both row and column for a LOC structure
