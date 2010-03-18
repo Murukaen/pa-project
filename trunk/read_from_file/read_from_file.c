@@ -22,7 +22,7 @@
 void Read_all_possible_moves(BITMAP** King_moves, BITMAP** Queen_moves,
 		BITMAP** Rock_moves, BITMAP**Bishop_moves, BITMAP** Knight_moves) {
 
-	if ((FILE * f = fopen("Database/All_moves.in", "rb")) == NULL) {
+	if ((FILE * fin = fopen("Database/All_moves.in", "rb")) == NULL) {
 		printf("Eroare la deschiderea fisierului All_moves.in");
 		exit(0);
 	}
@@ -45,7 +45,7 @@ void Read_all_possible_moves(BITMAP** King_moves, BITMAP** Queen_moves,
 void Read_initial_state(UCHAR player_tag) {
 
 	BITMAP PPos, OPos, Ki, Q, R, B, Kn, P;
-	byte i, j;
+	char i, j;
 
 	STATE S = ST_new();
 
@@ -82,7 +82,7 @@ void Read_initial_state(UCHAR player_tag) {
 	for (i = 0; i < 2; i++) {
 		for (j = 0; j < 6; j++) {
 
-			lista list = new_list();
+			List list = new_list();
 
 			while (1) {
 
