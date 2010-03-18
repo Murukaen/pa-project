@@ -20,7 +20,7 @@ struct s_state {
 
 	UCHAR Table_W[2][SIZE_BMAP][SIZE_BMAP]; // 8x8
 
-	lista Table_P[2][6];
+	List Table_P[2][6];
 
 };
 
@@ -47,12 +47,12 @@ void ST_set_bitmap(STATE st, int tag, BITMAP b) {
 	st -> V_BMAP[tag] = b;
 }
 
-void ST_set_table_W(STATE st, UCHAR** T, UCHAR player_tag) {
+void ST_set_table_W(STATE st, UCHAR T[8][8], UCHAR player_tag) {
 
 	st -> Table_W[player_tag] = T;
 }
 
-void ST_set_table_P(STATE st, int player_tag, int piece_tag, lista list) {
+void ST_set_table_P(STATE st, int player_tag, int piece_tag, List list) {
 
 	st -> Table_P[player_tag][piece_tag-2] = list;
 }

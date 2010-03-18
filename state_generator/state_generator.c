@@ -31,6 +31,4 @@ STATE state_gen ( STATE start_state ) {
 
 void ST_gen_init(void){
 
-
-	Read_all_possible_moves(fin,**Moves[0],**Moves[1],**Moves[2],**Moves[3],**Moves[4])
 }

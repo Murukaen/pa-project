@@ -64,7 +64,7 @@ void ST_set_bitmap(STATE, int, BITMAP);
  * Input:2:STATE,UCHAR matrix
  * Output:0
  */
-void ST_set_table_W(STATE,UCHAR**);
+void ST_set_table_W(STATE,UCHAR[8][8],UCHAR);
 
 /* Desc:
  * Destructor state
@@ -73,6 +73,6 @@ void ST_set_table_W(STATE,UCHAR**);
  */
 void ST_free(STATE);
 
-void ST_set_table_P(STATE,int,int,lista);
+void ST_set_table_P(STATE,int,int,List);
 
 #endif
