@@ -10,6 +10,7 @@
 
 /* ----- Local #inlcudes ----- */
 #include "../bitmap/bitmap.h"
+#include "../state/state.h"
 
 /* ---- Macro #define ---- */
 #define M_Ki
@@ -32,6 +33,5 @@ void Read_all_possible_moves(BITMAP**, BITMAP**, BITMAP**, BITMAP**,
  */
 STATE Read_initial_state(void);
 
-list
 
 #endif

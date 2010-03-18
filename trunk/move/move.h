@@ -8,7 +8,7 @@
 /* ----- System #includes ----- */
 
 /* ----- Local #inlcudes ----- */
-#include "../Define/define.h"
+#include "../Util/util.h"
 
 /* ---- Macro #define ---- */
 

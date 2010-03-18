@@ -7,6 +7,7 @@
 /* Types : */
 #ifndef _KEY
 #define _KEY
+
 typedef void * key;
 #endif
 
