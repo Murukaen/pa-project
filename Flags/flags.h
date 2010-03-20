@@ -15,7 +15,7 @@
 
 /* --- Types --- */
 
-/* --- Procedures --- */
+/* --- Flags --- */
 
 /*Description : Determines whether or not the engine is on move
  *0 - not on move
@@ -23,7 +23,13 @@
  */
 int f_ENG_ON_MOVE;
 
+/* Description : Engine color
+ *0 - white
+ *1 - black
+ */
+int f_ENG_COL;
 
+/* --- Procedures --- */
 
 void flags_init ();
 
