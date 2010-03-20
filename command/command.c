@@ -103,7 +103,7 @@ void write_com (void * com , int com_tag ) {
 	
 	switch (com_tag) {
 		
-		case T_COM_MOVE : write_to_xboard ( intern_to_Xmove ( com ) ); update_state( (MOVE) com ) ; break;
+		case T_COM_MOVE : write_to_xboard ( intern_to_Xmove ( (MOVE) com ) ); update_state( (MOVE) com ) ; break;
 		case T_COM_DRAW : write_to_xboard ("offer draw\n"); break;
 		case T_COM_RESIGN : write_to_xboard ("resign\n"); break;
 	}
