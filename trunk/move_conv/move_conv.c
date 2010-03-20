@@ -36,7 +36,7 @@ char parse_xmove ( char ** com ) {
 MOVE Xmove_to_intern ( char * xcom ) {
 	
 	char c;
-	char V[4]=0;
+	char V[4]={0};
 	int pos = 0;
 	while ( (c = parse_xmove ( &xcom ) ) != 0 ) {
 		
@@ -76,11 +76,12 @@ MOVE Xmove_to_intern ( char * xcom ) {
 	 * P.S.2: Starea curenta e in cur_state
 	 */
 	
-	return move;	
+	return mov;	
 }
 
-char * intern_to_Xmove ( MOVE ) {
+char * intern_to_Xmove ( MOVE mov ) {
 	
 	//TODO
+	return 0;
 }
 

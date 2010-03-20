@@ -11,10 +11,7 @@
 /* ---- Macro #define ---- */
 
 /* --- Types --- */
-struct LOC {
-	
-	int row, col;
-};
+
 
 /* --- Globals --- */
 

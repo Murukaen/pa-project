@@ -31,7 +31,7 @@ void read_com ( char * );
  * Inout:2: the command string , command type [int]
  * Output:0
  */
-void write_com ( char * , int );
+void write_com ( void * , int );
 
 #endif
 

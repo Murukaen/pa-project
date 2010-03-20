@@ -5,10 +5,8 @@
 /* ----- System #includes ----- */
 #include <string.h>
 #include <stdio.h>
-#include <unistd.h>
-#include <sys/time.h>
-#include <sys/types.h>
 #include <stdlib.h>
+
 /* ----- Local #inlcudes ----- */
 #include "command.h"
 #include "../update_state/update_state.h"
@@ -108,4 +106,5 @@ void write_com (void * com , int com_tag ) {
 		case T_COM_MOVE : write_to_xboard ( intern_to_Xmove ( com ) ); update_state( (MOVE) com ) ; break;
 		case T_COM_DRAW : write_to_xboard ("offer draw\n"); break;
 		case T_COM_RESIGN : write_to_xboard ("resign\n"); break;
+	}
 }

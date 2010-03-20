@@ -38,8 +38,8 @@ void flip_state(void){
 
 	STATE S;
 	S = cur_state_get();
-	ST_set_bitmap(S,2,1152921504606846992);
-	ST_set_bitmap(S,3,576460752303423496);
+	ST_set_bitmap(S,2,1152921504606846992LL);
+	ST_set_bitmap(S,3,576460752303423496LL);
 
 	// TODO flip table_p
 }

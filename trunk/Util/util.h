@@ -18,7 +18,11 @@ typedef unsigned char UCHAR;
 
 #define SIZE_TABLE 8
 
-struct LOC;
+struct LOC {
+	
+	int row, col;
+};
+
 typedef struct LOC LOC;
 
 typedef LOC* P_LOC; // --> Generic Reference

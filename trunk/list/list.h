@@ -5,9 +5,9 @@
 #define _LIST_H
 
 /* Types : */
+
 #ifndef _KEY
 #define _KEY
-
 typedef void * key;
 #endif
 
@@ -19,9 +19,10 @@ typedef void ( *FFREE ) ( key );
 /* FEQU - functie generica de testare a egalitatii
  *1 = true; 0 = false
  */
+
 #ifndef _FEQU
 #define _FEQU
-typedef int (*FEQU)(key, key);
+typedef int (*FEQU) (key, key);
 #endif
 
 struct nod_lista;
