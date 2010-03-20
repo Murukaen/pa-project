@@ -13,8 +13,6 @@
 
 /* ---- Macro #define ---- */
 
-#define DATABASE_STARTING_POS "Database/Initial_positions"
-
 /* --- Types --- */
 
 /* --- Globals --- */
