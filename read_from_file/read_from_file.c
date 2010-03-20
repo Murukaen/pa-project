@@ -14,6 +14,14 @@
 #include "../Util/util.h"
 
 /* ---- Macro #define ---- */
+#define I_K 1152921504606846992LL
+#define I_Q 576460752303423496LL
+#define I_R -9151314442816847743LL
+#define I_B 2594073385365405732LL
+#define I_N 4755801206503243842LL
+#define I_P 71776119061282560LL
+#define I_WPos -281474976710656LL
+#define I_BPos 65535LL
 
 /* --- Types --- */
 
@@ -22,7 +30,8 @@
 void Read_all_possible_moves(BITMAP** King_moves, BITMAP** Queen_moves,
 		BITMAP** Rock_moves, BITMAP**Bishop_moves, BITMAP** Knight_moves) {
 
-	if ((FILE * fin = fopen("Database/All_moves.in", "rb")) == NULL) {
+	FILE * fin = fopen("Database/All_moves.in", "rb");
+	if (fin == NULL) {
 		printf("Eroare la deschiderea fisierului All_moves.in");
 		exit(0);
 	}
@@ -44,34 +53,34 @@ void Read_all_possible_moves(BITMAP** King_moves, BITMAP** Queen_moves,
 
 void Read_initial_state(UCHAR player_tag) {
 
-	BITMAP PPos, OPos, Ki, Q, R, B, Kn, P;
 	char i, j;
 
 	STATE S = ST_new();
+	UCHAR** Type_matrix = (UCHAR**) calloc(8, sizeof(UCHAR*));
+	for (i = 0; i < 8; i++) {
+		Type_matrix[i] = (UCHAR*) calloc(8, sizeof(UCHAR));
+	}
 
-	UCHAR Type_matrix[8][8] = { { 4, 6, 5, 3, 2, 5, 6, 4 }, { 7, 7, 7, 7, 7, 7,
-			7, 7 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 255, 255,
-			255, 255, 255, 255, 255, 255 }, { 255, 255, 255, 255, 255, 255,
-			255, 255 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 7, 7, 7,
-			7, 7, 7, 7, 7 }, { 4, 6, 5, 3, 2, 5, 6, 4 } };
+	UCHAR Type_matrix = { { 4, 6, 5, 3, 2, 5, 6, 4 },
+			{ 7, 7, 7, 7, 7, 7, 7, 7 }, { 255, 255, 255, 255, 255, 255, 255,
+					255 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 255,
+					255, 255, 255, 255, 255, 255, 255 }, { 255, 255, 255, 255,
+					255, 255, 255, 255 }, { 7, 7, 7, 7, 7, 7, 7, 7 }, { 4, 6,
+					5, 3, 2, 5, 6, 4 } };
 
-	ST_set_table_W(S, Type_matrix, player_tag);
+	ST_set_table_W(S, Type_matrix);
 
-	BITMAP Ki = 576460752303423496LL, Q = 1152921504606846992LL, R =
-			-9151314442816847743LL, B = 2594073385365405732LL, Kn =
-			4755801206503243842LL, P = 71776119061282560LL,
-			PPos = -281474976710656LL, OPos = 65535LL;
+	ST_set_bitmap(S, 0, I_WPos);
+	ST_set_bitmap(S, 1, I_BPos);
+	ST_set_bitmap(S, 2, I_K);
+	ST_set_bitmap(S, 3, I_Q);
+	ST_set_bitmap(S, 4, I_R);
+	ST_set_bitmap(S, 5, I_B);
+	ST_set_bitmap(S, 6, I_N);
+	ST_set_bitmap(S, 7, I_P);
 
-	ST_set_bitmap(S, 0, PPos);
-	ST_set_bitmap(S, 1, OPos);
-	ST_set_bitmap(S, 2, Ki);
-	ST_set_bitmap(S, 3, Q);
-	ST_set_bitmap(S, 4, R);
-	ST_set_bitmap(S, 5, B);
-	ST_set_bitmap(S, 6, Kn);
-	ST_set_bitmap(S, 7, P);
-
-	if ((FILE * fin = fopen("Database/poz_locuri_piese.txt", "r")) == NULL) {
+	FILE * fin = fopen("Database/poz_locuri_piese.txt", "r");
+	if (fin == NULL) {
 		printf("Eroare la deschiderea fisierului poz_locuri_piese.txt");
 		exit(0);
 	}
@@ -95,7 +104,7 @@ void Read_initial_state(UCHAR player_tag) {
 				loc_set_both((UCHAR) linie, (UCHAR) coloana);
 				list = add_nod_list(list, loc);
 			}
-			ST_set_table_P(S, i, j+2, list);
+			ST_set_table_P(S, i, j + 2, list);
 		}
 	}
 }
