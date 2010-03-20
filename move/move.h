@@ -16,12 +16,6 @@
 struct s_move;
 typedef struct s_move * MOVE;
 
-
-#ifndef _UCHAR
-#define _UCHAR
-typedef unsigned char UCHAR;
-#endif
-
 /* --- Procedures --- */
 
 /* Desc:

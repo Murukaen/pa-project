@@ -3,6 +3,7 @@
  */
 
 /* ----- System #includes ----- */
+#include <stdlib.h>
 
 /* ----- Local #inlcudes ----- */
 #include "move.h"

@@ -12,6 +12,7 @@
 
 /* ---- Macro #define ---- */
 
+/* Engine -> XBoard command types */
 #define T_COM_MOVE 0
 #define T_COM_RESIGN 1
 #define T_COM_DRAW 2

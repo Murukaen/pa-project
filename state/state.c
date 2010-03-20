@@ -7,11 +7,13 @@
 
 /* ----- Local #inlcudes ----- */
 #include "state.h"
+#include "../list/list.h"
 
 /* ---- Macro #define ---- */
 
 #define BMAP_NR_ST 8 // number of bitmaps in a state
-#define BMAP_GP_OFF 2 // bitmap general pieces offset
+#define BMAP_TP_OFF 2 // bitmap tags pieces offset ( 2 - 7 )
+#define BMAP_BWP_OFF 6 // bitmap black/white pieces offset ( white : 2 - 7 ; black : 8 - 13 )
 
 /* --- Types --- */
 
@@ -19,9 +21,9 @@ struct s_state {
 
 	BITMAP V_BMAP[BMAP_NR_ST];
 
-	UCHAR Table_W[2][SIZE_BMAP][SIZE_BMAP]; // 8x8 
+	UCHAR Table_W [SIZE_BMAP][SIZE_BMAP]; // 8x8 
 
-	List Table_P[2][6];
+	List Table_P [2][6]; // [2 players] x [6 types of pieces]
 
 };
 
@@ -48,14 +50,18 @@ void ST_set_bitmap(STATE st, int tag, BITMAP b) {
 	st -> V_BMAP[tag] = b;
 }
 
-void ST_set_table_W(STATE st, UCHAR T[8][8], UCHAR player_tag) {
+void ST_set_table_W (STATE st, UCHAR ** T) {
 
-	st -> Table_W[player_tag] = T;
+	int i,j;
+	for(i=0;i<SIZE_BMAP;++i)
+		for(j=0;j<SIZE_BMAP;++j)
+			st -> Table_W[i][j] = T[i][j];
+	
 }
 
 void ST_set_table_P(STATE st, int player_tag, int piece_tag, List list) {
 
-	st -> Table_P[player_tag][piece_tag-2] = list;
+	st -> Table_P[ player_tag ][ piece_tag - BMAP_TP_OFF ] = list;
 }
 
 void ST_free(STATE st) {
