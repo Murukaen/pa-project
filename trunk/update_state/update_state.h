@@ -32,8 +32,5 @@ void update_state(MOVE);
 
 /* schimba pozitia initiala a pieselor(rege-regina) - pt alb sau pt negru*/
 void flip_state(void);
-
-
-
 #endif
 
