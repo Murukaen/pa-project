@@ -23,6 +23,7 @@ struct s_move {
 	UCHAR p_tag_pro; // tag of piece being promoted to
 	LOC p_rock; // location of rock in castling move
 	UCHAR what_col; // what color is on move
+	
 };
 
 
