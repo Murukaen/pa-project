@@ -78,6 +78,9 @@ UCHAR ST_get_tag_Table_W ( STATE , int , int );
  */
 void ST_set_tag_Table_W ( STATE , int , int , UCHAR );
 
+
+UCHAR ST_get_Table_W(STATE,int,int);
+
 /* Desc:
  * Gets the list of positions from Table_P from a given color tag ( 0 - 1 ) and a given piece tag ( [2 - 7] - BMAP_TP_OFF )
  * Input:3: state , col_tag , piece_tag
@@ -98,6 +101,8 @@ void ST_set_List_Table_P (STATE, int, int, List);
  * Output:0
  */
 
+BITMAP ST_get_V_BMAP(STATE ,int );
+
 void ST_set_piece_to_move(STATE,int);
 
 int ST_get_piece_to_move(STATE);
@@ -109,5 +114,7 @@ UCHAR ST_get_move_index(STATE);
 List ST_get_move_cur_list(STATE);
 
 void ST_free(STATE);
+
+void ST_set_move_cur_list(STATE,List);
 
 #endif
