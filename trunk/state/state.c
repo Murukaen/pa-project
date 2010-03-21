@@ -59,9 +59,24 @@ void ST_set_table_W(STATE st, UCHAR ** T) {
 
 }
 
-void ST_set_table_P(STATE st, int player_tag, int piece_tag, List list) {
+void ST_set_tag_Table_W ( STATE st , int row , int col , UCHAR tag ) {
+	
+	st -> Table_W [row][col] = tag;
+}
 
-	st -> Table_P[ player_tag ][ piece_tag - BMAP_TP_OFF ] = list;
+UCHAR ST_get_tag_Table_W ( STATE st , int row, int col) {
+	
+	return st -> Table_W [row][col];
+}
+
+List ST_get_List_Table_P ( STATE st , int col_tag , int piece_tag ) {
+		
+	return st -> Table_P [col_tag][piece_tag - BMAP_TP_OFF];
+}	
+
+void ST_set_List_Table_P (STATE st, int col_tag, int piece_tag, List list) {
+
+	st -> Table_P [ col_tag ][ piece_tag - BMAP_TP_OFF ] = list;
 }
 
 void ST_free(STATE st) {

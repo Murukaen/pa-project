@@ -58,9 +58,35 @@ void ST_set_bitmap(STATE, int, BITMAP);
  * Input:2:STATE,UCHAR matrix
  * Output:0
  */
-void ST_set_table_W (STATE, UCHAR **);
+void ST_set_Table_W (STATE, UCHAR [][SIZE_BMAP]);
 
-void ST_set_table_P (STATE, int, int, List);
+/* Desc:
+ * Gets the tag from Table_W located at a given (row,col) position
+ * Input:3: state , row , column
+ * Output:1: tag
+ */
+UCHAR ST_get_tag_Table_W ( STATE , int , int );
+
+/* Desc:
+ * Sets the tag from Table_W located at a given (row,col) position
+ * Input:4: state , row , column , tag
+ * Output:0
+ */
+void ST_set_tag_Table_W ( STATE , int , int , UCHAR );
+
+/* Desc:
+ * Gets the list of positions from Table_P from a given color tag ( 0 - 1 ) and a given piece tag ( [2 - 7] - BMAP_TP_OFF )
+ * Input:3: state , col_tag , piece_tag
+ * Output:1: List
+ */
+List ST_get_List_Table_P ( STATE , int , int );
+
+/* Desc:
+ * Sets the list of positions from Table_P from a given color tag ( 0 - 1 ) and a given piece tag ( [2 - 7] - BMAP_TP_OFF )
+ * Input:3: state , col_tag , piece_tag , List
+ * Output:0
+ */
+void ST_set_List_Table_P (STATE, int, int, List);
 
 /* Desc:
  * Destructor state
