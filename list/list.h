@@ -55,6 +55,27 @@ void add_nod_list(List, key);
  * Lista va fi modificata ( primul element sters ) */
 key first_nod_list(List*);
 
+/* Desc:
+ * Returns a copy of the given list
+ * Input:1: list to copy
+ * Output:1: the copy list
+ */
+List copy_list ( List );
+
+/* Desc:
+ * Searches for an element within a list and removes it modifying the list
+ * Input:4: Address to list , key to look for , fequ , ffree
+ * Output:0
+ */
+void delete_elem_list ( List, key , FEQU , FFREE );
+
+/* Desc:
+ * Searches for an element within a list and removes it returning the modified list
+ * Input:4: Address to list , key to look for , fequ , ffree
+ * Output:1: modified list
+ */
+List create_without_elem_list ( List, key , FEQU, FFREE);
+
 /* Destructor Lista */
 void free_list(List , FFREE );
 

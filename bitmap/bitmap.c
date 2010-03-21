@@ -7,6 +7,7 @@
 
 /* ----- Local #inlcudes ----- */
 #include "bitmap.h"
+#include "../Util/util.h"
 
 /* ---- Macro #define ---- */
 

@@ -67,6 +67,57 @@ key first_nod_list(List* L) {
 	return (*L) -> data_list;
 }
 
+List copy_list ( List l ) {
+	
+	List new_l = new_list ();
+	key elem;
+	
+	for ( elem = first_nod_list ( &l ) ; elem ; add_nod_list ( new_l , elem ) );
+	
+	return new_l;
+}
+
+void delete_elem_list ( List * L , key k , FEQU fequ , FFREE ffree) {
+	
+	if ( (*L) -> next == NULL ) return;
+	
+	if ( fequ ( (*L) -> next -> data_list , k ) ) {
+		
+			List aux = (*L) -> next;
+				
+				(*L) -> next = (*L) -> next -> next;
+				
+				ffree ( aux -> data_list );
+				free ( aux );
+	}
+	
+	List cont = (*L) -> next ;
+	
+	while ( cont -> next != NULL ) {
+		
+		if ( fequ ( cont -> next -> data_list , k ) ) {
+			
+				List aux = cont -> next;
+				
+				cont -> next = cont -> next -> next;
+				
+				ffree ( aux -> data_list );
+				free ( aux );
+				
+		}
+		
+	}
+}	
+		
+List create_without_elem_list ( List L , key k , FEQU fequ, FFREE ffree) {
+	
+	List l_cp = copy_list ( L );
+	
+	delete_elem_list ( &l_cp , k , fequ , ffree );
+}
+
+
+
 void free_list(List L , FFREE fre ) {
 
 	if ( L == 0 ) return;
