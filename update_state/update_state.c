@@ -28,7 +28,7 @@ void update_state_init ( void ) {
 
 void update_state ( MOVE mov ) {
 	
-		// TODO	
+		//
 
 }
 
