@@ -13,6 +13,8 @@
 #include "../state/state.h"
 #include "../Flags/flags.h"
 #include "../valid_moves/valid_moves.h"
+#include "../list/list.h"
+#include "../compare/compare.h"
 
 /* ---- Macro #define ---- */
 #define NR_PIECES 5
@@ -101,10 +103,17 @@ STATE state_gen(STATE start_state) {
 					BM_Clear_piece_at_BMAP(&new, BM_Make_coord(i / 8, i % 8));
 					ST_set_bitmap(new_state, T_BP, new);
 
-					/* sterg din lista new_list piesa care a fost capturata*/
-
+					/* sterg din lista new_state piesa care a fost capturata*/
+					delete_element_list(ST_get_List_Table_P(new_state,
+							~f_ENG_COL, piece_to_delete), loc, fequ_loc,
+							ffree_loc);
 
 				}
+
+				/*modific din lista new_state locatia piesei mutate*/
+				P_LOC loc_modificat = find_nod_list(ST_get_List_Table_P(
+						new_state, f_ENG_COL, T_N), &loc, fequ_loc);
+				LOCp_set_both(loc_modificat, i / 8, i % 8);
 
 				/*am refacut table_w*/
 				ST_set_tag_Table_W(new_state, i / 8, i % 8, T_N);
@@ -116,13 +125,10 @@ STATE state_gen(STATE start_state) {
 			return new_state;
 		}
 	}
-
-}
-
-return 0;
+	return 0;
 }
 
 void ST_gen_init(void) {
 
-Read_all_possible_moves(Moves);
+	Read_all_possible_moves(Moves);
 }
