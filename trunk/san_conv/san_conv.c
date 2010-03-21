@@ -33,8 +33,13 @@ int is_check_mate(MOVE m, STATE cur){
 
 /* Prototip validate_move */
 
-int validate_move(MOVE m){
-	return 1;
+int validate_move(MOVE m, STATE cur){
+	UCHAR piesa = move_get_m_tag(m);
+	LOC l = move_get_poz_dst(m);
+	LOC s = move_get_poz_src(m);
+	BITMAP b = BM_Make_coord(l.row, l.col);
+	BITMAP juc = ST_get_bitmap(cur, move_get_what_col(m));
+	return b & MOVES[piesa][s.row][s.col] ^ (~juc);
 }
 
 

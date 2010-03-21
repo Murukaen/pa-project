@@ -19,6 +19,8 @@
 #include "../cur_state/cur_state.h"
 #include "../Util/util.h"
 #include "../move/move.h"
+#include "../state_generator/state_generator.h"
+#include "../Flags/flags.h"
 
 /* ---- Macro #define ---- */
 
