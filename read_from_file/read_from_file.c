@@ -95,7 +95,7 @@ STATE Read_initial_state() {
 				LOCp_set_both(loc, (UCHAR) linie, (UCHAR) coloana);
 				add_nod_list(list, loc);
 			}
-			ST_set_table_P(S, i, j + 2, list);
+			ST_set_List_Table_P(S, i, j + 2, list);
 		}
 	}
 	return S;
