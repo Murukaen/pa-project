@@ -19,9 +19,28 @@
 
 /* --- Auxiliary Procedures --- */
 
+/* Prototip is_check */
+
+int is_check(MOVE m, STATE cur){
+	return 1;
+}
+
+/* Prototip is_check_mate */
+
+int is_check_mate(MOVE m, STATE cur){
+	return 1;
+}
+
+/* Prototip validate_move */
+
+int validate_move(MOVE m){
+	return 1;
+}
+
+
 /* Conversie UCHAR - SAN */
 
-char get_pieces(UCHAR c) {
+char aux_get_pieces(UCHAR c) {
 	switch (c) {
 	case T_K:
 		return 'K';
@@ -115,7 +134,7 @@ void set_flags(int j, char* msg, STATE cur, MOVE h) {
 	}
 	if (move_get_p_tag_pro(h)) {
 		msg[j++] = '=';
-		msg[j++] = get_pieces(move_get_p_tag_pro(h));
+		msg[j++] = aux_get_pieces(move_get_p_tag_pro(h));
 	}
 }
 
@@ -135,6 +154,8 @@ UCHAR get_piece(char c) {
 		return T_R;
 	case 'P':
 		return T_P;
+	default:
+		return 100;
 	}
 }
 
@@ -161,23 +182,24 @@ int is_dezambiguu(char* c) {
 
 char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 		STATE cur) {
-
+	UCHAR lk, ck;
+	UCHAR lg, cg;
+	int k;
+	LOC l;
+	LOC d;
+	int boo = 1;
 	BITMAP s = ST_get_bitmap(cur, piesa);
 	BM_Clear_piece_at_coord(&s, lp, cp);
 
 	/* Pt. fiecare element din b verificam daca se poate muta pe poz d */
 
 	while (s) {
-		UCHAR lg, cg;
-		int boo = 1;
-		int k = BM_Get_first_elem(s);
-		UCHAR lk = k / 8, ck = k % 8;
+		k = BM_Get_first_elem(s);
+		lk = k / 8, ck = k % 8;
 		MOVE m = move_new();
 		move_set_p_tag(m, piesa);
-		LOC l;
 		LOC_set_both(l, lk, ck);
 		move_set_poz_src(m, l);
-		LOC d;
 		LOC_set_both(d, ld, cd);
 		move_set_poz_dst(m, d);
 
@@ -199,6 +221,41 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 	}
 	return 'Z';
 
+}
+
+/* Gasirea piesei care trebuie mutata */
+
+LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
+	BITMAP b = ST_get_bitmap(cur, c);
+	LOC d;
+	UCHAR k, lk, ck;
+	int bool = 0, booc = 0;
+	if (cg == -1)
+		booc = 1;
+	if (lg == -1)
+		bool = 1;
+	while (b) {
+		k = BM_Get_first_elem(b);
+		lk = k / 8;
+		ck = k % 8;
+		if (cg == ck)
+			booc = 1;
+		if (lg == lk)
+			bool = 1;
+		MOVE m = move_new();
+		move_set_p_tag(m, c);
+		move_set_poz_dst(m, l);
+		LOC_set_both(d, lk, ck);
+		move_set_poz_src(m, d);
+
+		if (validate_move(m)) {
+			if (bool && booc)
+				return d;
+		}
+
+		BM_Clear_piece_at_coord(&b, lk, ck);
+	}
+	return d;
 }
 
 /* --- Procedures --- */
@@ -274,10 +331,9 @@ char* toSAN(MOVE s) {
 
 MOVE from_SAN(char* s) {
 	MOVE m = move_new();
-	int j = 0;
 	STATE cur = cur_state_get();
 	if (strcmp(s, "O-O") == 0 || strcmp(s, "o-o") == 0 || strcmp(s, "0-0") == 0) {
-		if (side == white) {
+		if (1) {
 			LOC l;
 			LOC_set_both(l, 0, 0);
 			move_set_p_rock(m, l);
@@ -292,7 +348,7 @@ MOVE from_SAN(char* s) {
 	}
 	if (strcmp(s, "O-O-O") == 0 || strcmp(s, "o-o-o") == 0
 			|| strcmp(s, "0-0-0") == 0) {
-		if (side == white) {
+		if (1) {
 			LOC l;
 			LOC_set_both(l, 0, 7);
 			move_set_p_rock(m, l);
@@ -305,51 +361,18 @@ MOVE from_SAN(char* s) {
 		}
 	} else {
 		if (get_piece(s[0])) {
-			UCHAR lg, cg;
-			BITMAP b = ST_get_bitmap(cur, get_piece(s[0]));
-			int k = BM_Get_first_elem(b);
-			UCHAR lk = k / 8, ck = k % 8;
+			int j = 1;
+			UCHAR lg = -1, cg = -1, lp, cp;
 			MOVE m = move_new();
 			move_set_p_tag(m, get_piece(s[0]));
-			LOC l;
-			LOC_set_both(l, lk, ck);
-			move_set_poz_src(m, l);
-			LOC d;
-			LOC_set_both(d, ld, cd);
-			move_set_poz_dst(m, d);
 
 			if (is_dezambiguu(s)) {
-				if (isdigit(s[1])) {
+				if (isdigit(s[j])) {
 					j++;
-					lg = atoi(&s[1]);
+					lg = atoi(&s[j - 1]);
 				} else {
 					j++;
-					cg = convertFromLetters(s[1]);
-				}
-			} else {
-
-			}
-			if (s[j] == 'x') {
-				j++;
-			}
-			cg = convertFromLetters(s[j++]) - 1;
-			lg = atoi(&s[j++]);
-			if (s[j++] == '=') {
-				move_set_m_tag(m, T_MOV_PRO);
-				move_set_p_tag_pro(m, get_piece(s[j]));
-			}
-		} else {
-			move_set_p_tag(m, T_P);
-			int cp, lp;
-			move_set_p_tag(m, get_piece(s[0]));
-			j++;
-			if (is_dezambiguu(s)) {
-				if (isdigit(s[1])) {
-					j++;
-					lp = atoi(&s[1]);
-				} else {
-					j++;
-					cp = convertFromLetters(s[1]);
+					cg = convertFromLetters(s[j - 1]);
 				}
 			}
 			if (s[j] == 'x') {
@@ -357,17 +380,45 @@ MOVE from_SAN(char* s) {
 			}
 			cp = convertFromLetters(s[j++]) - 1;
 			lp = atoi(&s[j++]);
+			LOC l;
+			l.row = lp;
+			l.col = cp;
+			move_set_poz_dst(m, l);
+			LOC h = gasire_piesa(cur, cg, lg, l, get_piece(s[0]));
+			move_set_poz_src(m, h);
+		} else {
+			move_set_p_tag(m, T_P);
+			int j = 0;
+			UCHAR lg = -1, cg = -1, lp, cp;
+			MOVE m = move_new();
+			move_set_p_tag(m, get_piece(s[0]));
+
+			if (is_dezambiguu(s)) {
+				if (isdigit(s[j])) {
+					j++;
+					lg = atoi(&s[j - 1]);
+				} else {
+					j++;
+					cg = convertFromLetters(s[j - 1]);
+				}
+			}
+			if (s[j] == 'x') {
+				j++;
+			}
+			cp = convertFromLetters(s[j++]) - 1;
+			lp = atoi(&s[j++]);
+			LOC l;
+			l.row = lp;
+			l.col = cp;
+			move_set_poz_dst(m, l);
+			LOC h = gasire_piesa(cur, cg, lg, l, get_piece(s[0]));
+			move_set_poz_src(m, h);
 			if (s[j++] == '=') {
 				move_set_m_tag(m, T_MOV_PRO);
 				move_set_p_tag_pro(m, get_piece(s[j]));
 			}
 		}
-		return m;
-
 	}
+	return m;
 }
 
-
-int main() {
-return 0;
-}
