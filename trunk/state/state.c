@@ -53,6 +53,11 @@ void ST_set_bitmap(STATE st, int tag, BITMAP b) {
 	st -> V_BMAP[tag] = b;
 }
 
+BITMAP ST_get_V_BMAP(STATE st,int flag){
+
+	return st -> V_BMAP[flag];
+}
+
 void ST_set_table_W(STATE st, UCHAR ** T) {
 
 	int i, j;
@@ -65,6 +70,11 @@ void ST_set_table_W(STATE st, UCHAR ** T) {
 void ST_set_tag_Table_W(STATE st, int row, int col, UCHAR tag) {
 
 	st -> Table_W[row][col] = tag;
+}
+
+UCHAR ST_get_Table_W(STATE st,int i,int j){
+
+	return st ->Table_W[i][j];
 }
 
 UCHAR ST_get_tag_Table_W(STATE st, int row, int col) {
@@ -105,6 +115,11 @@ UCHAR ST_get_move_index(STATE S){
 List ST_get_move_cur_list(STATE st){
 
 	return st -> cur_list;
+}
+
+void ST_set_move_cur_list(STATE st,List l){
+
+	st ->cur_list = l;
 }
 
 
