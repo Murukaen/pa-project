@@ -53,7 +53,7 @@ void add_nod_list(List, key);
 
 /*Extragere a primului element din lista cu returnarea adresei listei ce pleaca de la urmatorul element
  * Lista va fi modificata ( primul element sters ) */
-List first_nod_list(List, key*);
+key first_nod_list(List*);
 
 /* Destructor Lista */
 void free_list(List , FFREE );

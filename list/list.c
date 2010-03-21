@@ -56,20 +56,15 @@ void add_nod_list(List L, key content) {
 	L -> next = new;
 }
 
-List first_nod_list(List L, key* content) {
+key first_nod_list(List* L) {
 
-	if (L -> next == NULL) { // daca lista vida
-		*content = NULL;
-		return L;
+	if ( (*L) -> next == NULL) { // daca lista vida
+		return 0;
 	}
 
-	*content = L -> next -> data_list;
+	(*L) = (*L) -> next;
 
-	List aux = L -> next;
-	L -> next = L -> next -> next;
-	free(aux);
-
-	return L;
+	return (*L) -> data_list;
 }
 
 void free_list(List L , FFREE fre ) {
