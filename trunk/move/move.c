@@ -9,10 +9,7 @@
 #include "move.h"
 
 /* ---- Macro #define ---- */
-#define T_MOVE_NA 255
-#define T_MOVE_ENP 1
-#define T_MOV_CST 2
-#define T_MOV_PRO 3
+
 
 
 /* --- Types --- */
