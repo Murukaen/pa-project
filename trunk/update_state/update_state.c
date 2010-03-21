@@ -34,14 +34,24 @@ void update_state(MOVE mov) {
 	LOC d = move_get_poz_dst(mov);
 	BITMAP b = ST_get_bitmap(cur, c) ^ BM_Make_coord(s.row, s.col);
 	ST_set_bitmap(cur, c, b);
+	ST_set_tag_Table_W(cur, s.row, s.col, T_NA);
 	if (ST_get_tag_Table_W(cur, d.row, d.col) == T_NA) {
 		b = ST_get_bitmap(cur, c) | BM_Make_coord(d.row, d.col);
 		ST_set_bitmap(cur, c, b);
-		if (~(f_ENG_COL ^ f_ENG_ON_MOVE))
+		if (~(f_ENG_COL ^ f_ENG_ON_MOVE)){
+			b = ST_get_bitmap(cur, 1);
+			BM_Clear_piece_at_coord(s.row, s.col);
+			ST_set_bitmap(cur, 1, b);
 			ST_set_tag_Table_W(cur, d.row, d.col, (c + BMAP_BWP_OFF));
-		else
+			List list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c-BMAP_BWP_OFF-BMAP_TP_OFF);
+		}
+		else{
+			b = ST_get_bitmap(cur, 0);
+			BM_Clear_piece_at_coord(s.row, s.col);
+			ST_set_bitmap(cur, 0, b);
 			ST_set_tag_Table_W(cur, d.row, d.col, c);
-		List list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c);
+			List list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c-BMAP_TP_OFF);
+		}
 		P_LOC l = find_nod_list(list, &s, fequ_loc);
 		LOCp_set_both(l, d.row, d.col);
 	} else {
@@ -51,13 +61,21 @@ void update_state(MOVE mov) {
 		b = ST_get_bitmap(cur, c);
 		BM_Put_piece_at_coord(&b, d.row, d.col);
 		ST_set_bitmap(cur, c, b);
-		if (~(f_ENG_COL ^ f_ENG_ON_MOVE))
+		if (~(f_ENG_COL ^ f_ENG_ON_MOVE)){
+			b = ST_get_bitmap(cur, 1);
+			BM_Clear_piece_at_coord(s.row, s.col);
+			ST_set_bitmap(cur, 1, b);
 			ST_set_tag_Table_W(cur, d.row, d.col, (c + BMAP_BWP_OFF));
-		else
+			List list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c - BMAP_TP_OFF-BMAP_BWP_OFF);
+		}
+		else{
+			b = ST_get_bitmap(cur, 0);
+			BM_Clear_piece_at_coord(s.row, s.col);
+			ST_set_bitmap(cur, 0, b);
 			ST_set_tag_Table_W(cur, d.row, d.col, c);
-		List list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c - BMAP_TP_OFF);
-		List list2 = delete_elem_list(&list, &d, fequ_loc);
-		free_list(list, loc_free);
+			List list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c - BMAP_TP_OFF);
+		}
+		delete_elem_list(&list, &d, fequ_loc);
 		P_LOC l = find_nod_list(list, &s, fequ_loc);
 		LOCp_set_both(l, d.row, d.col);
 	}
