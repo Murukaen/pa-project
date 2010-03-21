@@ -33,16 +33,16 @@ typedef LOC* P_LOC; // --> Generic Reference
 
 /* LOC Procedures */
 
-P_LOC loc_new ( void );
+P_LOC LOC_new ( void );
 
 /*linie-coloana*/
-void loc_set_both ( P_LOC , UCHAR , UCHAR );
+void LOCp_set_both ( P_LOC , UCHAR , UCHAR );
 
-LOC loc_get_both ( P_LOC );
+LOC LOC_get_both ( P_LOC );
 
-UCHAR loc_get_row ( P_LOC );
+UCHAR LOC_get_row ( P_LOC );
 
-UCHAR loc_get_col ( P_LOC );
+UCHAR LOC_get_col ( P_LOC );
 
 /* Desc:
  * Transforms (row,col) coordinates into linear pozition equivalent 

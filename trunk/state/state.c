@@ -50,13 +50,13 @@ void ST_set_bitmap(STATE st, int tag, BITMAP b) {
 	st -> V_BMAP[tag] = b;
 }
 
-void ST_set_table_W (STATE st, UCHAR ** T) {
+void ST_set_table_W(STATE st, UCHAR ** T) {
 
-	int i,j;
-	for(i=0;i<SIZE_BMAP;++i)
-		for(j=0;j<SIZE_BMAP;++j)
+	int i, j;
+	for (i = 0; i < SIZE_BMAP; ++i)
+		for (j = 0; j < SIZE_BMAP; ++j)
 			st -> Table_W[i][j] = T[i][j];
-	
+
 }
 
 void ST_set_table_P(STATE st, int player_tag, int piece_tag, List list) {
