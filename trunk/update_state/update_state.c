@@ -43,14 +43,14 @@ void update_state(MOVE mov) {
 			BM_Clear_piece_at_coord(s.row, s.col);
 			ST_set_bitmap(cur, 1, b);
 			ST_set_tag_Table_W(cur, d.row, d.col, (c + BMAP_BWP_OFF));
-			List list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c-BMAP_BWP_OFF-BMAP_TP_OFF);
+			List list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c-BMAP_BWP_OFF);
 		}
 		else{
 			b = ST_get_bitmap(cur, 0);
 			BM_Clear_piece_at_coord(s.row, s.col);
 			ST_set_bitmap(cur, 0, b);
 			ST_set_tag_Table_W(cur, d.row, d.col, c);
-			List list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c-BMAP_TP_OFF);
+			List list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c);
 		}
 		P_LOC l = find_nod_list(list, &s, fequ_loc);
 		LOCp_set_both(l, d.row, d.col);
@@ -66,22 +66,24 @@ void update_state(MOVE mov) {
 			BM_Clear_piece_at_coord(s.row, s.col);
 			ST_set_bitmap(cur, 1, b);
 			ST_set_tag_Table_W(cur, d.row, d.col, (c + BMAP_BWP_OFF));
-			List list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c - BMAP_TP_OFF-BMAP_BWP_OFF);
+			List list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c );
 		}
 		else{
 			b = ST_get_bitmap(cur, 0);
 			BM_Clear_piece_at_coord(s.row, s.col);
 			ST_set_bitmap(cur, 0, b);
 			ST_set_tag_Table_W(cur, d.row, d.col, c);
-			List list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c - BMAP_TP_OFF);
+			List list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c);
 		}
-		delete_elem_list(&list, &d, fequ_loc);
+		delete_elem_list(&list, &d, fequ_loc, ffree_loc);
 		P_LOC l = find_nod_list(list, &s, fequ_loc);
 		LOCp_set_both(l, d.row, d.col);
 	}
 	b = ST_get_bitmap(cur, f_ENG_COL) ^ BM_Make_coord(s.row, s.col);
 	ST_set_bitmap(cur, f_ENG_COL, b);
-
+	cur.cur_list = ST_get_List_Table_P(cur, f_ENG_COL, c);
+	cur.move_index = 0;
+	cur.piece_to_move = T_N;
 }
 
 void flip_state(void) {
