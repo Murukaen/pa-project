@@ -92,7 +92,6 @@ void BM_Clear_BMAP(BITMAP*);
 void BM_Fill_BMAP(BITMAP*);
 
 
-
 /*printeaza bitmap*/
 void BM_print(BITMAP);
 
