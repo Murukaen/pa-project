@@ -12,17 +12,21 @@
 /* ---- Macro #define ---- */
 
 #define BMAP_NR_ST 8 // number of bitmaps in a state
-
-
 /* --- Types --- */
 
 struct s_state {
 
 	BITMAP V_BMAP[BMAP_NR_ST];
 
-	UCHAR Table_W [SIZE_BMAP][SIZE_BMAP]; // 8x8 
+	UCHAR Table_W[SIZE_BMAP][SIZE_BMAP]; // 8x8 ce piesa e acolo
 
-	List Table_P [2][6]; // [2 players] x [6 types of pieces]
+	List Table_P[2][6]; // [2 players] x [6 types of pieces] lista cu pozitiile pieselor
+
+	int piece_to_move;// piesa a carei mutare e analizata
+
+	int move_index;// retin indexul mutarii efectuate
+
+	List cur_list; // lista in care retin unde am ramas la agenerarea de stare pt o anumita piesa
 
 };
 
@@ -58,25 +62,51 @@ void ST_set_table_W(STATE st, UCHAR ** T) {
 
 }
 
-void ST_set_tag_Table_W ( STATE st , int row , int col , UCHAR tag ) {
-	
-	st -> Table_W [row][col] = tag;
+void ST_set_tag_Table_W(STATE st, int row, int col, UCHAR tag) {
+
+	st -> Table_W[row][col] = tag;
 }
 
-UCHAR ST_get_tag_Table_W ( STATE st , int row, int col) {
-	
-	return st -> Table_W [row][col];
+UCHAR ST_get_tag_Table_W(STATE st, int row, int col) {
+
+	return st -> Table_W[row][col];
 }
 
-List ST_get_List_Table_P ( STATE st , int col_tag , int piece_tag ) {
-		
-	return st -> Table_P [col_tag][piece_tag - BMAP_TP_OFF];
-}	
+List ST_get_List_Table_P(STATE st, int col_tag, int piece_tag) {
 
-void ST_set_List_Table_P (STATE st, int col_tag, int piece_tag, List list) {
-
-	st -> Table_P [ col_tag ][ piece_tag - BMAP_TP_OFF ] = list;
+	return st -> Table_P[col_tag][piece_tag - BMAP_TP_OFF];
 }
+
+void ST_set_List_Table_P(STATE st, int col_tag, int piece_tag, List list) {
+
+	st -> Table_P[col_tag][piece_tag - BMAP_TP_OFF] = list;
+}
+
+void ST_set_piece_to_move(STATE st, int val) {
+
+	st -> piece_to_move = val;
+}
+
+int ST_get_piece_to_move(STATE st){
+
+	return st -> piece_to_move ;
+}
+
+void ST_set_move_index(STATE st, int val) {
+
+	st -> move_index = val;
+}
+
+UCHAR ST_get_move_index(STATE S){
+
+	return S -> move_index;
+}
+
+List ST_get_move_cur_list(STATE st){
+
+	return st -> cur_list;
+}
+
 
 void ST_free(STATE st) {
 
