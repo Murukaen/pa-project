@@ -135,5 +135,9 @@ STATE Read_initial_state() {
 			ST_set_List_Table_P(S, i, j + 2, list);
 		}
 	}
+
+	ST_set_move_index(S,0);
+	ST_set_piece_to_move(S,T_N);
+
 	return S;
 }

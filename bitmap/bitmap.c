@@ -30,7 +30,7 @@ void BM_init ( void ) {
        for (i=0 , M[0] = 1 ; i < DIM_BMAP ; ++i , M[i] = M[i-1] << 1 );
 }
 
-BITMAP BM_Make_pos(int pos) {
+BITMAP BM_Make_pos(UCHAR pos) {
 
 	return M[pos];
 }
@@ -54,6 +54,13 @@ UCHAR BM_Get_first_elem(BITMAP B) {
 	}
 	
 	return i;
+}
+
+UCHAR Get_first_elem_from (BITMAP B,UCHAR index){
+
+	BITMAP mask = BM_Make_pos(index);
+
+	B = B & mask;
 }
 
 UCHAR BM_Get_bit_from_coord(BITMAP B, int l, int c) {

@@ -32,7 +32,7 @@ void BM_init ( void );
 /* Creeaza un bitmap cu valoarea 1 pe pozitia data ca argument
  * 0 in coltul stanga jos si 63 in coltul dreapta sus
 */
-BITMAP BM_Make_pos(int);
+BITMAP BM_Make_pos(UCHAR);
 
 
 /* Creeaza un bitmap cu valoarea 1 pe pozitia data ca argument
@@ -46,6 +46,8 @@ BITMAP BM_Make_coord(int,int);
  * returneaza -1 daca nu gaseste niciun 1
  */
 UCHAR BM_Get_first_elem (BITMAP);
+
+UCHAR Get_first_elem_from (BITMAP,UCHAR);
 
 
 /* Intoarce valoarea bitului de la coordonatele date ca argument */
@@ -88,6 +90,8 @@ void BM_Clear_BMAP(BITMAP*);
 
 /* pune :D 1 peste tot*/
 void BM_Fill_BMAP(BITMAP*);
+
+BITMAP BM_valid_pos()
 
 
 /*printeaza bitmap*/

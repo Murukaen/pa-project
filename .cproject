@@ -48,9 +48,10 @@
 </toolChain>
 </folderInfo>
 <sourceEntries>
-<entry excluding="main/engine.c|list|read_from_file|File_generator" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="list"/>
+<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="valid_moves"/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="read_from_file"/>
+<entry excluding="valid_moves|main/engine.c|list|read_from_file|File_generator" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="list"/>
 </sourceEntries>
 </configuration>
 </storageModule>
@@ -348,7 +349,8 @@
 </toolChain>
 </folderInfo>
 <sourceEntries>
-<entry excluding="main/engine.c|list|file_generator|File_generator|read_from_file" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+<entry excluding="valid_moves|main/engine.c|list|file_generator|File_generator|read_from_file" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="valid_moves"/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="read_from_file"/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="list"/>
 </sourceEntries>

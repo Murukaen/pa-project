@@ -97,6 +97,17 @@ void ST_set_List_Table_P (STATE, int, int, List);
  * Input:1: state
  * Output:0
  */
+
+void ST_set_piece_to_move(STATE,int);
+
+int ST_get_piece_to_move(STATE);
+
+void ST_set_move_index(STATE,int);
+
+UCHAR ST_get_move_index(STATE);
+
+List ST_get_move_cur_list(STATE);
+
 void ST_free(STATE);
 
 #endif

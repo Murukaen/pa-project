@@ -11,6 +11,7 @@
 #include "state_generator.h"
 #include "../read_from_file/read_from_file.h"
 #include "../state/state.h"
+#include "../Flags/flags.h"
 
 /* ---- Macro #define ---- */
 #define NR_PIECES 5
@@ -19,14 +20,24 @@
 
 /* --- Globals --- */
 
+
 /* --- Auxiliary Procedures --- */
 
 /* --- Procedures --- */
 
+
+
 STATE state_gen(STATE start_state) {
 
-	// TODO
-	return 0;
+	UCHAR index = ST_get_move_index(start_state);
+	List L = ST_get_move_cur_list(start_state);
+
+	P_LOC loc;
+
+	for(loc = first_nod_list(&))
+
+
+
 
 }
 
