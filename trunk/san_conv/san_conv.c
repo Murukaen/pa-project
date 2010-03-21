@@ -22,13 +22,13 @@
 /* Prototip is_check */
 
 int is_check(MOVE m, STATE cur){
-	return 1;
+	return 0;
 }
 
 /* Prototip is_check_mate */
 
 int is_check_mate(MOVE m, STATE cur){
-	return 1;
+	return 0;
 }
 
 /* Prototip validate_move */
@@ -115,7 +115,7 @@ char convertFromLetters(char a) {
 /* Verificam daca mutarea este o captura */
 
 int is_capture(MOVE h, STATE cur) {
-	BITMAP b = ST_get_bitmap(cur, T_BP);
+	BITMAP b = ST_get_bitmap(cur, f_ENG_COL);
 	LOC l = move_get_poz_dst(h);
 	BITMAP d = BM_Make_coord(l.row, l.col);
 	return (b & d) ? 1 : 0;
@@ -193,7 +193,7 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 	LOC l;
 	LOC d;
 	int boo = 1;
-	BITMAP s = ST_get_bitmap(cur, piesa);
+	BITMAP s = ST_get_bitmap(cur, piesa) & ST_get_piesa(cur, f_ENG_COL);
 	BM_Clear_piece_at_coord(&s, lp, cp);
 
 	/* Pt. fiecare element din b verificam daca se poate muta pe poz d */
@@ -214,15 +214,20 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 			boo = 0;
 		}
 		if (!boo) {
-			if (l.row == lg)
+			if (l.row == lg){
+				move_free(m);
 				return convertToLetters(cp);
+			}
 			else {
 				char c;
 				sprintf(&c, "%d", lp + 1);
+				move_free(m);
 				return c;
 			}
-		} else
+		} else{
+			move_free(m);
 			BM_Clear_piece_at_coord(&s, lk, ck);
+		}
 	}
 	return 'Z';
 
@@ -231,7 +236,7 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 /* Gasirea piesei care trebuie mutata */
 
 LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
-	BITMAP b = ST_get_bitmap(cur, c);
+	BITMAP b = ST_get_bitmap(cur, c) & ST_get_piesa(cur, f_ENG_COL);
 	LOC d;
 	UCHAR k, lk, ck;
 	int bool = 0, booc = 0;
@@ -254,8 +259,14 @@ LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
 		move_set_poz_src(m, d);
 
 		if (validate_move(m)) {
-			if (bool && booc)
+			if (bool && booc){
+				move_free(m);
 				return d;
+			}else{
+				move_free(m);
+			}
+		}else{
+			move_free(m);
 		}
 
 		BM_Clear_piece_at_coord(&b, lk, ck);
@@ -368,7 +379,6 @@ MOVE from_SAN(char* s) {
 		if (get_piece(s[0])) {
 			int j = 1;
 			UCHAR lg = -1, cg = -1, lp, cp;
-			MOVE m = move_new();
 			move_set_p_tag(m, get_piece(s[0]));
 
 			if (is_dezambiguu(s)) {
@@ -395,7 +405,6 @@ MOVE from_SAN(char* s) {
 			move_set_p_tag(m, T_P);
 			int j = 0;
 			UCHAR lg = -1, cg = -1, lp, cp;
-			MOVE m = move_new();
 			move_set_p_tag(m, get_piece(s[0]));
 
 			if (is_dezambiguu(s)) {
