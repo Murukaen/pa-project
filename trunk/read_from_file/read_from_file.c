@@ -27,8 +27,7 @@
 
 /* --- Procedures --- */
 
-void Read_all_possible_moves(BITMAP** King_moves, BITMAP** Queen_moves,
-		BITMAP** Rock_moves, BITMAP**Bishop_moves, BITMAP** Knight_moves) {
+void Read_all_possible_moves( BITMAP Moves[5][8][8]) {
 
 	FILE * fin = fopen("Database/All_moves.in", "rb");
 	if (fin == NULL) {
@@ -37,17 +36,51 @@ void Read_all_possible_moves(BITMAP** King_moves, BITMAP** Queen_moves,
 	}
 
 	int i, j;
+	BITMAP **K, **Q, **R, **B, **N;
+
+	K = (BITMAP**) calloc(8, sizeof(BITMAP*));
+	Q = (BITMAP**) calloc(8, sizeof(BITMAP*));
+	R = (BITMAP**) calloc(8, sizeof(BITMAP*));
+	B = (BITMAP**) calloc(8, sizeof(BITMAP*));
+	N = (BITMAP**) calloc(8, sizeof(BITMAP*));
+
+	for (i = 0; i < 8; i++) {
+		K[i] = (BITMAP*) calloc(8, sizeof(BITMAP));
+		Q[i] = (BITMAP*) calloc(8, sizeof(BITMAP));
+		R[i] = (BITMAP*) calloc(8, sizeof(BITMAP));
+		B[i] = (BITMAP*) calloc(8, sizeof(BITMAP));
+		N[i] = (BITMAP*) calloc(8, sizeof(BITMAP));
+	}
 
 	for (i = 0; i < 8; i++) {
 		for (j = 0; j < 8; j++) {
 
-			fread(&King_moves[i][j], 8, 1, fin);
-			fread(&Queen_moves[i][j], 8, 1, fin);
-			fread(&Rock_moves[i][j], 8, 1, fin);
-			fread(&Bishop_moves[i][j], 8, 1, fin);
-			fread(&Knight_moves[i][j], 8, 1, fin);
+			fread(&K[i][j], 8, 1, fin);
+			Moves[0][i][j] = K[i][j];
+			fread(&Q[i][j], 8, 1, fin);
+			Moves[1][i][j] = Q[i][j];
+			fread(&R[i][j], 8, 1, fin);
+			Moves[2][i][j] = R[i][j];
+			fread(&B[i][j], 8, 1, fin);
+			Moves[3][i][j] =B[i][j];
+			fread(&N[i][j], 8, 1, fin);
+			Moves[4][i][j] = N[i][j];
 		}
 	}
+
+	for (i = 0; i < 8; i++) {
+		free(K[i]);
+		free(Q[i]);
+		free(R[i]);
+		free(B[i]);
+		free(N[i]);
+	}
+	free(K);
+	free(Q);
+	free(R);
+	free(B);
+	free(N);
+
 	fclose(fin);
 }
 
@@ -57,7 +90,11 @@ STATE Read_initial_state() {
 
 	STATE S = ST_new();
 
-	UCHAR Type_matrix[8][8] = { { 4, 6, 5, 3, 2, 5, 6, 4 },{ 7, 7, 7, 7, 7, 7, 7, 7 }, { 255, 255, 255, 255, 255, 255, 255,	255 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 255,255, 255, 255, 255, 255, 255, 255 }, { 255, 255, 255, 255,	255, 255, 255, 255 }, { 7, 7, 7, 7, 7, 7, 7, 7 }, { 4, 6,5, 3, 2, 5, 6, 4 } };
+	UCHAR Type_matrix[8][8] = { { 4, 6, 5, 3, 2, 5, 6, 4 }, { 7, 7, 7, 7, 7, 7,
+			7, 7 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 255, 255,
+			255, 255, 255, 255, 255, 255 }, { 255, 255, 255, 255, 255, 255,
+			255, 255 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 7, 7, 7,
+			7, 7, 7, 7, 7 }, { 4, 6, 5, 3, 2, 5, 6, 4 } };
 
 	ST_set_table_W(S, Type_matrix);
 

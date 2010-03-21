@@ -11,7 +11,10 @@
 #include "../state/state.h"
 
 /* ---- Macro #define ---- */
+#define NR_PIECES 5
 
+/* Globals*/
+BITMAP Moves[NR_PIECES][SIZE_TABLE][SIZE_TABLE];
 /* --- Types --- */
 
 /* --- Procedures --- */

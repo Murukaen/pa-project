@@ -29,7 +29,7 @@ int main ( void ) {
 	/* Define variables */
 	
 	
-	/* Input listener with no stop */
+	 /*Input listener with no stop */
 	com_init();
 	while ( 1 ) {
 		sleep(3);
@@ -41,6 +41,9 @@ int main ( void ) {
 				
 		poll_input();
 	}
+
+
+
 
 	
 
