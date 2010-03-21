@@ -12,8 +12,7 @@
 /* ---- Macro #define ---- */
 
 #define BMAP_NR_ST 8 // number of bitmaps in a state
-#define BMAP_TP_OFF 2 // bitmap tags pieces offset ( 2 - 7 )
-#define BMAP_BWP_OFF 6 // bitmap black/white pieces offset ( white : 2 - 7 ; black : 8 - 13 )
+
 
 /* --- Types --- */
 

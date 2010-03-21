@@ -26,6 +26,10 @@
 #define T_NA 255 // N/A / Empty square
 /* END Tags */
 
+#define NR_A_P 6 // number of all types of pieces
+#define BMAP_TP_OFF 2 // bitmap tags pieces offset ( 2 - 7 )
+#define BMAP_BWP_OFF 6 // bitmap black/white pieces offset ( white : 2 - 7 ; black : 8 - 13 )
+
 /* --- Types --- */
 struct s_state;
 typedef struct s_state* STATE;
