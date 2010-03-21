@@ -51,7 +51,7 @@ void Read_all_possible_moves(BITMAP** King_moves, BITMAP** Queen_moves,
 	fclose(fin);
 }
 
-void Read_initial_state(UCHAR player_tag) {
+STATE Read_initial_state() {
 
 	char i, j;
 
@@ -61,13 +61,7 @@ void Read_initial_state(UCHAR player_tag) {
 		Type_matrix[i] = (UCHAR*) calloc(8, sizeof(UCHAR));
 	}
 
-	UCHAR Type_matrix = { { 4, 6, 5, 3, 2, 5, 6, 4 },
-			{ 7, 7, 7, 7, 7, 7, 7, 7 }, { 255, 255, 255, 255, 255, 255, 255,
-					255 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 255,
-					255, 255, 255, 255, 255, 255, 255 }, { 255, 255, 255, 255,
-					255, 255, 255, 255 }, { 7, 7, 7, 7, 7, 7, 7, 7 }, { 4, 6,
-					5, 3, 2, 5, 6, 4 } };
-
+	Type_matrix = { { 4, 6, 5, 3, 2, 5, 6, 4 },{ 7, 7, 7, 7, 7, 7, 7, 7 }, { 255, 255, 255, 255, 255, 255, 255,	255 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 255,255, 255, 255, 255, 255, 255, 255 }, { 255, 255, 255, 255,	255, 255, 255, 255 }, { 7, 7, 7, 7, 7, 7, 7, 7 }, { 4, 6,5, 3, 2, 5, 6, 4 } };
 	ST_set_table_W(S, Type_matrix);
 
 	ST_set_bitmap(S, 0, I_WPos);
@@ -100,9 +94,9 @@ void Read_initial_state(UCHAR player_tag) {
 				if (linie == -1 && coloana == -1) {
 					break;
 				}
-				loc = loc_new();
-				loc_set_both((UCHAR) linie, (UCHAR) coloana);
-				list = add_nod_list(list, loc);
+				loc = LOC_new();
+				LOCp_set_both(loc, (UCHAR) linie, (UCHAR) coloana);
+				add_nod_list(list, loc);
 			}
 			ST_set_table_P(S, i, j + 2, list);
 		}

@@ -19,29 +19,29 @@
 
 /* --- Procedures --- */
 
-P_LOC loc_new ( void ) {
+P_LOC LOC_new ( void ) {
 
 	P_LOC L = (P_LOC) calloc(1,sizeof(struct LOC));
 	return L;
 }
 
-void loc_set_both ( P_LOC  L, UCHAR lin, UCHAR col ) {
+void LOCp_set_both ( P_LOC  L, UCHAR lin, UCHAR col ) {
 
 	L -> row = lin;
 	L -> col = col;
 }
 
-LOC loc_get_both ( P_LOC L) {
+LOC LOC_get_both ( P_LOC L) {
 	
 	return *L;
 }
 
-UCHAR loc_get_row ( P_LOC L) {
+UCHAR LOC_get_row ( P_LOC L) {
 
 	return L -> row;
 }
 
-UCHAR loc_get_col ( P_LOC L) {
+UCHAR LOC_get_col ( P_LOC L) {
 	
 	return L -> col;
 }
