@@ -67,7 +67,7 @@ List copy_list ( List );
  * Input:4: Address to list , key to look for , fequ , ffree
  * Output:0
  */
-void delete_elem_list ( List, key , FEQU , FFREE );
+void delete_elem_list ( List * , key , FEQU , FFREE );
 
 /* Desc:
  * Searches for an element within a list and removes it returning the modified list
