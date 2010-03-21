@@ -27,7 +27,21 @@
 /* --- Types --- */
 
 /* --- Procedures --- */
+
+/* Desc:
+ * Transforma mutarea din standard intern in SAN
+ * Input:1: MOVE
+ * Output:1: string
+ */
+
 char * toSAN(MOVE);
 
+/* Desc:
+ * Transforma mutarea din san in standard intern
+ * Input:1: string
+ * Output:1: MOVE
+ */
+
+MOVE fromSAN(char*)
 
 #endif /* SAN_H_ */
