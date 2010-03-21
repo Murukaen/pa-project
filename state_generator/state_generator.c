@@ -3,6 +3,8 @@
  */
 
 /* ----- System #includes ----- */
+#include <stdio.h>
+#include <stdlib.h>
 
 /* ----- Local #inlcudes ----- */
 #include "../bitmap/bitmap.h"
@@ -16,20 +18,19 @@
 /* --- Types --- */
 
 /* --- Globals --- */
-BITMAP Moves [NR_PIECES][SIZE_TABLE][SIZE_TABLE];
 
 /* --- Auxiliary Procedures --- */
 
 /* --- Procedures --- */
 
-STATE state_gen ( STATE start_state ) {
-	
-		// TODO
-		return 0;
+STATE state_gen(STATE start_state) {
+
+	// TODO
+	return 0;
 
 }
 
-void ST_gen_init(void){
+void ST_gen_init(void) {
 
-		// TODO
+	Read_all_possible_moves(Moves);
 }
