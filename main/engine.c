@@ -6,11 +6,8 @@
 
 #include <stdio.h>
 #include <time.h>
-#include <unistd.h>
-#include <signal.h>
 
 /* ----- Local #inlcudes ----- */
-
 #include "../xboard_com/xboard_com.h"
 
 /* ---- Macro #define ---- */
@@ -23,8 +20,6 @@ int count;
 
 
 int main ( void ) {
-
-	signal(SIGINT, SIG_IGN);
 
 	/* Define variables */
 	

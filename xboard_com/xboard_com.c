@@ -27,16 +27,17 @@
 
 /* --- Globals --- */
 
-char buffer[BUF_LENGTH];
+char read_buffer[BUF_LENGTH];
+char mem_buffer [BUF_LENGTH];
 
 /* --- Auxiliary Procedures --- */
 
 char * get_input_buffer ( void ) {
 	
-	int length = read(STDIN,buffer,BUF_LENGTH-1);
-	buffer[length] = '\0';
+	int length = read(STDIN,read_buffer,BUF_LENGTH-1);
+	read_buffer[length] = '\0';
 
-	return buffer;
+	return read_buffer;
 }
 
 void parse_buf ( char * buf ) {
@@ -46,43 +47,53 @@ void parse_buf ( char * buf ) {
 				
 					read_com ( com );
 		
-}		
+}	
+
+int is_empty_mem_buf ( void ) {
+	
+	return ( mem_buffer [0] == 0 );
+}	
+
+void empty_mem_buf ( void ) {
+	
+	mem_buffer[0] = 0;
+}
 
 /* --- Procedures --- */
-
-void com_init ( void ) {
-	
-		write(1,INIT_FEATURES,strlen(INIT_FEATURES));
-}
-
-
-void poll_input ( void ) {
-	
-		struct timeval tv;
-		fd_set readfds;
-
-		tv.tv_sec = 0;
-		tv.tv_usec = 0;
-		
-		FD_ZERO(&readfds);
-		FD_SET(STDIN, &readfds);
-		
-		select(STDIN+1, &readfds, NULL, NULL, &tv);
-		
-		if (FD_ISSET(STDIN, &readfds))  
-		
-				parse_buf ( get_input_buffer () );
-}
-
-void poll_output ( void * com , int com_tag) {
-	
-		write_com ( com , com_tag );
-}
 
 void write_to_xboard ( char * text) {
 	
 		write(1,text,strlen(text));
 }
+
+void com_init ( void ) {
+	
+		write_to_xboard (INIT_FEATURES);  
+}
+
+void add_mess_to_buffer ( char * mess ) {
+	
+		memcpy ( mem_buffer , mess , strlen(mess) + 1);
+}
+
+
+void poll_input ( void ) { 
+		
+		if ( !is_empty_mem_buf () ) { // if there is a message stored in buffer, output it right away
+		
+				write_to_xboard ( mem_buffer ); // write the messaje to xboard
+				empty_mem_buf () ; // empty the memory buffer
+		}
+				
+		parse_buf ( get_input_buffer () );  // wait and get all the available input
+}
+
+void poll_output ( void * com , int com_tag) {
+	
+		write_com ( com , com_tag ); // send the command to the Command Unit
+}
+
+
 
 
 			

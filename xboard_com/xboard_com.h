@@ -49,5 +49,12 @@ void poll_output ( void * , int );
  */
 void write_to_xboard ( char * );
 
+/* Desc:
+ * Add a message in a buffer sored in the Communication Unit to be displayed NEXT time the poll_input procedure is issued
+ * Input:1: message to store ( the messsage will be copyed in the buffer )
+ * Output:0
+ */
+void add_mess_to_buffer ( char * mess );
+
 #endif
 
