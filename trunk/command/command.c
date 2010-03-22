@@ -15,7 +15,6 @@
 /* ---- Macro #define ---- */
 #define LOG_FILE "./Log/log"
 #define COM_SEP ' '
-#define WORD_LENGTH 15
 
 
 #define FEATURES "feature playother=1 usermove=1 done=1\n"
@@ -82,7 +81,7 @@ void read_com ( char * com ) {
 				
 		if ( !strcmp ( word , "quit" ) ) 		exit(0);
 		if ( !strcmp ( word , "xboard" ) ) 		write_to_xboard ("\n");
-		if ( !strcmp ( word , "protover" ) ) 	write_to_xboard (FEATURES);
+		if ( !strcmp ( word , "protover" ) ) 	add_mess_to_buffer (FEATURES); 
 		if ( !strcmp ( word , "usermove" )) 	{
 			
 			word = parse_com ( &poz );
