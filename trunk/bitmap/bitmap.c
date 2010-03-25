@@ -14,7 +14,7 @@
 /* --- Types --- */
 
 /* --- Globals --- */
-BITMAP M[DIM_BMAP];
+BITMAP M[DIM_BMAP]; // Masks : M[i] = 2^i [BITMAP]
 
 /* --- Auxiliary Procedures --- */
 
@@ -31,7 +31,7 @@ void BM_init ( void ) {
        for (i=0 , M[0] = 1 ; i < DIM_BMAP ; ++i , M[i] = M[i-1] << 1 );
 }
 
-BITMAP BM_Make_pos(UCHAR pos) {
+BITMAP BM_Make_pos(int pos) {
 
 	return M[pos];
 }
@@ -57,13 +57,6 @@ UCHAR BM_Get_first_elem(BITMAP B) {
 	return i;
 }
 
-UCHAR Get_first_elem_from (BITMAP B,UCHAR index){
-
-	BITMAP mask = BM_Make_pos(index);
-
-	B = B & mask;
-}
-
 UCHAR BM_Get_bit_from_coord(BITMAP B, int l, int c) {
 
 	register int pos = l * SIZE_BMAP + c;
@@ -71,7 +64,7 @@ UCHAR BM_Get_bit_from_coord(BITMAP B, int l, int c) {
 	return ( M[pos] & B ) ? 1 : 0;
 }
 
-UCHAR BM_Get_bit_from_pos(BITMAP B, int pos) {
+UCHAR BM_Get_bit_from_index (BITMAP B, int pos) {
 
 	return ( M[pos] & B ) ? 1 : 0;
 }
@@ -106,12 +99,9 @@ void BM_Clear_piece_at_BMAP(BITMAP* B, BITMAP P) {
 
 int BM_Compare_BMAPs(BITMAP B1, BITMAP B2) {
 
-	if ((B1 ^ B2) == 0) {
-		return 1;
-	} else {
-		return 0;
-	}
-
+	if ((B1 ^ B2) == 0) return 1;
+		
+	return 0;
 }
 
 void BM_Clear_BMAP(BITMAP* B) {
@@ -123,24 +113,23 @@ void BM_Fill_BMAP(BITMAP* B) {
 
 	(*B) = -1;
 }
-void BM_print(BITMAP a) {
 
-	BITMAP i, bla, numar[64];
+void BM_print(BITMAP B , FILE * fout) {
 
-	for (i = 0; i < 64; i++) {
-
-		bla = 1 & a;
-		numar[i] = bla;
-		a = a >> 1;
-	}
-
-	for (i = 0; i < 64; i++) {
-
-		if (i % 8 == 0)
-			printf("\n");
-		printf("%lld  ", numar[i]);
-	}
-	printf("\n");
+	int i;
+	UCHAR Mat [SIZE_BMAP][SIZE_BMAP];
+	
+	/* Construct Mat */	
+	for(i=0;i<DIM_BMAP;++i) 
+		
+			Mat [ SIZE_BMAP - 1 - i/8 ][ i% 8 ] = BM_Get_bit_from_index ( B , i );
+			
+	/* Print Mat */
+	int j;
+	
+	for(i=0;i<SIZE_BMAP;++i, fprintf(fout , "\n") )
+		for(j=0;j<SIZE_BMAP; ++j , fprintf(fout , " ") )
+			fprintf(fout, "%u" , Mat[i][j] );
 }
 	
 		

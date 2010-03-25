@@ -26,10 +26,10 @@ struct s_state {
 	/*  --- Used only in state generator : --- */
 	
 	/* Desc : the TYPE ( tag ) of piece to be moved (2,7) */
-	int piece_to_move;
+	UCHAR piece_to_move;
 
 	/* Desc : retains the index of the last made move */
-	int move_index;
+	UCHAR move_index;
 
 	/* Desc : current piece location [list] of the type (piece_to_move) which has to be processed by the state generating proocedure 
 	 * It is a current element [list] in the list given by Table_P[f_ENG_COL][piece_to_move - BMAP_TP_OFF] */
@@ -100,7 +100,7 @@ void ST_set_List_Table_P(STATE st, int col_tag, int piece_tag, List list) {
 	st -> Table_P[col_tag][piece_tag - BMAP_TP_OFF] = list;
 }
 
-void ST_set_piece_to_move(STATE st, int val) {
+void ST_set_piece_to_move(STATE st, UCHAR val) {
 
 	st -> piece_to_move = val;
 }
@@ -110,7 +110,7 @@ int ST_get_piece_to_move(STATE st){
 	return st -> piece_to_move ;
 }
 
-void ST_set_move_index(STATE st, int val) {
+void ST_set_move_index(STATE st, UCHAR val) {
 
 	st -> move_index = val;
 }
@@ -136,4 +136,9 @@ void ST_free(STATE st) {
 	if (st == 0)
 		return;
 	free(st);
+}
+
+void state_print ( STATE st , FILE * fout ) {
+	
+	fprintf(fout, "{\n V[T_WP] = %lld ;\n V[T_WP] = %lld ;\n V[T_BP] = %lld\n; V[T_K] = %lld ;\n V[T_Q] = %lld ;\n V[T_R] = %lld ;\n V[T_B] = %lld ;\n V[T_N] = %lld ;\n V[T_P] = %lld ;\n" , st -> V[0] , st -> V[1] , st -> V[2] , st -> V[3] , st -> V[4] , st -> V[5] , st -> V[6] , st -> V[7]);
 }

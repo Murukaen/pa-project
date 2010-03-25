@@ -98,12 +98,6 @@ List ST_get_List_Table_P ( STATE , int , int );
 void ST_set_List_Table_P (STATE, int, int, List);
 
 /* Desc:
- * Destructor state
- * Input:1: state
- * Output:0
- */
-
-/* Desc:
  * Gets a bitmap from a state according to the BM_tag
  * Input:2: state , tag ( which bitmap to get )
  * Output:1: bitmap
@@ -120,17 +114,20 @@ void ST_free(STATE);
 
 /* Used by state generator : */
 
-void ST_set_piece_to_move(STATE,int);
+void ST_set_piece_to_move(STATE , UCHAR);
 
 int ST_get_piece_to_move(STATE);
 
-void ST_set_move_cur_list(STATE,List);
+void ST_set_move_cur_list(STATE , List);
 
 List ST_get_move_cur_list(STATE);
 
-void ST_set_move_index(STATE,int);
+void ST_set_move_index(STATE , UCHAR);
 
 UCHAR ST_get_move_index(STATE);
 
+/* Test purposes : */
+
+void state_print ( STATE , FILE * );
 
 #endif
