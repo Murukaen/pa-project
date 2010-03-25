@@ -92,7 +92,11 @@ void BM_Clear_BMAP(BITMAP*);
 void BM_Fill_BMAP(BITMAP*);
 
 
-/*printeaza bitmap*/
-void BM_print(BITMAP);
+/* Desc:
+ * Prints a bitmap in the representation of the chess board
+ * Input:1: bitmap , FILE * out
+ * Output:0
+ */
+void BM_print( BITMAP , FILE * );
 
 #endif
