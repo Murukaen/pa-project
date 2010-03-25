@@ -98,6 +98,7 @@ STATE Read_initial_state() {
 
 	ST_set_table_W(S, Type_matrix);
 
+	/*setare V_BMAP*/
 	ST_set_bitmap(S, 0, I_WPos);
 	ST_set_bitmap(S, 1, I_BPos);
 	ST_set_bitmap(S, 2, I_K);
