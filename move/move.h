@@ -54,5 +54,7 @@ void move_set_p_rock ( MOVE mov , LOC poz );
 
 LOC move_get_p_rock ( MOVE mov );
 
+void move_print ( MOVE , FILE * );
+
 #endif
 

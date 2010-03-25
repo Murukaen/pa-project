@@ -36,6 +36,8 @@ typedef struct s_state* STATE;
 
 /* --- Procedures --- */
 
+/* General use : */
+
 /* Desc :
  * State constructor with no data inside
  * Input:0
@@ -101,20 +103,34 @@ void ST_set_List_Table_P (STATE, int, int, List);
  * Output:0
  */
 
-BITMAP ST_get_V_BMAP(STATE ,int );
+/* Desc:
+ * Gets a bitmap from a state according to the BM_tag
+ * Input:2: state , tag ( which bitmap to get )
+ * Output:1: bitmap
+ */
+BITMAP ST_get_V_BMAP (STATE ,int );
+
+/* Desc:
+ * Destructor STATE 
+ * Input:1: STATE
+ * Output:0
+ */
+void ST_free(STATE);
+
+
+/* Used by state generator : */
 
 void ST_set_piece_to_move(STATE,int);
 
 int ST_get_piece_to_move(STATE);
 
+void ST_set_move_cur_list(STATE,List);
+
+List ST_get_move_cur_list(STATE);
+
 void ST_set_move_index(STATE,int);
 
 UCHAR ST_get_move_index(STATE);
 
-List ST_get_move_cur_list(STATE);
-
-void ST_free(STATE);
-
-void ST_set_move_cur_list(STATE,List);
 
 #endif

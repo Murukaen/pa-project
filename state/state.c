@@ -14,6 +14,7 @@
 #define BMAP_NR_ST 8 // number of bitmaps in a state
 /* --- Types --- */
 
+/* ~~~ state structure ~~~ */
 struct s_state {
 
 	BITMAP V_BMAP[BMAP_NR_ST];
@@ -22,13 +23,20 @@ struct s_state {
 
 	List Table_P[2][6]; // [2 players] x [6 types of pieces] lista cu pozitiile pieselor
 
-	int piece_to_move;// piesa a carei mutare e analizata
+	/*  --- Used only in state generator : --- */
+	
+	/* Desc : the TYPE ( tag ) of piece to be moved (2,7) */
+	int piece_to_move;
 
-	int move_index;// retin indexul mutarii efectuate
+	/* Desc : retains the index of the last made move */
+	int move_index;
 
-	List cur_list; // lista in care retin unde am ramas la generarea de stare pt o anumita piesa
+	/* Desc : current piece location [list] of the type (piece_to_move) which has to be processed by the state generating proocedure 
+	 * It is a current element [list] in the list given by Table_P[f_ENG_COL][piece_to_move - BMAP_TP_OFF] */
+	List cur_list; 
 
 };
+/* ~~~ END state structure ~~~ */
 
 /* --- Globals --- */
 
