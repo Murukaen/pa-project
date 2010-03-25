@@ -104,10 +104,9 @@ STATE state_gen(STATE start_state) {
 					ST_set_bitmap(new_state, T_BP, new);
 
 					/* sterg din lista new_state piesa care a fost capturata*/
-					delete_element_list(ST_get_List_Table_P(new_state,
+					delete_element_list(&ST_get_List_Table_P(new_state,
 							~f_ENG_COL, piece_to_delete), loc, fequ_loc,
 							ffree_loc);
-
 				}
 
 				/*modific din lista new_state locatia piesei mutate*/

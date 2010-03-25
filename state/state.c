@@ -26,7 +26,7 @@ struct s_state {
 
 	int move_index;// retin indexul mutarii efectuate
 
-	List cur_list; // lista in care retin unde am ramas la agenerarea de stare pt o anumita piesa
+	List cur_list; // lista in care retin unde am ramas la generarea de stare pt o anumita piesa
 
 };
 
@@ -129,4 +129,3 @@ void ST_free(STATE st) {
 		return;
 	free(st);
 }
-
