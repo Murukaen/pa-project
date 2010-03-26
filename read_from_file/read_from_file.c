@@ -96,7 +96,7 @@ STATE Read_initial_state() {
 			255, 255 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 7, 7, 7,
 			7, 7, 7, 7, 7 }, { 4, 6, 5, 3, 2, 5, 6, 4 } };
 
-	ST_set_table_W(S, Type_matrix);
+	ST_set_Table_What(S, Type_matrix);
 
 	/*setare V_BMAP*/
 	ST_set_bitmap(S, 0, I_WPos);
@@ -133,7 +133,7 @@ STATE Read_initial_state() {
 				LOCp_set_both(loc, (UCHAR) linie, (UCHAR) coloana);
 				add_nod_list(list, loc);
 			}
-			ST_set_List_Table_P(S, i, j + PIECES_OFF , list);
+			ST_set_List_Table_Location(S, i, j + PIECES_OFF , list);
 		}
 	}
 

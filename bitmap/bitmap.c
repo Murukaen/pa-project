@@ -144,12 +144,12 @@ BITMAP Mat_to_BM ( UCHAR Mat [][SIZE_BMAP] ) {
 	int i, j, pos = -1;
 	for(i=SIZE_BMAP-1;i>=0;--i)
 		for(j=0;j<=SIZE_BMAP;++j)
-			BM_Put_piece_at_pos (++pos);
+			BM_Put_piece_at_pos (&b , ++pos);
 			
 	return b;
 }
 
-BMAP BM_Put_piece_at_mat_coord ( BITMAP * B, int row, int col) {
+void BM_Put_piece_at_mat_coord ( BITMAP * B, int row, int col) {
 	
 	BM_Put_piece_at_coord ( B , SIZE_BMAP -1 - row , col );
 }

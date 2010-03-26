@@ -34,7 +34,7 @@
  * Output:1: string
  */
 
-char * toSAN(MOVE);
+char * Move_to_SAN (MOVE);
 
 /* Desc:
  * Transforma mutarea din san in standard intern
@@ -42,6 +42,6 @@ char * toSAN(MOVE);
  * Output:1: MOVE
  */
 
-MOVE fromSAN(char*)
+MOVE SAN_to_Move (char*);
 
 #endif /* SAN_H_ */

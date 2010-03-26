@@ -28,3 +28,8 @@ void cur_state_set ( STATE st) {
 	cur_state = st;
 }
 
+void cur_state_free ( void ) {
+	
+	ST_free ( cur_state );
+}
+
