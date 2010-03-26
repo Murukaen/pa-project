@@ -85,8 +85,7 @@ STATE state_gen(STATE start_state) {
 				/*copiez in new_state vechea lista de pozitii pt piese*/
 				for (j = 0; j < 2; j++) {
 					for (k = 0; k < 6; k++) {
-						ST_set_List_Table_Location(new_state, j, k, copy_list(
-								ST_get_List_Table_Location(start_state, j, k)));
+						ST_set_List_Table_Location(new_state, j, k, list_copy( ST_get_List_Table_Location (start_state, j, k)));
 					}
 				}
 				/*daca a fost captura*/
@@ -103,8 +102,9 @@ STATE state_gen(STATE start_state) {
 					ST_set_bitmap(new_state, T_BP, new);
 
 					/* sterg din lista new_state piesa care a fost capturata*/
-					delete_element_list(&ST_get_List_Table_Location(new_state,
-							~f_ENG_COL, piece_to_delete), loc, fequ_loc,
+					List aux_l = ST_get_List_Table_Location(new_state,
+							~f_ENG_COL, piece_to_delete);
+					delete_elem_list(&aux_l, (void *) loc, fequ_loc,
 							LOC_free);
 				}
 

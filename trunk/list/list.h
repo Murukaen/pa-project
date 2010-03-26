@@ -60,7 +60,7 @@ key first_nod_list(List*);
  * Input:1: list to copy
  * Output:1: the copy list
  */
-List copy_list ( List );
+List list_copy ( List );
 
 /* Desc:
  * Searches for an element within a list and removes it modifying the list

@@ -70,7 +70,7 @@ key first_nod_list(List* L) {
 	return (*L) -> data_list;
 }
 
-List copy_list ( List l ) {
+List list_copy ( List l ) {
 	
 	List new_l = new_list ();
 	key elem;
@@ -128,7 +128,7 @@ void delete_elem_list ( List * L , key k , FEQU fequ , FFREE ffree) {
 		
 List create_without_elem_list ( List L , key k , FEQU fequ, FFREE ffree) {
 	
-	List l_cp = copy_list ( L );
+	List l_cp = list_copy ( L );
 	
 	delete_elem_list ( &l_cp , k , fequ , ffree );
 	
