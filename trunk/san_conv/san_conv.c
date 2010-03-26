@@ -34,12 +34,12 @@ int is_check_mate(MOVE m, STATE cur){
 /* Prototip validate_move */
 
 int validate_move(MOVE m, STATE cur){
-	UCHAR piesa = move_get_m_tag(m);
+	UCHAR piesa = move_get_p_tag(m);
 	LOC l = move_get_poz_dst(m);
 	LOC s = move_get_poz_src(m);
 	BITMAP b = BM_Make_coord(l.row, l.col);
 	BITMAP juc = ST_get_bitmap(cur, move_get_what_col(m));
-	return b & MOVES[piesa][s.row][s.col] ^ (~juc);
+	return ( ( b & (Moves[piesa - PIECES_OFF ][s.row][s.col] ^ (~juc)) ) ? 1 : 0);
 }
 
 
@@ -193,7 +193,7 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 	LOC l;
 	LOC d;
 	int boo = 1;
-	BITMAP s = ST_get_bitmap(cur, piesa) & ST_get_piesa(cur, f_ENG_COL);
+	BITMAP s = ST_get_bitmap(cur, piesa) & ST_get_bitmap(cur, f_ENG_COL);
 	BM_Clear_piece_at_coord(&s, lp, cp);
 
 	/* Pt. fiecare element din b verificam daca se poate muta pe poz d */
@@ -208,7 +208,7 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 		LOC_set_both(d, ld, cd);
 		move_set_poz_dst(m, d);
 
-		if (validate_move(m)) {
+		if (validate_move(m,cur)) {
 			lg = lk;
 			cg = ck;
 			boo = 0;
@@ -236,7 +236,7 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 /* Gasirea piesei care trebuie mutata */
 
 LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
-	BITMAP b = ST_get_bitmap(cur, c) & ST_get_piesa(cur, f_ENG_COL);
+	BITMAP b = ST_get_bitmap(cur, c) & ST_get_bitmap (cur, f_ENG_COL);
 	LOC d;
 	UCHAR k, lk, ck;
 	int bool = 0, booc = 0;
@@ -258,7 +258,7 @@ LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
 		LOC_set_both(d, lk, ck);
 		move_set_poz_src(m, d);
 
-		if (validate_move(m)) {
+		if (validate_move(m, cur )) {
 			if (bool && booc){
 				move_free(m);
 				return d;

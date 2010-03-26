@@ -55,6 +55,12 @@ void move_set_p_rock ( MOVE mov , LOC poz );
 
 LOC move_get_p_rock ( MOVE mov );
 
+void move_set_what_col ( MOVE mov , UCHAR tag );
+
+UCHAR move_get_what_col ( MOVE mov );
+
+void move_free ( MOVE mov );
+
 /* ~~~ Test purposes ONLY ~~~ */
 
 void move_print ( MOVE , FILE * );

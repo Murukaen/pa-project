@@ -31,6 +31,13 @@ int f_ENG_COL;
 
 /* --- Procedures --- */
 
+/* Desc:
+ * Flags init
+ * 1.Engine not on move
+ * 2.Engine plays black
+ * Input:0
+ * Output:0
+ */
 void flags_init ();
 
 

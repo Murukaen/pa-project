@@ -3,8 +3,8 @@
  *
  */
 
-#ifndef SAN_H_
-#define SAN_H_
+#ifndef _SAN_H
+#define _SAN_H
 
 /* ----- System #includes ----- */
 #include <stdio.h>
