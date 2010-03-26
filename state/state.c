@@ -38,9 +38,9 @@ struct s_state {
 
 	/* Desc : current piece location [list] of the type (piece_to_move) which has to be processed by the state generating proocedure 
 	 * It is a current element [list] in the list given by Table_Location[f_ENG_COL][piece_to_move - PIECES_OFF] 
-	 * first_nod_list ( cur_list ) is the location [P_LOC] of the current piece to be handled with
+	 * first_nod_list ( cur_poz_in_list ) is the location [P_LOC] of the current piece to be handled with
 	 */
-	List cur_list; 
+	List cur_poz_in_list; 
 
 };
 /* ~~~ END state structure ~~~ */
@@ -117,14 +117,14 @@ UCHAR ST_get_move_index(STATE S){
 	return S -> move_index;
 }
 
-List ST_get_move_cur_list(STATE st){
+List ST_get_cur_poz_in_list(STATE st){
 
-	return st -> cur_list;
+	return st -> cur_poz_in_list;
 }
 
-void ST_set_move_cur_list(STATE st,List l){
+void ST_set_cur_poz_in_list(STATE st,List l){
 
-	st ->cur_list = l;
+	st ->cur_poz_in_list = l;
 }
 
 
@@ -204,11 +204,11 @@ void state_print ( STATE st , FILE * fout ) {
 	fprintf(fout , "\nmove_index: %u\n" , st -> move_index);
 	/* END Print move_index */
 	
-	/* Print cur_list */
-	l = st -> cur_list;
+	/* Print cur_poz_in_list */
+	l = st -> cur_poz_in_list;
 	loc = first_nod_list (&l);
-	fprintf(fout, "\ncur_list: ( %u , %u )\n}" , LOC_get_row ( loc ) , LOC_get_col ( loc ) );
-	/* END Print cur_list */
+	fprintf(fout, "\ncur_poz_in_list: ( %u , %u )\n}" , LOC_get_row ( loc ) , LOC_get_col ( loc ) );
+	/* END Print cur_poz_in_list */
 }
 
 UCHAR letter_to_tag ( char c ) {
@@ -273,9 +273,10 @@ STATE state_read ( FILE * fin ) {
 				color = letter_to_col ( c );
 				tag = letter_to_tag ( c );
 				
-				
-				BM_Put_piece_at_mat_coord ( &V_B[color] , row , col); // set the color BM
-				BM_Put_piece_at_mat_coord ( &V_B[tag] , row , col); // set the piece BM
+				if ( tag != T_NA ) {
+					BM_Put_piece_at_mat_coord ( &V_B[color] , row , col); // set the color BM
+					BM_Put_piece_at_mat_coord ( &V_B[tag] , row , col); // set the piece BM
+				}
 				T_W[row][col] = tag + BWP_OFF * color; // set T_W
 				if ( tag != T_NA ) {   
 					loc = LOC_new ();
@@ -298,7 +299,7 @@ STATE state_read ( FILE * fin ) {
 			ST_set_List_Table_Location ( st , i , j + PIECES_OFF , T_L [i][j] ); // set Table_Location
 	ST_set_move_index (st , m_index );
 	ST_set_piece_to_move ( st , p_to_move );
-	ST_set_move_cur_list ( st , c_list );
+	ST_set_cur_poz_in_list ( st , c_list );
 	/* END Set the new state */
 	
 	return st;

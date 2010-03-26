@@ -20,13 +20,19 @@ int main ( int argc , char ** argv ) {
 		/* Read from file in */
 		FILE *fin = fopen (argv[1] , "r");
 		fscanf(fin,"%s", com);
+		fgetc(fin);	
 		STATE st = state_read ( fin );
 		fclose(fin);
 		/* END Read from file in */
 		
+		FILE *fout = fopen(argv[2] , "w");
+		state_print(st , fout );
+		fclose(fout);
+		return 0;
+		
 		/* Inits */
 		flags_init ();
-		cur_state_set ( st );
+		//cur_state_set ( st );
 		/* END Inits */
 		
 		/* Calculate MOVE */
