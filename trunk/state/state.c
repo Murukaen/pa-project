@@ -19,10 +19,10 @@ struct s_state {
 
 	BITMAP V_BMAP[BMAP_NR_ST];
 
-	UCHAR Table_W[SIZE_BMAP][SIZE_BMAP]; // 8x8 tagul piesei de pe acea pozitie white: (2-7) ; black : (8-13)
+	UCHAR Table_What[SIZE_BMAP][SIZE_BMAP]; // 8x8 tagul piesei de pe acea pozitie white: (2-7) ; black : (8-13)
 										 // the diff is given by the BMAP_BWP_OFFSET ( Black/White Position OFFSET) = 6
 
-	List Table_P[NR_COLORS][NR_PIECES]; // [2 colors] x [6 types of pieces] lista cu pozitiile pieselor pe tabla 
+	List Table_Location[NR_COLORS][NR_PIECES]; // [2 colors] x [6 types of pieces] lista cu pozitiile pieselor pe tabla 
 						// Table_P[x][y] = lista de pozitii pe tabla de joc a piesei de culoarea x (0 - white, 1 - black )
 						// si de tag(tip) ( y + PIECES_OFF (2-7) )
 
@@ -100,7 +100,7 @@ void ST_set_piece_to_move(STATE st, UCHAR val) {
 	st -> piece_to_move = val;
 }
 
-int ST_get_piece_to_move(STATE st){
+UCHAR ST_get_piece_to_move(STATE st){
 
 	return st -> piece_to_move ;
 }
@@ -134,9 +134,26 @@ void ST_free(STATE st) {
 	int i, j;
 	for(i=0;i<NR_COLORS;++i)
 		for(j=0;j<NR_PIECES;++j)
-			free_list ( Table_P[i][j] , LOC_free );
+			free_list ( st -> Table_P[i][j] , LOC_free );
 			
 	free(st);
+}
+
+void tag_to_text ( UCHAR tag , char text [] ) {
+			
+	switch ( tag ) {
+			
+		case 0 : strcpy ( text , "White" ); break;
+		case 1 : strcpy ( text , "Black" ); break;
+		case 2 : strcpy ( text , "King" ); break;
+		case 3 : strcpy ( text , "Queen" ); break;
+		case 4 : strcpy ( text , "Rock" ); break;
+		case 5 : strcpy ( text , "Bishop" ); break;
+		case 6 : strcpy ( text , "Knight" ); break;
+		case 7 : strcpy ( text , "Pawn" ); break;
+			
+		default : strcpy ( text , "ERRTAG" ); 
+	}
 }
 
 void state_print ( STATE st , FILE * fout ) {
@@ -144,72 +161,37 @@ void state_print ( STATE st , FILE * fout ) {
 	int i, j;
 	List l;
 	P_LOC loc;
+	char text1[10]={0};
+	char text2[10]={0};
 	
 	/* Print V_BMAP */
-	fprintf(fout, "{\n V[White]=\n");
-	BM_print(st -> V[0], fout);
-	fprintf(fout, "\nV[Black]=\n");
-	BM_print(st -> V[1], fout);
-	fprintf(fout, "\nV[Kings]=\n");
-	BM_print(st -> V[2], fout);
-	fprintf(fout, "\nV[Queens]=\n");
-	BM_print(st -> V[3], fout);
-	fprintf(fout, "\nV[Rocks]=\n");
-	BM_print(st -> V[4], fout);
-	fprintf(fout, "\nV[Bishops]=\n");
-	BM_print(st -> V[5], fout);
-	fprintf(fout, "\nV[Knights]=\n");
-	BM_print(st -> V[6], fout);
-	fprintf(fout, "\nV[Pawns]=\n");
-	BM_print(st -> V[7], fout);
+	fprintf(fout, "{" );
+	for(i=0;i<SIZE_BMAP;++i) {
+		
+		tag_to_text ( i , text1 );
+		fprintf(fout, "\n V[%s]=\n" , text1 );
+		BM_print(st -> V_BMAP [i] );
+	}
 	/* END Print V_BMAP */
 	
 	/* Print Table_W */
-	fprintf(fout, "\nTable_W:\n");
+	fprintf(fout, "\nTable_What:\n");
 	for(i=0;i<SIZE_BMAP;++i, fprintf(fout, "\n") )
 		for(j=0;j<SIZE_BMAP;++j, fprintf(fout, " ") )
 			fprintf(fout, "%u" , Table_W[i][j] );
 	/* END Print Table_W */
 	
 	/* Print Table_P */
-	fprintf(fout, "\nTable_P:\n");
-	
-	fprintf(fout,"\nTable_P[White][King]:");
-	l = ST_get_List_Table_P(st, 0 , 2);
-	for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ));
-	fprintf(fout,"\nTable_P[White][Queen]:");
-	l = ST_get_List_Table_P(st, 0 , 3);
-	for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ));
-	fprintf(fout,"\nTable_P[White][Rock]:");
-	l = ST_get_List_Table_P(st, 0 , 4);
-	for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ));
-	fprintf(fout,"\nTable_P[White][Bishop]:");
-	l = ST_get_List_Table_P(st, 0 , 5);
-	for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ));
-	fprintf(fout,"\nTable_P[White][Knight]:");
-	l = ST_get_List_Table_P(st, 0 , 6);
-	for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ));
-	fprintf(fout,"\nTable_P[White][Pawn]:");
-	l = ST_get_List_Table_P(st, 0 , 7);
-	for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ));
-	fprintf(fout,"\nTable_P[White][King]:");
-	l = ST_get_List_Table_P(st, 1 , 2);
-	for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ));
-	fprintf(fout,"\nTable_P[White][Queen]:");
-	l = ST_get_List_Table_P(st, 1 , 3);
-	for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ));
-	fprintf(fout,"\nTable_P[White][Rock]:");
-	l = ST_get_List_Table_P(st, 1 , 4);
-	for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ));
-	fprintf(fout,"\nTable_P[White][Bishop]:");
-	l = ST_get_List_Table_P(st, 1 , 5);
-	for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ));
-	fprintf(fout,"\nTable_P[White][Knight]:");
-	l = ST_get_List_Table_P(st, 1 , 6);
-	for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ));
-	fprintf(fout,"\nTable_P[White][Pawn]:");
-	l = ST_get_List_Table_P(st, 1 , 7);
-	for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ));
+	fprintf(fout, "\nTable_Location:\n");
+	for(i=0;i<NR_COLORS;++i)
+		for(j=0;j<NR_PIECES;++j) {
+			
+			tag_to_text ( i , text1 );
+			tag_to_text ( j , text2 );
+			fprintf(fout, "\nTable_Location[%s][%s]:" , text1 , text2);
+			l = ST_get_List_Table_P(st, i , j);
+			for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ));
+		}
 	/* END Print Table_P */
 	
 	/* Print piece_to_move */

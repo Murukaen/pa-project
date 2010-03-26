@@ -6,6 +6,7 @@
 #define _BITMAP_H
 
 /* ----- System #includes ----- */
+#include <stdio.h>
 
 /* ----- Local #inlcudes ----- */
 #include "../Util/util.h"
@@ -106,7 +107,7 @@ void BM_print( BITMAP , FILE * );
  * Input:1: Matrix
  * Output:1: bitmap
  */ 
-BMAP Mat_to_BM ( UCHAR [][SIZE_BMAP] );
+BITMAP Mat_to_BM ( UCHAR [][SIZE_BMAP] );
 
 /* Desc:
  * TEST ONLY
@@ -114,7 +115,7 @@ BMAP Mat_to_BM ( UCHAR [][SIZE_BMAP] );
  * Input:3: address to bitmap, row, col
  * Output:0
  */
-BMAP BM_Put_piece_at_mat_coord ( BITMAP * , int , int );
+BITMAP BM_Put_piece_at_mat_coord ( BITMAP * , int , int );
 
 /* Desc:
  * TEST ONLY
