@@ -26,9 +26,11 @@
 #define T_NA 255 // N/A / Empty square
 /* END Tags */
 
-#define NR_A_P 6 // number of all types of pieces
-#define BMAP_TP_OFF 2 // bitmap tags pieces offset ( 2 - 7 )
-#define BMAP_BWP_OFF 6 // bitmap black/white pieces offset ( white : 2 - 7 ; black : 8 - 13 )
+#define NR_PIECES 6 // number of all types of pieces
+#define PIECES_OFF 2 // tags pieces offset ( 2 - 7 )
+#define BWP_OFF 6 // black/white pieces offset ( white : 2 - 7 ; black : 8 - 13 )
+#define NR_COLORS 2 // number of colors
+#define ANALYZED_PIECE T_N // current analyzed piece 
 
 /* --- Types --- */
 struct s_state;
@@ -68,6 +70,7 @@ void ST_set_Table_W (STATE, UCHAR [][SIZE_BMAP]);
 
 /* Desc:
  * Gets the tag from Table_W located at a given (row,col) position
+ * Tag : (2-7) for white , (8-13) for black 
  * Input:3: state , row , column
  * Output:1: tag
  */
@@ -75,21 +78,22 @@ UCHAR ST_get_tag_Table_W ( STATE , int , int );
 
 /* Desc:
  * Sets the tag from Table_W located at a given (row,col) position
+ * Tag : (2-7) for white , (8-13) for black 
  * Input:4: state , row , column , tag
  * Output:0
  */
 void ST_set_tag_Table_W ( STATE , int , int , UCHAR );
 
 /* Desc:
- * Gets the list of positions from Table_P from a given color tag ( 0 - 1 ) and a given piece tag ( [2 - 7] - BMAP_TP_OFF )
- * Input:3: state , col_tag , piece_tag
+ * Gets the list of positions from Table_P from a given color tag ( 0 - 1 ) and a given piece tag ( [2 - 7] - PIECES_OFF )
+ * Input:3: state , col_tag , piece_tag ( without !! OFFSET )
  * Output:1: List
  */
 List ST_get_List_Table_P ( STATE , int , int );
 
 /* Desc:
- * Sets the list of positions from Table_P from a given color tag ( 0 - 1 ) and a given piece tag ( [2 - 7] - BMAP_TP_OFF )
- * Input:3: state , col_tag , piece_tag , List
+ * Sets the list of positions from Table_P from a given color tag ( 0 - 1 ) and a given piece tag ( [2 - 7] - PIECES_OFF )
+ * Input:3: state , col_tag , piece_tag ( without !! OFFSET ) , List
  * Output:0
  */
 void ST_set_List_Table_P (STATE, int, int, List);
@@ -107,6 +111,7 @@ void ST_free(STATE);
 /* Desc:
  * Sets  the piece_to_move field ( current piece tag to move ) . Has values from (2-7)
  * Input:2: state , piece_tag (2-7)
+ * Important: The default value is: T_N ( !!! ONLY FOR KNIGHT ) , in rest is T_K
  * Output:0
  */
 void ST_set_piece_to_move(STATE , UCHAR);
@@ -121,6 +126,7 @@ UCHAR ST_get_piece_to_move(STATE);
 /* Desc:
  * Sets the move_index field ( current position in the bitmap of all validated pssible moves ) . Range : (0-63)
  * Input:2:state , index (0-63)
+ * Important: The default value is: 0
  * Output:0
  */
 void ST_set_move_index(STATE , UCHAR);
@@ -134,15 +140,18 @@ UCHAR ST_get_move_index(STATE);
 
 /* Desc:
  * Sets the current piece to move ( the current specific piece ) [List]
- * Input:2: state , address of piece location [List] ( element [List] of Table_P[f_ENG_COL][piece_to_move - BMAP_TP_OFF] ) 
+ * Input:2: state , address of piece location [List] ( element [List] of Table_P[f_ENG_COL][piece_to_move - PIECES_OFF] ) 
+ * first_nod_list ( cur_list ) is the location [P_LOC] of the current piece to be handled with
+ * Important: The default value is: Table_P[f_ENG_COL][piece_to_move - PIECES_OFF]
  * Output:0
  */
 void ST_set_move_cur_list(STATE , List);
 
 /* Desc:
  * Gets the current piece to move ( the current specific piece ) [List]
+ * first_nod_list ( cur_list ) is the location [P_LOC] of the current piece to be handled with
  * Input:1: state 
- * Output:1: address of piece location [List] ( element [List] of Table_P[f_ENG_COL][piece_to_move - BMAP_TP_OFF] ) 
+ * Output:1: address of piece location [List] ( element [List] of Table_P[f_ENG_COL][piece_to_move - PIECES_OFF] ) 
  */
 List ST_get_move_cur_list(STATE);
 
@@ -155,5 +164,16 @@ List ST_get_move_cur_list(STATE);
  * Output:0
  */
 void state_print ( STATE , FILE * );
+
+/* Desc:
+ * Read a state from a file in the following format
+ * 1) Matrix 8x8 of letters
+ * 2) Upper case is white , lower case is black
+ * 3) The letters are the usual notation of the pieces
+ * Examples: K - white king , q - black queen , b - black bishop , P - white pawn , N - white knight
+ * Input:1: file in
+ * Output:1: created state
+ */
+STATE state_read ( FILE * );
 
 #endif

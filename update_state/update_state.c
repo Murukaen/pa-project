@@ -46,8 +46,8 @@ void update_state(MOVE mov) {
 			b = ST_get_bitmap(cur, 1);
 			BM_Clear_piece_at_coord(&b,s.row, s.col);
 			ST_set_bitmap(cur, 1, b);
-			ST_set_tag_Table_W(cur, d.row, d.col, (c + BMAP_BWP_OFF));
-			list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c-BMAP_BWP_OFF);
+			ST_set_tag_Table_W(cur, d.row, d.col, (c + ST_BWP_OFF));
+			list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c-ST_BWP_OFF);
 		}
 		else{
 			b = ST_get_bitmap(cur, 0);
@@ -70,7 +70,7 @@ void update_state(MOVE mov) {
 			b = ST_get_bitmap(cur, 1);
 			BM_Clear_piece_at_coord(&b,s.row, s.col);
 			ST_set_bitmap(cur, 1, b);
-			ST_set_tag_Table_W(cur, d.row, d.col, (c + BMAP_BWP_OFF));
+			ST_set_tag_Table_W(cur, d.row, d.col, (c + ST_BWP_OFF));
 			list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c );
 		}
 		else{

@@ -1,3 +1,6 @@
+/* Implements list with start santinel
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "list.h"
@@ -136,24 +139,14 @@ List create_without_elem_list ( List L , key k , FEQU fequ, FFREE ffree) {
 
 void free_list(List L , FFREE fre ) {
 
-	if ( L == 0 ) return;
 	List aux;
-	if(L->next == NULL){
-		fre ( L-> data_list );
-		free(L); return;
-	}
-	L = L -> next;
-
-	while(L != NULL){
-
+	while( L ){
+		
 		aux = L;
 		L = L -> next;
 		fre(aux -> data_list );
 		free(aux);
-
 	}
-
-
 }
 
 void print_list(List L) {

@@ -85,6 +85,11 @@ void BM_Put_piece_at_BMAP(BITMAP* B, BITMAP P) {
 	(*B) |= P;
 }
 
+void BM_Put_piece_at_pos ( BITMAP* B, int pos) {
+	
+	(*B) |= M[pos];
+}
+
 void BM_Clear_piece_at_coord(BITMAP* B, int l, int c) {
 
 	register int pos = l * SIZE_BMAP + c;
@@ -130,7 +135,36 @@ void BM_print(BITMAP B , FILE * fout) {
 	for(i=0;i<SIZE_BMAP;++i, fprintf(fout , "\n") )
 		for(j=0;j<SIZE_BMAP; ++j , fprintf(fout , " ") )
 			fprintf(fout, "%u" , Mat[i][j] );
+			
 }
+
+BITMAP Mat_to_BM ( UCHAR Mat [][SIZE_BMAP] ) {
+	
+	BITMAP b = BM_NULL;
+	int i, j, pos = -1;
+	for(i=SIZE_BMAP-1;i>=0;--i)
+		for(j=0;j<=SIZE_BMAP;++j)
+			BM_Put_piece_at_pos (++pos);
+			
+	return b;
+}
+
+BMAP BM_Put_piece_at_mat_coord ( BITMAP * B, int row, int col) {
+	
+	BM_Put_piece_at_coord ( B , SIZE_BMAP -1 - row , col );
+}
+
+UCHAR BM_row ( UCHAR row ) {
+	
+	return SIZE_BMAP - 1 - row;
+}
+
+UCHAR BM_col ( UCHAR col ) {
+	
+	return col;
+}
+
+	
 	
 		
 
