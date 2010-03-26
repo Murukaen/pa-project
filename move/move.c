@@ -102,6 +102,21 @@ LOC move_get_p_rock ( MOVE mov ) {
 		return mov -> p_rock;
 }
 
+void move_set_what_col ( MOVE mov , UCHAR tag ) {
+	
+		mov -> what_col = tag;
+}
+
+UCHAR move_get_what_col ( MOVE mov ) {
+	
+		return mov -> what_col;
+}
+
+void move_free ( MOVE mov ) {
+	
+		free(mov);
+}
+
 void move_print ( MOVE mov , FILE * fout ) {
 	
 	fprintf(fout,"{ p_tag = %u ; poz_src = ( %u , %u ) ; poz_dst = ( %u , %u ) ; m_tag = %u ; p_tag_pro = %u ; p_rock = ( %u , %u ) ; what_col = %u }\n", mov -> p_tag , LOC_get_row ( &(mov -> poz_src) ) , LOC_get_col ( &(mov -> poz_src) ) , LOC_get_row ( &(mov -> poz_dst) ) , LOC_get_col ( &(mov -> poz_dst) ) , mov -> m_tag , mov -> p_tag_pro , LOC_get_row ( &(mov -> p_rock) ) , LOC_get_col ( &(mov -> p_rock) ) , mov -> what_col );
