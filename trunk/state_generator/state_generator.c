@@ -29,7 +29,7 @@
 STATE state_gen(STATE start_state) {
 
 	UCHAR index = ST_get_move_index(start_state);
-	List L = ST_get_move_cur_list(start_state);
+	List L = ST_get_cur_poz_in_list(start_state);
 	int i, j, k;
 	P_LOC loc;
 	BITMAP valid_moves;
@@ -49,7 +49,7 @@ STATE state_gen(STATE start_state) {
 				/*setez noul index*/
 				ST_set_move_index(new_state, i);
 				/*setez cur list*/
-				ST_set_move_cur_list(new_state, L);
+				ST_set_cur_poz_in_list(new_state, L);
 
 				/* setez noile V_BMAP*/
 
@@ -85,8 +85,8 @@ STATE state_gen(STATE start_state) {
 				/*copiez in new_state vechea lista de pozitii pt piese*/
 				for (j = 0; j < 2; j++) {
 					for (k = 0; k < 6; k++) {
-						ST_get_List_Table_Location(new_state, j, k, copy_list(
-								ST_get_List_Table_Location(start_state, j, k)) );
+						ST_set_List_Table_Location(new_state, j, k, copy_list(
+								ST_get_List_Table_Location(start_state, j, k)));
 					}
 				}
 				/*daca a fost captura*/
@@ -103,7 +103,7 @@ STATE state_gen(STATE start_state) {
 					ST_set_bitmap(new_state, T_BP, new);
 
 					/* sterg din lista new_state piesa care a fost capturata*/
-					delete_elem_list(&ST_get_List_Table_Location(new_state,
+					delete_element_list(&ST_get_List_Table_Location(new_state,
 							~f_ENG_COL, piece_to_delete), loc, fequ_loc,
 							LOC_free);
 				}
@@ -113,9 +113,10 @@ STATE state_gen(STATE start_state) {
 						new_state, f_ENG_COL, T_N), &loc, fequ_loc);
 				LOCp_set_both(loc_modificat, i / 8, i % 8);
 
-				/*am refacut table_w*/
+				/*am refacut Table_What*/
 				ST_set_tag_Table_What(new_state, i / 8, i % 8, T_N);
-				ST_set_tag_Table_What(new_state, LOC_get_row(loc),LOC_get_col(loc) );
+				ST_set_tag_Table_What(new_state, LOC_get_row(loc),
+						LOC_get_col(loc));
 
 			}
 

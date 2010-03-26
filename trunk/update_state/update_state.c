@@ -88,7 +88,7 @@ void update_state(MOVE mov) {
 	}
 	b = ST_get_bitmap(cur, f_ENG_COL) ^ BM_Make_coord(s.row, s.col);
 	ST_set_bitmap(cur, f_ENG_COL, b);
-	ST_set_move_cur_list(cur, ST_get_List_Table_Location(cur, f_ENG_COL, c));
+	ST_set_cur_poz_in_list(cur, ST_get_List_Table_Location(cur, f_ENG_COL, c));
 	ST_set_move_index(cur, 0);
 	ST_set_piece_to_move(cur, T_N);
 }
