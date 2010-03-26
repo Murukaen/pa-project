@@ -76,7 +76,7 @@ STATE state_gen(STATE start_state) {
 				}
 
 				/*refac bitmapul pentru cai*/
-				new = ST_get_bitmap(start_state, T_N);
+				BITMAP new = ST_get_bitmap(start_state, T_N);
 				BM_Clear_piece_at_BMAP(&new, BM_Make_coord(LOC_get_row(loc),
 						LOC_get_col(loc)));
 				BM_Put_piece_at_coord(&new, i / 8, i % 8);
@@ -85,8 +85,8 @@ STATE state_gen(STATE start_state) {
 				/*copiez in new_state vechea lista de pozitii pt piese*/
 				for (j = 0; j < 2; j++) {
 					for (k = 0; k < 6; k++) {
-						ST_set_List_Table_P(new_state, j, k, copy_list(
-								ST_get_List_Table_P(start_state, j, k)));
+						ST_get_List_Table_Location(new_state, j, k, copy_list(
+								ST_get_List_Table_Location(start_state, j, k)) );
 					}
 				}
 				/*daca a fost captura*/
@@ -94,7 +94,7 @@ STATE state_gen(STATE start_state) {
 						BM_Make_coord(LOC_get_row(loc), LOC_get_col(loc)))) {
 
 					/*identific piesa capturata*/
-					UCHAR piece_to_delete = ST_get_tag_Table_W(start_state, i / 8,
+					UCHAR piece_to_delete = ST_get_tag_Table_What(start_state, i / 8,
 							i % 8);
 
 					/* iau bitmapul pieselor de tipul celei capturate si il modific*/
@@ -103,20 +103,19 @@ STATE state_gen(STATE start_state) {
 					ST_set_bitmap(new_state, T_BP, new);
 
 					/* sterg din lista new_state piesa care a fost capturata*/
-					delete_element_list(&ST_get_List_Table_P(new_state,
+					delete_elem_list(&ST_get_List_Table_Location(new_state,
 							~f_ENG_COL, piece_to_delete), loc, fequ_loc,
-							ffree_loc);
+							LOC_free);
 				}
 
 				/*modific din lista new_state locatia piesei mutate*/
-				P_LOC loc_modificat = find_nod_list(ST_get_List_Table_P(
+				P_LOC loc_modificat = find_nod_list(ST_get_List_Table_Location(
 						new_state, f_ENG_COL, T_N), &loc, fequ_loc);
 				LOCp_set_both(loc_modificat, i / 8, i % 8);
 
 				/*am refacut table_w*/
-				ST_set_tag_Table_W(new_state, i / 8, i % 8, T_N);
-				ST_set_tag_Table_W(new_state, LOC_get_row(loc),
-						LOC_get_col(loc));
+				ST_set_tag_Table_What(new_state, i / 8, i % 8, T_N);
+				ST_set_tag_Table_What(new_state, LOC_get_row(loc),LOC_get_col(loc) );
 
 			}
 
