@@ -11,19 +11,21 @@
 
 /* ---- Macro #define ---- */
 
-#define BMAP_NR_ST 8 // number of bitmaps in a state
+#define BMAP_NR_ST 8 // number of bitmaps in a state ; each for each general tag (0-7)
 /* --- Types --- */
 
-/* ~~~ state structure ~~~ */
+/* ~~~ STATE structure ~~~ */
 struct s_state {
 
 	BITMAP V_BMAP[BMAP_NR_ST];
 
 	UCHAR Table_W[SIZE_BMAP][SIZE_BMAP]; // 8x8 ce piesa e acolo
 
-	List Table_P[2][6]; // [2 players] x [6 types of pieces] lista cu pozitiile pieselor
+	List Table_P[2][6]; // [2 colors] x [6 types of pieces] lista cu pozitiile pieselor pe tabla 
+						// Table_P[x][y] = lista de pozitii pe tabla de joc a piesei de culoarea x (0 - white, 1 - black )
+						// si de tag(tip) ( y + BMAP_TP_OFF (2-7) )
 
-	/*  --- Used only in state generator : --- */
+	/*  --- Used ONLY in state generator : --- */
 	
 	/* Desc : the TYPE ( tag ) of piece to be moved (2,7) */
 	UCHAR piece_to_move;

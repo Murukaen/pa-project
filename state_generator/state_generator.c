@@ -61,7 +61,7 @@ STATE state_gen(STATE start_state) {
 
 				if (f_ENG_COL == 0) { // ma uit in care bitmap de ce culoare tre sa sterg
 
-					BITMAP new = ST_get_V_BMAP(start_state, 0);
+					BITMAP new = ST_get_bitmap(start_state, 0);
 					BM_Clear_piece_at_BMAP(&new, BM_Make_coord(
 							LOC_get_row(loc), LOC_get_col(loc)));
 					BM_Put_piece_at_coord(&new, i / 8, i % 8);
@@ -69,7 +69,7 @@ STATE state_gen(STATE start_state) {
 
 				} else {
 
-					BITMAP new = ST_get_V_BMAP(start_state, 1);
+					BITMAP new = ST_get_bitmap(start_state, 1);
 					BM_Clear_piece_at_BMAP(&new, BM_Make_coord(
 							LOC_get_row(loc), LOC_get_col(loc)));
 					BM_Put_piece_at_coord(&new, i / 8, i % 8);
@@ -77,7 +77,7 @@ STATE state_gen(STATE start_state) {
 				}
 
 				/*refac bitmapul pentru cai*/
-				new = ST_get_V_BMAP(start_state, T_N);
+				new = ST_get_bitmap(start_state, T_N);
 				BM_Clear_piece_at_BMAP(&new, BM_Make_coord(LOC_get_row(loc),
 						LOC_get_col(loc)));
 				BM_Put_piece_at_coord(&new, i / 8, i % 8);
@@ -91,15 +91,15 @@ STATE state_gen(STATE start_state) {
 					}
 				}
 				/*daca a fost captura*/
-				if (!BM_Compare_BMAPs(ST_get_V_BMAP(start_state, ~f_ENG_COL),
+				if (!BM_Compare_BMAPs(ST_get_bitmap(start_state, ~f_ENG_COL),
 						BM_Make_coord(LOC_get_row(loc), LOC_get_col(loc)))) {
 
 					/*identific piesa capturata*/
-					UCHAR piece_to_delete = ST_get_Table_W(start_state, i / 8,
+					UCHAR piece_to_delete = ST_get_tag_Table_W(start_state, i / 8,
 							i % 8);
 
 					/* iau bitmapul pieselor de tipul celei capturate si il modific*/
-					new = ST_get_V_BMAP(start_state, piece_to_delete);
+					new = ST_get_bitmap(start_state, piece_to_delete);
 					BM_Clear_piece_at_BMAP(&new, BM_Make_coord(i / 8, i % 8));
 					ST_set_bitmap(new_state, T_BP, new);
 

@@ -112,22 +112,58 @@ BITMAP ST_get_V_BMAP (STATE ,int );
 void ST_free(STATE);
 
 
-/* Used by state generator : */
+/* ~~~ Used by state generator ONLY : ~~~ */
 
+/* Desc:
+ * Sets  the piece_to_move field ( current piece tag to move ) . Has values from (2-7)
+ * Input:2: state , piece_tag (2-7)
+ * Output:0
+ */
 void ST_set_piece_to_move(STATE , UCHAR);
 
-int ST_get_piece_to_move(STATE);
+/* Desc:
+ * Gets  the piece_to_move field ( current piece tag to move ) . Has values from (2-7)
+ * Input:1: state 
+ * Output:1: piece_tag (2-7)
+ */
+UCHAR ST_get_piece_to_move(STATE);
 
-void ST_set_move_cur_list(STATE , List);
-
-List ST_get_move_cur_list(STATE);
-
+/* Desc:
+ * Sets the move_index field ( current position in the bitmap of all validated pssible moves ) . Range : (0-63)
+ * Input:2:state , index (0-63)
+ * Output:0
+ */
 void ST_set_move_index(STATE , UCHAR);
 
+/* Desc:
+ * Gets the move_index field ( current position in the bitmap of all validated pssible moves ) . Range : (0-63)
+ * Input:1: state 
+ * Output:1: index (0-63)
+ */
 UCHAR ST_get_move_index(STATE);
 
-/* Test purposes : */
+/* Desc:
+ * Sets the current piece to move ( the current specific piece ) [List]
+ * Input:2: state , address of piece location [List] ( element [List] of Table_P[f_ENG_COL][piece_to_move - BMAP_TP_OFF] ) 
+ * Output:0
+ */
+void ST_set_move_cur_list(STATE , List);
 
+/* Desc:
+ * Gets the current piece to move ( the current specific piece ) [List]
+ * Input:1: state 
+ * Output:1: address of piece location [List] ( element [List] of Table_P[f_ENG_COL][piece_to_move - BMAP_TP_OFF] ) 
+ */
+List ST_get_move_cur_list(STATE);
+
+
+/* ~~~ Test purposes ONLY : ~~~ */
+
+/* Desc:
+ * Test only. Prints the state strucutre fileds 
+ * Input:2:state, file out
+ * Output:0
+ */
 void state_print ( STATE , FILE * );
 
 #endif
