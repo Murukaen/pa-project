@@ -20,14 +20,14 @@
 #define I_B 2594073385365405732LL
 #define I_N 4755801206503243842LL
 #define I_P 71776119061282560LL
-#define I_WPos -281474976710656LL
-#define I_BPos 65535LL
+#define I_WPos 65535LL
+#define I_BPos -281474976710656LL
 
 /* --- Types --- */
 
 /* --- Procedures --- */
 
-void Read_all_possible_moves( BITMAP Moves[5][8][8]) {
+void Read_all_possible_moves(BITMAP Moves[5][8][8]) {
 
 	FILE * fin = fopen("Database/All_moves.in", "rb");
 	if (fin == NULL) {
@@ -62,7 +62,7 @@ void Read_all_possible_moves( BITMAP Moves[5][8][8]) {
 			fread(&R[i][j], 8, 1, fin);
 			Moves[2][i][j] = R[i][j];
 			fread(&B[i][j], 8, 1, fin);
-			Moves[3][i][j] =B[i][j];
+			Moves[3][i][j] = B[i][j];
 			fread(&N[i][j], 8, 1, fin);
 			Moves[4][i][j] = N[i][j];
 		}
@@ -90,11 +90,15 @@ STATE Read_initial_state() {
 
 	STATE S = ST_new();
 
-	UCHAR Type_matrix[8][8] = { { 4, 6, 5, 3, 2, 5, 6, 4 }, { 7, 7, 7, 7, 7, 7,
-			7, 7 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 255, 255,
-			255, 255, 255, 255, 255, 255 }, { 255, 255, 255, 255, 255, 255,
-			255, 255 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 7, 7, 7,
-			7, 7, 7, 7, 7 }, { 4, 6, 5, 3, 2, 5, 6, 4 } };
+	UCHAR Type_matrix[8][8] = { { 4 + BWP_OFF, 6 + BWP_OFF, 5 + BWP_OFF, 3
+			+ BWP_OFF, 2 + BWP_OFF, 5 + BWP_OFF, 6 + BWP_OFF, 4 + BWP_OFF }, {
+			7 + BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF, 7
+					+ BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF }, { 255, 255, 255,
+			255, 255, 255, 255, 255 },
+			{ 255, 255, 255, 255, 255, 255, 255, 255 }, { 255, 255, 255, 255,
+					255, 255, 255, 255 }, { 255, 255, 255, 255, 255, 255, 255,
+					255 }, { 7, 7, 7, 7, 7, 7, 7, 7 },
+			{ 4, 6, 5, 3, 2, 5, 6, 4 } };
 
 	ST_set_Table_What(S, Type_matrix);
 
@@ -133,12 +137,12 @@ STATE Read_initial_state() {
 				LOCp_set_both(loc, (UCHAR) linie, (UCHAR) coloana);
 				add_nod_list(list, loc);
 			}
-			ST_set_List_Table_Location(S, i, j + PIECES_OFF , list);
+			ST_set_List_Table_Location(S, i, j + PIECES_OFF, list);
 		}
 	}
 
-	ST_set_move_index(S,0);
-	ST_set_piece_to_move(S,T_N);
+	ST_set_move_index(S, 0);
+	ST_set_piece_to_move(S, T_N);
 
 	return S;
 }
