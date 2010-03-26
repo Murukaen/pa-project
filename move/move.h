@@ -6,6 +6,7 @@
 #define _MOVE_H
 
 /* ----- System #includes ----- */
+#include <stdio.h>
 
 /* ----- Local #inlcudes ----- */
 #include "../Util/util.h"
@@ -53,6 +54,8 @@ UCHAR move_get_p_tag_pro ( MOVE mov );
 void move_set_p_rock ( MOVE mov , LOC poz );
 
 LOC move_get_p_rock ( MOVE mov );
+
+/* ~~~ Test purposes ONLY ~~~ */
 
 void move_print ( MOVE , FILE * );
 
