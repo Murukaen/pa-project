@@ -33,7 +33,7 @@ void BM_init ( void );
 /* Creeaza un bitmap cu valoarea 1 pe pozitia data ca argument
  * 0 in coltul stanga jos si 63 in coltul dreapta sus
 */
-BITMAP BM_Make_pos(UCHAR);
+BITMAP BM_Make_pos(int);
 
 
 /* Creeaza un bitmap cu valoarea 1 pe pozitia data ca argument
@@ -115,7 +115,7 @@ BITMAP Mat_to_BM ( UCHAR [][SIZE_BMAP] );
  * Input:3: address to bitmap, row, col
  * Output:0
  */
-BITMAP BM_Put_piece_at_mat_coord ( BITMAP * , int , int );
+void BM_Put_piece_at_mat_coord ( BITMAP * , int , int );
 
 /* Desc:
  * TEST ONLY

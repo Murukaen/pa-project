@@ -5,9 +5,11 @@
 /* ----- System #includes ----- */
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 
 /* ----- Local #inlcudes ----- */
 #include "state.h"
+#include "../Flags/flags.h"
 
 /* ---- Macro #define ---- */
 
@@ -23,7 +25,7 @@ struct s_state {
 										 // the diff is given by the BMAP_BWP_OFFSET ( Black/White Position OFFSET) = 6
 
 	List Table_Location[NR_COLORS][NR_PIECES]; // [2 colors] x [6 types of pieces] lista cu pozitiile pieselor pe tabla 
-						// Table_P[x][y] = lista de pozitii pe tabla de joc a piesei de culoarea x (0 - white, 1 - black )
+						// Table_Location[x][y] = lista de pozitii pe tabla de joc a piesei de culoarea x (0 - white, 1 - black )
 						// si de tag(tip) ( y + PIECES_OFF (2-7) )
 
 	/*  --- Used ONLY in state generator : --- */
@@ -35,7 +37,7 @@ struct s_state {
 	UCHAR move_index;
 
 	/* Desc : current piece location [list] of the type (piece_to_move) which has to be processed by the state generating proocedure 
-	 * It is a current element [list] in the list given by Table_P[f_ENG_COL][piece_to_move - PIECES_OFF] 
+	 * It is a current element [list] in the list given by Table_Location[f_ENG_COL][piece_to_move - PIECES_OFF] 
 	 * first_nod_list ( cur_list ) is the location [P_LOC] of the current piece to be handled with
 	 */
 	List cur_list; 
@@ -66,33 +68,33 @@ void ST_set_bitmap(STATE st, int tag, BITMAP b) {
 	st -> V_BMAP[tag] = b;
 }
 
-void ST_set_table_W(STATE st, UCHAR ** T) {
+void ST_set_Table_What(STATE st, UCHAR T [][SIZE_BMAP]) {
 
 	int i, j;
 	for (i = 0; i < SIZE_BMAP; ++i)
 		for (j = 0; j < SIZE_BMAP; ++j)
-			st -> Table_W[i][j] = T[i][j];
+			st -> Table_What[i][j] = T[i][j];
 
 }
 
-void ST_set_tag_Table_W(STATE st, int row, int col, UCHAR tag) {
+void ST_set_tag_Table_What(STATE st, int row, int col, UCHAR tag) {
 
-	st -> Table_W[row][col] = tag;
+	st -> Table_What[row][col] = tag;
 }
 
-UCHAR ST_get_tag_Table_W(STATE st, int row, int col) {
+UCHAR ST_get_tag_Table_What(STATE st, int row, int col) {
 
-	return st -> Table_W[row][col];
+	return st -> Table_What[row][col];
 }
 
-List ST_get_List_Table_P(STATE st, int col_tag, int piece_tag) {
+List ST_get_List_Table_Location(STATE st, int col_tag, int piece_tag) {
 
-	return st -> Table_P[col_tag][piece_tag - PIECES_OFF];
+	return st -> Table_Location[col_tag][piece_tag - PIECES_OFF];
 }
 
-void ST_set_List_Table_P(STATE st, int col_tag, int piece_tag, List list) {
+void ST_set_List_Table_Location(STATE st, int col_tag, int piece_tag, List list) {
 
-	st -> Table_P[col_tag][piece_tag - PIECES_OFF] = list;
+	st -> Table_Location[col_tag][piece_tag - PIECES_OFF] = list;
 }
 
 void ST_set_piece_to_move(STATE st, UCHAR val) {
@@ -130,11 +132,11 @@ void ST_free(STATE st) {
 
 	if (st == 0)
 		return;
-	/* Free Table_P */
+	/* Free Table_Location */
 	int i, j;
 	for(i=0;i<NR_COLORS;++i)
 		for(j=0;j<NR_PIECES;++j)
-			free_list ( st -> Table_P[i][j] , LOC_free );
+			free_list ( st -> Table_Location[i][j] , LOC_free );
 			
 	free(st);
 }
@@ -170,18 +172,18 @@ void state_print ( STATE st , FILE * fout ) {
 		
 		tag_to_text ( i , text1 );
 		fprintf(fout, "\n V[%s]=\n" , text1 );
-		BM_print(st -> V_BMAP [i] );
+		BM_print(st -> V_BMAP [i] , fout );
 	}
 	/* END Print V_BMAP */
 	
-	/* Print Table_W */
+	/* Print Table_What */
 	fprintf(fout, "\nTable_What:\n");
 	for(i=0;i<SIZE_BMAP;++i, fprintf(fout, "\n") )
 		for(j=0;j<SIZE_BMAP;++j, fprintf(fout, " ") )
-			fprintf(fout, "%u" , Table_W[i][j] );
-	/* END Print Table_W */
+			fprintf(fout, "%u" , st -> Table_What[i][j] );
+	/* END Print Table_What */
 	
-	/* Print Table_P */
+	/* Print Table_Location */
 	fprintf(fout, "\nTable_Location:\n");
 	for(i=0;i<NR_COLORS;++i)
 		for(j=0;j<NR_PIECES;++j) {
@@ -189,10 +191,10 @@ void state_print ( STATE st , FILE * fout ) {
 			tag_to_text ( i , text1 );
 			tag_to_text ( j , text2 );
 			fprintf(fout, "\nTable_Location[%s][%s]:" , text1 , text2);
-			l = ST_get_List_Table_P(st, i , j);
+			l = ST_get_List_Table_Location(st, i , j);
 			for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ));
 		}
-	/* END Print Table_P */
+	/* END Print Table_Location */
 	
 	/* Print piece_to_move */
 	fprintf(fout , "\npiece_to_move: %u\n" , st -> piece_to_move);
@@ -226,7 +228,7 @@ UCHAR letter_to_tag ( char c ) {
 	}
 }
 
-UCHAR letter_to_col ( chat c ) {
+UCHAR letter_to_col ( char c ) {
 	
 	if ( isupper (c) ) return 0;  // White
 	
@@ -250,7 +252,7 @@ STATE state_read ( FILE * fin ) {
 	/* Structure fields */	
 	BITMAP V_B[SIZE_BMAP]={0}; // all the 8 bitmaps
 	UCHAR T_W [SIZE_BMAP][SIZE_BMAP];
-	List T_P [NR_COLORS][NR_PIECES]; // 2 x 6
+	List T_L [NR_COLORS][NR_PIECES]; // 2 x 6
 	UCHAR p_to_move;
 	UCHAR m_index;
 	List c_list;
@@ -259,7 +261,7 @@ STATE state_read ( FILE * fin ) {
 	/* Inits */
 	for(i=0;i<NR_COLORS;++i)
 		for(j=0;j<NR_PIECES;++j)
-			T_P = new_list ();
+			T_L[i][j] = new_list ();
 	/* END Inits */
 
 	/* Read from file */
@@ -274,26 +276,26 @@ STATE state_read ( FILE * fin ) {
 				
 				BM_Put_piece_at_mat_coord ( &V_B[color] , row , col); // set the color BM
 				BM_Put_piece_at_mat_coord ( &V_B[tag] , row , col); // set the piece BM
-				T_W[row][col] = tag + ST_BWP_OFF * color; // set T_W
+				T_W[row][col] = tag + BWP_OFF * color; // set T_W
 				if ( tag != T_NA ) {   
 					loc = LOC_new ();
 					LOCp_set_both ( loc , row , col );
-					add_nod_list ( T_P[color][tag - PIECES_OFF] , (void *) loc );  // ser T_P
+					add_nod_list ( T_L[color][tag - PIECES_OFF] , (void *) loc );  // ser T_P
 				}		
 		}
 		
 	p_to_move = ANALYZED_PIECE;
 	m_index = 0;
-	c_list = T_P [f_ENG_COL][ ANALYZED_PIECE - PIECES_OFF];
+	c_list = T_L [f_ENG_COL][ ANALYZED_PIECE - PIECES_OFF];
 	/* END Read from file */
 	
 	/* Set the new state */
 	for(i=0;i<SIZE_BMAP;++i)   // set bitmaps ( V_BMAP )
 		ST_set_bitmap ( st , i , V_B[i] );
-	ST_set_Table_W ( st , T_W ); // set Table_W
+	ST_set_Table_What ( st , T_W ); // set Table_W
 	for(i=0;i<NR_COLORS;++i)
 		for(j=0;j<NR_PIECES;++j)
-			ST_set_List_Table_P ( st , i , j + PIECES_OFF , T_P [i][j] ); // set Table_P
+			ST_set_List_Table_Location ( st , i , j + PIECES_OFF , T_L [i][j] ); // set Table_Location
 	ST_set_move_index (st , m_index );
 	ST_set_piece_to_move ( st , p_to_move );
 	ST_set_move_cur_list ( st , c_list );

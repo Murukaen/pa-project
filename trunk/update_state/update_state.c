@@ -38,28 +38,28 @@ void update_state(MOVE mov) {
 	List list;
 	BITMAP b = ST_get_bitmap(cur, c) ^ BM_Make_coord(s.row, s.col);
 	ST_set_bitmap(cur, c, b);
-	ST_set_tag_Table_W(cur, s.row, s.col, T_NA);
-	if (ST_get_tag_Table_W(cur, d.row, d.col) == T_NA) {
+	ST_set_tag_Table_What(cur, s.row, s.col, T_NA);
+	if (ST_get_tag_Table_What(cur, d.row, d.col) == T_NA) {
 		b = ST_get_bitmap(cur, c) | BM_Make_coord(d.row, d.col);
 		ST_set_bitmap(cur, c, b);
 		if (~(f_ENG_COL ^ f_ENG_ON_MOVE)){
 			b = ST_get_bitmap(cur, 1);
 			BM_Clear_piece_at_coord(&b,s.row, s.col);
 			ST_set_bitmap(cur, 1, b);
-			ST_set_tag_Table_W(cur, d.row, d.col, (c + ST_BWP_OFF));
-			list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c-ST_BWP_OFF);
+			ST_set_tag_Table_What(cur, d.row, d.col, (c + ST_BWP_OFF));
+			list = ST_get_List_Table_Location(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c-ST_BWP_OFF);
 		}
 		else{
 			b = ST_get_bitmap(cur, 0);
 			BM_Clear_piece_at_coord(&b,s.row, s.col);
 			ST_set_bitmap(cur, 0, b);
-			ST_set_tag_Table_W(cur, d.row, d.col, c);
-			list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c);
+			ST_set_tag_Table_What(cur, d.row, d.col, c);
+			list = ST_get_List_Table_Location(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c);
 		}
 		P_LOC l = find_nod_list(list, &s, fequ_loc);
 		LOCp_set_both(l, d.row, d.col);
 	} else {
-		UCHAR adv = ST_get_tag_Table_W(cur, d.row, d.col);
+		UCHAR adv = ST_get_tag_Table_What(cur, d.row, d.col);
 		b = ST_get_bitmap(cur, adv);
 		BM_Clear_piece_at_coord(&b, s.row, s.col);
 		ST_set_bitmap(cur, adv, b);
@@ -70,15 +70,15 @@ void update_state(MOVE mov) {
 			b = ST_get_bitmap(cur, 1);
 			BM_Clear_piece_at_coord(&b,s.row, s.col);
 			ST_set_bitmap(cur, 1, b);
-			ST_set_tag_Table_W(cur, d.row, d.col, (c + ST_BWP_OFF));
-			list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c );
+			ST_set_tag_Table_What(cur, d.row, d.col, (c + ST_BWP_OFF));
+			list = ST_get_List_Table_Location(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c );
 		}
 		else{
 			b = ST_get_bitmap(cur, 0);
 			BM_Clear_piece_at_coord(&b, s.row, s.col);
 			ST_set_bitmap(cur, 0, b);
-			ST_set_tag_Table_W(cur, d.row, d.col, c);
-			list = ST_get_List_Table_P(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c);
+			ST_set_tag_Table_What(cur, d.row, d.col, c);
+			list = ST_get_List_Table_Location(cur, ~(f_ENG_COL ^ f_ENG_ON_MOVE), c);
 		}
 		delete_elem_list(&list, &d, fequ_loc, ffree_loc);
 		P_LOC l = find_nod_list(list, &s, fequ_loc);
@@ -86,7 +86,7 @@ void update_state(MOVE mov) {
 	}
 	b = ST_get_bitmap(cur, f_ENG_COL) ^ BM_Make_coord(s.row, s.col);
 	ST_set_bitmap(cur, f_ENG_COL, b);
-	ST_set_move_cur_list(cur, ST_get_List_Table_P(cur, f_ENG_COL, c ));
+	ST_set_move_cur_list(cur, ST_get_List_Table_Location(cur, f_ENG_COL, c ));
 	ST_set_move_index(cur, 0);
 	ST_set_piece_to_move(cur, T_N);
 }

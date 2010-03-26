@@ -276,7 +276,7 @@ LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
 
 /* --- Procedures --- */
 
-char* toSAN(MOVE s) {
+char* Move_to_SAN(MOVE s) {
 	if (move_get_m_tag(s)) {
 		char *msg = (char*) malloc(5 * sizeof(char));
 		msg = "O-O-O";
@@ -345,7 +345,7 @@ char* toSAN(MOVE s) {
 	}
 }
 
-MOVE from_SAN(char* s) {
+MOVE SAN_to_Move(char* s) {
 	MOVE m = move_new();
 	STATE cur = cur_state_get();
 	if (strcmp(s, "O-O") == 0 || strcmp(s, "o-o") == 0 || strcmp(s, "0-0") == 0) {

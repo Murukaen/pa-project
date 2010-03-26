@@ -31,5 +31,12 @@ STATE cur_state_get ( void );
  */
 void cur_state_set ( STATE );
 
+/* Desc:
+ * Destructor Current State ( removes all data from the state )
+ * Input:0
+ * Output:0
+ */
+void cur_state_free ( void );
+
 #endif
 

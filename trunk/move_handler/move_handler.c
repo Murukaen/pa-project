@@ -72,12 +72,12 @@ MOVE determine_move ( STATE st_next) {
 			which_piece=T_K;
 			move_set_p_tag (mov , which_piece); //setez regele la mutare
 
-			list_poz_moved_p = ST_get_List_Table_P ( st_prev , my_pieces , which_piece );
+			list_poz_moved_p = ST_get_List_Table_Location ( st_prev , my_pieces , which_piece );
 			//lista pentru starea curenta
 
 			for ( loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) ; loc ; )
 
-						if (  ST_get_tag_Table_W ( st_next , LOC_get_row ( loc ) , LOC_get_col ( loc ) ) == T_NA ) {
+						if (  ST_get_tag_Table_What ( st_next , LOC_get_row ( loc ) , LOC_get_col ( loc ) ) == T_NA ) {
 
 								move_set_poz_src ( mov ,  *loc);  // setez in mutare pozitia de plecare
 
@@ -86,7 +86,7 @@ MOVE determine_move ( STATE st_next) {
 			
 			where_moved = (~ ( my_pic_prev & ST_get_bitmap (st_prev, which_piece ) ) ) & ( my_pic_prev & ST_get_bitmap (st_next, which_piece ) ) );
 
-			list_poz_moved_p = ST_get_List_Table_P ( st_next , my_pieces , which_piece );
+			list_poz_moved_p = ST_get_List_Table_Location ( st_next , my_pieces , which_piece );
 			//lista pentru starea urmatoare
 
 			for ( loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) ; loc ; )
@@ -143,11 +143,11 @@ MOVE determine_move ( STATE st_next) {
 	
 	move_set_p_tag (mov , which_piece);  // setez in mutare tag_piece
 	
-	list_poz_moved_p = ST_get_List_Table_P ( st_prev , my_pieces , which_piece );
+	list_poz_moved_p = ST_get_List_Table_Location ( st_prev , my_pieces , which_piece );
 	
 	for ( loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) ; loc ; )
 		
-			if (  ST_get_tag_Table_W ( st_next , LOC_get_row ( loc ) , LOC_get_col ( loc ) ) == T_NA ) {
+			if (  ST_get_tag_Table_What ( st_next , LOC_get_row ( loc ) , LOC_get_col ( loc ) ) == T_NA ) {
 				 
 					move_set_poz_src ( mov ,  *loc);  // setez in mutare pozitia de plecare
 					
@@ -157,7 +157,7 @@ MOVE determine_move ( STATE st_next) {
 	
 	where_moved = (~ ( my_pic_prev & ST_get_bitmap (st_prev, which_piece ) ) ) & ( my_pic_prev & ST_get_bitmap (st_next, which_piece ) ) );
 	
-	list_poz_moved_p = ST_get_List_Table_P ( st_next , my_pieces , which_piece );
+	list_poz_moved_p = ST_get_List_Table_Location ( st_next , my_pieces , which_piece );
 	//lista pentru starea urmatoare
 
 
