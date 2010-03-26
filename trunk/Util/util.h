@@ -44,6 +44,8 @@ UCHAR LOC_get_row ( P_LOC );
 
 UCHAR LOC_get_col ( P_LOC );
 
+void LOC_free ( void * );
+
 /* Desc:
  * Transforms (row,col) coordinates into linear pozition equivalent 
  * Input:1: LOC structure

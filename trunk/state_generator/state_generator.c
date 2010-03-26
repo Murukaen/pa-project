@@ -17,7 +17,6 @@
 #include "../compare/compare.h"
 
 /* ---- Macro #define ---- */
-#define NR_PIECES 5
 
 /* --- Types --- */
 

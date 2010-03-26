@@ -9,7 +9,6 @@
 #include "../Flags/flags.h"
 #include "../Util/util.h"
 
-#define NR_A_PO ( NR_A_P + BMAP_TP_OFF )
 
 /* ---- Macro #define ---- */
 
@@ -42,7 +41,7 @@ MOVE determine_move ( STATE st_next) {
 	// Here list_poz_moved_p is the list with the initial pozitions of the moved piece
 
 	//vector care seteaza 1 in my_pieces_moved[] daca se muta piesa care are indicele respectiv
-	int my_pieces_moved [ NR_A_PO ];
+	int my_pieces_moved [ SIZE_BMAP ];
 	
 	P_LOC loc;
 	LOC poz_start;
@@ -51,7 +50,7 @@ MOVE determine_move ( STATE st_next) {
 
 	int i;
 	
-	for (i=BMAP_TP_OFF;i<NR_A_PO;++i) 
+	for (i=BMAP_TP_OFF;i<SIZE_BMAP;++i) 
 	
 			my_pieces_moved [i] = BM_Compare_BMAPs ( my_pic_prev & ST_get_bitmap(st_prev, i )  , my_pic_next & ST_get_bitmap ( st_next , i ) );
 		
@@ -139,7 +138,7 @@ MOVE determine_move ( STATE st_next) {
 
 	mov->p_tag_pro=0; //nu se promoveaza nici o piesa
 
-	for ( i=BMAP_TP_OFF ; i< NR_A_PO ; ++i )
+	for ( i=BMAP_TP_OFF ; i< SIZE_BMAP ; ++i )
 		if ( my_pieces_moved[i] ) which_piece = i;
 	
 	move_set_p_tag (mov , which_piece);  // setez in mutare tag_piece

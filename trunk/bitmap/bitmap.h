@@ -47,9 +47,6 @@ BITMAP BM_Make_coord(int,int);
  */
 UCHAR BM_Get_first_elem (BITMAP);
 
-UCHAR Get_first_elem_from (BITMAP,UCHAR);
-
-
 /* Intoarce valoarea bitului de la coordonatele date ca argument */
 UCHAR BM_Get_bit_from_coord(BITMAP,int ,int);
 
@@ -70,6 +67,8 @@ void BM_Put_piece_at_coord (BITMAP*,int,int);
 /* pune in BITMAP-ul dat ca prim argument , valoarea 1 din BITMAP-ul 2 dat ca argument*/
 void BM_Put_piece_at_BMAP (BITMAP*,BITMAP);
 
+/* pune in BITMAP-ul dat ca prim argument , valoare 1 la pozitia data ca parametru */
+void BM_Put_piece_at_pos ( BITMAP* , int );
 
 /* sterge elementul de la pozitia data, nu modifica restul elementelor*/
 void BM_Clear_piece_at_coord(BITMAP*,int,int);
@@ -91,6 +90,7 @@ void BM_Clear_BMAP(BITMAP*);
 /* pune :D 1 peste tot*/
 void BM_Fill_BMAP(BITMAP*);
 
+/* ~~~ User for Test purposes ONLY ~~~ */
 
 /* Desc:
  * Prints a bitmap in the representation of the chess board
@@ -99,4 +99,37 @@ void BM_Fill_BMAP(BITMAP*);
  */
 void BM_print( BITMAP , FILE * );
 
+/* Desc:
+ * Returns an equivalent bitmap from a binary matrix
+ * The matrix is the chess table saw from the white perspective
+ * The bitmap is constructed from the lower left corner to the upper right corner of the matrix
+ * Input:1: Matrix
+ * Output:1: bitmap
+ */ 
+BMAP Mat_to_BM ( UCHAR [][SIZE_BMAP] );
+
+/* Desc:
+ * TEST ONLY
+ * Puts a piece on the given coordinates seen from the white perspective on the chess board
+ * Input:3: address to bitmap, row, col
+ * Output:0
+ */
+BMAP BM_Put_piece_at_mat_coord ( BITMAP * , int , int );
+
+/* Desc:
+ * TEST ONLY
+ * Converts WVM ( White View Matrix ) row to Bm row
+ * Input:1: row int WVM
+ * Output:1: row in BM
+ */
+UCHAR BM_row ( UCHAR );
+
+/* Desc:
+ * TEST ONLY
+ * Converts WVM ( White View Matrix ) column to Bm column
+ * Input:1: column int WVM
+ * Output:1: column in BM
+ */
+UCHAR BM_col ( UCHAR );
+	 
 #endif

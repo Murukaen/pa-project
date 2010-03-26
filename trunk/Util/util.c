@@ -52,6 +52,12 @@ void LOC_set_both ( LOC l, UCHAR r, UCHAR c) {
 		l.col = c;
 }
 
+void LOC_free ( void * key) {
+	
+	P_LOC ploc = (P_LOC) key;
+	free(ploc);
+}
+
 UCHAR matrix_to_linear ( LOC l ) {
 	
 		return l.row * SIZE_TABLE + l.col;
