@@ -181,4 +181,7 @@ void ST_set_cur_list(STATE,List);
 
 void tag_to_text ( UCHAR , char [] );
 
+char row_to_letter ( UCHAR );
+
+char col_to_letter ( UCHAR );
 #endif

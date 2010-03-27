@@ -68,7 +68,8 @@ void print_all_possible_moves(FILE * fout, BITMAP Moves[5][8][8]) {
 		fprintf(fout, "piesa:%s\n", text );
 		for (j = 0; j < 8; j++) {
 			for (k = 0; k < 8; k++) {
-
+				
+				fprintf(fout ,"(%c %c)\n" , row_to_letter(j) , col_to_letter(k) );
 				BM_print(Moves[i][j][k], fout);
 				fprintf(fout, "\n");
 			}
