@@ -12,12 +12,12 @@
 
 int main() {
 
-	printf("bla");
+
 	FILE * fout = fopen("test_read_initial_state.out","w");
 	STATE st = ST_new();
-	update_state_init();/*
+	update_state_init();
 	st = cur_state_get();
-	state_print(st,fout);*/
+	state_print(st,fout);
 
 	return 0;
 }
