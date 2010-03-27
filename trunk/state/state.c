@@ -185,6 +185,12 @@ char tag_to_letter ( UCHAR tag ) {
 
 void state_print ( STATE st , FILE * fout ) {
 	
+	/* Test State */
+	if ( st == 0 ) {
+		
+			fprintf(fout,"Error : Void state\n");
+			return;
+	}
 	int i, j;
 	List l;
 	P_LOC loc;
