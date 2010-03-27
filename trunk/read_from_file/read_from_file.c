@@ -5,6 +5,7 @@
 /* ----- System #includes ----- */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /* ----- Local #inlcudes ----- */
 #include "../state/state.h"
@@ -15,14 +16,7 @@
 #include "../Flags/flags.h"
 
 /* ---- Macro #define ---- */
-#define I_K 1152921504606846992LL
-#define I_Q 576460752303423496LL
-#define I_R -9151314442816847743LL
-#define I_B 2594073385365405732LL
-#define I_N 4755801206503243842LL
-#define I_P 71776119061282560LL
-#define I_WPos 65535LL
-#define I_BPos -281474976710656LL
+#define FILE_INITIAL_STATE "Database/initial_state.in"
 
 /* --- Types --- */
 
@@ -85,67 +79,14 @@ void Read_all_possible_moves(BITMAP Moves[5][8][8]) {
 	fclose(fin);
 }
 
-STATE Read_initial_state() {
-
-	char i, j;
-
-	STATE S = ST_new();
-
-	UCHAR Type_matrix[8][8] = { { 4, 6, 5, 3, 2, 5, 6, 4 }, { 7, 7, 7, 7, 7, 7,
-			7, 7 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 255, 255,
-			255, 255, 255, 255, 255, 255 }, { 255, 255, 255, 255, 255, 255,
-			255, 255 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 7
-			+ BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF, 7
-			+ BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF }, { 4 + BWP_OFF, 6 + BWP_OFF,
-			5 + BWP_OFF, 3 + BWP_OFF, 2 + BWP_OFF, 5 + BWP_OFF, 6 + BWP_OFF, 4
-					+ BWP_OFF } };
-
-	ST_set_Table_What(S, Type_matrix);
-
-	/*setare V_BMAP*/
-	ST_set_bitmap(S, 0, I_WPos);
-	ST_set_bitmap(S, 1, I_BPos);
-	ST_set_bitmap(S, 2, I_K);
-	ST_set_bitmap(S, 3, I_Q);
-	ST_set_bitmap(S, 4, I_R);
-	ST_set_bitmap(S, 5, I_B);
-	ST_set_bitmap(S, 6, I_N);
-	ST_set_bitmap(S, 7, I_P);
-
-	FILE * fin = fopen("Database/poz_locuri_piese.txt", "r");
-	if (fin == NULL) {
-		printf("Eroare la deschiderea fisierului poz_locuri_piese.txt");
-		exit(0);
-	}
-
-	int linie, coloana;
-	P_LOC loc;
-
-	for (i = 0; i < 2; i++) {
-		for (j = 0; j < 6; j++) {
-
-			List list = new_list();
-
-			while (1) {
-
-				fscanf(fin, "%d", &linie);
-				fscanf(fin, "%d", &coloana);
-
-				if (linie == -1 && coloana == -1) {
-					break;
-				}
-				loc = LOC_new();
-				LOCp_set_both(loc, (UCHAR) linie, (UCHAR) coloana);
-				add_nod_list(list, loc);
-			}
-			ST_set_List_Table_Location(S, i, j + PIECES_OFF, list);
-		}
-	}
-
-	ST_set_move_index(S, 0);
-	ST_set_piece_to_move(S, ANALYZED_PIECE);
-	ST_set_cur_poz_in_list(S, ST_get_List_Table_Location(S, f_ENG_COL,
-			ST_get_piece_to_move(S)));
-
+STATE Read_initial_state( void ) {
+	
+	/* Read from file */
+	FILE *fin = fopen (FILE_INITIAL_STATE , "r");
+	STATE S = state_read ( fin );
+	fclose(fin);
+	/* END Read from file */
+	
+	/* Return read State */
 	return S;
 }

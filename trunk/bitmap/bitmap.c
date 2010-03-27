@@ -127,7 +127,7 @@ void BM_print(BITMAP B , FILE * fout) {
 	/* Construct Mat */	
 	for(i=0;i<DIM_BMAP;++i) 
 		
-			Mat [ SIZE_BMAP - 1 - i/8 ][ i% 8 ] = BM_Get_bit_from_index ( B , i );
+			Mat [ SIZE_BMAP -1 - i% 8 ][ i/8 ] = BM_Get_bit_from_index ( B , i );
 			
 	/* Print Mat */
 	int j;
@@ -143,27 +143,30 @@ BITMAP Mat_to_BM ( UCHAR Mat [][SIZE_BMAP] ) {
 	
 	BITMAP b = BM_NULL;
 	int i, j, pos = -1;
-	for(i=SIZE_BMAP-1;i>=0;--i)
-		for(j=0;j<=SIZE_BMAP;++j)
-			BM_Put_piece_at_pos (&b , ++pos);
-			
+	for(j=0;j<=SIZE_BMAP;++j)
+		for(i=SIZE_BMAP-1;i>=0;--i) {
+			++pos;
+			if ( Mat[i][j] ) BM_Put_piece_at_pos (&b , pos);
+	}		
 	return b;
 }
 
-void BM_Put_piece_at_mat_coord ( BITMAP * B, int row, int col) {
+UCHAR BM_row ( UCHAR row , UCHAR col ) {
 	
-	BM_Put_piece_at_coord ( B , SIZE_BMAP -1 - row , col );
+	return col;
 }
 
-UCHAR BM_row ( UCHAR row ) {
+UCHAR BM_col ( UCHAR row , UCHAR col ) {
 	
 	return SIZE_BMAP - 1 - row;
 }
 
-UCHAR BM_col ( UCHAR col ) {
+void BM_Put_piece_at_mat_coord ( BITMAP * B, int row, int col) {
 	
-	return col;
+	BM_Put_piece_at_coord ( B , BM_row (row , col ) , BM_col (row , col) );
 }
+
+
 
 	
 	

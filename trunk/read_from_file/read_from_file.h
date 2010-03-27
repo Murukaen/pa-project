@@ -14,7 +14,6 @@
 #include "../state_generator/state_generator.h"
 
 /* ---- Macro #define ---- */
-#define M_Ki
 
 
 /* --- Types --- */
@@ -29,9 +28,9 @@ void Read_all_possible_moves(BITMAP[5][8][8]);
 
 /* citeste din fisierul Initial_positions pozitiile initiale ale pieselor
  * in fisier sunt scrise bitmapurile pieselor,in ordinea:
- * piese albe,piese negre,regi regine,ture,nebuni,caii,pionii
+ * piese albe,piese negre,regi regine,ture,nebuni,caii,pionii 
  */
-STATE Read_initial_state(void);
+STATE Read_initial_state( void );
 
 
 #endif
