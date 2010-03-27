@@ -132,6 +132,7 @@ void BM_print(BITMAP B , FILE * fout) {
 	/* Print Mat */
 	int j;
 	
+	fprintf(fout, "\n");
 	for(i=0;i<SIZE_BMAP;++i, fprintf(fout , "\n") )
 		for(j=0;j<SIZE_BMAP; ++j , fprintf(fout , " ") )
 			fprintf(fout, "%u" , Mat[i][j] );
