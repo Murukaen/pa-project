@@ -6,6 +6,7 @@
 #define _STATE_H
 
 /* ----- System #includes ----- */
+#include <stdio.h>
 
 /* ----- Local #inlcudes ----- */
 #include "../bitmap/bitmap.h"

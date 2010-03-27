@@ -65,7 +65,7 @@ key first_nod_list(List* L) {
 		return 0;
 	}
 
-	(*L) = (*L) -> next;
+	*L = (*L) -> next;
 
 	return (*L) -> data_list;
 }
