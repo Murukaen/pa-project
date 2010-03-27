@@ -80,13 +80,29 @@ void Read_all_possible_moves(BITMAP Moves[5][8][8]) {
 }
 
 STATE Read_initial_state( void ) {
-	
+
 	/* Read from file */
 	FILE *fin = fopen (FILE_INITIAL_STATE , "r");
 	STATE S = state_read ( fin );
 	fclose(fin);
 	/* END Read from file */
-	
+
 	/* Return read State */
 	return S;
+}
+
+void print_all_possible_moves(FILE * fout, BITMAP Moves[5][8][8]) {
+
+	int i, j, k;
+	for (i = 0; i < 5; i++) {
+
+		fprintf(fout, "piesa:%d\n", i + 2);
+		for (j = 0; j < 8; j++) {
+			for (k = 0; k < 8; k++) {
+
+				BM_print(Moves[i][j][k], fout);
+				fprintf(fout, "\n");
+			}
+		}
+	}
 }
