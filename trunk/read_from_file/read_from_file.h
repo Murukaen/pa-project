@@ -26,6 +26,8 @@
  */
 void Read_all_possible_moves(BITMAP[5][8][8]);
 
+void print_all_possible_moves(FILE * ,BITMAP[5][8][8]);
+
 /* citeste din fisierul Initial_positions pozitiile initiale ale pieselor
  * in fisier sunt scrise bitmapurile pieselor,in ordinea:
  * piese albe,piese negre,regi regine,ture,nebuni,caii,pionii 
