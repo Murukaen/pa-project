@@ -89,18 +89,16 @@ STATE Read_initial_state() {
 
 	char i, j;
 
-
 	STATE S = ST_new();
 
-	UCHAR Type_matrix[8][8] = { { 4 + BWP_OFF, 6 + BWP_OFF, 5 + BWP_OFF, 3
-			+ BWP_OFF, 2 + BWP_OFF, 5 + BWP_OFF, 6 + BWP_OFF, 4 + BWP_OFF }, {
-			7 + BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF, 7
-					+ BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF }, { 255, 255, 255,
-			255, 255, 255, 255, 255 },
-			{ 255, 255, 255, 255, 255, 255, 255, 255 }, { 255, 255, 255, 255,
-					255, 255, 255, 255 }, { 255, 255, 255, 255, 255, 255, 255,
-					255 }, { 7, 7, 7, 7, 7, 7, 7, 7 },
-			{ 4, 6, 5, 3, 2, 5, 6, 4 } };
+	UCHAR Type_matrix[8][8] = { { 4, 6, 5, 3, 2, 5, 6, 4 }, { 7, 7, 7, 7, 7, 7,
+			7, 7 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 255, 255,
+			255, 255, 255, 255, 255, 255 }, { 255, 255, 255, 255, 255, 255,
+			255, 255 }, { 255, 255, 255, 255, 255, 255, 255, 255 }, { 7
+			+ BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF, 7
+			+ BWP_OFF, 7 + BWP_OFF, 7 + BWP_OFF }, { 4 + BWP_OFF, 6 + BWP_OFF,
+			5 + BWP_OFF, 3 + BWP_OFF, 2 + BWP_OFF, 5 + BWP_OFF, 6 + BWP_OFF, 4
+					+ BWP_OFF } };
 
 	ST_set_Table_What(S, Type_matrix);
 
@@ -113,7 +111,6 @@ STATE Read_initial_state() {
 	ST_set_bitmap(S, 5, I_B);
 	ST_set_bitmap(S, 6, I_N);
 	ST_set_bitmap(S, 7, I_P);
-
 
 	FILE * fin = fopen("Database/poz_locuri_piese.txt", "r");
 	if (fin == NULL) {
@@ -145,10 +142,10 @@ STATE Read_initial_state() {
 		}
 	}
 
-	ST_set_move_index(S,0);
-	ST_set_piece_to_move(S,ANALYZED_PIECE);
-	ST_set_cur_poz_in_list ( S , ST_get_List_Table_Location ( S , f_ENG_COL , ST_get_piece_to_move ( S ) ));
-
+	ST_set_move_index(S, 0);
+	ST_set_piece_to_move(S, ANALYZED_PIECE);
+	ST_set_cur_poz_in_list(S, ST_get_List_Table_Location(S, f_ENG_COL,
+			ST_get_piece_to_move(S)));
 
 	return S;
 }
