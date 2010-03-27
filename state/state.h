@@ -179,4 +179,6 @@ STATE state_read ( FILE * );
 
 void ST_set_cur_list(STATE,List);
 
+void tag_to_text ( UCHAR , char [] );
+
 #endif

@@ -31,50 +31,17 @@ void Read_all_possible_moves(BITMAP Moves[5][8][8]) {
 	}
 
 	int i, j;
-	BITMAP **K, **Q, **R, **B, **N;
-
-	K = (BITMAP**) calloc(8, sizeof(BITMAP*));
-	Q = (BITMAP**) calloc(8, sizeof(BITMAP*));
-	R = (BITMAP**) calloc(8, sizeof(BITMAP*));
-	B = (BITMAP**) calloc(8, sizeof(BITMAP*));
-	N = (BITMAP**) calloc(8, sizeof(BITMAP*));
-
-	for (i = 0; i < 8; i++) {
-		K[i] = (BITMAP*) calloc(8, sizeof(BITMAP));
-		Q[i] = (BITMAP*) calloc(8, sizeof(BITMAP));
-		R[i] = (BITMAP*) calloc(8, sizeof(BITMAP));
-		B[i] = (BITMAP*) calloc(8, sizeof(BITMAP));
-		N[i] = (BITMAP*) calloc(8, sizeof(BITMAP));
-	}
 
 	for (i = 0; i < 8; i++) {
 		for (j = 0; j < 8; j++) {
-
-			fread(&K[i][j], 8, 1, fin);
-			Moves[0][i][j] = K[i][j];
-			fread(&Q[i][j], 8, 1, fin);
-			Moves[1][i][j] = Q[i][j];
-			fread(&R[i][j], 8, 1, fin);
-			Moves[2][i][j] = R[i][j];
-			fread(&B[i][j], 8, 1, fin);
-			Moves[3][i][j] = B[i][j];
-			fread(&N[i][j], 8, 1, fin);
-			Moves[4][i][j] = N[i][j];
+			
+			fread(&Moves[0][i][j], 8, 1, fin);
+			fread(&Moves[1][i][j], 8, 1, fin);
+			fread(&Moves[2][i][j], 8, 1, fin);	
+			fread(&Moves[3][i][j], 8, 1, fin);
+			fread(&Moves[4][i][j], 8, 1, fin);	
 		}
 	}
-
-	for (i = 0; i < 8; i++) {
-		free(K[i]);
-		free(Q[i]);
-		free(R[i]);
-		free(B[i]);
-		free(N[i]);
-	}
-	free(K);
-	free(Q);
-	free(R);
-	free(B);
-	free(N);
 
 	fclose(fin);
 }
@@ -94,9 +61,11 @@ STATE Read_initial_state( void ) {
 void print_all_possible_moves(FILE * fout, BITMAP Moves[5][8][8]) {
 
 	int i, j, k;
+	char text[10];
 	for (i = 0; i < 5; i++) {
-
-		fprintf(fout, "piesa:%d\n", i + 2);
+		
+		tag_to_text ( i + PIECES_OFF , text );
+		fprintf(fout, "piesa:%s\n", text );
 		for (j = 0; j < 8; j++) {
 			for (k = 0; k < 8; k++) {
 
