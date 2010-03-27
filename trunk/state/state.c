@@ -158,6 +158,31 @@ void tag_to_text ( UCHAR tag , char text [] ) {
 	}
 }
 
+char tag_to_letter ( UCHAR tag ) {
+	
+	int off = ( 8<= tag && tag <=13 );
+	if (off) tag-=BWP_OFF;
+	char rez;
+	
+	switch ( tag ) {
+		
+		case 2 : rez = 'K'; break;
+		case 3 : rez = 'Q'; break;
+		case 4 : rez = 'R'; break;
+		case 5 : rez = 'B'; break;
+		case 6 : rez = 'N'; break;
+		case 7 : rez = 'P'; break;
+		
+		default: rez = '-';
+	}
+	
+	if ( off ) rez+='a' - 'A';
+	
+	return rez;
+}
+		
+	
+
 void state_print ( STATE st , FILE * fout ) {
 	
 	int i, j;
@@ -167,7 +192,7 @@ void state_print ( STATE st , FILE * fout ) {
 	char text2[10]={0};
 	
 	/* Print V_BMAP */
-	fprintf(fout, "{" );
+	fprintf(fout, "{\n~~~V_BMAP~~~ : \n" );
 	for(i=0;i<SIZE_BMAP;++i) {
 		
 		tag_to_text ( i , text1 );
@@ -175,30 +200,29 @@ void state_print ( STATE st , FILE * fout ) {
 		BM_print(st -> V_BMAP [i] , fout );
 	}
 	/* END Print V_BMAP */
-	return ;
 	
 	/* Print Table_What */
-	fprintf(fout, "\nTable_What:\n");
+	fprintf(fout, "\n~~~Table_What~~~:\n\n");
 	for(i=0;i<SIZE_BMAP;++i, fprintf(fout, "\n") )
 		for(j=0;j<SIZE_BMAP;++j, fprintf(fout, " ") )
-			fprintf(fout, "%u" , st -> Table_What[i][j] );
+			fprintf(fout, "%c" , tag_to_letter ( st -> Table_What[BM_row(i)][BM_col(j)] ) );
 	/* END Print Table_What */
 	
 	/* Print Table_Location */
-	fprintf(fout, "\nTable_Location:\n");
+	fprintf(fout, "\n~~~Table_Location~~~:\n");
 	for(i=0;i<NR_COLORS;++i)
 		for(j=0;j<NR_PIECES;++j) {
 			
 			tag_to_text ( i , text1 );
-			tag_to_text ( j , text2 );
+			tag_to_text ( j + PIECES_OFF , text2 );
 			fprintf(fout, "\nTable_Location[%s][%s]:" , text1 , text2);
-			l = ST_get_List_Table_Location(st, i , j);
-			for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ));
+			l = ST_get_List_Table_Location(st, i , j + PIECES_OFF);
+			for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ) , loc = (P_LOC) first_nod_list ( &l ) );
 		}
 	/* END Print Table_Location */
 	
 	/* Print piece_to_move */
-	fprintf(fout , "\npiece_to_move: %u\n" , st -> piece_to_move);
+	fprintf(fout , "\n\npiece_to_move: %c\n" , tag_to_letter (st -> piece_to_move) );
 	/* END Print piece_to_move */
 	
 	/* Print move_index */
@@ -208,7 +232,7 @@ void state_print ( STATE st , FILE * fout ) {
 	/* Print cur_poz_in_list */
 	l = st -> cur_poz_in_list;
 	loc = first_nod_list (&l);
-	fprintf(fout, "\ncur_poz_in_list: ( %u , %u )\n}" , LOC_get_row ( loc ) , LOC_get_col ( loc ) );
+	fprintf(fout, "\ncur_poz_in_list: ( %u , %u )\n\n}" , LOC_get_row ( loc ) , LOC_get_col ( loc ) );
 	/* END Print cur_poz_in_list */
 }
 
@@ -296,9 +320,9 @@ STATE state_read ( FILE * fin ) {
 	for(i=0;i<NR_COLORS;++i)
 		for(j=0;j<NR_PIECES;++j)
 			ST_set_List_Table_Location ( st , i , j + PIECES_OFF , T_L [i][j] ); // set Table_Location
-	ST_set_move_index (st , m_index );
-	ST_set_piece_to_move ( st , p_to_move );
-	ST_set_cur_poz_in_list ( st , c_list );
+	ST_set_move_index (st , m_index ); // set move_index
+	ST_set_piece_to_move ( st , p_to_move ); // set piece_to_move
+	ST_set_cur_poz_in_list ( st , c_list ); // set cur_poz_in_list
 	/* END Set the new state */
 	
 	return st;

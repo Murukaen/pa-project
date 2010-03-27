@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 #include "../../move/move.h"
 #include "../../cur_state/cur_state.h"
 #include "../../san_conv/san_conv.h"
@@ -30,16 +31,20 @@ int main ( int argc , char ** argv ) {
 		fclose(fin);
 		/* END Read from file in */
 		
+		
+		
 		/* Set */
 		
 		
 		//cur_state_set ( st );
 		/* END Set */
+	
 		
 		FILE *fout = fopen(argv[2] , "w");
 		if( st ) state_print(st , fout );
 		fclose(fout);
-		return 0;
+		
+		
 		
 		
 		
