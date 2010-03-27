@@ -119,6 +119,12 @@ void move_free ( MOVE mov ) {
 
 void move_print ( MOVE mov , FILE * fout ) {
 	
-	fprintf(fout,"{ p_tag = %u ; poz_src = ( %u , %u ) ; poz_dst = ( %u , %u ) ; m_tag = %u ; p_tag_pro = %u ; p_rock = ( %u , %u ) ; what_col = %u }\n", mov -> p_tag , LOC_get_row ( &(mov -> poz_src) ) , LOC_get_col ( &(mov -> poz_src) ) , LOC_get_row ( &(mov -> poz_dst) ) , LOC_get_col ( &(mov -> poz_dst) ) , mov -> m_tag , mov -> p_tag_pro , LOC_get_row ( &(mov -> p_rock) ) , LOC_get_col ( &(mov -> p_rock) ) , mov -> what_col );
+	char text1[10];
+	char text2[10];
+	char text3[10];
+	tag_to_text ( mov -> p_tag , text1 );
+	tag_to_text ( mov -> p_tag_pro , text2 );
+	tag_to_text ( mov -> what_col , text3 );
+	fprintf(fout,"{\n p_tag = %s \n\n poz_src = ( %c , %c ) \n\n poz_dst = ( %c , %c ) \n\n m_tag = %u \n\n p_tag_pro = %s \n\n p_rock = ( %c , %c ) \n\n what_col = %s \n\n}", text1 , row_to_letter ( LOC_get_row ( &(mov -> poz_src) ) ) , col_to_letter ( LOC_get_col ( &(mov -> poz_src) ) ), row_to_letter ( LOC_get_row ( &(mov -> poz_dst) ) ) , col_to_letter( LOC_get_col ( &(mov -> poz_dst) ) ) , mov -> m_tag , text2 , row_to_letter ( LOC_get_row ( &(mov -> p_rock) ) ), col_to_letter ( LOC_get_col ( &(mov -> p_rock) ) ) , text3 );
 
 }

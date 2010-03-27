@@ -74,5 +74,23 @@ void LOC_set_both ( LOC , UCHAR , UCHAR );
  */
 UCHAR not ( UCHAR );
 
+/* ~~~ Tags ~~~ */
+
+UCHAR letter_to_tag ( char );
+
+/* Letter to color */
+UCHAR letter_to_col ( char );
+
+/* character is in Table_What format */
+int ok_letter ( char );
+
+void tag_to_text ( UCHAR , char [] );
+
+char tag_to_letter ( UCHAR );	
+
+char row_to_letter ( UCHAR );
+
+char col_to_letter ( UCHAR );
+
 #endif
 
