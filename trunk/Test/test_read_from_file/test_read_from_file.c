@@ -6,7 +6,6 @@
 
 int main(){
 
-	printf("asa");
 	fflush(stdout);
 	BM_init();
 	FILE * fout = fopen("./Test/test_read_from_file/test_readffile.out","w");

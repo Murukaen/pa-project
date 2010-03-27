@@ -33,7 +33,6 @@ STATE state_gen(STATE start_state) {
 	P_LOC loc;
 	BITMAP valid_moves;
 	STATE new_state = ST_new();
-	List copy_list = new_list();
 
 	for (loc = first_nod_list(&L); loc; index = 0) {
 
@@ -49,7 +48,7 @@ STATE state_gen(STATE start_state) {
 
 				/*setez noul index*/
 				ST_set_move_index(new_state, i);
-				/*setez cur list*/
+				/*setez cur poz in list*/
 				ST_set_cur_poz_in_list(new_state, L);
 
 				/* setez noile V_BMAP*/
