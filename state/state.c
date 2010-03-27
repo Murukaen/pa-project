@@ -181,7 +181,15 @@ char tag_to_letter ( UCHAR tag ) {
 	return rez;
 }
 		
+char row_to_letter ( UCHAR row ) {
 	
+		return 'a' + row;
+}
+
+char col_to_letter ( UCHAR col ) {
+	
+		return '1' + col;
+}	
 
 void state_print ( STATE st , FILE * fout ) {
 	
@@ -213,7 +221,7 @@ void state_print ( STATE st , FILE * fout ) {
 	fprintf(fout, "\n~~~Table_What~~~:\n\n");
 	for(i=0;i<SIZE_BMAP;++i, fprintf(fout, "\n") )
 		for(j=0;j<SIZE_BMAP;++j, fprintf(fout, " ") )
-			fprintf(fout, "%c" , tag_to_letter ( st -> Table_What[BM_row(i)][BM_col(j)] ) );
+			fprintf(fout, "%c" , tag_to_letter ( st -> Table_What[BM_row(i,j)][BM_col(i,j)] ) );
 	/* END Print Table_What */
 	
 	/* Print Table_Location */
@@ -225,12 +233,13 @@ void state_print ( STATE st , FILE * fout ) {
 			tag_to_text ( j + PIECES_OFF , text2 );
 			fprintf(fout, "\nTable_Location[%s][%s]:" , text1 , text2);
 			l = ST_get_List_Table_Location(st, i , j + PIECES_OFF);
-			for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %u , %u ) " , LOC_get_row ( loc ) , LOC_get_col ( loc ) ) , loc = (P_LOC) first_nod_list ( &l ) );
+			for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %c , %c ) " , row_to_letter ( LOC_get_row ( loc ) ) , col_to_letter ( LOC_get_col ( loc ) ) ) , loc = (P_LOC) first_nod_list ( &l ) );
 		}
 	/* END Print Table_Location */
 	
 	/* Print piece_to_move */
-	fprintf(fout , "\n\npiece_to_move: %c\n" , tag_to_letter (st -> piece_to_move) );
+	tag_to_text ( st -> piece_to_move , text1 );
+	fprintf(fout , "\n\npiece_to_move: %s\n" , text1 );
 	/* END Print piece_to_move */
 	
 	/* Print move_index */
@@ -240,7 +249,7 @@ void state_print ( STATE st , FILE * fout ) {
 	/* Print cur_poz_in_list */
 	l = st -> cur_poz_in_list;
 	loc = first_nod_list (&l);
-	fprintf(fout, "\ncur_poz_in_list: ( %u , %u )\n\n}" , LOC_get_row ( loc ) , LOC_get_col ( loc ) );
+	fprintf(fout, "\ncur_poz_in_list: ( %c , %c )\n\n}" , row_to_letter ( LOC_get_row ( loc ) ) , col_to_letter ( LOC_get_col ( loc ) ) );
 	/* END Print cur_poz_in_list */
 }
 
@@ -266,6 +275,15 @@ UCHAR letter_to_col ( char c ) {
 	if ('a' <= c && c <= 'z' ) return 1; // black
 	
 	return 0; // white
+}
+
+int ok_letter ( char c ){
+	
+	if ( 'a' <= c && c <= 'z' ) return 1;
+	if ( 'A' <= c && c <= 'Z' ) return 1;
+	if ( c == '-' ) return 1;
+	
+	return 0;
 }
 
 STATE state_read ( FILE * fin ) {
@@ -300,9 +318,9 @@ STATE state_read ( FILE * fin ) {
 	/* Read from file */
 	for(i=0;i<SIZE_BMAP;++i)
 		for(j=0;j<SIZE_BMAP;++j) {
-				while ( fscanf(fin , "%c" , &c) && ( c == ' ' || c == '\n' || c=='\t' ) );
-				row = BM_row (i);
-				col = BM_col (j);
+				while ( fscanf(fin , "%c" , &c) && (! ok_letter ( c ))  );
+				row = BM_row (i , j);
+				col = BM_col (i , j);
 				color = letter_to_col ( c );
 				tag = letter_to_tag ( c );
 				if ( tag != T_NA ) {

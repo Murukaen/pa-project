@@ -119,18 +119,18 @@ void BM_Put_piece_at_mat_coord ( BITMAP * , int , int );
 
 /* Desc:
  * TEST ONLY
- * Converts WVM ( White View Matrix ) row to Bm row
+ * Converts WVM ( White View Matrix ) loc to Bm row
  * Input:1: row int WVM
  * Output:1: row in BM
  */
-UCHAR BM_row ( UCHAR );
+UCHAR BM_row ( UCHAR , UCHAR );
 
 /* Desc:
  * TEST ONLY
- * Converts WVM ( White View Matrix ) column to Bm column
+ * Converts WVM ( White View Matrix ) loc to Bm column
  * Input:1: column int WVM
  * Output:1: column in BM
  */
-UCHAR BM_col ( UCHAR );
+UCHAR BM_col ( UCHAR , UCHAR );
 	 
 #endif

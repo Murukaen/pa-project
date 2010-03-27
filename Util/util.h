@@ -20,7 +20,7 @@ typedef unsigned char UCHAR;
 
 struct LOC {
 	
-	int row, col;
+	UCHAR row, col;
 };
 
 typedef struct LOC LOC;
