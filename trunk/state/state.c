@@ -4,8 +4,6 @@
 
 /* ----- System #includes ----- */
 #include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
 
 /* ----- Local #inlcudes ----- */
 #include "state.h"
@@ -150,56 +148,6 @@ void ST_free(STATE st) {
 			free_list ( st -> Table_Location[i][j] , LOC_free );
 			
 	free(st);
-}
-
-void tag_to_text ( UCHAR tag , char text [] ) {
-			
-	switch ( tag ) {
-			
-		case 0 : strcpy ( text , "White" ); break;
-		case 1 : strcpy ( text , "Black" ); break;
-		case 2 : strcpy ( text , "King" ); break;
-		case 3 : strcpy ( text , "Queen" ); break;
-		case 4 : strcpy ( text , "Rock" ); break;
-		case 5 : strcpy ( text , "Bishop" ); break;
-		case 6 : strcpy ( text , "Knight" ); break;
-		case 7 : strcpy ( text , "Pawn" ); break;
-			
-		default : strcpy ( text , "ERRTAG" ); 
-	}
-}
-
-char tag_to_letter ( UCHAR tag ) {
-	
-	int off = ( 8<= tag && tag <=13 );
-	if (off) tag-=BWP_OFF;
-	char rez;
-	
-	switch ( tag ) {
-		
-		case 2 : rez = 'K'; break;
-		case 3 : rez = 'Q'; break;
-		case 4 : rez = 'R'; break;
-		case 5 : rez = 'B'; break;
-		case 6 : rez = 'N'; break;
-		case 7 : rez = 'P'; break;
-		
-		default: rez = '-';
-	}
-	
-	if ( off ) rez+='a' - 'A';
-	
-	return rez;
-}
-		
-char row_to_letter ( UCHAR row ) {
-	
-		return 'a' + row;
-}
-
-char col_to_letter ( UCHAR col ) {
-	
-		return '1' + col;
 }	
 
 void state_print ( STATE st , FILE * fout ) {
@@ -267,39 +215,6 @@ void state_print ( STATE st , FILE * fout ) {
 	loc = first_nod_list (&l);
 	fprintf(fout, "\nCurrent piece location : ( %c , %c )\n\n}" , row_to_letter ( LOC_get_row ( loc ) ) , col_to_letter ( LOC_get_col ( loc ) ) );
 	/* END Print cur_poz_in_list */
-}
-
-UCHAR letter_to_tag ( char c ) {
-	
-	c = toupper(c);
-	
-	switch (c) {
-		
-		case 'K' : return T_K ;
-		case 'Q' : return T_Q ;
-		case 'R' : return T_R ;
-		case 'B' : return T_B ;
-		case 'N' : return T_N ;
-		case 'P' : return T_P ;
-		
-		default : return T_NA ;
-	}
-}
-
-UCHAR letter_to_col ( char c ) {
-	
-	if ('a' <= c && c <= 'z' ) return 1; // black
-	
-	return 0; // white
-}
-
-int ok_letter ( char c ){
-	
-	if ( 'a' <= c && c <= 'z' ) return 1;
-	if ( 'A' <= c && c <= 'Z' ) return 1;
-	if ( c == '-' ) return 1;
-	
-	return 0;
 }
 
 STATE state_read ( FILE * fin ) {

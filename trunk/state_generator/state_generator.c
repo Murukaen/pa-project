@@ -67,7 +67,7 @@ STATE ST_gen(STATE start_state) {
 				ST_set_bitmap(new_state, T_WP, new);
 
 				/*refac bitmapul pentru cai*/
-				BITMAP new = ST_get_bitmap(start_state, T_N);
+				new = ST_get_bitmap(start_state, T_N);
 				BM_Clear_piece_at_BMAP(&new, BM_Make_coord(LOC_get_row(loc),
 						LOC_get_col(loc)));
 				BM_Put_piece_at_coord(&new, i / 8, i % 8);
@@ -112,8 +112,13 @@ STATE ST_gen(STATE start_state) {
 
 				/*am refacut Table_What*/
 				ST_set_tag_Table_What(new_state, i / 8, i % 8, T_N);
-				ST_set_tag_Table_What(new_state, LOC_get_row(loc), LOC_get_col(
-						loc));
+			/*	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			 * !!!!!!!!!!!  Am comentat pentru ca nu compila 
+			 * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			 * 
+			 * ST_set_tag_Table_What(new_state, LOC_get_row(loc), LOC_get_col(
+						loc) );
+			*/
 
 			}
 

@@ -13,7 +13,8 @@
 /* ---- Macro #define ---- */
 
 /* Globals*/
-BITMAP Moves[NR_PIECES][SIZE_TABLE][SIZE_TABLE];
+BITMAP Moves[NR_PIECES][SIZE_TABLE][SIZE_TABLE]; // Moves[p][l][c] = bitmap with all possible move locations 
+												// of piece p from location (l,c)
 /* --- Types --- */
 
 /* --- Procedures --- */
@@ -26,6 +27,10 @@ BITMAP Moves[NR_PIECES][SIZE_TABLE][SIZE_TABLE];
  */
 STATE ST_gen(STATE);
 
+/* Desc:
+ * Initializes Moves : Moves[p][l][c] = bitmap with all possible move locations 
+ * of piece p from location (l,c)
+ */
 void ST_gen_init(void);
 
 #endif

@@ -5,8 +5,17 @@
 #include "../../san_conv/san_conv.h"
 #include "../../state/state.h"
 #include "../../Flags/flags.h"
+#include "../../state_generator/state_generator.h"
+#include "../../read_from_file/read_from_file.h"
 
 #define COM_LENGTH 20
+
+////////////////////////////////
+//////// Notes
+/*
+ * X in the output means that the row / column is out of range
+ */
+////////////////////////////////
 
 int main ( int argc , char ** argv ) {
 	
@@ -21,6 +30,7 @@ int main ( int argc , char ** argv ) {
 		/* Inits */
 		BM_init ();
 		flags_init ();
+		ST_gen_init ();
 		/* END Inits */
 		
 		/* Read from file in */
@@ -31,31 +41,18 @@ int main ( int argc , char ** argv ) {
 		fclose(fin);
 		/* END Read from file in */
 		
-		
-		
-		/* Set */
-		
-		
-		//cur_state_set ( st );
-		/* END Set */
-	
-		
-		FILE *fout = fopen(argv[2] , "w");
-		if( st ) state_print(st , fout );
-		fclose(fout);
-		
-		
-		
-		
-		
+		/* Set Current State*/
+		cur_state_set ( st );
+		/* END Set Current State*/
+			
 		/* Calculate MOVE */
-		//MOVE mov = SAN_to_Move ( com );
+		MOVE mov = SAN_to_Move ( com );
 		/* END Calculate MOVE */
 		
 		/* Print MOVE */
-		//FILE *fout = fopen(argv[2] , "w");
-		//move_print(mov , fout );
-		//fclose(fout);
+		FILE *fout = fopen(argv[2] , "w");
+		if(mov != 0 ) move_print(mov , fout );
+		fclose(fout);
 		/* END Print MOVE */
 		
 		return 0;
