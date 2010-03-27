@@ -26,7 +26,7 @@
 
 /* --- Procedures --- */
 
-STATE state_gen(STATE start_state) {
+STATE ST_gen(STATE start_state) {
 
 	UCHAR index = ST_get_move_index(start_state), i, j, k;
 	List L = ST_get_cur_poz_in_list(start_state);
