@@ -95,7 +95,11 @@ void update_state(MOVE mov) {
 
 void flip_state(void) {
 
-	f_ENG_COL = ~f_ENG_COL; // flips the flag
+	STATE st = cur_state_get();
+	f_ENG_COL = (1-f_ENG_COL)%2; // flips the flag
+	ST_set_move_index (st , 0 ); // set move_index to 0
+	ST_set_piece_to_move ( st , ANALYZED_PIECE ); // set analyzed piece to default
+	ST_set_cur_poz_in_list ( st , ST_get_List_Table_Location ( st , f_ENG_COL , ANALYZED_PIECE )); // set current piece
 
 }
 
