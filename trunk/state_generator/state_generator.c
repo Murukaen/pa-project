@@ -28,9 +28,8 @@
 
 STATE state_gen(STATE start_state) {
 
-	UCHAR index = ST_get_move_index(start_state);
+	UCHAR index = ST_get_move_index(start_state), i, j, k;
 	List L = ST_get_cur_poz_in_list(start_state);
-	int i, j, k;
 	P_LOC loc;
 	BITMAP valid_moves;
 	STATE new_state = ST_new();
@@ -45,7 +44,8 @@ STATE state_gen(STATE start_state) {
 
 		for (i = index; i < 64; i++) {
 
-			if (BM_Make_pos(i) & valid_moves) {
+			/*daca exista mutari valide,in afara de sah, ca nu am facut mai sus verificarea*/
+			if ((BM_Make_pos(i) & valid_moves) != 0) {
 
 				/*setez noul index*/
 				ST_set_move_index(new_state, i);
@@ -59,22 +59,13 @@ STATE state_gen(STATE start_state) {
 					ST_set_bitmap(new_state, i, ST_get_bitmap(start_state, i));
 				}
 
-				if (f_ENG_COL == 0) { // ma uit in care bitmap de ce culoare tre sa sterg
+				/*refac bitmapul pieselor de culoarea enginului*/
 
-					BITMAP new = ST_get_bitmap(start_state, 0);
-					BM_Clear_piece_at_BMAP(&new, BM_Make_coord(
-							LOC_get_row(loc), LOC_get_col(loc)));
-					BM_Put_piece_at_coord(&new, i / 8, i % 8);
-					ST_set_bitmap(new_state, T_WP, new);
-
-				} else {
-
-					BITMAP new = ST_get_bitmap(start_state, 1);
-					BM_Clear_piece_at_BMAP(&new, BM_Make_coord(
-							LOC_get_row(loc), LOC_get_col(loc)));
-					BM_Put_piece_at_coord(&new, i / 8, i % 8);
-					ST_set_bitmap(new_state, T_BP, new);
-				}
+				BITMAP new = ST_get_bitmap(start_state, f_ENG_COL);
+				BM_Clear_piece_at_BMAP(&new, BM_Make_coord(LOC_get_row(loc),
+						LOC_get_col(loc)));
+				BM_Put_piece_at_coord(&new, i / 8, i % 8);
+				ST_set_bitmap(new_state, T_WP, new);
 
 				/*refac bitmapul pentru cai*/
 				BITMAP new = ST_get_bitmap(start_state, T_N);
@@ -86,7 +77,8 @@ STATE state_gen(STATE start_state) {
 				/*copiez in new_state vechea lista de pozitii pt piese*/
 				for (j = 0; j < 2; j++) {
 					for (k = 0; k < 6; k++) {
-						ST_set_List_Table_Location(new_state, j, k, list_copy( ST_get_List_Table_Location (start_state, j, k)));
+						ST_set_List_Table_Location(new_state, j, k, list_copy(
+								ST_get_List_Table_Location(start_state, j, k)));
 					}
 				}
 				/*daca a fost captura*/
@@ -94,19 +86,24 @@ STATE state_gen(STATE start_state) {
 						BM_Make_coord(LOC_get_row(loc), LOC_get_col(loc)))) {
 
 					/*identific piesa capturata*/
-					UCHAR piece_to_delete = ST_get_tag_Table_What(start_state, i / 8,
-							i % 8);
+					UCHAR piece_to_delete = ST_get_tag_Table_What(start_state,
+							i / 8, i % 8);
 
 					/* iau bitmapul pieselor de tipul celei capturate si il modific*/
 					new = ST_get_bitmap(start_state, piece_to_delete);
 					BM_Clear_piece_at_BMAP(&new, BM_Make_coord(i / 8, i % 8));
 					ST_set_bitmap(new_state, T_BP, new);
 
+					/*iau bitmapul pieselor de culoarea ~engine si modific,sterg 1 acolo unde era piesa*/
+					BITMAP new1 = ST_get_bitmap(start_state, ~f_ENG_COL);
+					BM_Clear_piece_at_BMAP(&new1, BM_Make_coord(
+							LOC_get_row(loc), LOC_get_col(loc)));
+					ST_set_bitmap(new_state, T_WP, new1);
+
 					/* sterg din lista new_state piesa care a fost capturata*/
 					List aux_l = ST_get_List_Table_Location(new_state,
 							~f_ENG_COL, piece_to_delete);
-					delete_elem_list(&aux_l, (void *) loc, fequ_loc,
-							LOC_free);
+					delete_elem_list(&aux_l, (void *) loc, fequ_loc, LOC_free);
 				}
 
 				/*modific din lista new_state locatia piesei mutate*/
@@ -116,8 +113,8 @@ STATE state_gen(STATE start_state) {
 
 				/*am refacut Table_What*/
 				ST_set_tag_Table_What(new_state, i / 8, i % 8, T_N);
-				ST_set_tag_Table_What(new_state, LOC_get_row(loc),
-						LOC_get_col(loc));
+				ST_set_tag_Table_What(new_state, LOC_get_row(loc), LOC_get_col(
+						loc));
 
 			}
 
