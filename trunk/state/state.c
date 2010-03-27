@@ -175,6 +175,7 @@ void state_print ( STATE st , FILE * fout ) {
 		BM_print(st -> V_BMAP [i] , fout );
 	}
 	/* END Print V_BMAP */
+	return ;
 	
 	/* Print Table_What */
 	fprintf(fout, "\nTable_What:\n");
@@ -230,9 +231,9 @@ UCHAR letter_to_tag ( char c ) {
 
 UCHAR letter_to_col ( char c ) {
 	
-	if ( isupper (c) ) return 0;  // White
+	if ('a' <= c && c <= 'z' ) return 1; // black
 	
-	return 1;  // Black
+	return 0; // white
 }
 
 STATE state_read ( FILE * fin ) {
@@ -267,15 +268,14 @@ STATE state_read ( FILE * fin ) {
 	/* Read from file */
 	for(i=0;i<SIZE_BMAP;++i)
 		for(j=0;j<SIZE_BMAP;++j) {
-				fscanf(fin , "%c" , &c);
+				while ( fscanf(fin , "%c" , &c) && ( c == ' ' || c == '\n' || c=='\t' ) );
 				row = BM_row (i);
 				col = BM_col (j);
 				color = letter_to_col ( c );
 				tag = letter_to_tag ( c );
-				
 				if ( tag != T_NA ) {
-					BM_Put_piece_at_mat_coord ( &V_B[color] , row , col); // set the color BM
-					BM_Put_piece_at_mat_coord ( &V_B[tag] , row , col); // set the piece BM
+					BM_Put_piece_at_coord ( &V_B[color] , row , col); // set the color BM
+					BM_Put_piece_at_coord ( &V_B[tag] , row , col); // set the piece BM		
 				}
 				T_W[row][col] = tag + BWP_OFF * color; // set T_W
 				if ( tag != T_NA ) {   
@@ -283,8 +283,7 @@ STATE state_read ( FILE * fin ) {
 					LOCp_set_both ( loc , row , col );
 					add_nod_list ( T_L[color][tag - PIECES_OFF] , (void *) loc );  // ser T_P
 				}		
-		}
-		
+		}	
 	p_to_move = ANALYZED_PIECE;
 	m_index = 0;
 	c_list = T_L [f_ENG_COL][ ANALYZED_PIECE - PIECES_OFF];

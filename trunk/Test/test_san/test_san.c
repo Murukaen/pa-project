@@ -17,32 +17,40 @@ int main ( int argc , char ** argv ) {
 		
 		char com[COM_LENGTH];
 		
+		/* Inits */
+		BM_init ();
+		flags_init ();
+		/* END Inits */
+		
 		/* Read from file in */
 		FILE *fin = fopen (argv[1] , "r");
 		fscanf(fin,"%s", com);
-		fgetc(fin);	
+		fgetc(fin);	// read the '\n'
 		STATE st = state_read ( fin );
 		fclose(fin);
 		/* END Read from file in */
 		
+		/* Set */
+		
+		
+		//cur_state_set ( st );
+		/* END Set */
+		
 		FILE *fout = fopen(argv[2] , "w");
-		state_print(st , fout );
+		if( st ) state_print(st , fout );
 		fclose(fout);
 		return 0;
 		
-		/* Inits */
-		flags_init ();
-		//cur_state_set ( st );
-		/* END Inits */
+		
 		
 		/* Calculate MOVE */
-		MOVE mov = SAN_to_Move ( com );
+		//MOVE mov = SAN_to_Move ( com );
 		/* END Calculate MOVE */
 		
 		/* Print MOVE */
-		FILE *fout = fopen(argv[2] , "w");
-		move_print(mov , fout );
-		fclose(fout);
+		//FILE *fout = fopen(argv[2] , "w");
+		//move_print(mov , fout );
+		//fclose(fout);
 		/* END Print MOVE */
 		
 		return 0;
