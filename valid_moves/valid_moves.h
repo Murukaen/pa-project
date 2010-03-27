@@ -5,8 +5,8 @@
 #include "../state_generator/state_generator.h"
 
 
-BITMAP	BM_valid_pos(BITMAP,BITMAP);
+BITMAP VM_valid_pos(BITMAP,BITMAP);
 
-
+// functie vm_is_check to do
 
 #endif /* VALID_MOVES_H_ */

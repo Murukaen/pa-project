@@ -38,7 +38,8 @@ STATE state_gen(STATE start_state) {
 
 	for (loc = first_nod_list(&L); loc; index = 0) {
 
-		valid_moves = BM_valid_pos(
+		// mai trebuie verificat daca nu cumva e sah daca mut piesa
+		valid_moves = VM_valid_pos(
 				Moves[T_N - 2][LOC_get_row(loc)][LOC_get_col(loc)],
 				ST_get_bitmap(start_state, f_ENG_COL));
 

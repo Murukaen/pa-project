@@ -12,6 +12,7 @@
 #include "read_from_file.h"
 #include "../list/list.h"
 #include "../Util/util.h"
+#include "../Flags/flags.h"
 
 /* ---- Macro #define ---- */
 #define I_K 1152921504606846992LL
@@ -143,7 +144,8 @@ STATE Read_initial_state() {
 
 	ST_set_move_index(S,0);
 	ST_set_piece_to_move(S,ANALYZED_PIECE);
-	ST_set_poz_cur_in_list ( S , ST_get_List_Table_Location ( S , f_ENG_COL , ST_get_piece_to_move ( S ) ));
+	ST_set_cur_poz_in_list ( S , ST_get_List_Table_Location ( S , f_ENG_COL , ST_get_piece_to_move ( S ) ));
+	ST_set_cur_list(S,NULL);
 
 	return S;
 }
