@@ -89,6 +89,7 @@ STATE Read_initial_state() {
 
 	char i, j;
 
+
 	STATE S = ST_new();
 
 	UCHAR Type_matrix[8][8] = { { 4 + BWP_OFF, 6 + BWP_OFF, 5 + BWP_OFF, 3
@@ -113,6 +114,7 @@ STATE Read_initial_state() {
 	ST_set_bitmap(S, 6, I_N);
 	ST_set_bitmap(S, 7, I_P);
 
+
 	FILE * fin = fopen("Database/poz_locuri_piese.txt", "r");
 	if (fin == NULL) {
 		printf("Eroare la deschiderea fisierului poz_locuri_piese.txt");
@@ -131,6 +133,7 @@ STATE Read_initial_state() {
 
 				fscanf(fin, "%d", &linie);
 				fscanf(fin, "%d", &coloana);
+
 				if (linie == -1 && coloana == -1) {
 					break;
 				}
@@ -145,7 +148,7 @@ STATE Read_initial_state() {
 	ST_set_move_index(S,0);
 	ST_set_piece_to_move(S,ANALYZED_PIECE);
 	ST_set_cur_poz_in_list ( S , ST_get_List_Table_Location ( S , f_ENG_COL , ST_get_piece_to_move ( S ) ));
-	ST_set_cur_list(S,NULL);
+
 
 	return S;
 }
