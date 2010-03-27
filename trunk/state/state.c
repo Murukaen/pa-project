@@ -191,6 +191,8 @@ void state_print ( STATE st , FILE * fout ) {
 			fprintf(fout,"Error : Void state\n");
 			return;
 	}
+	/* END Test State */
+	
 	int i, j;
 	List l;
 	P_LOC loc;
