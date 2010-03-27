@@ -176,4 +176,6 @@ void state_print ( STATE , FILE * );
  */
 STATE state_read ( FILE * );
 
+void ST_set_cur_list(STATE,List);
+
 #endif
