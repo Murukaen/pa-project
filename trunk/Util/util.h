@@ -67,5 +67,12 @@ void linear_to_matrix ( UCHAR , LOC* );
  */
 void LOC_set_both ( LOC , UCHAR , UCHAR );
 
+/* Numbers */
+
+/* Desc:
+ * Returneaza un bit negat
+ */
+UCHAR not ( UCHAR );
+
 #endif
 

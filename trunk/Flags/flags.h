@@ -10,6 +10,7 @@
 /* ----- System #includes ----- */
 
 /* ----- Local #inlcudes ----- */
+#include "../Util/util.h"
 
 /* ---- Macro #define ---- */
 
@@ -21,13 +22,13 @@
  *0 - not on move
  *1 - on move
  */
-int f_ENG_ON_MOVE;
+UCHAR f_ENG_ON_MOVE;
 
 /* Description : Engine color
  *0 - white
  *1 - black
  */
-int f_ENG_COL;
+UCHAR f_ENG_COL;
 
 /* --- Procedures --- */
 
@@ -39,7 +40,5 @@ int f_ENG_COL;
  * Output:0
  */
 void flags_init ();
-
-
 #endif
 

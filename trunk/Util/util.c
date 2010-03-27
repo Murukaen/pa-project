@@ -69,3 +69,8 @@ void linear_to_matrix ( UCHAR pos , LOC * l ) {
 		(*l).col = pos % SIZE_TABLE;
 }
 
+UCHAR not ( UCHAR b) {
+	
+	return (1-b);
+}
+

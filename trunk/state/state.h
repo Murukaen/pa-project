@@ -141,7 +141,7 @@ UCHAR ST_get_move_index(STATE);
 
 /* Desc:
  * Sets the current piece to move ( the current specific piece ) [List]
- * Input:2: state , address of piece location [List] ( element [List] of Table_Location[f_ENG_COL][piece_to_move - PIECES_OFF] ) 
+ * Input:2: state , address of piece location [List] ( element [List] of Table_Location[col_on_move][piece_to_move - PIECES_OFF] ) 
  * first_nod_list ( cur_poz_in_list ) is the location [P_LOC] of the current piece to be handled with
  * Important: The default value is: Table_Location[f_ENG_COL][piece_to_move - PIECES_OFF]
  * Output:0
@@ -152,9 +152,23 @@ void ST_set_cur_poz_in_list(STATE , List);
  * Gets the current piece to move ( the current specific piece ) [List]
  * first_nod_list ( cur_poz_in_list ) is the location [P_LOC] of the current piece to be handled with
  * Input:1: state 
- * Output:1: address of piece location [List] ( element [List] of Table_Location[f_ENG_COL][piece_to_move - PIECES_OFF] ) 
+ * Output:1: address of piece location [List] ( element [List] of Table_Location[col_on_move][piece_to_move - PIECES_OFF] ) 
  */
 List ST_get_cur_poz_in_list(STATE);
+
+/* Desc:
+ * Sets the color on move in a state
+ * Input:2: state , color on move (0-1) [UCHAR]
+ * Output:0
+ */
+void ST_set_col_on_move ( STATE , UCHAR );
+
+/* Desc:
+ * Gets the color on move in a state
+ * Input:1: state 
+ * Output:1: color on move (0-1) [UCHAR]
+ */
+UCHAR ST_get_col_on_move ( STATE );
 
 
 /* ~~~ Test purposes ONLY : ~~~ */

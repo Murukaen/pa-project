@@ -37,10 +37,12 @@ struct s_state {
 	UCHAR move_index;
 
 	/* Desc : current piece location [list] of the type (piece_to_move) which has to be processed by the state generating proocedure 
-	 * It is a current element [list] in the list given by Table_Location[f_ENG_COL][piece_to_move - PIECES_OFF] 
+	 * It is a current element [list] in the list given by Table_Location[col_on_move][piece_to_move - PIECES_OFF] 
 	 * first_nod_list ( cur_poz_in_list ) is the location [P_LOC] of the current piece to be handled with
 	 */
 	List cur_poz_in_list; 
+	
+	UCHAR col_on_move; // color on move in this state
 
 };
 /* ~~~ END state structure ~~~ */
@@ -127,6 +129,15 @@ void ST_set_cur_poz_in_list(STATE st,List l){
 	st ->cur_poz_in_list = l;
 }
 
+void ST_set_col_on_move ( STATE st , UCHAR color ) {
+	
+	st -> col_on_move = color;
+}
+
+UCHAR ST_get_col_on_move ( STATE st ) {
+	
+	return st -> col_on_move;
+}
 
 void ST_free(STATE st) {
 
@@ -237,19 +248,24 @@ void state_print ( STATE st , FILE * fout ) {
 		}
 	/* END Print Table_Location */
 	
+	/* Print col_on_move */
+	tag_to_text( st -> col_on_move , text1);
+	fprintf(fout, "\n\nColor on move : %s\n" , text1);
+	/* END Print col_on_move */
+	
 	/* Print piece_to_move */
 	tag_to_text ( st -> piece_to_move , text1 );
-	fprintf(fout , "\n\npiece_to_move: %s\n" , text1 );
+	fprintf(fout , "\nPiece to move: %s\n" , text1 );
 	/* END Print piece_to_move */
 	
 	/* Print move_index */
-	fprintf(fout , "\nmove_index: %u\n" , st -> move_index);
+	fprintf(fout , "\nMove index: %u\n" , st -> move_index);
 	/* END Print move_index */
 	
 	/* Print cur_poz_in_list */
 	l = st -> cur_poz_in_list;
 	loc = first_nod_list (&l);
-	fprintf(fout, "\ncur_poz_in_list: ( %c , %c )\n\n}" , row_to_letter ( LOC_get_row ( loc ) ) , col_to_letter ( LOC_get_col ( loc ) ) );
+	fprintf(fout, "\nCurrent piece location : ( %c , %c )\n\n}" , row_to_letter ( LOC_get_row ( loc ) ) , col_to_letter ( LOC_get_col ( loc ) ) );
 	/* END Print cur_poz_in_list */
 }
 
@@ -298,6 +314,7 @@ STATE state_read ( FILE * fin ) {
 	char c;
 	P_LOC loc;
 	UCHAR color, tag;
+	UCHAR c_on_move;
 	/* END Auxiliary variables */
 	
 	/* Structure fields */	
@@ -336,7 +353,8 @@ STATE state_read ( FILE * fin ) {
 		}	
 	p_to_move = ANALYZED_PIECE;
 	m_index = 0;
-	c_list = T_L [f_ENG_COL][ ANALYZED_PIECE - PIECES_OFF];
+	c_on_move = 0; // !!! white on move
+	c_list = T_L [st -> col_on_move][ ANALYZED_PIECE - PIECES_OFF];
 	/* END Read from file */
 	
 	/* Set the new state */

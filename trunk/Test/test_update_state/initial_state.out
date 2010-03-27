@@ -115,10 +115,12 @@ Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 )
 Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
 Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
 
-piece_to_move: Knight
+Color on move : White
 
-move_index: 0
+Piece to move: Knight
 
-cur_poz_in_list: ( g , 1 )
+Move index: 0
+
+Current piece location : ( g , 1 )
 
 }
