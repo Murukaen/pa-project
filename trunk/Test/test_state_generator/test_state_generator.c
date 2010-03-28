@@ -7,31 +7,36 @@
 #include "../../bitmap/bitmap.h"
 #include "../../Flags/flags.h"
 
-
 int main() {
 
-	FILE * fout = fopen("./Test/test_state_generator/test_st_generator.out", "w");
-	FILE * fin = fopen("./Test/test_state_generator/stare_initiala.in","r");
-	if(fin == NULL){
+	FILE * fout = fopen("./Test/test_state_generator/test_st_generator.out",
+			"w");
+	FILE * fin = fopen("./Test/test_state_generator/stare_initiala.in", "r");
+	if (fin == NULL) {
 		printf("eroare deschidere fisier intrare");
 		exit(0);
 	}
-	STATE st;
-	STATE st_new;
-	
+	STATE st, st1, st2, st3, st4,st5;
+
 	/* Inits */
 	BM_init();
 	flags_init();
 	ST_gen_init();
 
 	/* END Inits */
-	
-	st = state_read(fin,0);
-	state_print(st,fout);
-	st_new = ST_gen(st);
-	state_print(st_new, fout);
-	printf("fara");
 
+	st = state_read(fin, 0);
+	state_print(st, fout);
+	st1 = ST_gen(st);
+	state_print(st, fout);
+	st2 = ST_gen(st);
+	state_print(st, fout);
+	st3 = ST_gen(st);
+	state_print(st3, fout);
+	st4 = ST_gen(st);
+	state_print(st, fout);
+
+	printf("fara");
 
 	return 0;
 }
