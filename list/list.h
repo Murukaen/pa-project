@@ -25,6 +25,15 @@ typedef void ( *FFREE ) ( key );
 typedef int (*FEQU) (key, key);
 #endif
 
+/* Desc:
+ * Returns a pointer to a NEW memory location containing the same value as at the loc
+ * indicated by the parameter pointer
+ */
+#ifndef _FALLOC
+#define _FALLOC
+typedef key (*FALLOC) ( key );
+#endif
+
 struct nod_lista;
 typedef struct nod_lista * List;
 typedef List Nod;
@@ -60,21 +69,21 @@ key first_nod_list(List*);
  * Input:1: list to copy
  * Output:1: the copy list
  */
-List list_copy ( List );
+List list_copy ( List , FALLOC );
 
 /* Desc:
- * Searches for an element within a list and removes it modifying the list
- * Input:4: Address to list , key to look for , fequ , ffree
+ * Searches for an element within a list and removes it ( the data will be erased by the last parameter free function )
+ * Input:4: List , key to look for , fequ , ffree
  * Output:0
  */
-void delete_elem_list ( List * , key , FEQU , FFREE );
+void delete_elem_list ( List , key , FEQU , FFREE );
 
 /* Desc:
  * Searches for an element within a list and removes it returning the modified list
  * Input:4: Address to list , key to look for , fequ , ffree
  * Output:1: modified list
  */
-List create_without_elem_list ( List, key , FEQU, FFREE);
+List create_without_elem_list ( List, key , FEQU, FFREE , FALLOC);
 
 /* Destructor Lista */
 void free_list(List , FFREE );
