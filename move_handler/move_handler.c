@@ -6,6 +6,7 @@
 
 /* ----- Local #inlcudes ----- */
 #include "move_handler.h"
+#include "../cur_state/cur_state.h"
 #include "../Flags/flags.h"
 #include "../Util/util.h"
 
@@ -25,9 +26,9 @@ MOVE determine_move ( STATE st_next) {
 
 	STATE st_prev = cur_state_get();
 	
-	UCHAR my_pieces = f_ENG_COL;    //culoarea engineului
+	UCHAR my_pieces = ST_get_col_on_move ( st_prev );    //culoarea engineului
 
-	UCHAR his_pieces = ~ my_pieces; //culoarea adversarului
+	UCHAR his_pieces = not(my_pieces); //culoarea adversarului
 
 	BITMAP my_pic_prev = ST_get_bitmap (st_prev, my_pieces ); //bitmapul starii mele curente
 
@@ -35,7 +36,7 @@ MOVE determine_move ( STATE st_next) {
 	
 	MOVE mov = move_new ();	
 	
-	mov->what_col=f_ENG_COL;//setez in mutare culoarea on move
+	move_set_what_col (mov , f_ENG_COL );//setez in mutare culoarea on move
 
 	List list_poz_moved_p;
 	// Here list_poz_moved_p is the list with the initial pozitions of the moved piece
@@ -101,7 +102,7 @@ MOVE determine_move ( STATE st_next) {
 
 								lcastle->col=mov->poz_dst->col -1; //se afla pe coloana regelui la destinatie -1
 
-								lcastle->row=mov->poz_dst->row;//se afla pe aceeasi linie cu regele,indiferent de culoare
+								lcastle->row=move_get_poz_dst(mov).row;//se afla pe aceeasi linie cu regele,indiferent de culoare
 
 								move_set_p_rock(mov,lcastle);//setez in move locatia finala a turei
 
@@ -111,9 +112,9 @@ MOVE determine_move ( STATE st_next) {
 							{
 								mov->m_tag='M';//nu stiu ce indicator are rocada mare,ma corecteaza alin
 
-								lcastle->col=mov->poz_src->col;//se afla pe coloana sursa a regelui
+								lcastle.col = move_get_poz_src ( mov ) . col ;//se afla pe coloana sursa a regelui
 
-								lcastle->row=mov->poz_dst->row;//se afla pe linia regelui,indiferent de culoare
+								lcastle.row = move_get_poz_src ( mov ) . row ;//se afla pe linia regelui,indiferent de culoare
 
 								move_set_p_rock(mov,lcastle);//setez in move locatia finala a turei
 							}
@@ -155,7 +156,7 @@ MOVE determine_move ( STATE st_next) {
 			}
 			
 	
-	where_moved = (~ ( my_pic_prev & ST_get_bitmap (st_prev, which_piece ) ) ) & ( my_pic_prev & ST_get_bitmap (st_next, which_piece ) ) );
+	where_moved = ( (~ ( my_pic_prev & ST_get_bitmap (st_prev, which_piece ) ) ) & ( my_pic_prev & ST_get_bitmap (st_next, which_piece ) ) );
 	
 	list_poz_moved_p = ST_get_List_Table_Location ( st_next , my_pieces , which_piece );
 	//lista pentru starea urmatoare

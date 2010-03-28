@@ -81,7 +81,7 @@ void update_state(MOVE mov) {
 			list = ST_get_List_Table_Location(cur,
 					~(f_ENG_COL ^ f_ENG_ON_MOVE), c);
 		}
-		delete_elem_list(&list, &d, fequ_loc, LOC_free);
+		delete_elem_list(list, &d, fequ_loc, LOC_free);
 		P_LOC l = find_nod_list(list, &s, fequ_loc);
 		LOCp_set_both(l, d.row, d.col);
 	}

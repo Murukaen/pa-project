@@ -223,7 +223,7 @@ void state_print ( STATE st , FILE * fout ) {
 	/* END Print cur_poz_in_list */
 }
 
-STATE state_read ( FILE * fin ) {
+STATE state_read ( FILE * fin , UCHAR color_on_move ) {
 	
 	/* The new state */
 	STATE st = ST_new ();
@@ -274,7 +274,7 @@ STATE state_read ( FILE * fin ) {
 		}	
 	p_to_move = ANALYZED_PIECE;
 	m_index = 0;
-	c_on_move = 0; // !!! white on move
+	c_on_move = color_on_move;
 	c_list = T_L [st -> col_on_move][ ANALYZED_PIECE - PIECES_OFF];
 	/* END Read from file */
 	
