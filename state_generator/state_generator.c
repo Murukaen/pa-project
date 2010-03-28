@@ -90,7 +90,7 @@ STATE ST_gen(STATE start_state) {
 						ST_set_List_Table_Location(new_state, j,
 								k + PIECES_OFF, list_copy(
 										ST_get_List_Table_Location(start_state,
-												j, k + PIECES_OFF)));
+												j, k + PIECES_OFF) , LOC_alloc ));
 					}
 				}
 
@@ -122,7 +122,7 @@ STATE ST_gen(STATE start_state) {
 							col_on_move), piece_to_delete);
 					P_LOC to_del = LOC_new();
 					LOCp_set_both(to_del, new_r, new_c);
-					delete_elem_list(&aux_l, (void *) to_del, fequ_loc,
+					delete_elem_list(aux_l, (void *) to_del, fequ_loc,
 							LOC_free);
 				}
 
