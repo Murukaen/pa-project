@@ -51,9 +51,10 @@ MOVE Xmove_to_intern ( char * xcom ) {
 	MOVE mov = move_new ();
 	
 	LOC poz_src , poz_dst;
+
 	
-	LOC_set_both ( poz_src , V[1] , V[0] );
-	LOC_set_both ( poz_dst , V[3] , V[2] );
+	LOCp_set_both ( poz_src , V[1] , V[0] );
+	LOCp_set_both ( poz_dst , V[3] , V[2] );
 	
 	move_set_poz_src ( mov , poz_src );
 	move_set_poz_dst ( mov , poz_dst );
