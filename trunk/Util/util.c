@@ -55,11 +55,33 @@ void LOC_set_both ( LOC l, UCHAR r, UCHAR c) {
 		l.col = c;
 }
 
-void LOC_free ( void * key) {
+void LOC_free ( void * k) {
 	
-	P_LOC ploc = (P_LOC) key;
+	P_LOC ploc = (P_LOC) k;
 	free(ploc);
 }
+
+void * LOC_alloc ( void * k ) {
+	
+	P_LOC ploc = (P_LOC) k;
+	P_LOC new_loc = LOC_new();
+	LOCp_set_both ( new_loc , LOC_get_row ( ploc ) , LOC_get_col ( ploc ));
+	
+	return (void*) new_loc;
+}
+
+int fequ_loc ( void * key1 , void * key2) {
+	
+	P_LOC loc1 = ( P_LOC ) key1;
+	P_LOC loc2 = ( P_LOC ) key2;
+	
+	if ( (LOC_get_row ( loc1 ) == LOC_get_row ( loc2 )) && ( LOC_get_col ( loc2 ) == LOC_get_col ( loc2 ) ) )
+			
+			return 1;
+	
+	return 0;
+}
+
 
 UCHAR matrix_to_linear ( LOC l ) {
 	

@@ -95,16 +95,6 @@ void update_state(MOVE mov) {
 
 void flip_state(void) {
 
-	STATE st = cur_state_get();
 	f_ENG_COL = not(f_ENG_COL); // flips the flag
-	if ( st != 0 ) { // if non void current state
-		
-		ST_set_move_index (st , 0 ); // set move_index to 0
-		ST_set_piece_to_move ( st , ANALYZED_PIECE ); // set analyzed piece to default
-		// !!! the color on move remains the same 
-		// current piece to move remains the same
-		
-	}
-
 }
 

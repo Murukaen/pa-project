@@ -46,6 +46,15 @@ UCHAR LOC_get_col ( P_LOC );
 
 void LOC_free ( void * );
 
+void * LOC_alloc ( void * );
+
+/* Desc:
+ * Tests if two P_LOC variables have equal content
+ * Input:2: key 1 [void *] , key2 [void*]
+ * Output:1:  1 - equal ; 0 - not equal
+ */
+int fequ_loc ( void * , void * );
+
 /* Desc:
  * Transforms (row,col) coordinates into linear pozition equivalent 
  * Input:1: LOC structure

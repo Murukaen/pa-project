@@ -27,26 +27,19 @@ int is_empty_list(List L) {
 	return L -> next == NULL;
 }
 
-key find_nod_list(List L, key content, FEQU compare_key) {
+key find_nod_list(List L, key content, FEQU fequ) {
 
 	if (L -> next == NULL) {
 		return NULL;
 	}
 
-	L = L -> next;
-	while (L -> next != NULL) {
-				if (compare_key(L -> data_list, content) == 1) {
-			return L->data_list;
-		}
+	while ( L -> next != NULL ) {
+		
+		if ( fequ ( L -> next -> data_list , content ) ) return L -> next -> data_list ;
+		
 		L = L -> next;
-
 	}
-
-
-
-	if (compare_key(L -> data_list, content) == 1) {
-		return L -> data_list;
-	}
+	
 	return NULL;
 }
 
@@ -70,67 +63,43 @@ key first_nod_list(List* L) {
 	return (*L) -> data_list;
 }
 
-List list_copy ( List l ) {
+List list_copy ( List l , FALLOC falloc) {
 	
 	List new_l = new_list ();
 	key elem;
 	
-	for ( elem = first_nod_list ( &l ) ; elem ; add_nod_list ( new_l , elem ) , elem = first_nod_list ( &l ));
+	for ( elem = first_nod_list ( &l ) ; elem ; elem = first_nod_list ( &l ))
+		
+			add_nod_list ( new_l , falloc ( elem ) ); 
 	
 	return new_l;
 }
 
-void delete_elem_list ( List * L , key k , FEQU fequ , FFREE ffree) {
+void delete_elem_list ( List L , key k , FEQU fequ , FFREE ffree) {
 	
-	if ( (*L) -> next == NULL ) return;
+	if ( L -> next == NULL ) return;
 	
-	List cont, aux;
+	List aux;
 	
-	if ( fequ ( (*L) -> next -> data_list , k ) ) {
+	while ( L -> next != NULL ) {
 		
+		if ( fequ ( L -> next -> data_list , k ) ) {
 			
-		
-			aux = (*L) -> next;
-			
-			(*L) -> next = (*L) -> next -> next;
-			
-			ffree ( aux -> data_list );
-			free ( aux );
-			
-				
-			cont = (*L);
-				
-	}
-	
-	else cont = (*L) -> next ;
-	
-	
-	while ( cont -> next != NULL ) {
-		
-		if ( fequ ( cont -> next -> data_list , k ) ) {
-			
-				aux = cont -> next;
-				
-				
-				cont -> next = cont -> next -> next;
-				
-				ffree ( aux -> data_list );
-				free ( aux );
-				
-				
-				
+			aux = L -> next;
+			L -> next = L -> next -> next;
+			ffree(aux -> data_list);
+			free(aux);
 		}
 		
-		else cont = cont -> next;
-		
+		L = L -> next;
 	}
 }	
 		
-List create_without_elem_list ( List L , key k , FEQU fequ, FFREE ffree) {
+List create_without_elem_list ( List L , key k , FEQU fequ, FFREE ffree , FALLOC falloc ) {
 	
-	List l_cp = list_copy ( L );
+	List l_cp = list_copy ( L , falloc );
 	
-	delete_elem_list ( &l_cp , k , fequ , ffree );
+	delete_elem_list ( l_cp , k , fequ , ffree );
 	
 	return l_cp;
 }

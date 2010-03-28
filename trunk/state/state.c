@@ -172,7 +172,6 @@ void state_print ( STATE st , FILE * fout ) {
 	/* Print V_BMAP */
 	fprintf(fout, "{\n~~~V_BMAP~~~ : \n" );
 	for(i=0;i<SIZE_BMAP;++i) {
-		
 		tag_to_text ( i , text1 );
 		fprintf(fout, "\n V[%s]=\n" , text1 );
 		BM_print(st -> V_BMAP [i] , fout );
@@ -195,7 +194,8 @@ void state_print ( STATE st , FILE * fout ) {
 			tag_to_text ( j + PIECES_OFF , text2 );
 			fprintf(fout, "\nTable_Location[%s][%s]:" , text1 , text2);
 			l = ST_get_List_Table_Location(st, i , j + PIECES_OFF);
-			for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %c , %c ) " , row_to_letter ( LOC_get_row ( loc ) ) , col_to_letter ( LOC_get_col ( loc ) ) ) , loc = (P_LOC) first_nod_list ( &l ) );
+			if ( l )  for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %c , %c ) " , row_to_letter ( LOC_get_row ( loc ) ) , col_to_letter ( LOC_get_col ( loc ) ) ) , loc = (P_LOC) first_nod_list ( &l ) );
+			else fprintf(fout , " Void List ");
 		}
 	/* END Print Table_Location */
 
@@ -215,8 +215,11 @@ void state_print ( STATE st , FILE * fout ) {
 
 	/* Print cur_poz_in_list */
 	l = st -> cur_poz_in_list;
-	loc = first_nod_list (&l);
-	fprintf(fout, "\nCurrent piece location : ( %c , %c )\n\n}" , row_to_letter ( LOC_get_row ( loc ) ) , col_to_letter ( LOC_get_col ( loc ) ) );
+	if (l) {
+		loc = first_nod_list (&l);
+		fprintf(fout, "\nCurrent piece location : ( %c , %c )\n\n}" , row_to_letter ( LOC_get_row ( loc ) ) , col_to_letter ( LOC_get_col ( loc ) ) );
+	}
+	else fprintf(fout , "\nCurrent piece location : Void List\n\n}");
 	/* END Print cur_poz_in_list */
 }
 

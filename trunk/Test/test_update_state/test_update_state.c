@@ -15,7 +15,6 @@ int main ( void ) {
 		/* END Inits */
 		
 		/* Test */
-		flip_state ();
 		FILE *fout = fopen (FILE_OUT_INITIAL_STATE , "w");
 		state_print ( cur_state_get () , fout );
 		fclose(fout);
