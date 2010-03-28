@@ -14,7 +14,6 @@
 #include "../Flags/flags.h"
 #include "../valid_moves/valid_moves.h"
 #include "../list/list.h"
-#include "../compare/compare.h"
 #include "../Util/util.h"
 
 /* ---- Macro #define ---- */
