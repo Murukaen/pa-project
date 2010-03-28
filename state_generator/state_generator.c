@@ -45,8 +45,13 @@ STATE ST_gen(STATE start_state) {
 		valid_moves = VM_valid_pos(Moves[T_N - 2][old_r][old_c], ST_get_bitmap(
 				start_state, col_on_move));
 
-		if (valid_moves == 0) {
-			break;
+		if (valid_moves == 0) {//daca nu sunt mutari valide , trec la urmatoarea piesa din lista,daca exista
+			loc = first_nod_list(&L);
+			if (loc != NULL) {
+				old_c = LOC_get_col(loc), old_r = LOC_get_row(loc);
+			} else {
+				break;// trebuie sa trec la urmatoarea piesa
+			}
 		}
 
 		for (i = index; i < 64; i++) {
@@ -55,9 +60,10 @@ STATE ST_gen(STATE start_state) {
 
 			/*daca exista mutari valide,in afara de sah, ca nu am facut mai sus verificarea*/
 			if ((BM_Make_pos(i) & valid_moves) != 0) {
+				BM_print(valid_moves,stdout);
 
 				/*setez noul index*/
-				ST_set_move_index(new_state, i + 1);
+				ST_set_move_index(start_state, i+1);
 
 				/* setez noile V_BMAP*/
 
@@ -123,16 +129,16 @@ STATE ST_gen(STATE start_state) {
 				}
 
 				/*modific din lista lui new_state locatia piesei mutate*/
-				P_LOC loc_modificat = (P_LOC) find_nod_list(
-						ST_get_List_Table_Location(new_state, col_on_move,
-								T_N), loc, fequ_loc);
+				P_LOC loc_modificat =
+						(P_LOC) find_nod_list(ST_get_List_Table_Location(
+								new_state, col_on_move, T_N), loc, fequ_loc);
 
 				LOCp_set_both(loc_modificat, new_r, new_c);
 				//LOC_print(stdout,loc_modificat);
 
 				/*pun in noua stare cur_poz in list*/
-				List aux_l1 = ST_get_List_Table_Location(new_state,
-						col_on_move, T_N);
+				List aux_l1 = ST_get_List_Table_Location(new_state, not(
+						col_on_move), T_N);
 				ST_set_cur_poz_in_list(new_state, aux_l1);
 
 				/*am refacut Table_What*/
@@ -144,28 +150,26 @@ STATE ST_gen(STATE start_state) {
 							ST_set_tag_Table_What(new_state, new_r, new_c, T_N);
 						} else if (j == old_r && k == old_c) {
 							ST_set_tag_Table_What(new_state, old_r, old_c, 255);
-						}else{
-							temp = ST_get_tag_Table_What(start_state,j,k);
-							ST_set_tag_Table_What(new_state,j,k,temp);
+						} else {
+							temp = ST_get_tag_Table_What(start_state, j, k);
+							ST_set_tag_Table_What(new_state, j, k, temp);
+						}
 					}
 				}
+
+				/*pun in noua stare culoarea la mutare*/
+				ST_set_col_on_move(new_state, not(col_on_move));
+
+				/*setez in noua stare tot calu la mutare*/
+				ST_set_piece_to_move(new_state, T_N);
+				return new_state;
 			}
-
-			/*pun in noua stare culoarea la mutare*/
-			ST_set_col_on_move(new_state, not(col_on_move));
-
-			/*setez in noua stare tot calu la mutare*/
-			ST_set_piece_to_move(new_state, T_N);
-			return new_state;
 		}
-
 	}
-}
-printf("fara cai ");
-return 0;
+	return NULL;
 }
 
 void ST_gen_init(void) {
 
-Read_all_possible_moves(Moves);
+	Read_all_possible_moves(Moves);
 }
