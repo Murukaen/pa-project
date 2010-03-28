@@ -41,6 +41,9 @@ struct s_state {
 	List cur_poz_in_list; 
 	
 	UCHAR col_on_move; // color on move in this state
+	/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	 * ?MIHAI
+	0 white - 1 black? asa am considerat*/
 
 };
 /* ~~~ END state structure ~~~ */
