@@ -48,10 +48,10 @@
 </toolChain>
 </folderInfo>
 <sourceEntries>
-<entry excluding="Test/test_update_state|Test/test_all_possible_moves|Test/test_initial_state|list|test_all_possible_moves|Test/test_san|Test/test_read_from_file|test_state_generator|test_read_from_file|read_from_file|File_generator|move_handler|valid_moves|main/engine.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="list"/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="valid_moves"/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="read_from_file"/>
+<entry excluding="xboard_com|command|move_conv|Test/test_update_state|Test/test_all_possible_moves|Test/test_initial_state|list|test_all_possible_moves|Test/test_san|Test/test_read_from_file|test_state_generator|test_read_from_file|read_from_file|File_generator|move_handler|valid_moves|main/engine.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 </sourceEntries>
 </configuration>
 </storageModule>
@@ -349,10 +349,10 @@
 </toolChain>
 </folderInfo>
 <sourceEntries>
-<entry excluding="Test/test_update_state|Test/test_all_possible_moves|test_state_generator|Test/test_read_from_file|test_all_possible_moves|Test/test_initial_state|test_read_from_file|Test/test_san|move_handler|valid_moves|main/engine.c|list|file_generator|File_generator|read_from_file" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="valid_moves"/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="read_from_file"/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="list"/>
+<entry excluding="xboard_com|command|move_conv|Test/test_update_state|Test/test_all_possible_moves|test_state_generator|Test/test_read_from_file|test_all_possible_moves|Test/test_initial_state|test_read_from_file|Test/test_san|move_handler|valid_moves|main/engine.c|list|file_generator|File_generator|read_from_file" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 </sourceEntries>
 </configuration>
 </storageModule>

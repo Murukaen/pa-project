@@ -33,8 +33,6 @@ STATE ST_gen(STATE start_state) {
 
 	List L = ST_get_cur_poz_in_list(start_state);
 	P_LOC loc;
-	/*??????????????????????????? MIHAI??????????????????????????????????????*/
-	/* pot sa am un singur new pe care sa l modific de fiecare data ???????*/
 	BITMAP valid_moves, new_bmap;
 
 	STATE new_state = ST_new();
@@ -59,7 +57,7 @@ STATE ST_gen(STATE start_state) {
 			if ((BM_Make_pos(i) & valid_moves) != 0) {
 
 				/*setez noul index*/
-				ST_set_move_index(new_state, i + 1); // !! RAZ : Pornesti apoi de la i+1
+				ST_set_move_index(new_state, i + 1);
 
 				/* setez noile V_BMAP*/
 
@@ -89,7 +87,7 @@ STATE ST_gen(STATE start_state) {
 						ST_set_List_Table_Location(new_state, j,
 								k + PIECES_OFF, list_copy(
 										ST_get_List_Table_Location(start_state,
-												j, k + PIECES_OFF) , LOC_alloc ));
+												j, k + PIECES_OFF), LOC_alloc));
 					}
 				}
 
@@ -121,14 +119,15 @@ STATE ST_gen(STATE start_state) {
 							col_on_move), piece_to_delete);
 					P_LOC to_del = LOC_new();
 					LOCp_set_both(to_del, new_r, new_c);
-					delete_elem_list(aux_l, (void *) to_del, fequ_loc,
-							LOC_free);
+					delete_elem_list(aux_l, (void *) to_del, fequ_loc, LOC_free);
 				}
 
 				/*modific din lista lui new_state locatia piesei mutate*/
-				P_LOC loc_modificat = LOC_new();
-				loc_modificat = (P_LOC)find_nod_list(ST_get_List_Table_Location(
-						new_state, col_on_move, T_N), &loc, fequ_loc);
+				P_LOC loc_modificat = (P_LOC) find_nod_list(
+						ST_get_List_Table_Location(start_state, col_on_move,
+								T_N), &loc, fequ_loc);
+				LOC_print(stdout, loc_modificat);
+				return 0;
 				LOCp_set_both(loc_modificat, new_r, new_c);
 
 				/*pun in noua stare cur_poz in list*/
@@ -150,6 +149,7 @@ STATE ST_gen(STATE start_state) {
 
 		}
 	}
+	printf("fara cai ");
 	return 0;
 }
 

@@ -65,6 +65,11 @@ void * LOC_alloc ( void * k ) {
 	return (void*) new_loc;
 }
 
+void LOC_print(FILE* fout,P_LOC loc){
+
+	fprintf(fout,"\n (%d,%d)\n",LOC_get_row(loc),LOC_get_col(loc));
+}
+
 int fequ_loc ( void * key1 , void * key2) {
 	
 	P_LOC loc1 = ( P_LOC ) key1;
