@@ -39,6 +39,7 @@ int validate_move(MOVE m, STATE cur){
 	LOC s = move_get_poz_src(m);
 	printf ( "row: %d\ncol: %d \n", l.row , l.col );
 	BITMAP b = BM_Make_coord(l.row, l.col);
+	BM_print ( b, stdout );
 	BITMAP juc = ST_get_bitmap(cur, move_get_what_col(m));
 	return ( ( b & (Moves[piesa - PIECES_OFF ][s.row][s.col] ^ (~(juc))) ) ? 1 : 0);
 }
@@ -204,9 +205,9 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 		lk = k / 8, ck = k % 8;
 		MOVE m = move_new();
 		move_set_p_tag(m, piesa);
-		LOC_set_both(l, lk, ck);
+		LOCp_set_both(&l, lk, ck);
 		move_set_poz_src(m, l);
-		LOC_set_both(d, ld, cd);
+		LOCp_set_both(&d, ld, cd);
 		move_set_poz_dst(m, d);
 
 		if (validate_move(m,cur)) {
@@ -256,7 +257,7 @@ LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
 		MOVE m = move_new();
 		move_set_p_tag(m, c);
 		move_set_poz_dst(m, l);
-		LOC_set_both(d, lk, ck);
+		LOCp_set_both(&d, lk, ck);
 		move_set_poz_src(m, d);
 
 		if (validate_move(m, cur )) {
@@ -352,12 +353,12 @@ MOVE SAN_to_Move(char* s) {
 	if (strcmp(s, "O-O") == 0 || strcmp(s, "o-o") == 0 || strcmp(s, "0-0") == 0) {
 		if (1) {
 			LOC l;
-			LOC_set_both(l, 0, 0);
+			LOCp_set_both(&l, 0, 0);
 			move_set_p_rock(m, l);
 			move_set_m_tag(m, T_MOV_CST);
 		} else {
 			LOC l;
-			LOC_set_both(l, 7, 7);
+			LOCp_set_both(&l, 7, 7);
 			move_set_p_rock(m, l);
 			move_set_m_tag(m, T_MOV_CST);
 		}
@@ -367,12 +368,12 @@ MOVE SAN_to_Move(char* s) {
 			|| strcmp(s, "0-0-0") == 0) {
 		if (1) {
 			LOC l;
-			LOC_set_both(l, 0, 7);
+			LOCp_set_both(&l, 0, 7);
 			move_set_p_rock(m, l);
 			move_set_m_tag(m, T_MOV_CST);
 		} else {
 			LOC l;
-			LOC_set_both(l, 7, 0);
+			LOCp_set_both(&l, 7, 0);
 			move_set_p_rock(m, l);
 			move_set_m_tag(m, T_MOV_CST);
 		}
