@@ -10,15 +10,20 @@
 int main() {
 
 	FILE * fout = fopen("./Test/test_state_generator/test_st_generator.out", "w");
-	STATE st = ST_new();
-	STATE new = ST_new();
+	STATE st;
+	STATE st_new;
+	
+	/* Inits */
 	BM_init();
-	Read_all_possible_moves(Moves);
 	flags_init();
+	ST_gen_init();
 	update_state_init();
+	/* END Inits */
+	
 	st = cur_state_get();
-	state_print(st, fout);
-	new = ST_gen(st);
+	//state_print(st, fout);
+
+	st_new = ST_gen(st);
 	//state_print(new, fout);
 	printf("fara");
 
