@@ -69,13 +69,6 @@ UCHAR matrix_to_linear ( LOC );
  */
 void linear_to_matrix ( UCHAR , LOC* ); 
 
-/* Desc:
- * Set both row and column for a LOC structure
- * Input:3: LOC structure , row , column
- * Output:0
- */
-void LOC_set_both ( LOC , UCHAR , UCHAR );
-
 /* Numbers */
 
 /* Desc:
