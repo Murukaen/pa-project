@@ -9,7 +9,6 @@
 
 /* ----- Local #inlcudes ----- */
 #include "../move/move.h"
-#include "../compare/compare.h"
 #include "../Flags/flags.h"
 
 /* ---- Macro #define ---- */

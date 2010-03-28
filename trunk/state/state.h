@@ -186,10 +186,10 @@ void state_print ( STATE , FILE * );
  * 2) Upper case is white , lower case is black
  * 3) The letters are the usual notation of the pieces
  * Examples: K - white king , q - black queen , b - black bishop , P - white pawn , N - white knight
- * Input:1: file in
+ * Input:1: file in , !!! what color is on move !!! 
  * Output:1: created state
  */
-STATE state_read ( FILE * );
+STATE state_read ( FILE * , UCHAR);
 
 void ST_set_cur_list(STATE,List);
 
