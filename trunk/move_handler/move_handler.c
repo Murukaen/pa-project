@@ -75,7 +75,7 @@ MOVE determine_move ( STATE st_next) {
 			list_poz_moved_p = ST_get_List_Table_Location ( st_prev , my_pieces , which_piece );
 			//lista pentru starea curenta
 
-			for ( loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) ; loc ; )
+			for ( loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) ; loc ; loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) )
 
 						if (  ST_get_tag_Table_What ( st_next , LOC_get_row ( loc ) , LOC_get_col ( loc ) ) == T_NA ) {
 
@@ -89,7 +89,7 @@ MOVE determine_move ( STATE st_next) {
 			list_poz_moved_p = ST_get_List_Table_Location ( st_next , my_pieces , which_piece );
 			//lista pentru starea urmatoare
 
-			for ( loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) ; loc ; )
+			for ( loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) ; loc ; loc = (P_LOC) first_nod_list ( &list_poz_moved_p ))
 
 					if ( BM_Make_coord ( LOC_get_row ( loc ) , LOC_get_col ( loc ) ) == where_moved ) {
 
@@ -145,7 +145,7 @@ MOVE determine_move ( STATE st_next) {
 	
 	list_poz_moved_p = ST_get_List_Table_Location ( st_prev , my_pieces , which_piece );
 	
-	for ( loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) ; loc ; )
+	for ( loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) ; loc ; loc = (P_LOC) first_nod_list ( &list_poz_moved_p ))
 		
 			if (  ST_get_tag_Table_What ( st_next , LOC_get_row ( loc ) , LOC_get_col ( loc ) ) == T_NA ) {
 				 
@@ -161,7 +161,7 @@ MOVE determine_move ( STATE st_next) {
 	//lista pentru starea urmatoare
 
 
-	for ( loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) ; loc ; ) 
+	for ( loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) ; loc ; loc = (P_LOC) first_nod_list ( &list_poz_moved_p )) 
 		
 			if ( BM_Make_coord ( LOC_get_row ( loc ) , LOC_get_col ( loc ) ) == where_moved ) {
 				

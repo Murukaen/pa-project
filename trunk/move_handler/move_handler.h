@@ -11,6 +11,7 @@
 /* ----- Local #inlcudes ----- */
 #include "../state/state.h"
 #include "../cur_state/cur_state"
+#include "../move/move.h"
 
 /* ---- Macro #define ---- */
 
