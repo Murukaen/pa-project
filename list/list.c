@@ -75,7 +75,7 @@ List list_copy ( List l ) {
 	List new_l = new_list ();
 	key elem;
 	
-	for ( elem = first_nod_list ( &l ) ; elem ; add_nod_list ( new_l , elem ) );
+	for ( elem = first_nod_list ( &l ) ; elem ; add_nod_list ( new_l , elem ) , elem = first_nod_list ( &l ));
 	
 	return new_l;
 }

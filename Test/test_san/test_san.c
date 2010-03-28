@@ -13,7 +13,7 @@
 ////////////////////////////////
 //////// Notes
 /*
- * X in the output means that the row / column is out of range
+ * 1) X in the output means that the row / column is out of range
  */
 ////////////////////////////////
 
