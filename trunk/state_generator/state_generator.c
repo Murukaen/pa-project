@@ -35,7 +35,7 @@ STATE ST_gen(STATE start_state) {
 	P_LOC loc;
 	/*??????????????????????????? MIHAI??????????????????????????????????????*/
 	/* pot sa am un singur new pe care sa l modific de fiecare data ???????*/
-	BITMAP valid_moves, new, new1, new2, new3;
+	BITMAP valid_moves, new0, new1, new2, new3;
 	BM_init();
 	flags_init();
 	STATE new_state = ST_new();
@@ -72,10 +72,10 @@ STATE ST_gen(STATE start_state) {
 
 				/*refac bitmapul pieselor de culoarea enginului*/
 
-				new = ST_get_bitmap(start_state, col_on_move);
-				BM_Clear_piece_at_BMAP(&new, BM_Make_coord(old_r, old_c));
-				BM_Put_piece_at_coord(&new, new_r, new_c);
-				ST_set_bitmap(new_state, col_on_move, new);
+				new0 = ST_get_bitmap(start_state, col_on_move);
+				BM_Clear_piece_at_BMAP(&new0, BM_Make_coord(old_r, old_c));
+				BM_Put_piece_at_coord(&new0, new_r, new_c);
+				ST_set_bitmap(new_state, col_on_move, new0);
 
 				/*refac bitmapul pentru cai*/
 
