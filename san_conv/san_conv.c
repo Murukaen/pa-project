@@ -234,8 +234,6 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 /* Gasirea piesei care trebuie mutata */
 
 LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
-	printf("\n");
-	printf("Culoarea care trebe sa mute: %d", !f_ENG_COL);
 	BITMAP b = ST_get_bitmap(cur, c) & ST_get_bitmap (cur, !f_ENG_COL);
 	LOC d;
 	UCHAR k, lk, ck;
@@ -254,18 +252,13 @@ LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
 			bool = 1;
 		MOVE m = move_new();
 		move_set_p_tag(m, c);
-		printf("\n");
-		printf("piesa: %d", c);
 		move_set_poz_dst(m, l);
 		LOCp_set_both(&d, lk, ck);
 		move_set_poz_src(m, d);
-		printf("%d\n", d.col);
-		printf("booleene: bool %d, booc %d", bool, booc);
 
 		if (validate_move(m, cur )) {
 			if (bool && booc){
 				move_free(m);
-				printf("Mutarea :%d, %d", d.row, d.col);
 				return d;
 			}else{
 				move_free(m);
@@ -389,23 +382,19 @@ MOVE SAN_to_Move(char* s) {
 			if (!is_dezambiguu(s)) {
 				if (isdigit(s[j])) {
 					j++;
-					lg = atoi(&s[j - 1]);
-					printf ("lg = %d", lg);
+					cg = s[j-1]-'1';
 				} else {
 					j++;
-					cg = convertFromLetters(s[j - 1]);
-					printf("cg = %c", cg);
+					lg = convertFromLetters(s[j - 1]) - 1;
 				}
 			}
 			if (s[j] == 'x') {
 				j++;
 			}
-			printf("j = %d", j);
-			cp = convertFromLetters(s[j++]) - 1;
-			lp = atoi(&s[j++]);
-			printf ("cp = %c; lp = %c", s[j-2], s[j-1]);
+			lp = convertFromLetters(s[j++]) - 1;
+			cp = s[j++]-'1';
 			LOC l;
-			l.row = lp - 1;
+			l.row = lp;
 			l.col = cp;
 			move_set_poz_dst(m, l);
 			LOC h = gasire_piesa(cur, cg, lg, l, get_piece(s[0]));
