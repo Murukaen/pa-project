@@ -31,18 +31,18 @@ STATE ST_gen(STATE start_state) {
 
 	UCHAR index = ST_get_move_index(start_state), i, j, k;
 	UCHAR col_on_move = ST_get_col_on_move(start_state);
+	
 	List L = ST_get_cur_poz_in_list(start_state);
 	P_LOC loc;
 	/*??????????????????????????? MIHAI??????????????????????????????????????*/
 	/* pot sa am un singur new pe care sa l modific de fiecare data ???????*/
 	BITMAP valid_moves, new0, new1, new2, new3;
-	BM_init();
-	flags_init();
+	
 	STATE new_state = ST_new();
 
-	for (loc = first_nod_list(&L); loc; index = 0) {
-
-		UCHAR old_c = LOC_get_row(loc), old_r = LOC_get_col(loc);
+	for (loc = first_nod_list(&L); loc; index = 0 , loc = first_nod_list(&L)) {
+		
+		UCHAR old_c = LOC_get_col(loc), old_r = LOC_get_row(loc);
 
 		// mai trebuie verificat daca nu cumva e sah daca mut piesa
 		valid_moves = VM_valid_pos(Moves[T_N - 2][old_r][old_c], ST_get_bitmap(
@@ -54,13 +54,13 @@ STATE ST_gen(STATE start_state) {
 
 		for (i = index; i < 64; i++) {
 
-			UCHAR new_r = i % 8, new_c = i / 8;
+			UCHAR new_r = i / 8, new_c = i % 8;
 
 			/*daca exista mutari valide,in afara de sah, ca nu am facut mai sus verificarea*/
 			if ((BM_Make_pos(i) & valid_moves) != 0) {
 
 				/*setez noul index*/
-				ST_set_move_index(new_state, i);
+				ST_set_move_index(new_state, i+1); // !! RAZ : Pornesti apoi de la i+1
 
 				/* setez noile V_BMAP*/
 
@@ -70,12 +70,16 @@ STATE ST_gen(STATE start_state) {
 
 				}
 
-				/*refac bitmapul pieselor de culoarea enginului*/
+				/*refac bitmapul pieselor de culoarea celui care muta */
 
 				new0 = ST_get_bitmap(start_state, col_on_move);
 				BM_Clear_piece_at_BMAP(&new0, BM_Make_coord(old_r, old_c));
 				BM_Put_piece_at_coord(&new0, new_r, new_c);
 				ST_set_bitmap(new_state, col_on_move, new0);
+				
+				BM_print(new0 , stdout );
+				return 0;
+				
 
 				/*refac bitmapul pentru cai*/
 
