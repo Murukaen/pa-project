@@ -81,7 +81,7 @@ void BM_Clear_piece_at_BMAP(BITMAP*,BITMAP);
 
 
 /* capitane ghici ce face asta :)) intoarce 1=exista, 0=nu exista */
-int BM_Compare_BMAPs(BITMAP,BITMAP);
+int BM_Equal1_BMAPs(BITMAP,BITMAP);
 
 
 /* pune 0 peste tot */

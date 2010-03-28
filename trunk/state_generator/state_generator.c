@@ -31,17 +31,17 @@ STATE ST_gen(STATE start_state) {
 
 	UCHAR index = ST_get_move_index(start_state), i, j, k;
 	UCHAR col_on_move = ST_get_col_on_move(start_state);
-	
+
 	List L = ST_get_cur_poz_in_list(start_state);
 	P_LOC loc;
 	/*??????????????????????????? MIHAI??????????????????????????????????????*/
 	/* pot sa am un singur new pe care sa l modific de fiecare data ???????*/
-	BITMAP valid_moves, new0, new1, new2, new3;
-	
+	BITMAP valid_moves, new_bmap;
+
 	STATE new_state = ST_new();
 
-	for (loc = first_nod_list(&L); loc; index = 0 , loc = first_nod_list(&L)) {
-		
+	for (loc = first_nod_list(&L); loc; index = 0, loc = first_nod_list(&L)) {
+
 		UCHAR old_c = LOC_get_col(loc), old_r = LOC_get_row(loc);
 
 		// mai trebuie verificat daca nu cumva e sah daca mut piesa
@@ -60,7 +60,7 @@ STATE ST_gen(STATE start_state) {
 			if ((BM_Make_pos(i) & valid_moves) != 0) {
 
 				/*setez noul index*/
-				ST_set_move_index(new_state, i+1); // !! RAZ : Pornesti apoi de la i+1
+				ST_set_move_index(new_state, i + 1); // !! RAZ : Pornesti apoi de la i+1
 
 				/* setez noile V_BMAP*/
 
@@ -72,21 +72,17 @@ STATE ST_gen(STATE start_state) {
 
 				/*refac bitmapul pieselor de culoarea celui care muta */
 
-				new0 = ST_get_bitmap(start_state, col_on_move);
-				BM_Clear_piece_at_BMAP(&new0, BM_Make_coord(old_r, old_c));
-				BM_Put_piece_at_coord(&new0, new_r, new_c);
-				ST_set_bitmap(new_state, col_on_move, new0);
-				
-				BM_print(new0 , stdout );
-				return 0;
-				
+				new_bmap = ST_get_bitmap(start_state, col_on_move);
+				BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(old_r, old_c));
+				BM_Put_piece_at_coord(&new_bmap, new_r, new_c);
+				ST_set_bitmap(new_state, col_on_move, new_bmap);
 
 				/*refac bitmapul pentru cai*/
 
-				new1 = ST_get_bitmap(start_state, T_N);
-				BM_Clear_piece_at_BMAP(&new1, BM_Make_coord(old_r, old_c));
-				BM_Put_piece_at_coord(&new1, new_r, new_c);
-				ST_set_bitmap(new_state, T_N, new1);
+				new_bmap = ST_get_bitmap(start_state, T_N);
+				BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(old_r, old_c));
+				BM_Put_piece_at_coord(&new_bmap, new_r, new_c);
+				ST_set_bitmap(new_state, T_N, new_bmap);
 
 				/*copiez in new_state vechea lista de pozitii pt piese*/
 				for (j = 0; j < 2; j++) {
@@ -97,9 +93,11 @@ STATE ST_gen(STATE start_state) {
 												j, k + PIECES_OFF)));
 					}
 				}
+
 				/*daca a fost captura*/
-				if (!BM_Compare_BMAPs(ST_get_bitmap(start_state, ~col_on_move),
-						BM_Make_coord(new_r, new_c))) {
+				if (BM_Equal1_BMAPs(
+						ST_get_bitmap(start_state, not(col_on_move)),
+						BM_Make_coord(new_r, new_c)) == 1) {
 
 					/*identific piesa capturata*/
 					UCHAR piece_to_delete = ST_get_tag_Table_What(start_state,
@@ -108,26 +106,29 @@ STATE ST_gen(STATE start_state) {
 						piece_to_delete -= 6;
 					}
 					/* iau bitmapul pieselor de tipul celei capturate si il modific*/
-					new2 = ST_get_bitmap(start_state, piece_to_delete);
-					BM_Clear_piece_at_BMAP(&new2, BM_Make_coord(new_r, new_c));
-					ST_set_bitmap(new_state, piece_to_delete, new2);
+					new_bmap = ST_get_bitmap(start_state, piece_to_delete);
+					BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(new_r,
+							new_c));
+					ST_set_bitmap(new_state, piece_to_delete, new_bmap);
 
 					/*modific bitmapul pieselor ~col_on_move*/
-					new3 = ST_get_bitmap(start_state, ~col_on_move);
-					BM_Clear_piece_at_BMAP(&new3, BM_Make_coord(new_r, new_c));
-					ST_set_bitmap(new_state, ~col_on_move, new3);
+					new_bmap = ST_get_bitmap(start_state, not(col_on_move));
+					BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(new_r,
+							new_c));
+					ST_set_bitmap(new_state, not(col_on_move), new_bmap);
 
 					/* sterg din lista new_state piesa care a fost capturata*/
-					List aux_l = ST_get_List_Table_Location(new_state,
-							~col_on_move, piece_to_delete);
+					List aux_l = ST_get_List_Table_Location(new_state, not(
+							col_on_move), piece_to_delete);
 					P_LOC to_del = LOC_new();
 					LOCp_set_both(to_del, new_r, new_c);
 					delete_elem_list(&aux_l, (void *) to_del, fequ_loc,
 							LOC_free);
 				}
 
-				/*modific din lista new_state locatia piesei mutate*/
-				P_LOC loc_modificat = find_nod_list(ST_get_List_Table_Location(
+				/*modific din lista lui new_state locatia piesei mutate*/
+				P_LOC loc_modificat = LOC_new();
+				loc_modificat = (P_LOC)find_nod_list(ST_get_List_Table_Location(
 						new_state, col_on_move, T_N), &loc, fequ_loc);
 				LOCp_set_both(loc_modificat, new_r, new_c);
 
@@ -141,7 +142,7 @@ STATE ST_gen(STATE start_state) {
 				ST_set_tag_Table_What(new_state, old_r, old_c, 255);
 
 				/*pun in noua stare culoarea la mutare*/
-				ST_set_col_on_move(new_state, ~col_on_move);
+				ST_set_col_on_move(new_state, not(col_on_move));
 
 				/*setez in noua stare tot calu la mutare*/
 				ST_set_piece_to_move(new_state, T_N);

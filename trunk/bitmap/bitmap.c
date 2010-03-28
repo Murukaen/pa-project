@@ -102,11 +102,11 @@ void BM_Clear_piece_at_BMAP(BITMAP* B, BITMAP P) {
 	(*B) &= ~P;
 }
 
-int BM_Compare_BMAPs(BITMAP B1, BITMAP B2) {
+int BM_Equal1_BMAPs(BITMAP B1, BITMAP B2) {
 
-	if ((B1 ^ B2) == 0) return 1;
+	if ((B1 & B2) == 0) return 0;
 		
-	return 0;
+	return 1;
 }
 
 void BM_Clear_BMAP(BITMAP* B) {
