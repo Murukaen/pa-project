@@ -51,7 +51,7 @@ MOVE determine_move ( STATE st_next) {
 
 	int i;
 	
-	for (i=BMAP_TP_OFF;i<SIZE_BMAP;++i) 
+	for (i=PIECES_OFF;i<SIZE_BMAP;++i)
 	
 			my_pieces_moved [i] = BM_Compare_BMAPs ( my_pic_prev & ST_get_bitmap(st_prev, i )  , my_pic_next & ST_get_bitmap ( st_next , i ) );
 		
@@ -67,7 +67,7 @@ MOVE determine_move ( STATE st_next) {
 		
 			LOC lcastle; //locatia turei pe tabla
 
-			mov->p_tag_pro=0; //nu se promoveaza nici o piesa
+			move_set_p_tag_pro ( mov , 0 ); //nu se promoveaza nici o piesa
 
 
 			which_piece=T_K;
@@ -85,7 +85,7 @@ MOVE determine_move ( STATE st_next) {
 								break;
 						}
 			
-			where_moved = (~ ( my_pic_prev & ST_get_bitmap (st_prev, which_piece ) ) ) & ( my_pic_prev & ST_get_bitmap (st_next, which_piece ) ) );
+			where_moved = ((~ ( my_pic_prev & ST_get_bitmap (st_prev, which_piece ) ) ) & ( my_pic_prev & ST_get_bitmap (st_next, which_piece ) ) );
 
 			list_poz_moved_p = ST_get_List_Table_Location ( st_next , my_pieces , which_piece );
 			//lista pentru starea urmatoare
@@ -96,13 +96,13 @@ MOVE determine_move ( STATE st_next) {
 
 							move_set_poz_dst ( mov ,  *loc); //setez in mutare pozitia finala a piesei
 
-							if((mov->poz_dst->col - mov->poz_src->col)==2)	//rocada mica
+							if((move_get_what_col(mov) - move_get_what_col(mov))==2)	//rocada mica
 							{
-								mov->m_tag='m'; //nu stiu ce indicator are special moveul rocada mica..ma corecteaza alin
+								move_set_m_tag (mov,'m'); //nu stiu ce indicator are special moveul rocada mica..ma corecteaza alin
 
-								lcastle->col=mov->poz_dst->col -1; //se afla pe coloana regelui la destinatie -1
+								lcastle->col=LOC_get_col(move_get_poz_dst(mov)) -1; //se afla pe coloana regelui la destinatie -1
 
-								lcastle->row=move_get_poz_dst(mov).row;//se afla pe aceeasi linie cu regele,indiferent de culoare
+								lcastle->row=LOC_get_row(move_get_poz_dst(mov));//se afla pe aceeasi linie cu regele,indiferent de culoare
 
 								move_set_p_rock(mov,lcastle);//setez in move locatia finala a turei
 
@@ -110,11 +110,11 @@ MOVE determine_move ( STATE st_next) {
 							}
 							else	//rocada mare
 							{
-								mov->m_tag='M';//nu stiu ce indicator are rocada mare,ma corecteaza alin
+								move_set_m_tag (mov,'M');//nu stiu ce indicator are rocada mare,ma corecteaza alin
 
-								lcastle.col = move_get_poz_src ( mov ) . col ;//se afla pe coloana sursa a regelui
+								lcastle.col = LOC_get_col(move_get_poz_src ( mov )) ;//se afla pe coloana sursa a regelui
 
-								lcastle.row = move_get_poz_src ( mov ) . row ;//se afla pe linia regelui,indiferent de culoare
+								lcastle.row = LOC_get_row(move_get_poz_src ( mov ));//se afla pe linia regelui,indiferent de culoare
 
 								move_set_p_rock(mov,lcastle);//setez in move locatia finala a turei
 							}
@@ -137,9 +137,9 @@ MOVE determine_move ( STATE st_next) {
 	/*-------------------------------aici incep mutarile fara exceptii------------------------------------*/
 
 
-	mov->p_tag_pro=0; //nu se promoveaza nici o piesa
+	move_set_p_tag_pro ( mov , 0 ); //nu se promoveaza nici o piesa
 
-	for ( i=BMAP_TP_OFF ; i< SIZE_BMAP ; ++i )
+	for ( i=PIECES_OFF ; i< SIZE_BMAP ; ++i )
 		if ( my_pieces_moved[i] ) which_piece = i;
 	
 	move_set_p_tag (mov , which_piece);  // setez in mutare tag_piece
