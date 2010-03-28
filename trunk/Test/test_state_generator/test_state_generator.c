@@ -22,9 +22,9 @@ int main() {
 	/* END Inits */
 	
 	st = cur_state_get();
-
+	state_print(st,fout);
 	st_new = ST_gen(st);
-	//state_print(new, fout);
+	state_print(st_new, fout);
 	printf("fara");
 
 
