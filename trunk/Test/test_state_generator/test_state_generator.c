@@ -11,6 +11,11 @@
 int main() {
 
 	FILE * fout = fopen("./Test/test_state_generator/test_st_generator.out", "w");
+	FILE * fin = fopen("./Test/test_state_generator/stare_initiala.in","r");
+	if(fin == NULL){
+		printf("eroare deschidere fisier intrare");
+		exit(0);
+	}
 	STATE st;
 	STATE st_new;
 	
@@ -18,10 +23,10 @@ int main() {
 	BM_init();
 	flags_init();
 	ST_gen_init();
-	update_state_init();
+
 	/* END Inits */
 	
-	st = cur_state_get();
+	st = state_read(fin,0);
 	state_print(st,fout);
 	st_new = ST_gen(st);
 	state_print(st_new, fout);

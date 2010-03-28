@@ -99,7 +99,7 @@ STATE ST_gen(STATE start_state) {
 					/*identific piesa capturata*/
 					UCHAR piece_to_delete = ST_get_tag_Table_What(start_state,
 							new_r, new_c);
-					if (col_on_move == 1) {
+					if (col_on_move == 0) {
 						piece_to_delete -= 6;
 					}
 					/* iau bitmapul pieselor de tipul celei capturate si il modific*/
@@ -124,10 +124,11 @@ STATE ST_gen(STATE start_state) {
 
 				/*modific din lista lui new_state locatia piesei mutate*/
 				P_LOC loc_modificat = (P_LOC) find_nod_list(
-						ST_get_List_Table_Location(start_state, col_on_move,
+						ST_get_List_Table_Location(new_state, col_on_move,
 								T_N), loc, fequ_loc);
 
 				LOCp_set_both(loc_modificat, new_r, new_c);
+				//LOC_print(stdout,loc_modificat);
 
 				/*pun in noua stare cur_poz in list*/
 				List aux_l1 = ST_get_List_Table_Location(new_state,

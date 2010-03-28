@@ -92,6 +92,9 @@ void delete_elem_list ( List L , key k , FEQU fequ , FFREE ffree) {
 		}
 		
 		L = L -> next;
+		if(L == NULL){
+			break;
+		}
 	}
 }	
 		
