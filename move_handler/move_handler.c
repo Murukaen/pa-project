@@ -100,7 +100,7 @@ MOVE determine_move ( STATE st_next) {
 							{
 								move_set_m_tag (mov,'m'); //nu stiu ce indicator are special moveul rocada mica..ma corecteaza alin
 
-								lcastle.col=move_get_poz_dst(mov).col -1; //se afla pe coloana regelui la destinatie -1
+								lcastle.col=move_get_poz_dst(mov).col +1; //se afla pe coloana regelui la destinatie +1
 
 								lcastle.row=move_get_poz_dst(mov).row;//se afla pe aceeasi linie cu regele,indiferent de culoare
 
@@ -112,7 +112,7 @@ MOVE determine_move ( STATE st_next) {
 							{
 								move_set_m_tag (mov,'M');//nu stiu ce indicator are rocada mare,ma corecteaza alin
 									
-								lcastle.col = move_get_poz_src ( mov ) .col ;//se afla pe coloana sursa a regelui
+								lcastle.col = move_get_poz_src ( mov ) .col -1 ;//se afla pe coloana sursa a regelui -1
 
 								lcastle.row = move_get_poz_src ( mov ). row;//se afla pe linia regelui,indiferent de culoare
 
