@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include "list.h"
 
-
 struct nod_lista {
 
 	key data_list;
@@ -33,13 +32,14 @@ key find_nod_list(List L, key content, FEQU fequ) {
 		return NULL;
 	}
 
-	while ( L -> next != NULL ) {
-		
-		if ( fequ ( L -> next -> data_list , content ) ) return L -> next -> data_list ;
-		
+	while (L -> next != NULL) {
+
+		if (fequ(L -> next -> data_list, content))
+			return L -> next -> data_list;
+
 		L = L -> next;
 	}
-	
+
 	return NULL;
 }
 
@@ -54,7 +54,7 @@ void add_nod_list(List L, key content) {
 
 key first_nod_list(List* L) {
 
-	if ( (*L) -> next == NULL) { // daca lista vida
+	if ((*L) -> next == NULL) { // daca lista vida
 		return 0;
 	}
 
@@ -63,60 +63,59 @@ key first_nod_list(List* L) {
 	return (*L) -> data_list;
 }
 
-List list_copy ( List l , FALLOC falloc) {
-	
-	List new_l = new_list ();
+List list_copy(List l, FALLOC falloc) {
+
+	List new_l = new_list();
 	key elem;
-	
-	for ( elem = first_nod_list ( &l ) ; elem ; elem = first_nod_list ( &l ))
-		
-			add_nod_list ( new_l , falloc ( elem ) ); 
-	
+
+	for (elem = first_nod_list(&l); elem; elem = first_nod_list(&l))
+
+		add_nod_list(new_l, falloc(elem));
+
 	return new_l;
 }
 
-void delete_elem_list ( List L , key k , FEQU fequ , FFREE ffree) {
-	
-	if ( L -> next == NULL ) return;
-	
+void delete_elem_list(List L, key k, FEQU fequ, FFREE ffree) {
+
+	if (L -> next == NULL)
+		return;
+
 	List aux;
-	
-	while ( L -> next != NULL ) {
-		
-		if ( fequ ( L -> next -> data_list , k ) ) {
-			
+
+	while (L -> next != NULL) {
+
+		if (fequ(L -> next -> data_list, k)) {
+
 			aux = L -> next;
 			L -> next = L -> next -> next;
 			ffree(aux -> data_list);
 			free(aux);
 		}
-		
-		L = L -> next;
-		if(L == NULL){
-			break;
-		}
+
+		else
+			L = L -> next;
+
 	}
-}	
-		
-List create_without_elem_list ( List L , key k , FEQU fequ, FFREE ffree , FALLOC falloc ) {
-	
-	List l_cp = list_copy ( L , falloc );
-	
-	delete_elem_list ( l_cp , k , fequ , ffree );
-	
+}
+
+List create_without_elem_list(List L, key k, FEQU fequ, FFREE ffree,
+		FALLOC falloc) {
+
+	List l_cp = list_copy(L, falloc);
+
+	delete_elem_list(l_cp, k, fequ, ffree);
+
 	return l_cp;
 }
 
-
-
-void free_list(List L , FFREE fre ) {
+void free_list(List L, FFREE fre) {
 
 	List aux;
-	while( L ){
-		
+	while (L) {
+
 		aux = L;
 		L = L -> next;
-		fre(aux -> data_list );
+		fre(aux -> data_list);
 		free(aux);
 	}
 }
