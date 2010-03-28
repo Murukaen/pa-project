@@ -37,21 +37,22 @@ int main ( int argc , char ** argv ) {
 		FILE *fin = fopen (argv[1] , "r");
 		fscanf(fin,"%s", com);
 		fgetc(fin);	// read the '\n'
-		STATE st = state_read ( fin );
+		STATE st = state_read ( fin , T_WP);
 		fclose(fin);
 		/* END Read from file in */
-		
+	
 		/* Set Current State*/
 		cur_state_set ( st );
 		/* END Set Current State*/
 			
 		/* Calculate MOVE */
-		MOVE mov = SAN_to_Move ( com );
+		//MOVE mov = SAN_to_Move ( com );
 		/* END Calculate MOVE */
 		
 		/* Print MOVE */
 		FILE *fout = fopen(argv[2] , "w");
-		if(mov != 0 ) move_print(mov , fout );
+		//if(mov != 0 ) move_print(mov , fout );
+		state_print(st , fout );
 		fclose(fout);
 		/* END Print MOVE */
 		
