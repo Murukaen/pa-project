@@ -79,6 +79,7 @@ void BM_Clear_piece_at_coord(BITMAP*,int,int);
  * arg 2 : bitmapul care reprezinta pozitia de va fi setata pe 0 */
 void BM_Clear_piece_at_BMAP(BITMAP*,BITMAP);
 
+int BM_Compare_BMAPs(BITMAP B1, BITMAP B2);
 
 /* capitane ghici ce face asta :)) intoarce 1=exista, 0=nu exista */
 int BM_Equal1_BMAPs(BITMAP,BITMAP);
