@@ -185,12 +185,12 @@ void state_print ( STATE st , FILE * fout ) {
 		for(j=0;j<SIZE_BMAP;++j, fprintf(fout, " ") )
 			fprintf(fout, "%c" , tag_to_letter ( st -> Table_What[BM_row(i,j)][BM_col(i,j)] ) );
 	/* END Print Table_What */
-	
+
 	/* Print Table_Location */
 	fprintf(fout, "\n~~~Table_Location~~~:\n");
 	for(i=0;i<NR_COLORS;++i)
 		for(j=0;j<NR_PIECES;++j) {
-			
+
 			tag_to_text ( i , text1 );
 			tag_to_text ( j + PIECES_OFF , text2 );
 			fprintf(fout, "\nTable_Location[%s][%s]:" , text1 , text2);
@@ -198,7 +198,7 @@ void state_print ( STATE st , FILE * fout ) {
 			for( loc = (P_LOC) first_nod_list ( &l ); loc ; fprintf(fout, " ( %c , %c ) " , row_to_letter ( LOC_get_row ( loc ) ) , col_to_letter ( LOC_get_col ( loc ) ) ) , loc = (P_LOC) first_nod_list ( &l ) );
 		}
 	/* END Print Table_Location */
-	
+
 	/* Print col_on_move */
 	tag_to_text( st -> col_on_move , text1);
 	fprintf(fout, "\n\nColor on move : %s\n" , text1);
@@ -208,11 +208,11 @@ void state_print ( STATE st , FILE * fout ) {
 	tag_to_text ( st -> piece_to_move , text1 );
 	fprintf(fout , "\nPiece to move: %s\n" , text1 );
 	/* END Print piece_to_move */
-	
+
 	/* Print move_index */
 	fprintf(fout , "\nMove index: %u\n" , st -> move_index);
 	/* END Print move_index */
-	
+
 	/* Print cur_poz_in_list */
 	l = st -> cur_poz_in_list;
 	loc = first_nod_list (&l);

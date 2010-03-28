@@ -13,12 +13,13 @@ int main() {
 	STATE st = ST_new();
 	STATE new = ST_new();
 	BM_init();
+	Read_all_possible_moves(Moves);
 	flags_init();
 	update_state_init();
 	st = cur_state_get();
 	state_print(st, fout);
 	new = ST_gen(st);
-	state_print(new, fout);
+	//state_print(new, fout);
 	printf("fara");
 
 
