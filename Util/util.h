@@ -16,6 +16,7 @@
 typedef unsigned char UCHAR;
 #endif
 
+#include <stdio.h>
 #define SIZE_TABLE 8
 
 struct LOC {
@@ -47,6 +48,8 @@ UCHAR LOC_get_col ( P_LOC );
 void LOC_free ( void * );
 
 void * LOC_alloc ( void * );
+
+void LOC_print(FILE *,P_LOC);
 
 /* Desc:
  * Tests if two P_LOC variables have equal content
