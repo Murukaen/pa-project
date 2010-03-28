@@ -49,11 +49,6 @@ UCHAR LOC_get_col ( P_LOC L) {
 	return L -> col;
 }
 
-void LOC_set_both ( LOC l, UCHAR r, UCHAR c) {
-	
-		l.row = r;
-		l.col = c;
-}
 
 void LOC_free ( void * k) {
 	
