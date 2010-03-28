@@ -11,7 +11,6 @@
 #include "../state/state.h"
 #include "../Flags/flags.h"
 #include "../bitmap/bitmap.h"
-#include "../compare/compare.h"
 #include "../list/list.h"
 #include "../Util/util.h"
 /* ---- Macro #define ---- */
