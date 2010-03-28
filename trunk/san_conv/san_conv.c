@@ -37,11 +37,7 @@ int validate_move(MOVE m, STATE cur){
 	UCHAR piesa = move_get_p_tag(m);
 	LOC l = move_get_poz_dst(m);
 	LOC s = move_get_poz_src(m);
-	printf ( "row: %d\ncol: %d \n", l.row , l.col );
-	BITMAP b = BM_Make_coord(l.row, l.col);
-	BM_print ( b, stdout );
-	BITMAP juc = ST_get_bitmap(cur, move_get_what_col(m));
-	return ( ( b & (Moves[piesa - PIECES_OFF ][s.row][s.col] ^ (~(juc))) ) ? 1 : 0);
+	return BM_Make_coord(l.row, l.col) & Moves[piesa - PIECES_OFF][s.row][s.col] & ~(ST_get_bitmap(cur, !(f_ENG_COL ^ f_ENG_ON_MOVE))) ? 1 : 0;
 }
 
 
@@ -238,13 +234,15 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 /* Gasirea piesei care trebuie mutata */
 
 LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
-	BITMAP b = ST_get_bitmap(cur, c) & ST_get_bitmap (cur, f_ENG_COL);
+	printf("\n");
+	printf("Culoarea care trebe sa mute: %d", !f_ENG_COL);
+	BITMAP b = ST_get_bitmap(cur, c) & ST_get_bitmap (cur, !f_ENG_COL);
 	LOC d;
 	UCHAR k, lk, ck;
 	int bool = 0, booc = 0;
-	if (cg == -1)
+	if (cg == 255)
 		booc = 1;
-	if (lg == -1)
+	if (lg == 255)
 		bool = 1;
 	while (b) {
 		k = BM_Get_first_elem(b);
@@ -256,13 +254,18 @@ LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
 			bool = 1;
 		MOVE m = move_new();
 		move_set_p_tag(m, c);
+		printf("\n");
+		printf("piesa: %d", c);
 		move_set_poz_dst(m, l);
 		LOCp_set_both(&d, lk, ck);
 		move_set_poz_src(m, d);
+		printf("%d\n", d.col);
+		printf("booleene: bool %d, booc %d", bool, booc);
 
 		if (validate_move(m, cur )) {
 			if (bool && booc){
 				move_free(m);
+				printf("Mutarea :%d, %d", d.row, d.col);
 				return d;
 			}else{
 				move_free(m);
@@ -380,25 +383,29 @@ MOVE SAN_to_Move(char* s) {
 	} else {
 		if (get_piece(s[0])) {
 			int j = 1;
-			UCHAR lg = -1, cg = -1, lp, cp;
+			UCHAR lg = 255, cg = 255, lp, cp;
 			move_set_p_tag(m, get_piece(s[0]));
 
-			if (is_dezambiguu(s)) {
+			if (!is_dezambiguu(s)) {
 				if (isdigit(s[j])) {
 					j++;
 					lg = atoi(&s[j - 1]);
+					printf ("lg = %d", lg);
 				} else {
 					j++;
 					cg = convertFromLetters(s[j - 1]);
+					printf("cg = %c", cg);
 				}
 			}
 			if (s[j] == 'x') {
 				j++;
 			}
+			printf("j = %d", j);
 			cp = convertFromLetters(s[j++]) - 1;
 			lp = atoi(&s[j++]);
+			printf ("cp = %c; lp = %c", s[j-2], s[j-1]);
 			LOC l;
-			l.row = lp;
+			l.row = lp - 1;
 			l.col = cp;
 			move_set_poz_dst(m, l);
 			LOC h = gasire_piesa(cur, cg, lg, l, get_piece(s[0]));
