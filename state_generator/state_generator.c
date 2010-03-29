@@ -45,13 +45,9 @@ STATE ST_gen(STATE start_state) {
 		valid_moves = VM_valid_pos(Moves[T_N - 2][old_r][old_c], ST_get_bitmap(
 				start_state, col_on_move));
 
-		if (valid_moves == 0) {//daca nu sunt mutari valide , trec la urmatoarea piesa din lista,daca exista
-			loc = first_nod_list(&L);
-			if (loc != NULL) {
-				old_c = LOC_get_col(loc), old_r = LOC_get_row(loc);
-			} else {
-				break;// trebuie sa trec la urmatoarea piesa
-			}
+		if (valid_moves == 0) {//daca nu sunt mutari valide
+			//deocamdata intorc start state(cu piesa la mutare schimbata) , o sa trebuiasca sa reapelez functia cu piesa la mutare schimbata
+			break;
 		}
 
 		for (i = index; i < 64; i++) {
@@ -60,10 +56,10 @@ STATE ST_gen(STATE start_state) {
 
 			/*daca exista mutari valide,in afara de sah, ca nu am facut mai sus verificarea*/
 			if ((BM_Make_pos(i) & valid_moves) != 0) {
-				BM_print(valid_moves,stdout);
+				BM_print(valid_moves, stdout);
 
 				/*setez noul index*/
-				ST_set_move_index(start_state, i+1);
+				ST_set_move_index(start_state, i + 1);
 
 				/* setez noile V_BMAP*/
 
@@ -162,9 +158,13 @@ STATE ST_gen(STATE start_state) {
 
 				/*setez in noua stare tot calu la mutare*/
 				ST_set_piece_to_move(new_state, T_N);
+
 				return new_state;
 			}
+
 		}
+		if (L != NULL)
+			ST_set_cur_poz_in_list(start_state, L);
 	}
 	return NULL;
 }

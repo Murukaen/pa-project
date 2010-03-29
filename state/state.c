@@ -154,11 +154,12 @@ void ST_free(STATE st) {
 }	
 
 void state_print ( STATE st , FILE * fout ) {
-	
+	fprintf(fout,"--------------------------------------------------------------");
 	/* Test State */
 	if ( st == 0 ) {
 		
 			fprintf(fout,"Error : Void state\n");
+			fprintf(fout,"--------------------------------------------------------------");
 			return;
 	}
 	/* END Test State */
@@ -221,6 +222,7 @@ void state_print ( STATE st , FILE * fout ) {
 	}
 	else fprintf(fout , "\nCurrent piece location : Void List\n\n}");
 	/* END Print cur_poz_in_list */
+	fprintf(fout,"--------------------------------------------------------------");
 }
 
 STATE state_read ( FILE * fin , UCHAR color_on_move ) {
