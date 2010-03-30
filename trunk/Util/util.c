@@ -190,5 +190,21 @@ char col_to_letter ( UCHAR col ) {
 		return 'X';
 }
 
+void strupr ( char * text ) {
+	
+	for ( ; *text ; ++text ) 
+		if ( 'a'<= *text && *text <='z' ) *text -= 'a' - 'A';
+}
+
+UCHAR text_to_tag ( char * text ) {
+	
+	strupr ( text );
+	if ( ! strcmp ( text , "WHITE" ) ) return T_WP;
+	if ( ! strcmp ( text , "BLACK" ) ) return T_BP;
+	
+	return T_NA;
+}
+	
+
 
 

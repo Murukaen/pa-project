@@ -4,6 +4,7 @@
 
 /* ----- System #includes ----- */
 #include <stdlib.h>
+#include <string.h>
 
 /* ----- Local #inlcudes ----- */
 #include "state.h"
@@ -154,12 +155,12 @@ void ST_free(STATE st) {
 }	
 
 void state_print ( STATE st , FILE * fout ) {
-	fprintf(fout,"--------------------------------------------------------------");
+	fprintf(fout,"{--------------------------------------------------------------");
 	/* Test State */
 	if ( st == 0 ) {
 		
 			fprintf(fout,"Error : Void state\n");
-			fprintf(fout,"--------------------------------------------------------------");
+			fprintf(fout,"--------------------------------------------------------------}");
 			return;
 	}
 	/* END Test State */
@@ -171,7 +172,7 @@ void state_print ( STATE st , FILE * fout ) {
 	char text2[10]={0};
 	
 	/* Print V_BMAP */
-	fprintf(fout, "{\n~~~V_BMAP~~~ : \n" );
+	fprintf(fout, "\n~~~V_BMAP~~~ : \n" );
 	for(i=0;i<SIZE_BMAP;++i) {
 		tag_to_text ( i , text1 );
 		fprintf(fout, "\n V[%s]=\n" , text1 );
@@ -225,7 +226,7 @@ void state_print ( STATE st , FILE * fout ) {
 	fprintf(fout,"--------------------------------------------------------------");
 }
 
-STATE state_read ( FILE * fin , UCHAR color_on_move ) {
+STATE state_read ( FILE * fin ) {
 	
 	/* The new state */
 	STATE st = ST_new ();
@@ -238,6 +239,8 @@ STATE state_read ( FILE * fin , UCHAR color_on_move ) {
 	P_LOC loc;
 	UCHAR color, tag;
 	UCHAR c_on_move;
+	char line[20];
+	char *color_text;
 	/* END Auxiliary variables */
 	
 	/* Structure fields */	
@@ -256,6 +259,10 @@ STATE state_read ( FILE * fin , UCHAR color_on_move ) {
 	/* END Inits */
 
 	/* Read from file */
+	fgets(line , 19 , fin );
+	line [ strlen(line) - 1 ] = 0; // remove \n
+	color_text = strrchr ( line , '>') + 1;
+	
 	for(i=0;i<SIZE_BMAP;++i)
 		for(j=0;j<SIZE_BMAP;++j) {
 				while ( fscanf(fin , "%c" , &c) && (! ok_letter ( c ))  );
@@ -276,7 +283,7 @@ STATE state_read ( FILE * fin , UCHAR color_on_move ) {
 		}	
 	p_to_move = ANALYZED_PIECE;
 	m_index = 0;
-	c_on_move = color_on_move;
+	c_on_move = text_to_tag ( color_text ) ;
 	c_list = T_L [st -> col_on_move][ ANALYZED_PIECE - PIECES_OFF];
 	/* END Read from file */
 	
@@ -287,6 +294,7 @@ STATE state_read ( FILE * fin , UCHAR color_on_move ) {
 	for(i=0;i<NR_COLORS;++i)
 		for(j=0;j<NR_PIECES;++j)
 			ST_set_List_Table_Location ( st , i , j + PIECES_OFF , T_L [i][j] ); // set Table_Location
+	ST_set_col_on_move ( st , c_on_move );
 	ST_set_move_index (st , m_index ); // set move_index
 	ST_set_piece_to_move ( st , p_to_move ); // set piece_to_move
 	ST_set_cur_poz_in_list ( st , c_list ); // set cur_poz_in_list
