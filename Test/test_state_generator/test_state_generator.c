@@ -16,7 +16,7 @@ int main() {
 		printf("eroare deschidere fisier intrare");
 		exit(0);
 	}
-	STATE st;
+	STATE st,st1;
 
 	/* Inits */
 	BM_init();
@@ -27,7 +27,7 @@ int main() {
 
 	st = state_read(fin);
 
-	while(ST_gen(st) != NULL){
+	while( (st1 = ST_gen(st)) != NULL){
 		state_print(st,fout);
 	}
 	printf("fara");
