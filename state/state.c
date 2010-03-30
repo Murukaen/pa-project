@@ -155,7 +155,7 @@ void ST_free(STATE st) {
 }	
 
 void state_print ( STATE st , FILE * fout ) {
-	fprintf(fout,"{\n--------------------------------------------------------------\n");
+	fprintf(fout,"\n{\n--------------------------------------------------------------\n");
 	/* Test State */
 	if ( st == 0 ) {
 		
@@ -261,11 +261,8 @@ STATE state_read ( FILE * fin ) {
 	/* Read from file */
 	do {
 		fgets(line , 19 , fin );
-		//printf("\n{%s*%d}\n" , line , strlen(line));
-		//fflush(stdout);
 		line [ strlen(line) - 1 ] = '\0'; // remove \n
 		color_text = strrchr ( line , '>' );
-		//printf ("\n#%d3\n", color_text );
 	} while ( color_text == 0);
 	color_text ++;
 	for(i=0;i<SIZE_BMAP;++i)
