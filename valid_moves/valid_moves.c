@@ -1,4 +1,5 @@
 #include "valid_moves.h"
+#include <stdlib.h>
 
 BITMAP VM_valid_pos(BITMAP posibile, BITMAP piese_albe) {
 
@@ -9,13 +10,15 @@ BITMAP VM_valid_pos(BITMAP posibile, BITMAP piese_albe) {
 
 UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc) {
 
+	int i;
 	if (loc == NULL) {
 		printf("locul primit de functia vmischeck e null");
 		exit(1);
 	}
 	/*identific piesele la mutare si aflu coordonatele piesei respectiv regelui*/
 	UCHAR col_on_move = ST_get_col_on_move(st);
-	P_LOC king_loc = ST_get_List_Table_Location(st, col_on_move, T_K);
+	List l = ST_get_List_Table_Location(st, col_on_move, T_K);
+	P_LOC king_loc = first_nod_list ( &l );
 	UCHAR row_king = LOC_get_row(king_loc), col_king = LOC_get_col(king_loc),
 			row_piece = LOC_get_row(loc), col_piece = LOC_get_col(loc);
 

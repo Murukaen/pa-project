@@ -103,5 +103,9 @@ int ok_number ( char );
 
 int ok_letter ( char );
 
+UCHAR letter_to_column ( char );
+
+UCHAR letter_to_row ( char );
+
 #endif
 
