@@ -220,14 +220,13 @@ void strupr ( char * text ) {
 UCHAR text_to_tag ( char * text ) {
 	
 	strupr ( text );
-	printf("TEXT:%s|", text);
 	if ( ! strcmp ( text , "WHITE" ) ) return T_WP;
 	if ( ! strcmp ( text , "BLACK" ) ) return T_BP;
 	if ( ! strcmp ( text , "KING" ) ) return T_K;
 	if ( ! strcmp ( text , "QUEEN" ) ) return T_Q;
 	if ( ! strcmp ( text , "ROCK" ) ) return T_R;
 	if ( ! strcmp ( text , "BISHOP" ) ) return T_B;
-	if ( ! strcmp ( text , "KNIGHT" ) ) { return T_N; printf("****************");}
+	if ( ! strcmp ( text , "KNIGHT" ) ) return T_N;
 	if ( ! strcmp ( text , "PAWN" ) ) return T_P;
 	
 	

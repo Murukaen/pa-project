@@ -126,25 +126,21 @@ void move_print ( MOVE mov , FILE * fout ) {
 	tag_to_text ( mov -> p_tag , text1 );
 	tag_to_text ( mov -> p_tag_pro , text2 );
 	tag_to_text ( mov -> what_col , text3 );
-	fprintf(fout,"{\n p_tag = %s \n\n poz_src = ( %c , %c ) \n\n poz_dst = ( %c , %c ) \n\n m_tag = %u \n\n p_tag_pro = %s \n\n p_rock = ( %c , %c ) \n\n what_col = %s \n\n}", text1 , row_to_letter ( LOC_get_row ( &(mov -> poz_src) ) ) , col_to_letter ( LOC_get_col ( &(mov -> poz_src) ) ), row_to_letter ( LOC_get_row ( &(mov -> poz_dst) ) ) , col_to_letter( LOC_get_col ( &(mov -> poz_dst) ) ) , mov -> m_tag , text2 , row_to_letter ( LOC_get_row ( &(mov -> p_rock) ) ), col_to_letter ( LOC_get_col ( &(mov -> p_rock) ) ) , text3 );
+	fprintf(fout,"{\n p_tag = %s \n\n poz_src = ( %c , %c ) \n\n poz_dst = ( %c , %c ) \n\n m_tag = %u \n\n p_tag_pro = %s \n\n p_rock = ( %c , %c ) \n\n what_col = %s \n}", text1 , row_to_letter ( LOC_get_row ( &(mov -> poz_src) ) ) , col_to_letter ( LOC_get_col ( &(mov -> poz_src) ) ), row_to_letter ( LOC_get_row ( &(mov -> poz_dst) ) ) , col_to_letter( LOC_get_col ( &(mov -> poz_dst) ) ) , mov -> m_tag , text2 , row_to_letter ( LOC_get_row ( &(mov -> p_rock) ) ), col_to_letter ( LOC_get_col ( &(mov -> p_rock) ) ) , text3 );
 
 }
 
 void get_both_loc_text ( char * text , UCHAR * row , UCHAR * col ) {
 	
-	char c;
-	while ( sscanf(text , &c ) && !ok_letter(c) );
-	*row = letter_to_row ( c );
-	while ( sscanf(text , &c ) && !ok_number(c) );
+	char r , c;
+	sscanf(text,"(%c,%c)", &r , &c);
+
+	*row = letter_to_row ( r );
 	*col = letter_to_column ( c ); 
-	
-	printf("\n( row:%u , col:%u )\n" , *row , *col);
 }
 
 void add_to_move ( MOVE mov , char * key , char * val ) {
 	
-	printf("\n{key:%s}\n{val:%s}\n" , key, val);
-	fflush(stdout);
 	if ( !strcmp ( key , "p_tag" )) mov -> p_tag = text_to_tag ( val );
 	if ( !strcmp ( key , "poz_src" )) get_both_loc_text ( val , & (mov -> poz_src.row) , & (mov->poz_src.col) );
 	if ( !strcmp ( key , "poz_dst" )) get_both_loc_text ( val , & (mov -> poz_dst.row) , & (mov->poz_dst.col) );
@@ -160,8 +156,6 @@ void parse_read_move ( char *S , MOVE mov ) {
 	char word[20];
 	for ( exp = strtok ( S , TEXT_SEP ) ; exp ; exp = strtok ( NULL , TEXT_SEP )) {
 		
-		printf("\n{exp:%s}\n" , exp);
-		fflush(stdout);
 		strcpy(word , exp );
 		val = strchr ( word , '=');
 		*val = '\0';
@@ -177,8 +171,6 @@ MOVE move_read ( FILE * fin ) {
 	
 	char line[150];
 	fgets(line , 145 , fin );
-	printf("\n>%s<\n", line);
-	fflush(stdout);
 	
 	MOVE mov = move_new ();
 	parse_read_move ( line , mov );
