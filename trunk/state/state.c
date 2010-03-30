@@ -155,12 +155,12 @@ void ST_free(STATE st) {
 }	
 
 void state_print ( STATE st , FILE * fout ) {
-	fprintf(fout,"{--------------------------------------------------------------");
+	fprintf(fout,"{\n--------------------------------------------------------------\n");
 	/* Test State */
 	if ( st == 0 ) {
 		
 			fprintf(fout,"Error : Void state\n");
-			fprintf(fout,"--------------------------------------------------------------}");
+			fprintf(fout,"--------------------------------------------------------------\n}\n");
 			return;
 	}
 	/* END Test State */
@@ -219,11 +219,11 @@ void state_print ( STATE st , FILE * fout ) {
 	l = st -> cur_poz_in_list;
 	if (l) {
 		loc = first_nod_list (&l);
-		fprintf(fout, "\nCurrent piece location : ( %c , %c )\n\n}" , row_to_letter ( LOC_get_row ( loc ) ) , col_to_letter ( LOC_get_col ( loc ) ) );
+		fprintf(fout, "\nCurrent piece location : ( %c , %c )\n" , row_to_letter ( LOC_get_row ( loc ) ) , col_to_letter ( LOC_get_col ( loc ) ) );
 	}
-	else fprintf(fout , "\nCurrent piece location : Void List\n\n}");
+	else fprintf(fout , "\nCurrent piece location : Void List\n");
 	/* END Print cur_poz_in_list */
-	fprintf(fout,"--------------------------------------------------------------");
+	fprintf(fout,"--------------------------------------------------------------\n}\n");
 }
 
 STATE state_read ( FILE * fin ) {
@@ -240,7 +240,7 @@ STATE state_read ( FILE * fin ) {
 	UCHAR color, tag;
 	UCHAR c_on_move;
 	char line[20];
-	char *color_text;
+	char *color_text = 0;
 	/* END Auxiliary variables */
 	
 	/* Structure fields */	
@@ -259,10 +259,15 @@ STATE state_read ( FILE * fin ) {
 	/* END Inits */
 
 	/* Read from file */
-	fgets(line , 19 , fin );
-	line [ strlen(line) - 1 ] = 0; // remove \n
-	color_text = strrchr ( line , '>') + 1;
-	
+	do {
+		fgets(line , 19 , fin );
+		//printf("\n{%s*%d}\n" , line , strlen(line));
+		//fflush(stdout);
+		line [ strlen(line) - 1 ] = '\0'; // remove \n
+		color_text = strrchr ( line , '>' );
+		//printf ("\n#%d3\n", color_text );
+	} while ( color_text == 0);
+	color_text ++;
 	for(i=0;i<SIZE_BMAP;++i)
 		for(j=0;j<SIZE_BMAP;++j) {
 				while ( fscanf(fin , "%c" , &c) && (! ok_letter ( c ))  );
@@ -284,7 +289,7 @@ STATE state_read ( FILE * fin ) {
 	p_to_move = ANALYZED_PIECE;
 	m_index = 0;
 	c_on_move = text_to_tag ( color_text ) ;
-	c_list = T_L [st -> col_on_move][ ANALYZED_PIECE - PIECES_OFF];
+	c_list = T_L [c_on_move][ ANALYZED_PIECE - PIECES_OFF];
 	/* END Read from file */
 	
 	/* Set the new state */
