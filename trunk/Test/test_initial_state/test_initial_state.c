@@ -9,15 +9,18 @@
 #include "../../state/state.h"
 #include "../../update_state/update_state.h"
 #include "../../cur_state/cur_state.h"
+#include "../../bitmap/bitmap.h"
 
 int main() {
 
-
-	FILE * fout = fopen("test_read_initial_state.out","w");
-	STATE st = ST_new();
+	BM_init ();
+	
+	FILE * fout = fopen("Test/test_initial_state/Initial_State.out","w");
+	STATE st;
 	update_state_init();
 	st = cur_state_get();
 	state_print(st,fout);
+	fclose(fout);
 
 	return 0;
 }
