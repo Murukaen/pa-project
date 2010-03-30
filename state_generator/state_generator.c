@@ -56,7 +56,6 @@ STATE ST_gen(STATE start_state) {
 
 			/*daca exista mutari valide,in afara de sah, ca nu am facut mai sus verificarea*/
 			if ((BM_Make_pos(i) & valid_moves) != 0) {
-				BM_print(valid_moves, stdout);
 
 				/*setez noul index*/
 				ST_set_move_index(start_state, i + 1);
@@ -133,9 +132,7 @@ STATE ST_gen(STATE start_state) {
 				//LOC_print(stdout,loc_modificat);
 
 				/*pun in noua stare cur_poz in list*/
-				List aux_l1 = ST_get_List_Table_Location(new_state, not(
-						col_on_move), T_N);
-				ST_set_cur_poz_in_list(new_state, aux_l1);
+				ST_set_cur_poz_in_list(new_state, NULL);
 
 				/*am refacut Table_What*/
 				UCHAR temp;
