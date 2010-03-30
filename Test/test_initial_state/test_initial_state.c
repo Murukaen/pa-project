@@ -16,10 +16,8 @@ int main() {
 	BM_init ();
 	
 	FILE * fout = fopen("Test/test_initial_state/Initial_State.out","w");
-	STATE st;
 	update_state_init();
-	st = cur_state_get();
-	state_print(st,fout);
+	state_print( cur_state_get() ,fout);
 	fclose(fout);
 
 	return 0;
