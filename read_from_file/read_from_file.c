@@ -50,7 +50,7 @@ STATE Read_initial_state( void ) {
 
 	/* Read from file */
 	FILE *fin = fopen (FILE_INITIAL_STATE , "r");
-	STATE S = state_read ( fin , T_WP); // !!! Initial color on move is white
+	STATE S = state_read ( fin ); // !!! Initial color on move is white
 	fclose(fin);
 	/* END Read from file */
 

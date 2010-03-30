@@ -97,5 +97,7 @@ char row_to_letter ( UCHAR );
 
 char col_to_letter ( UCHAR );
 
+UCHAR text_to_tag ( char * );
+
 #endif
 

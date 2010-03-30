@@ -25,7 +25,7 @@ int main() {
 
 	/* END Inits */
 
-	st = state_read(fin, 0);
+	st = state_read(fin);
 
 	while(ST_gen(st) != NULL){
 		state_print(st,fout);

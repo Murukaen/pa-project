@@ -37,7 +37,7 @@ int main ( int argc , char ** argv ) {
 		FILE *fin = fopen (argv[1] , "r");
 		fscanf(fin,"%s", com);
 		fgetc(fin);	// read the '\n'
-		STATE st = state_read ( fin , T_WP);
+		STATE st = state_read ( fin );
 		fclose(fin);
 		/* END Read from file in */
 	
@@ -51,7 +51,7 @@ int main ( int argc , char ** argv ) {
 		
 		/* Print MOVE */
 		FILE *fout = fopen(argv[2] , "w");
-		//if(mov != 0 ) move_print(mov , fout );
+		if(mov != 0 ) move_print(mov , fout );
 		fclose(fout);
 		/* END Print MOVE */
 		
