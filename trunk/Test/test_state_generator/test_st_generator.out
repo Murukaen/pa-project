@@ -119,10 +119,9 @@ Color on move : White
 
 Piece to move: Knight
 
-Move index: 19
-
 Current piece location : ( e , 4 )
 
+Move index: 19
 }----------------------------------------------------------------------------------------------------------------------------{
 ~~~V_BMAP~~~ : 
 
@@ -243,11 +242,10 @@ Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7
 Color on move : White
 
 Piece to move: Knight
+
+Current piece location : ( e , 4 )
 
 Move index: 21
-
-Current piece location : ( e , 4 )
-
 }----------------------------------------------------------------------------------------------------------------------------{
 ~~~V_BMAP~~~ : 
 
@@ -368,11 +366,10 @@ Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7
 Color on move : White
 
 Piece to move: Knight
+
+Current piece location : ( e , 4 )
 
 Move index: 26
-
-Current piece location : ( e , 4 )
-
 }----------------------------------------------------------------------------------------------------------------------------{
 ~~~V_BMAP~~~ : 
 
@@ -493,11 +490,10 @@ Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7
 Color on move : White
 
 Piece to move: Knight
+
+Current piece location : ( e , 4 )
 
 Move index: 30
-
-Current piece location : ( e , 4 )
-
 }----------------------------------------------------------------------------------------------------------------------------{
 ~~~V_BMAP~~~ : 
 
@@ -618,11 +614,10 @@ Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7
 Color on move : White
 
 Piece to move: Knight
+
+Current piece location : ( e , 4 )
 
 Move index: 42
-
-Current piece location : ( e , 4 )
-
 }----------------------------------------------------------------------------------------------------------------------------{
 ~~~V_BMAP~~~ : 
 
@@ -743,11 +738,10 @@ Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7
 Color on move : White
 
 Piece to move: Knight
+
+Current piece location : ( e , 4 )
 
 Move index: 46
-
-Current piece location : ( e , 4 )
-
 }----------------------------------------------------------------------------------------------------------------------------{
 ~~~V_BMAP~~~ : 
 
@@ -868,11 +862,10 @@ Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7
 Color on move : White
 
 Piece to move: Knight
+
+Current piece location : ( e , 4 )
 
 Move index: 51
-
-Current piece location : ( e , 4 )
-
 }----------------------------------------------------------------------------------------------------------------------------{
 ~~~V_BMAP~~~ : 
 
@@ -993,11 +986,10 @@ Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7
 Color on move : White
 
 Piece to move: Knight
+
+Current piece location : ( e , 4 )
 
 Move index: 53
-
-Current piece location : ( e , 4 )
-
 }----------------------------------------------------------------------------------------------------------------------------{
 ~~~V_BMAP~~~ : 
 
@@ -1118,11 +1110,10 @@ Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7
 Color on move : White
 
 Piece to move: Knight
+
+Current piece location : ( d , 4 )
 
 Move index: 11
-
-Current piece location : ( d , 4 )
-
 }----------------------------------------------------------------------------------------------------------------------------{
 ~~~V_BMAP~~~ : 
 
@@ -1243,11 +1234,10 @@ Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7
 Color on move : White
 
 Piece to move: Knight
+
+Current piece location : ( d , 4 )
 
 Move index: 13
-
-Current piece location : ( d , 4 )
-
 }----------------------------------------------------------------------------------------------------------------------------{
 ~~~V_BMAP~~~ : 
 
@@ -1368,11 +1358,10 @@ Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7
 Color on move : White
 
 Piece to move: Knight
+
+Current piece location : ( d , 4 )
 
 Move index: 18
-
-Current piece location : ( d , 4 )
-
 }----------------------------------------------------------------------------------------------------------------------------{
 ~~~V_BMAP~~~ : 
 
@@ -1493,11 +1482,10 @@ Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7
 Color on move : White
 
 Piece to move: Knight
+
+Current piece location : ( d , 4 )
 
 Move index: 22
-
-Current piece location : ( d , 4 )
-
 }----------------------------------------------------------------------------------------------------------------------------{
 ~~~V_BMAP~~~ : 
 
@@ -1618,11 +1606,10 @@ Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7
 Color on move : White
 
 Piece to move: Knight
+
+Current piece location : ( d , 4 )
 
 Move index: 34
-
-Current piece location : ( d , 4 )
-
 }----------------------------------------------------------------------------------------------------------------------------{
 ~~~V_BMAP~~~ : 
 
@@ -1743,11 +1730,10 @@ Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7
 Color on move : White
 
 Piece to move: Knight
+
+Current piece location : ( d , 4 )
 
 Move index: 38
-
-Current piece location : ( d , 4 )
-
 }----------------------------------------------------------------------------------------------------------------------------{
 ~~~V_BMAP~~~ : 
 
@@ -1868,11 +1854,10 @@ Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7
 Color on move : White
 
 Piece to move: Knight
+
+Current piece location : ( d , 4 )
 
 Move index: 43
-
-Current piece location : ( d , 4 )
-
 }----------------------------------------------------------------------------------------------------------------------------{
 ~~~V_BMAP~~~ : 
 
@@ -1994,8 +1979,7 @@ Color on move : White
 
 Piece to move: Knight
 
-Move index: 45
-
 Current piece location : ( d , 4 )
 
+Move index: 45
 }--------------------------------------------------------------
