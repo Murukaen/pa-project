@@ -65,5 +65,7 @@ void move_free ( MOVE mov );
 
 void move_print ( MOVE , FILE * );
 
+MOVE move_read ( FILE *);
+
 #endif
 

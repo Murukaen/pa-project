@@ -3,7 +3,6 @@
 #include "../../state/state.h"
 #include "../../bitmap/bitmap.h"
 #include "../../Flags/flags.h"
-#include "../../state_generator/state_generator.h"
 #include "../../cur_state/cur_state.h"
 
 
@@ -19,7 +18,6 @@ int main ( int argc , char ** argv ) {
 	/* Inits */
 	BM_init();
 	flags_init();
-	ST_gen_init();
 	/* END Inits */
 	
 	/* Read input */

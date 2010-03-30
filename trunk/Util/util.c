@@ -136,6 +136,13 @@ int ok_letter ( char c ){
 	return 0;
 }
 
+int ok_number ( char c ) {
+	
+	if ( '1' <= c && c <= '8' ) return 1;
+	
+	return 0;
+}
+
 void tag_to_text ( UCHAR tag , char text [] ) {
 			
 	switch ( tag ) {
@@ -183,11 +190,25 @@ char row_to_letter ( UCHAR row ) {
 		return 'X';
 }
 
+UCHAR letter_to_row ( char c ) {
+	
+		if ( ok_letter (c) ) return c - 'a';
+		
+		return T_NA;
+}
+
 char col_to_letter ( UCHAR col ) {
 	
 		if ( 0<= col && col < SIZE_BMAP ) return '1' + col;
 		
 		return 'X';
+}
+
+UCHAR letter_to_column ( char c ) {
+	
+		if ( ok_number (c) ) return c - '1';
+		
+		return T_NA;
 }
 
 void strupr ( char * text ) {
@@ -199,13 +220,14 @@ void strupr ( char * text ) {
 UCHAR text_to_tag ( char * text ) {
 	
 	strupr ( text );
+	printf("TEXT:%s|", text);
 	if ( ! strcmp ( text , "WHITE" ) ) return T_WP;
 	if ( ! strcmp ( text , "BLACK" ) ) return T_BP;
 	if ( ! strcmp ( text , "KING" ) ) return T_K;
 	if ( ! strcmp ( text , "QUEEN" ) ) return T_Q;
 	if ( ! strcmp ( text , "ROCK" ) ) return T_R;
 	if ( ! strcmp ( text , "BISHOP" ) ) return T_B;
-	if ( ! strcmp ( text , "KNIGHT" ) ) return T_N;
+	if ( ! strcmp ( text , "KNIGHT" ) ) { return T_N; printf("****************");}
 	if ( ! strcmp ( text , "PAWN" ) ) return T_P;
 	
 	
