@@ -46,13 +46,12 @@ int main ( int argc , char ** argv ) {
 		/* END Set Current State*/
 			
 		/* Calculate MOVE */
-		//MOVE mov = SAN_to_Move ( com );
+		MOVE mov = SAN_to_Move ( com );
 		/* END Calculate MOVE */
 		
 		/* Print MOVE */
 		FILE *fout = fopen(argv[2] , "w");
 		//if(mov != 0 ) move_print(mov , fout );
-		state_print(st , fout );
 		fclose(fout);
 		/* END Print MOVE */
 		
