@@ -99,5 +99,9 @@ char col_to_letter ( UCHAR );
 
 UCHAR text_to_tag ( char * );
 
+int ok_number ( char );
+
+int ok_letter ( char );
+
 #endif
 

@@ -21,7 +21,7 @@ struct s_state {
 	BITMAP V_BMAP[BMAP_NR_ST];
 
 	UCHAR Table_What[SIZE_BMAP][SIZE_BMAP]; // 8x8 tagul piesei de pe acea pozitie white: (2-7) ; black : (8-13)
-										 // the diff is given by the BMAP_BWP_OFFSET ( Black/White Position OFFSET) = 6
+										 // the diff is given by the BWP_OFFSET ( Black/White Position OFFSET) = 6
 
 	List Table_Location[NR_COLORS][NR_PIECES]; // [2 colors] x [6 types of pieces] lista cu pozitiile pieselor pe tabla 
 						// Table_Location[x][y] = lista de pozitii pe tabla de joc a piesei de culoarea x (0 - white, 1 - black )
