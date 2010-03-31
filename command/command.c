@@ -18,7 +18,7 @@
 #define COM_SEP ' '
 
 
-#define FEATURES "feature playother=1 usermove=1 san=0 done=1\n"
+#define FEATURES "feature usermove=1 san=1 done=1\n"
 
 /* --- Types --- */
 
@@ -75,8 +75,9 @@ void read_com ( char * com ) {
 		
 		/* LOG */
 		FILE * fout = fopen (LOG_COMMAND_FILE , "a");
-		log_print ("X>Engine>>>" , fout);
+		log_print ("XBoard>Engine>>>" , fout);
 		log_print ( word , fout );
+		fflush(fout);
 		fclose(fout);
 		/* END LOG */
 		
@@ -84,7 +85,7 @@ void read_com ( char * com ) {
 				
 		if ( !strcmp ( word , "quit" ) ) 		exit(0);
 		if ( !strcmp ( word , "xboard" ) ) 		write_to_xboard ("\n");
-		if ( !strcmp ( word , "protover" ) ) 	{ add_mess_to_buffer (FEATURES); f_INIT_COM = 1 ; }
+		if ( !strcmp ( word , "protover" ) ) 	{ set_init_com (1) ; add_mess_to_buffer (FEATURES); }
 		
 		/* Command is a move */
 		if ( !strcmp ( word , "usermove" )) 	{ 
@@ -96,15 +97,16 @@ void read_com ( char * com ) {
 			/* LOG */
 			
 			FILE * fout = fopen (LOG_COMMAND_FILE , "a");
-			log_print ("X>Engine>Move" , fout );
+			log_print ("XBoard>Engine>Move" , fout );
 			log_print ( word , fout );
-			log_print ("X>Engine>SAN_to_Move" , fout);
-			log_print_move ( Xmove_to_intern ( word ) , fout );
+			log_print ("XBoard>Engine>SAN_to_Move" , fout);
+			log_print_move ( SAN_to_Move ( word ) , fout );
+			fflush(fout);
 			fclose(fout);
 			
 			/* END LOG */
 			
-			update_state ( Xmove_to_intern ( word ) );  
+			update_state ( SAN_to_Move ( word ) );  
 			
 		}
 		
@@ -116,9 +118,15 @@ void read_com ( char * com ) {
 
 void write_com (void * com , int com_tag ) {
 	
+	char text[30]={0};
 	switch (com_tag) {
 		
-		case T_COM_MOVE : write_to_xboard (intern_to_Xmove ( (MOVE) com ) ); update_state( (MOVE) com ) ; break;
+		case T_COM_MOVE : 	strcpy(text , "move ");
+							strcat(text , Move_to_SAN ( (MOVE) com ) );
+							strcat(text, "\n");
+							write_to_xboard(text); 
+							update_state( (MOVE) com ) ; 
+							break;
 		case T_COM_DRAW : write_to_xboard ("offer draw\n"); break;
 		case T_COM_RESIGN : write_to_xboard ("resign\n"); break;
 	}

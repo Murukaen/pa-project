@@ -159,6 +159,8 @@ STATE ST_gen(STATE start_state) {
 				ST_set_piece_to_move(new_state, T_N);
 
 				log_print_state(new_state,fout);
+				fflush(fout);
+				fclose(fout);
 				return new_state;
 			}
 
@@ -166,7 +168,10 @@ STATE ST_gen(STATE start_state) {
 		if (L != NULL)
 			ST_set_cur_poz_in_list(start_state, L);
 	}
+	
 	log_print("state generator a intors NULL",fout);
+	fflush(fout);
+	fclose(fout);
 	return NULL;
 }
 

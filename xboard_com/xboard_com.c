@@ -64,7 +64,7 @@ void write_to_xboard ( char * text) {
 	
 		/* LOG */
 		FILE * fout = fopen (LOG_XBOARD_COM_FILE , "a");
-		log_print ( "Engine>X>>>" , fout );
+		log_print ( "Engine>XBoard>>>" , fout );
 		log_print ( text , fout );
 		fclose(fout);
 		/* END LOG */
@@ -90,7 +90,7 @@ void poll_input ( void ) {
 				
 			/* LOG */
 			FILE * fout = fopen (LOG_XBOARD_COM_FILE , "a");
-			log_print ( "Engine>X>BUF>>" , fout );
+			log_print ( "Engine>XBoard>BUF>>" , fout );
 			log_print ( mem_buffer , fout );
 			fclose(fout);
 			/* END LOG */

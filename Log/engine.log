@@ -1,0 +1,21 @@
+Time:7552:Cycle - 0 - 
+Time:7553:Cycle - 1 - 
+Time:7554:Cycle - 2 - 
+Time:7554:Determine move:
+
+Time:7554
+{
+ p_tag = Knight 
+
+ poz_src = ( g , 8 ) 
+
+ poz_dst = ( f , 6 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = ERRTAG 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = Black 
+}Time:7555:Cycle - 3 - 

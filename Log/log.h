@@ -25,5 +25,11 @@ void log_print_state ( STATE , FILE *);
 
 void log_print_move ( MOVE , FILE * );
 
+void log_print_state_Table_What ( STATE , FILE * );
+
+void log_print_cycle ( int , FILE *);
+
+void log_print_integer ( int , FILE *);
+
 #endif
 

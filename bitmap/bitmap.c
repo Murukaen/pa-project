@@ -7,7 +7,7 @@
 
 /* ----- Local #inlcudes ----- */
 #include "bitmap.h"
-#include "../Util/util.h"
+//#include "../Flags/flags.h"
 
 /* ---- Macro #define ---- */
 
@@ -26,9 +26,14 @@ BITMAP M[DIM_BMAP]; // Masks : M[i] = 2^i [BITMAP]
 
 void BM_init ( void ) {
         
+       //printf("f_ENG_COL(0): %d\n", f_ENG_COL);
        /* Init Mask vector */
        int i;
-       for (i=0 , M[0] = 1 ; i < DIM_BMAP ; ++i , M[i] = M[i-1] << 1 );
+       for (i=0 , M[0] = 1 ; i < DIM_BMAP ; ++i , M[i] = M[i-1] << 1 ) {
+		   
+		  //printf("f_ENG_COL(%d): %d\n", i , f_ENG_COL);
+		}
+		
 }
 
 BITMAP BM_Make_pos(int pos) {

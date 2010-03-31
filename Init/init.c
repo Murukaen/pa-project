@@ -27,9 +27,9 @@ void Init ( int loc ) {
 	
 	switch ( loc ) {
 		
-		case INIT_PREX : 	log_init ();
+		case INIT_PREX : 	flags_init ();
+							log_init ();
 							xboard_com_init ();
-							flags_init ();
 							break;
 					
 		case INIT_POSX: 	BM_init ();
