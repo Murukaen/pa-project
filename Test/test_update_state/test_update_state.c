@@ -5,6 +5,7 @@
 #include "../../Flags/flags.h"
 #include "../../move/move.h"
 #include "../../state/state.h"
+#include "../../Init/init.h"
 
 
 int main ( int argc , char ** argv  ) {
@@ -16,8 +17,7 @@ int main ( int argc , char ** argv  ) {
 		}
 	
 		/* Inits */
-		BM_init();
-		flags_init();
+		Init(INIT_ALL);
 		/* END Inits */
 		
 		/* Vars */
