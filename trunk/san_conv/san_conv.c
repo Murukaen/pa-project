@@ -10,6 +10,7 @@
 
 /* ----- Local #inlcudes ----- */
 #include "san_conv.h"
+#include "../Log/log.h"
 
 /* ---- Macro #define ---- */
 
@@ -113,6 +114,8 @@ char convertFromLetters(char a) {
 /* Verificam daca mutarea este o captura */
 
 int is_capture(MOVE h, STATE cur) {
+	if (move_get_p_tag(h) == T_P)
+		return (move_get_poz_src(h).row != move_get_poz_dst(h).row) ? 1 : 0;
 	BITMAP b = ST_get_bitmap(cur, f_ENG_COL);
 	LOC l = move_get_poz_dst(h);
 	BITMAP d = BM_Make_coord(l.row, l.col);
@@ -135,7 +138,7 @@ void set_flags(int j, char* msg, STATE cur, MOVE h) {
 	if (is_check_mate(h, cur)) {
 		msg[j++] = '#';
 	}
-	if (move_get_p_tag_pro(h)) {
+	if (move_get_m_tag(h)) {
 		msg[j++] = '=';
 		msg[j++] = aux_get_pieces(move_get_p_tag_pro(h));
 	}
@@ -155,10 +158,8 @@ UCHAR get_piece(char c) {
 		return T_N;
 	case 'R':
 		return T_R;
-	case 'P':
-		return T_P;
 	default:
-		return 100;
+		return 0;
 	}
 }
 
@@ -192,10 +193,8 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 	LOC d;
 	int boo = 1;
 	BITMAP s = ST_get_bitmap(cur, piesa) & ST_get_bitmap(cur, not(f_ENG_COL));
-	BM_print(s, stdout);
 	BM_Clear_piece_at_coord(&s, lp, cp);
-	BM_print(s, stdout);
-	printf("col_piesa: %d; row_piesa: %d", lp, cp);
+
 
 	/* Pt. fiecare element din b verificam daca se poate muta pe poz d */
 
@@ -208,7 +207,6 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 		move_set_poz_src(m, l);
 		LOCp_set_both(&d, ld, cd);
 		move_set_poz_dst(m, d);
-		printf("cols: %d ; rows: %d; cold: %d; rowd: %d", lk, ck, ld, cd);
 
 		if (validate_move(m,cur)) {
 			lg = lk;
@@ -279,15 +277,18 @@ LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
 /* --- Procedures --- */
 
 char* Move_to_SAN(MOVE s) {
-	if (move_get_m_tag(s)) {
-		char *msg = (char*) malloc(5 * sizeof(char));
-		msg = "O-O-O";
-		return msg;
-	} else if (move_get_m_tag(s)) {
-		char *msg = (char*) malloc(3 * sizeof(char));
-		msg = "O-O";
-		return msg;
+	if (move_get_m_tag(s) && (move_get_p_tag(s) == T_K)) {
+		if (move_get_p_rock(s).row == 3){
+			char *msg = (char*) malloc(5 * sizeof(char));
+			msg = "O-O-O";
+			return msg;
+		}else{
+			char *msg = (char*) malloc(3 * sizeof(char));
+			msg = "O-O";
+			return msg;
+		}
 	} else {
+		FILE * log = fopen("../Log/san_conv.log","a");
 		char aux;
 		int j = 0; //contorul pt crearea mesajul SAN
 		STATE cur = cur_state_get();
@@ -303,44 +304,56 @@ char* Move_to_SAN(MOVE s) {
 		/* Generarea notatiei SAN pt fiecare tip de piesa */
 
 		if (piesa == T_P) {
+			log_print("Alegerea piesei corecte dintre pioni", log);
 			aux = correct_piece(lp, cp, ld, cd, piesa, cur);
 			if (aux != 'Z')
 				msg[j++] = aux;
+			log_print("Umplutura", log);
 			set_flags(j, msg, cur, s);
 		}
 		if (piesa == T_N) {
+			log_print("Alegerea piesei corecte dintre cai", log);
 			msg[j++] = 'N';
 			aux = correct_piece(lp, cp, ld, cd, piesa, cur);
 			if (aux != 'Z')
 				msg[j++] = aux;
+			log_print("Umplutura", log);
 			set_flags(j, msg, cur, s);
 		}
 		if (piesa == T_B) {
+			log_print("Alegerea piesei corecte dintre nebuni", log);
 			msg[j++] = 'B';
 			aux = correct_piece(lp, cp, ld, cd, piesa, cur);
 			if (aux != 'Z')
 				msg[j++] = aux;
+			log_print("Umplutura", log);
 			set_flags(j, msg, cur, s);
 		}
 		if (piesa == T_R) {
+			log_print("Alegerea piesei corecte dintre ture", log);
 			msg[j++] = 'R';
 			aux = correct_piece(lp, cp, ld, cd, piesa, cur);
 			if (aux != 'Z')
 				msg[j++] = aux;
+			log_print("Umplutura", log);
 			set_flags(j, msg, cur, s);
 		}
 		if (piesa == T_Q) {
+			log_print("Alegerea piesei corecte dintre regine", log);
 			msg[j++] = 'Q';
 			aux = correct_piece(lp, cp, ld, cd, piesa, cur);
 			if (aux != 'Z')
 				msg[j++] = aux;
+			log_print("Umplutura", log);
 			set_flags(j, msg, cur, s);
 		}
 		if (piesa == T_K) {
+			log_print("Alegerea piesei corecte dintre regi", log);
 			msg[j++] = 'K';
 			aux = correct_piece(lp, cp, ld, cd, piesa, cur);
 			if (aux != 'Z')
 				msg[j++] = aux;
+			log_print("Umplutura", log);
 			set_flags(j, msg, cur, s);
 		}
 		return msg;
@@ -349,33 +362,62 @@ char* Move_to_SAN(MOVE s) {
 
 MOVE SAN_to_Move(char* s) {
 	MOVE m = move_new();
+	FILE * log = fopen("../Log/san_conv.log","a");
 	STATE cur = cur_state_get();
 	if (strcmp(s, "O-O") == 0 || strcmp(s, "o-o") == 0 || strcmp(s, "0-0") == 0) {
-		if (1) {
-			LOC l;
-			LOCp_set_both(&l, 0, 0);
-			move_set_p_rock(m, l);
-			move_set_m_tag(m, T_MOV_CST);
+		if (!ST_get_col_on_move(cur)) {
+			LOC src;
+			LOCp_set_both(&src, 4, 0);
+			move_set_poz_src(m, src);
+			LOC dst;
+			LOCp_set_both(&dst, 6, 0);
+			move_set_poz_dst(m, dst);
+			LOC castle;
+			LOCp_set_both(&castle, 5, 0);
+			move_set_p_rock(m, castle);
+			move_set_m_tag(m, 1);
+			move_set_p_tag(m, T_K);
 		} else {
-			LOC l;
-			LOCp_set_both(&l, 7, 7);
-			move_set_p_rock(m, l);
-			move_set_m_tag(m, T_MOV_CST);
+			LOC src;
+			LOCp_set_both(&src, 4, 7);
+			move_set_poz_src(m, src);
+			LOC dst;
+			LOCp_set_both(&dst, 6, 7);
+			move_set_poz_dst(m, dst);
+			LOC castle;
+			LOCp_set_both(&castle, 5, 7);
+			move_set_p_rock(m, castle);
+			move_set_m_tag(m, 1);
+			move_set_p_tag(m, T_K);
 		}
 		return m;
 	}
 	if (strcmp(s, "O-O-O") == 0 || strcmp(s, "o-o-o") == 0
 			|| strcmp(s, "0-0-0") == 0) {
-		if (1) {
-			LOC l;
-			LOCp_set_both(&l, 0, 7);
-			move_set_p_rock(m, l);
-			move_set_m_tag(m, T_MOV_CST);
+		if (!ST_get_col_on_move(cur)) {
+			LOC src;
+			LOCp_set_both(&src, 4, 0);
+			move_set_poz_src(m, src);
+			LOC dst;
+			LOCp_set_both(&dst, 2, 0);
+			move_set_poz_dst(m, dst);
+			LOC castle;
+			LOCp_set_both(&castle, 3, 0);
+			move_set_p_rock(m, castle);
+			move_set_m_tag(m, 1);
+			move_set_p_tag(m, T_K);
 		} else {
-			LOC l;
-			LOCp_set_both(&l, 7, 0);
-			move_set_p_rock(m, l);
-			move_set_m_tag(m, T_MOV_CST);
+			LOC src;
+			LOCp_set_both(&src, 4, 7);
+			move_set_poz_src(m, src);
+			LOC dst;
+			LOCp_set_both(&dst, 2, 7);
+			move_set_poz_dst(m, dst);
+			LOC castle;
+			LOCp_set_both(&castle, 3, 7);
+			move_set_p_rock(m, castle);
+			move_set_m_tag(m, 1);
+			move_set_p_tag(m, T_K);
 		}
 	} else {
 		if (get_piece(s[0])) {
@@ -383,6 +425,7 @@ MOVE SAN_to_Move(char* s) {
 			UCHAR lg = 255, cg = 255, lp, cp;
 			move_set_p_tag(m, get_piece(s[0]));
 
+			log_print("Dezambiguizare", log);
 			if (!is_dezambiguu(s)) {
 				if (isdigit(s[j])) {
 					j++;
@@ -401,38 +444,36 @@ MOVE SAN_to_Move(char* s) {
 			l.row = lp;
 			l.col = cp;
 			move_set_poz_dst(m, l);
+			log_print("Gasire piesa", log);
 			LOC h = gasire_piesa(cur, cg, lg, l, get_piece(s[0]));
 			move_set_poz_src(m, h);
 		} else {
-			move_set_p_tag(m, T_P);
 			int j = 0;
-			UCHAR lg = -1, cg = -1, lp, cp;
+			UCHAR lg = 255, cg = 255, lp, cp;
 			move_set_p_tag(m, get_piece(s[0]));
 
-			if (is_dezambiguu(s)) {
+			log_print("Dezambiguizare", log);
+			if (!is_dezambiguu(s)) {
 				if (isdigit(s[j])) {
 					j++;
-					lg = atoi(&s[j - 1]);
+					cg = s[j-1]-'1';
 				} else {
 					j++;
-					cg = convertFromLetters(s[j - 1]);
+					lg = convertFromLetters(s[j - 1]) - 1;
 				}
 			}
 			if (s[j] == 'x') {
 				j++;
 			}
-			cp = convertFromLetters(s[j++]) - 1;
-			lp = atoi(&s[j++]);
+			lp = convertFromLetters(s[j++]) - 1;
+			cp = s[j++]-'1';
 			LOC l;
 			l.row = lp;
 			l.col = cp;
 			move_set_poz_dst(m, l);
+			log_print("Gasire piesa", log);
 			LOC h = gasire_piesa(cur, cg, lg, l, get_piece(s[0]));
 			move_set_poz_src(m, h);
-			if (s[j++] == '=') {
-				move_set_m_tag(m, T_MOV_PRO);
-				move_set_p_tag_pro(m, get_piece(s[j]));
-			}
 		}
 	}
 	return m;
