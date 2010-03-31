@@ -15,7 +15,8 @@ UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc) {
 		exit(1);
 	}
 	/*identific piesele la mutare si aflu coordonatele piesei respectiv regelui*/
-	UCHAR col_on_move = ST_get_col_on_move(st), i, j;
+	UCHAR col_on_move = ST_get_col_on_move(st);
+	int i, j;
 	List l = ST_get_List_Table_Location(st, col_on_move, T_K);
 	P_LOC king_loc = first_nod_list(&l);
 	UCHAR row_king = LOC_get_row(king_loc), col_king = LOC_get_col(king_loc),
@@ -93,10 +94,10 @@ UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc) {
 
 		} else if (col_king == col_piece) {// daca e pe aceeasi coloana(LINIE)
 
-			if (row_king < row_piece) { // daca regele e in stanga piesei
+			if (row_king > row_piece) { // daca regele e in dreapta piesei
 
-				for (i = row_king + 1; i < 8; i++) {
-					tag = ST_get_tag_Table_What(st, col_king, i);
+				for (i = row_king - 1; i >= 0; i--) {
+					tag = ST_get_tag_Table_What(st, i,col_king);
 					if (col_on_move == 0) { // daca e albu la mutare
 						if (tag == piece_to_move || tag == 255) {// daca nu e nicio piesa pe pozitia respectiva sau e piesa mutata sar peste
 							continue;
@@ -121,10 +122,10 @@ UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc) {
 					}
 				}// daca nu intra in for
 				return 0;
-			} else { // daca regele e in dreapta piesei
+			} else { // daca regele e in stanga piesei
 
-				for (i = row_king - 1; i >= 0; i--) {
-					tag = ST_get_tag_Table_What(st, row_king, i);
+				for (i = row_king + 1; i < 8; i++) {
+					tag = ST_get_tag_Table_What(st, i, col_king);
 					if (col_on_move == 0) { // daca e albu la mutare
 						if (tag == piece_to_move || tag == 255) {// daca nu e nicio piesa pe pozitia respectiva sau e piesa mutata sar peste
 							continue;

@@ -41,11 +41,10 @@ STATE ST_gen(STATE start_state) {
 
 		UCHAR old_c = LOC_get_col(loc), old_r = LOC_get_row(loc);
 
-		// mai trebuie verificat daca nu cumva e sah daca mut piesa
 		valid_moves = VM_valid_pos(Moves[T_N - 2][old_r][old_c], ST_get_bitmap(
 				start_state, col_on_move));
 
-		if (valid_moves == 0) {//daca nu sunt mutari valide
+		if (valid_moves == 0 ||  VM_is_Check_if_piece_moves(start_state,loc) == 1) {//daca nu sunt mutari valide
 			//deocamdata intorc start state(cu piesa la mutare schimbata) , o sa trebuiasca sa reapelez functia cu piesa la mutare schimbata
 			break;
 		}
