@@ -15,6 +15,7 @@
 #include "../valid_moves/valid_moves.h"
 #include "../list/list.h"
 #include "../Util/util.h"
+#include "../Log/log.h"
 
 /* ---- Macro #define ---- */
 
@@ -26,8 +27,11 @@
 
 /* --- Procedures --- */
 
+
+
 STATE ST_gen(STATE start_state) {
 
+	FILE * fout = fopen("./Log/state_generator.log","a");
 	UCHAR index = ST_get_move_index(start_state), i, j, k;
 	UCHAR col_on_move = ST_get_col_on_move(start_state);
 
@@ -155,6 +159,7 @@ STATE ST_gen(STATE start_state) {
 				/*setez in noua stare tot calu la mutare*/
 				ST_set_piece_to_move(new_state, T_N);
 
+				log_print_state(new_state,fout);
 				return new_state;
 			}
 
@@ -162,6 +167,7 @@ STATE ST_gen(STATE start_state) {
 		if (L != NULL)
 			ST_set_cur_poz_in_list(start_state, L);
 	}
+	log_print("state generator a intors NULL",fout);
 	return NULL;
 }
 

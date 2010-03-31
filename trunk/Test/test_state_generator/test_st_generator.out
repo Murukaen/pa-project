@@ -1,4 +1,7 @@
---------------------------------------------------------------{
+
+{
+--------------------------------------------------------------
+
 ~~~V_BMAP~~~ : 
 
  V[White]=
@@ -7,18 +10,18 @@
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
+0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 1 0 
 1 0 1 1 1 1 0 1 
 
  V[Black]=
 
+1 1 1 1 1 1 0 0 
 1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
+0 0 0 0 0 1 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
@@ -47,11 +50,11 @@
 
  V[Rock]=
 
-1 0 0 0 0 0 0 1 
+1 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 1 0 0 0 0 0 0 1 
@@ -69,13 +72,13 @@
 
  V[Knight]=
 
-0 1 0 0 0 0 1 0 
+0 1 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 
+0 0 0 0 0 1 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 
 0 0 0 0 0 0 0 0 
 
  V[Pawn]=
@@ -91,38 +94,43 @@
 
 ~~~Table_What~~~:
 
-r n b q k b n r 
+r n b q k b - - 
 p p p p p p p p 
+- - - - - N - - 
 - - - - - - - - 
+- - - - r - - - 
 - - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
+- - - - N - P - 
 R - B Q K B - R 
 
 ~~~Table_Location~~~:
 
 Table_Location[White][King]: ( e , 1 ) 
 Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
+Table_Location[White][Rock]: ( a , 1 )  ( h , 1 ) 
+Table_Location[White][Bishop]: ( c , 1 )  ( f , 1 ) 
+Table_Location[White][Knight]: ( e , 2 ) 
 Table_Location[White][Pawn]: ( g , 2 ) 
 Table_Location[Black][King]: ( e , 8 ) 
 Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
+Table_Location[Black][Rock]: ( a , 8 )  ( e , 4 ) 
+Table_Location[Black][Bishop]: ( c , 8 )  ( f , 8 ) 
+Table_Location[Black][Knight]: ( b , 8 )  ( f , 6 ) 
+Table_Location[Black][Pawn]: ( a , 7 )  ( b , 7 )  ( c , 7 )  ( d , 7 )  ( e , 7 )  ( f , 7 )  ( g , 7 )  ( h , 7 ) 
 
 Color on move : White
 
 Piece to move: Knight
 
-Current piece location : ( e , 4 )
+Move index: 0
 
-Move index: 19
-}----------------------------------------------------------------------------------------------------------------------------{
+Current piece location : Void List
+--------------------------------------------------------------
+}
+
+{
+--------------------------------------------------------------
+
 ~~~V_BMAP~~~ : 
 
  V[White]=
@@ -131,18 +139,18 @@ Move index: 19
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
+0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 1 0 
 1 0 1 1 1 1 0 1 
 
  V[Black]=
 
+1 1 1 1 1 1 0 0 
 1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 1 
 0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
@@ -171,11 +179,11 @@ Move index: 19
 
  V[Rock]=
 
-1 0 0 0 0 0 0 1 
+1 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 1 0 0 0 0 0 0 1 
@@ -193,13 +201,13 @@ Move index: 19
 
  V[Knight]=
 
-0 1 0 0 0 0 1 0 
+0 1 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 1 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 
 0 0 0 0 0 0 0 0 
 
  V[Pawn]=
@@ -215,38 +223,43 @@ Move index: 19
 
 ~~~Table_What~~~:
 
-r n b q k b n r 
+r n b q k b - - 
 p p p p p p p p 
+- - - - - - - N 
 - - - - - - - - 
+- - - - r - - - 
 - - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
+- - - - N - P - 
 R - B Q K B - R 
 
 ~~~Table_Location~~~:
 
 Table_Location[White][King]: ( e , 1 ) 
 Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
+Table_Location[White][Rock]: ( a , 1 )  ( h , 1 ) 
+Table_Location[White][Bishop]: ( c , 1 )  ( f , 1 ) 
+Table_Location[White][Knight]: ( e , 2 ) 
 Table_Location[White][Pawn]: ( g , 2 ) 
 Table_Location[Black][King]: ( e , 8 ) 
 Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
+Table_Location[Black][Rock]: ( a , 8 )  ( e , 4 ) 
+Table_Location[Black][Bishop]: ( c , 8 )  ( f , 8 ) 
+Table_Location[Black][Knight]: ( b , 8 )  ( h , 6 ) 
+Table_Location[Black][Pawn]: ( a , 7 )  ( b , 7 )  ( c , 7 )  ( d , 7 )  ( e , 7 )  ( f , 7 )  ( g , 7 )  ( h , 7 ) 
 
 Color on move : White
 
 Piece to move: Knight
 
-Current piece location : ( e , 4 )
+Move index: 0
 
-Move index: 21
-}----------------------------------------------------------------------------------------------------------------------------{
+Current piece location : Void List
+--------------------------------------------------------------
+}
+
+{
+--------------------------------------------------------------
+
 ~~~V_BMAP~~~ : 
 
  V[White]=
@@ -255,18 +268,18 @@ Move index: 21
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
+0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 1 0 
 1 0 1 1 1 1 0 1 
 
  V[Black]=
 
+1 0 1 1 1 1 1 0 
 1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
+1 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
@@ -295,11 +308,11 @@ Move index: 21
 
  V[Rock]=
 
-1 0 0 0 0 0 0 1 
+1 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 1 0 0 0 0 0 0 1 
@@ -317,13 +330,13 @@ Move index: 21
 
  V[Knight]=
 
-0 1 0 0 0 0 1 0 
+0 0 0 0 0 0 1 0 
+0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 
 0 0 0 0 0 0 0 0 
 
  V[Pawn]=
@@ -339,38 +352,43 @@ Move index: 21
 
 ~~~Table_What~~~:
 
-r n b q k b n r 
+r - b q k b n - 
 p p p p p p p p 
+N - - - - - - - 
 - - - - - - - - 
+- - - - r - - - 
 - - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
+- - - - N - P - 
 R - B Q K B - R 
 
 ~~~Table_Location~~~:
 
 Table_Location[White][King]: ( e , 1 ) 
 Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
+Table_Location[White][Rock]: ( a , 1 )  ( h , 1 ) 
+Table_Location[White][Bishop]: ( c , 1 )  ( f , 1 ) 
+Table_Location[White][Knight]: ( e , 2 ) 
 Table_Location[White][Pawn]: ( g , 2 ) 
 Table_Location[Black][King]: ( e , 8 ) 
 Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
+Table_Location[Black][Rock]: ( a , 8 )  ( e , 4 ) 
+Table_Location[Black][Bishop]: ( c , 8 )  ( f , 8 ) 
+Table_Location[Black][Knight]: ( a , 6 )  ( g , 8 ) 
+Table_Location[Black][Pawn]: ( a , 7 )  ( b , 7 )  ( c , 7 )  ( d , 7 )  ( e , 7 )  ( f , 7 )  ( g , 7 )  ( h , 7 ) 
 
 Color on move : White
 
 Piece to move: Knight
 
-Current piece location : ( e , 4 )
+Move index: 0
 
-Move index: 26
-}----------------------------------------------------------------------------------------------------------------------------{
+Current piece location : Void List
+--------------------------------------------------------------
+}
+
+{
+--------------------------------------------------------------
+
 ~~~V_BMAP~~~ : 
 
  V[White]=
@@ -379,18 +397,18 @@ Move index: 26
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
+0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 1 0 
 1 0 1 1 1 1 0 1 
 
  V[Black]=
 
+1 0 1 1 1 1 1 0 
 1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
+0 0 1 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
@@ -419,11 +437,11 @@ Move index: 26
 
  V[Rock]=
 
-1 0 0 0 0 0 0 1 
+1 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 1 0 0 0 0 0 0 1 
@@ -441,13 +459,13 @@ Move index: 26
 
  V[Knight]=
 
-0 1 0 0 0 0 1 0 
+0 0 0 0 0 0 1 0 
+0 0 0 0 0 0 0 0 
+0 0 1 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 
 0 0 0 0 0 0 0 0 
 
  V[Pawn]=
@@ -463,1523 +481,36 @@ Move index: 26
 
 ~~~Table_What~~~:
 
-r n b q k b n r 
+r - b q k b n - 
 p p p p p p p p 
+- - N - - - - - 
 - - - - - - - - 
+- - - - r - - - 
 - - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
+- - - - N - P - 
 R - B Q K B - R 
 
 ~~~Table_Location~~~:
 
 Table_Location[White][King]: ( e , 1 ) 
 Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
+Table_Location[White][Rock]: ( a , 1 )  ( h , 1 ) 
+Table_Location[White][Bishop]: ( c , 1 )  ( f , 1 ) 
+Table_Location[White][Knight]: ( e , 2 ) 
 Table_Location[White][Pawn]: ( g , 2 ) 
 Table_Location[Black][King]: ( e , 8 ) 
 Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
+Table_Location[Black][Rock]: ( a , 8 )  ( e , 4 ) 
+Table_Location[Black][Bishop]: ( c , 8 )  ( f , 8 ) 
+Table_Location[Black][Knight]: ( c , 6 )  ( g , 8 ) 
+Table_Location[Black][Pawn]: ( a , 7 )  ( b , 7 )  ( c , 7 )  ( d , 7 )  ( e , 7 )  ( f , 7 )  ( g , 7 )  ( h , 7 ) 
 
 Color on move : White
 
 Piece to move: Knight
 
-Current piece location : ( e , 4 )
-
-Move index: 30
-}----------------------------------------------------------------------------------------------------------------------------{
-~~~V_BMAP~~~ : 
-
- V[White]=
-
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-1 0 1 1 1 1 0 1 
-
- V[Black]=
-
-1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[King]=
-
-0 0 0 0 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 1 0 0 0 
-
- V[Queen]=
-
-0 0 0 1 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 0 0 0 0 
-
- V[Rock]=
-
-1 0 0 0 0 0 0 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-1 0 0 0 0 0 0 1 
-
- V[Bishop]=
-
-0 0 1 0 0 1 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 1 0 0 1 0 0 
-
- V[Knight]=
-
-0 1 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[Pawn]=
-
-0 0 0 0 0 0 0 0 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-
-~~~Table_What~~~:
-
-r n b q k b n r 
-p p p p p p p p 
-- - - - - - - - 
-- - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
-R - B Q K B - R 
-
-~~~Table_Location~~~:
-
-Table_Location[White][King]: ( e , 1 ) 
-Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
-Table_Location[White][Pawn]: ( g , 2 ) 
-Table_Location[Black][King]: ( e , 8 ) 
-Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
-
-Color on move : White
-
-Piece to move: Knight
-
-Current piece location : ( e , 4 )
-
-Move index: 42
-}----------------------------------------------------------------------------------------------------------------------------{
-~~~V_BMAP~~~ : 
-
- V[White]=
-
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-1 0 1 1 1 1 0 1 
-
- V[Black]=
-
-1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[King]=
-
-0 0 0 0 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 1 0 0 0 
-
- V[Queen]=
-
-0 0 0 1 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 0 0 0 0 
-
- V[Rock]=
-
-1 0 0 0 0 0 0 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-1 0 0 0 0 0 0 1 
-
- V[Bishop]=
-
-0 0 1 0 0 1 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 1 0 0 1 0 0 
-
- V[Knight]=
-
-0 1 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[Pawn]=
-
-0 0 0 0 0 0 0 0 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-
-~~~Table_What~~~:
-
-r n b q k b n r 
-p p p p p p p p 
-- - - - - - - - 
-- - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
-R - B Q K B - R 
-
-~~~Table_Location~~~:
-
-Table_Location[White][King]: ( e , 1 ) 
-Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
-Table_Location[White][Pawn]: ( g , 2 ) 
-Table_Location[Black][King]: ( e , 8 ) 
-Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
-
-Color on move : White
-
-Piece to move: Knight
-
-Current piece location : ( e , 4 )
-
-Move index: 46
-}----------------------------------------------------------------------------------------------------------------------------{
-~~~V_BMAP~~~ : 
-
- V[White]=
-
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-1 0 1 1 1 1 0 1 
-
- V[Black]=
-
-1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[King]=
-
-0 0 0 0 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 1 0 0 0 
-
- V[Queen]=
-
-0 0 0 1 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 0 0 0 0 
-
- V[Rock]=
-
-1 0 0 0 0 0 0 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-1 0 0 0 0 0 0 1 
-
- V[Bishop]=
-
-0 0 1 0 0 1 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 1 0 0 1 0 0 
-
- V[Knight]=
-
-0 1 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[Pawn]=
-
-0 0 0 0 0 0 0 0 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-
-~~~Table_What~~~:
-
-r n b q k b n r 
-p p p p p p p p 
-- - - - - - - - 
-- - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
-R - B Q K B - R 
-
-~~~Table_Location~~~:
-
-Table_Location[White][King]: ( e , 1 ) 
-Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
-Table_Location[White][Pawn]: ( g , 2 ) 
-Table_Location[Black][King]: ( e , 8 ) 
-Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
-
-Color on move : White
-
-Piece to move: Knight
-
-Current piece location : ( e , 4 )
-
-Move index: 51
-}----------------------------------------------------------------------------------------------------------------------------{
-~~~V_BMAP~~~ : 
-
- V[White]=
-
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-1 0 1 1 1 1 0 1 
-
- V[Black]=
-
-1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[King]=
-
-0 0 0 0 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 1 0 0 0 
-
- V[Queen]=
-
-0 0 0 1 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 0 0 0 0 
-
- V[Rock]=
-
-1 0 0 0 0 0 0 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-1 0 0 0 0 0 0 1 
-
- V[Bishop]=
-
-0 0 1 0 0 1 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 1 0 0 1 0 0 
-
- V[Knight]=
-
-0 1 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[Pawn]=
-
-0 0 0 0 0 0 0 0 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-
-~~~Table_What~~~:
-
-r n b q k b n r 
-p p p p p p p p 
-- - - - - - - - 
-- - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
-R - B Q K B - R 
-
-~~~Table_Location~~~:
-
-Table_Location[White][King]: ( e , 1 ) 
-Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
-Table_Location[White][Pawn]: ( g , 2 ) 
-Table_Location[Black][King]: ( e , 8 ) 
-Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
-
-Color on move : White
-
-Piece to move: Knight
-
-Current piece location : ( e , 4 )
-
-Move index: 53
-}----------------------------------------------------------------------------------------------------------------------------{
-~~~V_BMAP~~~ : 
-
- V[White]=
-
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-1 0 1 1 1 1 0 1 
-
- V[Black]=
-
-1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[King]=
-
-0 0 0 0 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 1 0 0 0 
-
- V[Queen]=
-
-0 0 0 1 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 0 0 0 0 
-
- V[Rock]=
-
-1 0 0 0 0 0 0 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-1 0 0 0 0 0 0 1 
-
- V[Bishop]=
-
-0 0 1 0 0 1 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 1 0 0 1 0 0 
-
- V[Knight]=
-
-0 1 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[Pawn]=
-
-0 0 0 0 0 0 0 0 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-
-~~~Table_What~~~:
-
-r n b q k b n r 
-p p p p p p p p 
-- - - - - - - - 
-- - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
-R - B Q K B - R 
-
-~~~Table_Location~~~:
-
-Table_Location[White][King]: ( e , 1 ) 
-Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
-Table_Location[White][Pawn]: ( g , 2 ) 
-Table_Location[Black][King]: ( e , 8 ) 
-Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
-
-Color on move : White
-
-Piece to move: Knight
-
-Current piece location : ( d , 4 )
-
-Move index: 11
-}----------------------------------------------------------------------------------------------------------------------------{
-~~~V_BMAP~~~ : 
-
- V[White]=
-
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-1 0 1 1 1 1 0 1 
-
- V[Black]=
-
-1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[King]=
-
-0 0 0 0 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 1 0 0 0 
-
- V[Queen]=
-
-0 0 0 1 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 0 0 0 0 
-
- V[Rock]=
-
-1 0 0 0 0 0 0 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-1 0 0 0 0 0 0 1 
-
- V[Bishop]=
-
-0 0 1 0 0 1 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 1 0 0 1 0 0 
-
- V[Knight]=
-
-0 1 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[Pawn]=
-
-0 0 0 0 0 0 0 0 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-
-~~~Table_What~~~:
-
-r n b q k b n r 
-p p p p p p p p 
-- - - - - - - - 
-- - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
-R - B Q K B - R 
-
-~~~Table_Location~~~:
-
-Table_Location[White][King]: ( e , 1 ) 
-Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
-Table_Location[White][Pawn]: ( g , 2 ) 
-Table_Location[Black][King]: ( e , 8 ) 
-Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
-
-Color on move : White
-
-Piece to move: Knight
-
-Current piece location : ( d , 4 )
-
-Move index: 13
-}----------------------------------------------------------------------------------------------------------------------------{
-~~~V_BMAP~~~ : 
-
- V[White]=
-
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-1 0 1 1 1 1 0 1 
-
- V[Black]=
-
-1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[King]=
-
-0 0 0 0 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 1 0 0 0 
-
- V[Queen]=
-
-0 0 0 1 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 0 0 0 0 
-
- V[Rock]=
-
-1 0 0 0 0 0 0 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-1 0 0 0 0 0 0 1 
-
- V[Bishop]=
-
-0 0 1 0 0 1 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 1 0 0 1 0 0 
-
- V[Knight]=
-
-0 1 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[Pawn]=
-
-0 0 0 0 0 0 0 0 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-
-~~~Table_What~~~:
-
-r n b q k b n r 
-p p p p p p p p 
-- - - - - - - - 
-- - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
-R - B Q K B - R 
-
-~~~Table_Location~~~:
-
-Table_Location[White][King]: ( e , 1 ) 
-Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
-Table_Location[White][Pawn]: ( g , 2 ) 
-Table_Location[Black][King]: ( e , 8 ) 
-Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
-
-Color on move : White
-
-Piece to move: Knight
-
-Current piece location : ( d , 4 )
-
-Move index: 18
-}----------------------------------------------------------------------------------------------------------------------------{
-~~~V_BMAP~~~ : 
-
- V[White]=
-
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-1 0 1 1 1 1 0 1 
-
- V[Black]=
-
-1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[King]=
-
-0 0 0 0 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 1 0 0 0 
-
- V[Queen]=
-
-0 0 0 1 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 0 0 0 0 
-
- V[Rock]=
-
-1 0 0 0 0 0 0 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-1 0 0 0 0 0 0 1 
-
- V[Bishop]=
-
-0 0 1 0 0 1 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 1 0 0 1 0 0 
-
- V[Knight]=
-
-0 1 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[Pawn]=
-
-0 0 0 0 0 0 0 0 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-
-~~~Table_What~~~:
-
-r n b q k b n r 
-p p p p p p p p 
-- - - - - - - - 
-- - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
-R - B Q K B - R 
-
-~~~Table_Location~~~:
-
-Table_Location[White][King]: ( e , 1 ) 
-Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
-Table_Location[White][Pawn]: ( g , 2 ) 
-Table_Location[Black][King]: ( e , 8 ) 
-Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
-
-Color on move : White
-
-Piece to move: Knight
-
-Current piece location : ( d , 4 )
-
-Move index: 22
-}----------------------------------------------------------------------------------------------------------------------------{
-~~~V_BMAP~~~ : 
-
- V[White]=
-
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-1 0 1 1 1 1 0 1 
-
- V[Black]=
-
-1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[King]=
-
-0 0 0 0 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 1 0 0 0 
-
- V[Queen]=
-
-0 0 0 1 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 0 0 0 0 
-
- V[Rock]=
-
-1 0 0 0 0 0 0 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-1 0 0 0 0 0 0 1 
-
- V[Bishop]=
-
-0 0 1 0 0 1 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 1 0 0 1 0 0 
-
- V[Knight]=
-
-0 1 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[Pawn]=
-
-0 0 0 0 0 0 0 0 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-
-~~~Table_What~~~:
-
-r n b q k b n r 
-p p p p p p p p 
-- - - - - - - - 
-- - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
-R - B Q K B - R 
-
-~~~Table_Location~~~:
-
-Table_Location[White][King]: ( e , 1 ) 
-Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
-Table_Location[White][Pawn]: ( g , 2 ) 
-Table_Location[Black][King]: ( e , 8 ) 
-Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
-
-Color on move : White
-
-Piece to move: Knight
-
-Current piece location : ( d , 4 )
-
-Move index: 34
-}----------------------------------------------------------------------------------------------------------------------------{
-~~~V_BMAP~~~ : 
-
- V[White]=
-
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-1 0 1 1 1 1 0 1 
-
- V[Black]=
-
-1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[King]=
-
-0 0 0 0 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 1 0 0 0 
-
- V[Queen]=
-
-0 0 0 1 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 0 0 0 0 
-
- V[Rock]=
-
-1 0 0 0 0 0 0 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-1 0 0 0 0 0 0 1 
-
- V[Bishop]=
-
-0 0 1 0 0 1 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 1 0 0 1 0 0 
-
- V[Knight]=
-
-0 1 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[Pawn]=
-
-0 0 0 0 0 0 0 0 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-
-~~~Table_What~~~:
-
-r n b q k b n r 
-p p p p p p p p 
-- - - - - - - - 
-- - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
-R - B Q K B - R 
-
-~~~Table_Location~~~:
-
-Table_Location[White][King]: ( e , 1 ) 
-Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
-Table_Location[White][Pawn]: ( g , 2 ) 
-Table_Location[Black][King]: ( e , 8 ) 
-Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
-
-Color on move : White
-
-Piece to move: Knight
-
-Current piece location : ( d , 4 )
-
-Move index: 38
-}----------------------------------------------------------------------------------------------------------------------------{
-~~~V_BMAP~~~ : 
-
- V[White]=
-
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-1 0 1 1 1 1 0 1 
-
- V[Black]=
-
-1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[King]=
-
-0 0 0 0 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 1 0 0 0 
-
- V[Queen]=
-
-0 0 0 1 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 0 0 0 0 
-
- V[Rock]=
-
-1 0 0 0 0 0 0 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-1 0 0 0 0 0 0 1 
-
- V[Bishop]=
-
-0 0 1 0 0 1 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 1 0 0 1 0 0 
-
- V[Knight]=
-
-0 1 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[Pawn]=
-
-0 0 0 0 0 0 0 0 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-
-~~~Table_What~~~:
-
-r n b q k b n r 
-p p p p p p p p 
-- - - - - - - - 
-- - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
-R - B Q K B - R 
-
-~~~Table_Location~~~:
-
-Table_Location[White][King]: ( e , 1 ) 
-Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
-Table_Location[White][Pawn]: ( g , 2 ) 
-Table_Location[Black][King]: ( e , 8 ) 
-Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
-
-Color on move : White
-
-Piece to move: Knight
-
-Current piece location : ( d , 4 )
-
-Move index: 43
-}----------------------------------------------------------------------------------------------------------------------------{
-~~~V_BMAP~~~ : 
-
- V[White]=
-
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-1 0 1 1 1 1 0 1 
-
- V[Black]=
-
-1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[King]=
-
-0 0 0 0 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 1 0 0 0 
-
- V[Queen]=
-
-0 0 0 1 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 0 0 0 0 
-
- V[Rock]=
-
-1 0 0 0 0 0 0 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-1 0 0 0 0 0 0 1 
-
- V[Bishop]=
-
-0 0 1 0 0 1 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 1 0 0 1 0 0 
-
- V[Knight]=
-
-0 1 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 1 1 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-
- V[Pawn]=
-
-0 0 0 0 0 0 0 0 
-1 1 1 1 1 1 1 1 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 1 0 
-0 0 0 0 0 0 0 0 
-
-~~~Table_What~~~:
-
-r n b q k b n r 
-p p p p p p p p 
-- - - - - - - - 
-- - - - - - - - 
-- - - N N - - - 
-- - - - - - - - 
-- - - - - - P - 
-R - B Q K B - R 
-
-~~~Table_Location~~~:
-
-Table_Location[White][King]: ( e , 1 ) 
-Table_Location[White][Queen]: ( d , 1 ) 
-Table_Location[White][Rock]: ( h , 1 )  ( a , 1 ) 
-Table_Location[White][Bishop]: ( f , 1 )  ( c , 1 ) 
-Table_Location[White][Knight]: ( e , 4 )  ( d , 4 ) 
-Table_Location[White][Pawn]: ( g , 2 ) 
-Table_Location[Black][King]: ( e , 8 ) 
-Table_Location[Black][Queen]: ( d , 8 ) 
-Table_Location[Black][Rock]: ( h , 8 )  ( a , 8 ) 
-Table_Location[Black][Bishop]: ( f , 8 )  ( c , 8 ) 
-Table_Location[Black][Knight]: ( g , 8 )  ( b , 8 ) 
-Table_Location[Black][Pawn]: ( h , 7 )  ( g , 7 )  ( f , 7 )  ( e , 7 )  ( d , 7 )  ( c , 7 )  ( b , 7 )  ( a , 7 ) 
-
-Color on move : White
-
-Piece to move: Knight
-
-Current piece location : ( d , 4 )
-
-Move index: 45
-}--------------------------------------------------------------
+Move index: 0
+
+Current piece location : Void List
+--------------------------------------------------------------
+}
