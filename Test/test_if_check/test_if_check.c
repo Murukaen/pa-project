@@ -14,12 +14,17 @@
 int main(){
 
 	FILE * fin = fopen("./Test/test_if_check/test_if_check.in","r");
-	FILE * fout = fopen("./Test/test_if_check/test_if_check.out","w");
 
+	ST_gen_init();
+	BM_init();
 	STATE st;
 	st = state_read(fin);
+	List l = ST_get_cur_poz_in_list(st);
+	P_LOC loc = first_nod_list(&l);
+	state_print(st,stdout);
+	UCHAR  rasp = VM_is_Check_if_piece_moves(st,loc);
 
-	VM_is_Check_if_piece_moves(st,ST_get_)
+	printf("%d",rasp);
 
 	return 0;
 }
