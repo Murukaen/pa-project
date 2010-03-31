@@ -11,6 +11,11 @@
 #include "util.h"
 #include "../state/state.h"
 
+#define MAX_PRECISION 5
+
+UINT pow_ten[MAX_PRECISION];
+
+
 /* ---- Macro #define ---- */
 
 /* --- Types --- */
@@ -21,6 +26,12 @@
 /* --- Auxiliary Procedures --- */
 
 /* --- Procedures --- */
+
+void util_init ( void ) {
+	
+	int i;
+	for(i=1 , pow_ten[0] = 1 ; i < MAX_PRECISION ; pow_ten[i] = pow_ten[i-1] * 10 , ++i );
+}
 
 P_LOC LOC_new ( void ) {
 
@@ -233,7 +244,12 @@ UCHAR text_to_tag ( char * text ) {
 	
 	return T_NA;
 }
+
+UINT get_time ( int prec ) {
 	
-
-
-
+	UINT cur_time = time ( NULL );
+	
+	return cur_time % pow_ten[prec];
+}
+		
+		

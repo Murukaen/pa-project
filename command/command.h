@@ -11,6 +11,7 @@
 #include "../xboard_com/xboard_com.h"
 
 /* ---- Macro #define ---- */
+#define LOG_COMMAND_FILE "Log/command.log"
 
 /* --- Types --- */
 

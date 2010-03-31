@@ -11,9 +11,16 @@
 
 /* ---- Macro #define ---- */
 
+#define DEFAULT_PRECISION 4
+
 #ifndef _UCHAR
 #define _UCHAR
 typedef unsigned char UCHAR;
+#endif
+
+#ifndef _UINT
+#define _UINT
+typedef unsigned int UINT;
 #endif
 
 #include <stdio.h>
@@ -33,6 +40,8 @@ typedef LOC* P_LOC; // --> Generic Reference
 /* --- Procedures --- */
 
 /* LOC Procedures */
+
+void util_init ( void );
 
 P_LOC LOC_new ( void );
 
@@ -106,6 +115,10 @@ int ok_letter ( char );
 UCHAR letter_to_column ( char );
 
 UCHAR letter_to_row ( char );
+
+UINT get_time ( int );
+
+
 
 #endif
 

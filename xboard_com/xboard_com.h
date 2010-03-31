@@ -12,6 +12,8 @@
 
 /* ---- Macro #define ---- */
 
+#define LOG_XBOARD_COM_FILE "Log/xboard_com.log"
+
 /* Engine -> XBoard command types */
 #define T_COM_MOVE 0
 #define T_COM_RESIGN 1
@@ -25,7 +27,7 @@
  * Input:0
  * Output:0
  */
-void com_init ( void );
+void xboard_com_init ( void );
 
 
 /* Desc:

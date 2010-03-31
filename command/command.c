@@ -10,10 +10,10 @@
 /* ----- Local #inlcudes ----- */
 #include "command.h"
 #include "../update_state/update_state.h"
-#include "../move_conv/move_conv.h"
+#include "../san_conv/san_conv.h"
+#include "../Log/log.h"
 
 /* ---- Macro #define ---- */
-#define LOG_FILE "./Log/log"
 #define COM_SEP ' '
 
 
@@ -72,25 +72,29 @@ void read_com ( char * com ) {
 		
 		word = parse_com ( &poz );
 		
-		FILE * fout = fopen (LOG_FILE , "a");
-		fprintf(fout , "*%s*\n" , word );
-		fflush(fout);
+		/* LOG */
+		FILE * fout = fopen (LOG_COMMAND_FILE , "a");
+		log_print ("X>Engine>>>" , fout);
+		log_print ( word , fout );
 		fclose(fout);
+		/* END LOG */
 		
 		/* Analyse command */
 				
 		if ( !strcmp ( word , "quit" ) ) 		exit(0);
 		if ( !strcmp ( word , "xboard" ) ) 		write_to_xboard ("\n");
-		if ( !strcmp ( word , "protover" ) ) 	add_mess_to_buffer (FEATURES); 
-		if ( !strcmp ( word , "usermove" )) 	{
+		if ( !strcmp ( word , "protover" ) ) 	{ add_mess_to_buffer (FEATURES); f_INIT_COM = 1 ; }
+		
+		/* Command is a move */
+		if ( !strcmp ( word , "usermove" )) 	{ 
 			
 			word = parse_com ( &poz );
 			
 			// Now : word is command in XBoard format
 			
-			update_state ( Xmove_to_intern ( word ) );  
+			update_state ( SAN_to_Move ( word ) );  
 			
-			}
+		}
 		
 		/* Free statement */
 		free(prop);
@@ -102,7 +106,7 @@ void write_com (void * com , int com_tag ) {
 	
 	switch (com_tag) {
 		
-		case T_COM_MOVE : write_to_xboard ( intern_to_Xmove ( (MOVE) com ) ); update_state( (MOVE) com ) ; break;
+		case T_COM_MOVE : write_to_xboard (Move_to_SAN ( (MOVE) com ) ); update_state( (MOVE) com ) ; break;
 		case T_COM_DRAW : write_to_xboard ("offer draw\n"); break;
 		case T_COM_RESIGN : write_to_xboard ("resign\n"); break;
 	}
