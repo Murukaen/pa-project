@@ -28,7 +28,7 @@ int main() {
 	st = state_read(fin);
 
 	while( (st1 = ST_gen(st)) != NULL){
-		state_print(st,fout);
+		state_print(st1,fout);
 	}
 	printf("fara");
 

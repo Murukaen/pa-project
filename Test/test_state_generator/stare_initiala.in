@@ -1,10 +1,10 @@
->>>White
-r n b q k b n r
+>>>Black
+r n b q k b n -
 p p p p p p p p
 - - - - - - - -
 - - - - - - - -
-- - - N N - - -
+- - - - r - - -
 - - - - - - - -
-- - - - - - P -
+- - - - N - P -
 R - B Q K B - R
 
