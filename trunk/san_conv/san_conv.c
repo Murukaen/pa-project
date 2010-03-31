@@ -288,7 +288,7 @@ char* Move_to_SAN(MOVE s) {
 			return msg;
 		}
 	} else {
-		FILE * log = fopen("../Log/san_conv.log","a");
+		FILE * log = fopen("Log/san_conv.log","a");
 		char aux;
 		int j = 0; //contorul pt crearea mesajul SAN
 		STATE cur = cur_state_get();
@@ -362,7 +362,7 @@ char* Move_to_SAN(MOVE s) {
 
 MOVE SAN_to_Move(char* s) {
 	MOVE m = move_new();
-	FILE * log = fopen("../Log/san_conv.log","a");
+	FILE * log = fopen("Log/san_conv.log","a");
 	STATE cur = cur_state_get();
 	if (strcmp(s, "O-O") == 0 || strcmp(s, "o-o") == 0 || strcmp(s, "0-0") == 0) {
 		if (!ST_get_col_on_move(cur)) {

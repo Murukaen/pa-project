@@ -11,13 +11,14 @@
 #include "command.h"
 #include "../update_state/update_state.h"
 #include "../san_conv/san_conv.h"
+#include "../move_conv/move_conv.h"
 #include "../Log/log.h"
 
 /* ---- Macro #define ---- */
 #define COM_SEP ' '
 
 
-#define FEATURES "feature playother=1 usermove=1 san=1 done=1\n"
+#define FEATURES "feature playother=1 usermove=1 san=0 done=1\n"
 
 /* --- Types --- */
 
@@ -93,15 +94,17 @@ void read_com ( char * com ) {
 			// Now : word is command in XBoard format
 			
 			/* LOG */
+			
 			FILE * fout = fopen (LOG_COMMAND_FILE , "a");
 			log_print ("X>Engine>Move" , fout );
 			log_print ( word , fout );
 			log_print ("X>Engine>SAN_to_Move" , fout);
-			log_print_move ( SAN_to_Move ( word ) , fout );
+			log_print_move ( Xmove_to_intern ( word ) , fout );
 			fclose(fout);
+			
 			/* END LOG */
 			
-			// update_state ( SAN_to_Move ( word ) );  
+			update_state ( Xmove_to_intern ( word ) );  
 			
 		}
 		
@@ -115,7 +118,7 @@ void write_com (void * com , int com_tag ) {
 	
 	switch (com_tag) {
 		
-		case T_COM_MOVE : write_to_xboard (Move_to_SAN ( (MOVE) com ) ); update_state( (MOVE) com ) ; break;
+		case T_COM_MOVE : write_to_xboard (intern_to_Xmove ( (MOVE) com ) ); update_state( (MOVE) com ) ; break;
 		case T_COM_DRAW : write_to_xboard ("offer draw\n"); break;
 		case T_COM_RESIGN : write_to_xboard ("resign\n"); break;
 	}
