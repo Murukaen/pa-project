@@ -168,14 +168,15 @@ char tag_to_letter ( UCHAR tag ) {
 	
 	switch ( tag ) {
 		
-		case 2 : rez = 'K'; break;
-		case 3 : rez = 'Q'; break;
-		case 4 : rez = 'R'; break;
-		case 5 : rez = 'B'; break;
-		case 6 : rez = 'N'; break;
-		case 7 : rez = 'P'; break;
+		case T_K : rez = 'K'; break;
+		case T_Q : rez = 'Q'; break;
+		case T_R : rez = 'R'; break;
+		case T_B : rez = 'B'; break;
+		case T_N : rez = 'N'; break;
+		case T_P : rez = 'P'; break;
+		case T_NA : rez = '-' ; break ; 
 		
-		default: rez = '-';
+		default: rez = 'X';
 	}
 	
 	if ( off ) rez+='a' - 'A';
