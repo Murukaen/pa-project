@@ -30,12 +30,15 @@ UCHAR f_ENG_ON_MOVE;
  */
 UCHAR f_ENG_COL;
 
+UCHAR f_INIT_COM;
+
 /* --- Procedures --- */
 
 /* Desc:
  * Flags init
  * 1.Engine not on move
  * 2.Engine plays black
+ * 3.Init communication = 0 ( not done )
  * Input:0
  * Output:0
  */

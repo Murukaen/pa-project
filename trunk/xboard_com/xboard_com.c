@@ -13,13 +13,12 @@
 /* ----- Local #inlcudes ----- */
 #include "xboard_com.h"
 #include "../command/command.h"
+#include "../Log/log.h"
 
 /* ---- Macro #define ---- */
 #define STDIN 0
 #define BUF_LENGTH 100 
 #define BUF_SEP "\n"
-
-#define LOG_FILE "./Log/log"
 
 #define INIT_FEATURES "feature done=0\n"
 
@@ -56,18 +55,26 @@ int is_empty_mem_buf ( void ) {
 
 void empty_mem_buf ( void ) {
 	
-	mem_buffer[0] = 0;
+	mem_buffer[0] = '\0';
 }
 
 /* --- Procedures --- */
 
 void write_to_xboard ( char * text) {
 	
+		/* LOG */
+		FILE * fout = fopen (LOG_XBOARD_COM_FILE , "a");
+		log_print ( "Engine>X>>>" , fout );
+		log_print ( text , fout );
+		fclose(fout);
+		/* END LOG */
+		
 		write(1,text,strlen(text));
 }
 
-void com_init ( void ) {
+void xboard_com_init ( void ) {
 	
+		empty_mem_buf ();
 		write_to_xboard (INIT_FEATURES);  
 }
 
@@ -80,9 +87,15 @@ void add_mess_to_buffer ( char * mess ) {
 void poll_input ( void ) { 
 		
 		if ( !is_empty_mem_buf () ) { // if there is a message stored in buffer, output it right away
-		
-				write_to_xboard ( mem_buffer ); // write the messaje to xboard
-				empty_mem_buf () ; // empty the memory buffer
+				
+			/* LOG */
+			FILE * fout = fopen (LOG_XBOARD_COM_FILE , "a");
+			log_print ( "Engine>X>BUF>>" , fout );
+			log_print ( mem_buffer , fout );
+			fclose(fout);
+			/* END LOG */
+			write_to_xboard ( mem_buffer ); // flush xboard_com buffer to XBoard
+			empty_mem_buf () ; // empty the memory buffer
 		}
 				
 		parse_buf ( get_input_buffer () );  // wait and get all the available input
