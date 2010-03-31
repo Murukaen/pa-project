@@ -126,9 +126,9 @@ void set_flags(int j, char* msg, STATE cur, MOVE h) {
 	if (is_capture(h, cur)) {
 		msg[j++] = 'x';
 	}
-	sprintf(&c, "%d", l.row);
+	sprintf(&c, "%d", l.col+1);
+	msg[j++] = convertToLetters(l.row);
 	msg[j++] = c;
-	msg[j++] = convertToLetters(l.col);
 	if (is_check(h, cur)) {
 		msg[j++] = '+';
 	}
@@ -191,8 +191,11 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 	LOC l;
 	LOC d;
 	int boo = 1;
-	BITMAP s = ST_get_bitmap(cur, piesa) & ST_get_bitmap(cur, f_ENG_COL);
+	BITMAP s = ST_get_bitmap(cur, piesa) & ST_get_bitmap(cur, not(f_ENG_COL));
+	BM_print(s, stdout);
 	BM_Clear_piece_at_coord(&s, lp, cp);
+	BM_print(s, stdout);
+	printf("col_piesa: %d; row_piesa: %d", lp, cp);
 
 	/* Pt. fiecare element din b verificam daca se poate muta pe poz d */
 
@@ -205,6 +208,7 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 		move_set_poz_src(m, l);
 		LOCp_set_both(&d, ld, cd);
 		move_set_poz_dst(m, d);
+		printf("cols: %d ; rows: %d; cold: %d; rowd: %d", lk, ck, ld, cd);
 
 		if (validate_move(m,cur)) {
 			lg = lk;
@@ -212,13 +216,13 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 			boo = 0;
 		}
 		if (!boo) {
-			if (l.row == lg){
+			if (cp == cg){
 				move_free(m);
-				return convertToLetters(cp);
+				return convertToLetters(lp);
 			}
 			else {
 				char c;
-				sprintf(&c, "%d", lp + 1);
+				sprintf(&c, "%d", cp + 1);
 				move_free(m);
 				return c;
 			}
