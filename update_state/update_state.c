@@ -13,6 +13,7 @@
 #include "../bitmap/bitmap.h"
 #include "../list/list.h"
 #include "../Util/util.h"
+#include "../Log/log.h"
 /* ---- Macro #define ---- */
 
 /* --- Types --- */
@@ -29,63 +30,124 @@ void update_state_init(void) {
 }
 
 void update_state(MOVE mov) {
-
+	FILE * log = fopen("../Log/update_state.log","a");
 	STATE cur = cur_state_get();
 	UCHAR piesa = move_get_p_tag(mov);
 	LOC src = move_get_poz_src(mov);
 	LOC dst = move_get_poz_dst(mov);
 	List list;
+	int boo_en; // =1 daca este en passant
 	BITMAP bm_piesa = ST_get_bitmap(cur, piesa) ^ BM_Make_coord(src.row, src.col);// eliminare piesa de la locul sursei
 	ST_set_bitmap(cur, piesa, bm_piesa); // setare bitmap
 	ST_set_tag_Table_What(cur, src.row, src.col, T_NA); // eliminare piesa din tabel
-	if (ST_get_tag_Table_What(cur, dst.row, dst.col) == T_NA) { //verificare daca e captura
+	int boo = ST_get_tag_Table_What(cur, dst.row, dst.col) == T_NA;
+	if (move_get_p_tag(mov) == T_P){
+		if ((move_get_poz_src(mov).row != move_get_poz_dst(mov).row)){
+			boo = 0;
+			if (ST_get_tag_Table_What(cur, dst.row, dst.col) == T_NA)
+				boo_en = 1;
+		}
+		else{
+			boo = 1;
+		}
+	}
+	if (boo) { //verificare daca e captura
+		log_print("Nu e captura", log);
 		bm_piesa = ST_get_bitmap(cur, piesa) | BM_Make_coord(dst.row, dst.col); // punem un 1 la locul destinatiei
 		ST_set_bitmap(cur, piesa, bm_piesa); // setare bitmap
-		if (!(f_ENG_COL ^ f_ENG_ON_MOVE)) { // gasirea culorii
-			bm_piesa = ST_get_bitmap(cur, 1);
-			BM_Clear_piece_at_coord(&bm_piesa, src.row, src.col); // scoatem piesa din bmap'ul culorii
-			ST_set_bitmap(cur, 1, bm_piesa);
+		UCHAR culoare = ST_get_col_on_move(cur);
+		bm_piesa = ST_get_bitmap(cur, culoare);
+		BM_Clear_piece_at_coord(&bm_piesa, src.row, src.col); // scoatem piesa din bmap'ul culorii
+		bm_piesa = bm_piesa | BM_Make_coord(dst.row, dst.col);
+		ST_set_bitmap(cur, culoare, bm_piesa);
+		if (culoare)
 			ST_set_tag_Table_What(cur, dst.row, dst.col, (piesa + BWP_OFF)); // adaugam piesa la destinatie
-			list = ST_get_List_Table_Location(cur, 1, piesa); // extragem lista
-		} else {
-			bm_piesa = ST_get_bitmap(cur, 0); // idem culoare = 1
-			BM_Clear_piece_at_coord(&bm_piesa, src.row, src.col);
-			ST_set_bitmap(cur, 0, bm_piesa);
-			ST_set_tag_Table_What(cur, dst.row, dst.col, piesa);
-			list = ST_get_List_Table_Location(cur, 0, piesa);
-		}
+		else
+			ST_set_tag_Table_What(cur, dst.row, dst.col, piesa); // adaugam piesa la destinatie
+		list = ST_get_List_Table_Location(cur, culoare, piesa); // extragem lista
 		P_LOC loc = find_nod_list(list, &src, fequ_loc);
 		LOCp_set_both(loc, dst.row, dst.col);
+		ST_set_col_on_move(cur, not(culoare));
+		ST_set_piece_to_move( cur, ANALYZED_PIECE );
+		ST_set_move_index(cur, 0);
 	} else { // e captura
-		UCHAR adv = ST_get_tag_Table_What(cur, dst.row, dst.col); // tipul piesei adversarului
-		bm_piesa = ST_get_bitmap(cur, adv);
-		BM_Clear_piece_at_coord(&bm_piesa, src.row, src.col);
-		ST_set_bitmap(cur, adv, bm_piesa); //
-		bm_piesa = ST_get_bitmap(cur, piesa);
-		BM_Put_piece_at_coord(&bm_piesa, dst.row, dst.col);
-		ST_set_bitmap(cur, piesa, bm_piesa);
-		if (!(f_ENG_COL ^ f_ENG_ON_MOVE)) {
-			bm_piesa = ST_get_bitmap(cur, 1);
-			BM_Clear_piece_at_coord(&bm_piesa, src.row, src.col);
-			ST_set_bitmap(cur, 1, bm_piesa);
-			ST_set_tag_Table_What(cur, dst.row, dst.col, (piesa + BWP_OFF));
-			list = ST_get_List_Table_Location(cur,1 , piesa);
-		} else {
-			bm_piesa = ST_get_bitmap(cur, 0);
-			BM_Clear_piece_at_coord(&bm_piesa, src.row, src.col);
-			ST_set_bitmap(cur, 0, bm_piesa);
-			ST_set_tag_Table_What(cur, dst.row, dst.col, piesa);
-			list = ST_get_List_Table_Location(cur,0 , piesa);
+		if (boo_en){
+			log_print("En Passant", log);
+			UCHAR culoare = ST_get_col_on_move(cur);
+			LOC dst_en;
+			if (culoare){
+				LOCp_set_both(&dst_en, dst.row-1, dst.col);
+			}else{
+				LOCp_set_both(&dst_en, dst.row+1, dst.col);
+			}
+			UCHAR adv;
+			if (!culoare)
+				adv = ST_get_tag_Table_What(cur, dst_en.row, dst_en.col) - BWP_OFF; // tipul piesei adversarului
+			else
+				adv = ST_get_tag_Table_What(cur, dst_en.row, dst_en.col); // tipul piesei adversarului
+			bm_piesa = ST_get_bitmap(cur, adv);
+			BM_Clear_piece_at_coord(&bm_piesa, dst_en.row, dst_en.col); // elimin piesa adversarului din bitmapul de pozitii ale piesei
+			ST_set_bitmap(cur, adv, bm_piesa);
+			bm_piesa = ST_get_bitmap(cur, !culoare);
+			BM_Clear_piece_at_coord(&bm_piesa, dst_en.row, dst_en.col); // elimin piesa adversarului
+			ST_set_bitmap(cur, !culoare, bm_piesa);
+			bm_piesa = ST_get_bitmap(cur, piesa);
+			BM_Put_piece_at_coord(&bm_piesa, dst.row, dst.col);
+			ST_set_bitmap(cur, piesa, bm_piesa);
+			bm_piesa = ST_get_bitmap(cur, culoare);
+			BM_Clear_piece_at_coord(&bm_piesa, src.row, src.col); // scoatem piesa din bmap'ul culorii
+			bm_piesa = bm_piesa | BM_Make_coord(dst.row, dst.col);
+			ST_set_bitmap(cur, culoare, bm_piesa);
+			if (culoare){
+				ST_set_tag_Table_What(cur, dst.row, dst.col, (piesa + BWP_OFF)); // adaugam piesa la destinatie
+				ST_set_tag_Table_What(cur, dst_en.row, dst_en.col, T_NA);
+			}
+			else{
+				ST_set_tag_Table_What(cur, dst.row, dst.col, piesa); // adaugam piesa la destinatie
+				ST_set_tag_Table_What(cur, dst_en.row, dst_en.col, T_NA);
+			}
+			list = ST_get_List_Table_Location(cur, culoare, piesa);// extragem lista
+			List list1 = ST_get_List_Table_Location(cur, !culoare, adv);
+			delete_elem_list(list1, &dst_en, fequ_loc, LOC_free);
+			P_LOC l = find_nod_list(list, &src, fequ_loc);
+			LOCp_set_both(l, dst.row, dst.col);
+			ST_set_piece_to_move(cur, ANALYZED_PIECE );
+			ST_set_move_index(cur, 0);
+		}else{
+			log_print("Captura normala", log);
+			UCHAR culoare = ST_get_col_on_move(cur);
+			UCHAR adv;
+			if (!culoare)
+				adv = ST_get_tag_Table_What(cur, dst.row, dst.col) - BWP_OFF; // tipul piesei adversarului
+			else
+				adv = ST_get_tag_Table_What(cur, dst.row, dst.col); // tipul piesei adversarului
+			bm_piesa = ST_get_bitmap(cur, adv);
+			BM_Clear_piece_at_coord(&bm_piesa, dst.row, dst.col); // elimin piesa adversarului din bitmapul de pozitii ale piesei
+			ST_set_bitmap(cur, adv, bm_piesa);
+			bm_piesa = ST_get_bitmap(cur, !culoare);
+			BM_Clear_piece_at_coord(&bm_piesa, dst.row, dst.col); // elimin piesa adversarului
+			ST_set_bitmap(cur, !culoare, bm_piesa);
+			bm_piesa = ST_get_bitmap(cur, piesa);
+			BM_Put_piece_at_coord(&bm_piesa, dst.row, dst.col);
+			ST_set_bitmap(cur, piesa, bm_piesa);
+			bm_piesa = ST_get_bitmap(cur, culoare);
+			BM_Clear_piece_at_coord(&bm_piesa, src.row, src.col); // scoatem piesa din bmap'ul culorii
+			bm_piesa = bm_piesa | BM_Make_coord(dst.row, dst.col);
+			ST_set_bitmap(cur, culoare, bm_piesa);
+			if (culoare)
+				ST_set_tag_Table_What(cur, dst.row, dst.col, (piesa + BWP_OFF)); // adaugam piesa la destinatie
+			else
+				ST_set_tag_Table_What(cur, dst.row, dst.col, piesa); // adaugam piesa la destinatie
+			list = ST_get_List_Table_Location(cur, culoare, piesa);// extragem lista
+			List list1 = ST_get_List_Table_Location(cur, !culoare, adv);
+			delete_elem_list(list1, &dst, fequ_loc, LOC_free);
+			P_LOC l = find_nod_list(list, &src, fequ_loc);
+			LOCp_set_both(l, dst.row, dst.col);
+			ST_set_piece_to_move(cur, ANALYZED_PIECE );
+			ST_set_move_index(cur, 0);
 		}
-		delete_elem_list(list, &dst, fequ_loc, LOC_free);
-		P_LOC l = find_nod_list(list, &src, fequ_loc);
-		LOCp_set_both(l, dst.row, dst.col);
 	}
-	bm_piesa = ST_get_bitmap(cur, f_ENG_COL) ^ BM_Make_coord(src.row, src.col);
-	ST_set_bitmap(cur, f_ENG_COL, bm_piesa);
-	ST_set_cur_poz_in_list(cur, ST_get_List_Table_Location(cur, f_ENG_COL, piesa));
-	ST_set_move_index(cur, 0);
-	ST_set_piece_to_move(cur, T_N);
+	ST_set_cur_poz_in_list(cur, ST_get_List_Table_Location(cur, ST_get_col_on_move(cur), piesa));
 }
 
 void flip_state(void) {
