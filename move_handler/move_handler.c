@@ -28,12 +28,7 @@ MOVE determine_move ( STATE st_next ) {
 	
 	UCHAR my_pieces = ST_get_col_on_move ( st_prev );    //culoarea engineului
 
-
-	UCHAR his_pieces = not(my_pieces); //culoarea adversarului
-
 	BITMAP my_pic_prev = ST_get_bitmap (st_prev, my_pieces ); //bitmapul starii mele curente
-	
-	BITMAP his_pic_next= ST_get_bitmap (st_next, his_pieces );
 	
 	BITMAP my_pic_next = ST_get_bitmap (st_next, my_pieces ); //bitmapul starii mele urmatoare
 
@@ -48,8 +43,7 @@ MOVE determine_move ( STATE st_next ) {
 	int my_pieces_moved [ SIZE_BMAP ];
 	
 	P_LOC loc;
-	LOC poz_start;
-
+	
 	BITMAP where_moved; //bitmapul care determina pozitia in care se va muta piesa
 
 	int i;
@@ -72,8 +66,8 @@ MOVE determine_move ( STATE st_next ) {
 			fflush(stdout);
 			LOC lcastle; //locatia turei pe tabla
 
-			move_set_p_tag_pro ( mov , 0 ); //nu se promoveaza nici o piesa
-
+			move_set_m_tag ( mov , 1 ); //conteaza pozitia turei
+			move_set_p_tag_pro( mov , T_NA );
 
 			which_piece=T_K;
 			move_set_p_tag (mov , which_piece); //setez regele la mutare
@@ -173,7 +167,9 @@ MOVE determine_move ( STATE st_next ) {
 					break;
 			}
 	/*-----------------------------mutare fara promovare-------------------------------------*/
-			
+	
+	move_set_p_tag_pro (mov,T_NA);
+	
 	if(move_get_m_tag(mov)== 0)		
 	{		
 			
@@ -199,12 +195,12 @@ MOVE determine_move ( STATE st_next ) {
 	/*---------------------------joc cu piesele albe=> pionul merge in sus---------------------------------*/
 	if(my_pieces==0)
 	{
-		dreapta=ST_get_tag_Table_What(st_prev,move_get_poz_src(mov).col+1,7);
-		stanga=ST_get_tag_Table_What(st_prev,move_get_poz_src(mov).col-1,7);
-		mijloc=ST_get_tag_Table_What(st_prev,move_get_poz_src(mov).col,7);
-		next_dreapta=ST_get_tag_Table_What(st_next,move_get_poz_src(mov).col+1,7);
-		next_stanga=ST_get_tag_Table_What(st_next,move_get_poz_src(mov).col-1,7);
-		next_mijloc=ST_get_tag_Table_What(st_next,move_get_poz_src(mov).col,7);
+		dreapta=ST_get_tag_Table_What(st_prev,7,move_get_poz_src(mov).col+1);
+		stanga=ST_get_tag_Table_What(st_prev,7,move_get_poz_src(mov).col-1);
+		mijloc=ST_get_tag_Table_What(st_prev,7,move_get_poz_src(mov).col);
+		next_dreapta=ST_get_tag_Table_What(st_next,7,move_get_poz_src(mov).col+1);
+		next_stanga=ST_get_tag_Table_What(st_next,7,move_get_poz_src(mov).col-1);
+		next_mijloc=ST_get_tag_Table_What(st_next,7,move_get_poz_src(mov).col);
 		
 		if( next_dreapta == T_Q && dreapta != T_Q)
 		{
@@ -215,6 +211,7 @@ MOVE determine_move ( STATE st_next ) {
 		}
 		if( next_stanga == T_Q && stanga != T_Q)
 		{
+				printf("dan pula mea");
 				loc->col=move_get_poz_src(mov).col-1;
 				loc->row=7;
 				move_set_poz_dst ( mov ,  *loc);
@@ -222,6 +219,8 @@ MOVE determine_move ( STATE st_next ) {
 		}			
 		if( mijloc == T_Q && mijloc != T_Q)
 		{
+				printf("mijloc plm");
+				fflush(stdout);
 				loc->col=move_get_poz_src(mov).col;
 				loc->row=7;
 				move_set_poz_dst ( mov ,  *loc);
@@ -233,12 +232,12 @@ MOVE determine_move ( STATE st_next ) {
 	/*--------------------------------------joc cu piesele negre=>pionul merge in jos--------------------------------*/
 	else
 	{
-		dreapta=ST_get_tag_Table_What(st_prev,move_get_poz_src(mov).col+1,0);
-		stanga=ST_get_tag_Table_What(st_prev,move_get_poz_src(mov).col-1,0);
-		mijloc=ST_get_tag_Table_What(st_prev,move_get_poz_src(mov).col,0);
-		next_dreapta=ST_get_tag_Table_What(st_next,move_get_poz_src(mov).col+1,0);
-		next_stanga=ST_get_tag_Table_What(st_next,move_get_poz_src(mov).col-1,0);
-		next_mijloc=ST_get_tag_Table_What(st_next,move_get_poz_src(mov).col,0);	
+		dreapta=ST_get_tag_Table_What(st_prev,0,move_get_poz_src(mov).col+1);
+		stanga=ST_get_tag_Table_What(st_prev,0,move_get_poz_src(mov).col-1);
+		mijloc=ST_get_tag_Table_What(st_prev,0,move_get_poz_src(mov).col);
+		next_dreapta=ST_get_tag_Table_What(st_next,0,move_get_poz_src(mov).col+1);
+		next_stanga=ST_get_tag_Table_What(st_next,0,move_get_poz_src(mov).col-1);
+		next_mijloc=ST_get_tag_Table_What(st_next,0,move_get_poz_src(mov).col);	
 		
 		if( next_dreapta == T_Q && dreapta != T_Q)
 		{
@@ -271,7 +270,7 @@ MOVE determine_move ( STATE st_next ) {
 	/*----------------------------------------------------------------------------------------------------*/
 	/*-------------------------------aici incep mutarile fara exceptii------------------------------------*/
 	
-	
+	move_set_p_tag_pro( mov , T_NA );
 
 	move_set_m_tag ( mov , 0 ); //nu se promoveaza nici o piesa
 
