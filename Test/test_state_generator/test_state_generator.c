@@ -30,6 +30,8 @@ int main() {
 	while( (st1 = ST_gen(st)) != NULL){
 		state_print(st1,fout);
 	}
+
+	printf("bla");
 	printf("fara");
 
 	return 0;
