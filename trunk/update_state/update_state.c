@@ -15,6 +15,7 @@
 #include "../Util/util.h"
 #include "../Log/log.h"
 /* ---- Macro #define ---- */
+#define LOG_UPDATE_STATE_FILE "Log/update_state.log"
 
 /* --- Types --- */
 
@@ -30,13 +31,12 @@ void update_state_init(void) {
 }
 
 void update_state(MOVE mov) {
-	FILE * log = fopen("../Log/update_state.log","a");
 	STATE cur = cur_state_get();
 	UCHAR piesa = move_get_p_tag(mov);
 	LOC src = move_get_poz_src(mov);
 	LOC dst = move_get_poz_dst(mov);
 	List list;
-	int boo_en; // =1 daca este en passant
+	int boo_en = 0; // =1 daca este en passant
 	BITMAP bm_piesa = ST_get_bitmap(cur, piesa) ^ BM_Make_coord(src.row, src.col);// eliminare piesa de la locul sursei
 	ST_set_bitmap(cur, piesa, bm_piesa); // setare bitmap
 	ST_set_tag_Table_What(cur, src.row, src.col, T_NA); // eliminare piesa din tabel
@@ -52,7 +52,6 @@ void update_state(MOVE mov) {
 		}
 	}
 	if (boo) { //verificare daca e captura
-		log_print("Nu e captura", log);
 		bm_piesa = ST_get_bitmap(cur, piesa) | BM_Make_coord(dst.row, dst.col); // punem un 1 la locul destinatiei
 		ST_set_bitmap(cur, piesa, bm_piesa); // setare bitmap
 		UCHAR culoare = ST_get_col_on_move(cur);
@@ -72,7 +71,6 @@ void update_state(MOVE mov) {
 		ST_set_move_index(cur, 0);
 	} else { // e captura
 		if (boo_en){
-			log_print("En Passant", log);
 			UCHAR culoare = ST_get_col_on_move(cur);
 			LOC dst_en;
 			if (culoare){
@@ -113,9 +111,7 @@ void update_state(MOVE mov) {
 			LOCp_set_both(l, dst.row, dst.col);
 			ST_set_piece_to_move(cur, ANALYZED_PIECE );
 			ST_set_move_index(cur, 0);
-			ST_set_col_on_move(cur, not(culoare));
 		}else{
-			log_print("Captura normala", log);
 			UCHAR culoare = ST_get_col_on_move(cur);
 			UCHAR adv;
 			if (!culoare)
@@ -146,18 +142,20 @@ void update_state(MOVE mov) {
 			LOCp_set_both(l, dst.row, dst.col);
 			ST_set_piece_to_move(cur, ANALYZED_PIECE );
 			ST_set_move_index(cur, 0);
-			ST_set_col_on_move(cur, not(culoare));
 		}
 	}
-	ST_set_move_index(cur, 0);
-	ST_set_piece_to_move(cur, ANALYZED_PIECE );
-	ST_set_cur_poz_in_list(cur, ST_get_List_Table_Location(cur, ST_get_col_on_move(cur), ANALYZED_PIECE));
+	ST_set_cur_poz_in_list(cur, ST_get_List_Table_Location(cur, ST_get_col_on_move(cur), piesa));
 	
-	fclose(log);
+	/* LOG */
+	FILE * fout = fopen (LOG_UPDATE_STATE_FILE , "a");
+	log_print ("Updated State\n" , fout);
+	log_print_state_Table_What ( cur_state_get () , fout );
+	fclose(fout);
+	/* END LOG */
+	
 }
 
 void flip_state(void) {
 
-	f_ENG_COL = not(f_ENG_COL); // flips the flag
+	set_engine_col ( not (get_engine_col() )); // flips the flag
 }
-

@@ -22,9 +22,13 @@
  *0 - white
  *1 - black
  */
-UCHAR f_ENG_COL;
+UCHAR get_engine_col ( void );
 
-UCHAR f_INIT_COM;
+void set_engine_col ( UCHAR );
+
+UCHAR get_init_com ( void );
+
+void set_init_com ( UCHAR );
 
 /* --- Procedures --- */
 

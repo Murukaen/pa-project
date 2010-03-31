@@ -1,9 +1,9 @@
 {
  p_tag = Knight 
 
- poz_src = ( g , 8 ) 
+ poz_src = ( b , 1 ) 
 
- poz_dst = ( f , 3 ) 
+ poz_dst = ( c , 3 ) 
 
  m_tag = 0 
 

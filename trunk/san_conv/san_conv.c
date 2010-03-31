@@ -10,7 +10,6 @@
 
 /* ----- Local #inlcudes ----- */
 #include "san_conv.h"
-#include "../Log/log.h"
 
 /* ---- Macro #define ---- */
 
@@ -38,8 +37,8 @@ int validate_move(MOVE m, STATE cur){
 	UCHAR piesa = move_get_p_tag(m);
 	LOC l = move_get_poz_dst(m);
 	LOC s = move_get_poz_src(m);
-	return BM_Make_coord(l.row, l.col) & Moves[piesa - PIECES_OFF][s.row][s.col] & ~(ST_get_bitmap(cur, !(f_ENG_COL == ST_get_col_on_move ( cur )))) ? 1 : 0;  
-} 
+	return BM_Make_coord(l.row, l.col) & Moves[piesa - PIECES_OFF][s.row][s.col] & ~(ST_get_bitmap(cur, ST_get_col_on_move ( cur ))) ? 1 : 0;
+}
 
 
 /* Conversie UCHAR - SAN */
@@ -116,7 +115,7 @@ char convertFromLetters(char a) {
 int is_capture(MOVE h, STATE cur) {
 	if (move_get_p_tag(h) == T_P)
 		return (move_get_poz_src(h).row != move_get_poz_dst(h).row) ? 1 : 0;
-	BITMAP b = ST_get_bitmap(cur, f_ENG_COL);
+	BITMAP b = ST_get_bitmap(cur, ST_get_col_on_move ( cur ));
 	LOC l = move_get_poz_dst(h);
 	BITMAP d = BM_Make_coord(l.row, l.col);
 	return (b & d) ? 1 : 0;
@@ -192,7 +191,7 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 	LOC l;
 	LOC d;
 	int boo = 1;
-	BITMAP s = ST_get_bitmap(cur, piesa) & ST_get_bitmap(cur, not(f_ENG_COL));
+	BITMAP s = ST_get_bitmap(cur, piesa) & ST_get_bitmap(cur, not(ST_get_col_on_move ( cur )));
 	BM_Clear_piece_at_coord(&s, lp, cp);
 
 
@@ -236,7 +235,7 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 /* Gasirea piesei care trebuie mutata */
 
 LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
-	BITMAP b = ST_get_bitmap(cur, c) & ST_get_bitmap (cur, !f_ENG_COL);
+	BITMAP b = ST_get_bitmap(cur, c) & ST_get_bitmap (cur, ST_get_col_on_move(cur));
 	LOC d;
 	UCHAR k, lk, ck;
 	int bool = 0, booc = 0;
@@ -288,7 +287,6 @@ char* Move_to_SAN(MOVE s) {
 			return msg;
 		}
 	} else {
-		FILE * log = fopen("Log/san_conv.log","a");
 		char aux;
 		int j = 0; //contorul pt crearea mesajul SAN
 		STATE cur = cur_state_get();
@@ -304,56 +302,44 @@ char* Move_to_SAN(MOVE s) {
 		/* Generarea notatiei SAN pt fiecare tip de piesa */
 
 		if (piesa == T_P) {
-			log_print("Alegerea piesei corecte dintre pioni", log);
 			aux = correct_piece(lp, cp, ld, cd, piesa, cur);
 			if (aux != 'Z')
 				msg[j++] = aux;
-			log_print("Umplutura", log);
 			set_flags(j, msg, cur, s);
 		}
 		if (piesa == T_N) {
-			log_print("Alegerea piesei corecte dintre cai", log);
 			msg[j++] = 'N';
 			aux = correct_piece(lp, cp, ld, cd, piesa, cur);
 			if (aux != 'Z')
 				msg[j++] = aux;
-			log_print("Umplutura", log);
 			set_flags(j, msg, cur, s);
 		}
 		if (piesa == T_B) {
-			log_print("Alegerea piesei corecte dintre nebuni", log);
 			msg[j++] = 'B';
 			aux = correct_piece(lp, cp, ld, cd, piesa, cur);
 			if (aux != 'Z')
 				msg[j++] = aux;
-			log_print("Umplutura", log);
 			set_flags(j, msg, cur, s);
 		}
 		if (piesa == T_R) {
-			log_print("Alegerea piesei corecte dintre ture", log);
 			msg[j++] = 'R';
 			aux = correct_piece(lp, cp, ld, cd, piesa, cur);
 			if (aux != 'Z')
 				msg[j++] = aux;
-			log_print("Umplutura", log);
 			set_flags(j, msg, cur, s);
 		}
 		if (piesa == T_Q) {
-			log_print("Alegerea piesei corecte dintre regine", log);
 			msg[j++] = 'Q';
 			aux = correct_piece(lp, cp, ld, cd, piesa, cur);
 			if (aux != 'Z')
 				msg[j++] = aux;
-			log_print("Umplutura", log);
 			set_flags(j, msg, cur, s);
 		}
 		if (piesa == T_K) {
-			log_print("Alegerea piesei corecte dintre regi", log);
 			msg[j++] = 'K';
 			aux = correct_piece(lp, cp, ld, cd, piesa, cur);
 			if (aux != 'Z')
 				msg[j++] = aux;
-			log_print("Umplutura", log);
 			set_flags(j, msg, cur, s);
 		}
 		return msg;
@@ -362,7 +348,6 @@ char* Move_to_SAN(MOVE s) {
 
 MOVE SAN_to_Move(char* s) {
 	MOVE m = move_new();
-	FILE * log = fopen("Log/san_conv.log","a");
 	STATE cur = cur_state_get();
 	if (strcmp(s, "O-O") == 0 || strcmp(s, "o-o") == 0 || strcmp(s, "0-0") == 0) {
 		if (!ST_get_col_on_move(cur)) {
@@ -392,7 +377,6 @@ MOVE SAN_to_Move(char* s) {
 		}
 		return m;
 	}
-	
 	if (strcmp(s, "O-O-O") == 0 || strcmp(s, "o-o-o") == 0
 			|| strcmp(s, "0-0-0") == 0) {
 		if (!ST_get_col_on_move(cur)) {
@@ -426,7 +410,6 @@ MOVE SAN_to_Move(char* s) {
 			UCHAR lg = 255, cg = 255, lp, cp;
 			move_set_p_tag(m, get_piece(s[0]));
 
-			log_print("Dezambiguizare", log);
 			if (!is_dezambiguu(s)) {
 				if (isdigit(s[j])) {
 					j++;
@@ -445,7 +428,6 @@ MOVE SAN_to_Move(char* s) {
 			l.row = lp;
 			l.col = cp;
 			move_set_poz_dst(m, l);
-			log_print("Gasire piesa", log);
 			LOC h = gasire_piesa(cur, cg, lg, l, get_piece(s[0]));
 			move_set_poz_src(m, h);
 		} else {
@@ -453,7 +435,6 @@ MOVE SAN_to_Move(char* s) {
 			UCHAR lg = 255, cg = 255, lp, cp;
 			move_set_p_tag(m, get_piece(s[0]));
 
-			log_print("Dezambiguizare", log);
 			if (!is_dezambiguu(s)) {
 				if (isdigit(s[j])) {
 					j++;
@@ -472,11 +453,9 @@ MOVE SAN_to_Move(char* s) {
 			l.row = lp;
 			l.col = cp;
 			move_set_poz_dst(m, l);
-			log_print("Gasire piesa", log);
 			LOC h = gasire_piesa(cur, cg, lg, l, get_piece(s[0]));
 			move_set_poz_src(m, h);
 		}
 	}
 	return m;
 }
-

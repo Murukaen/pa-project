@@ -67,5 +67,30 @@ void log_print_move ( MOVE mov , FILE * fout ) {
 	fflush(fout);
 }
 
+void log_print_state_Table_What ( STATE st , FILE * fout ) {
+	
+	int i, j;
+	
+	fprintf(fout,"Time:%u\n" , get_time ( DEFAULT_PRECISION) );
+	/* Print Table_What */
+	fprintf(fout, "\n~~~Table_What~~~:\n\n");
+	for(i=0;i<SIZE_BMAP;++i, fprintf(fout, "\n") )
+		for(j=0;j<SIZE_BMAP;++j, fprintf(fout, " ") )
+			fprintf(fout, "%c" , tag_to_letter ( ST_get_tag_Table_What ( st ,  BM_row(i,j) , BM_col(i,j) ) ));
+	/* END Print Table_What */
+	fflush(fout);
+}
+
+void log_print_cycle ( int nr , FILE * fout ) {
+	
+	fprintf(fout,"Time:%u:Cycle - %d - \n" , get_time ( DEFAULT_PRECISION) , nr);
+	fflush(fout);
+}
+
+void log_print_integer ( int nr , FILE * fout) {
+	
+	fprintf(fout,"Time:%u:Value: %d\n" , get_time ( DEFAULT_PRECISION) , nr);
+	fflush(fout);
+}
 	
 

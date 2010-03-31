@@ -6,6 +6,7 @@
 #include "../../cur_state/cur_state.h"
 #include "../../bitmap/bitmap.h"
 #include "../../Flags/flags.h"
+#include "../../Init/init.h"
 
 int main() {
 
@@ -16,12 +17,10 @@ int main() {
 		printf("eroare deschidere fisier intrare");
 		exit(0);
 	}
-	STATE st,st1;
+	STATE st;
 
 	/* Inits */
-	BM_init();
-	flags_init();
-	ST_gen_init();
+	Init ( INIT_ALL );
 
 	/* END Inits */
 
