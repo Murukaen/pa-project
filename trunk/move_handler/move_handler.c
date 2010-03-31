@@ -22,21 +22,23 @@
 /* --- Procedures --- */
 
 
-MOVE determine_move ( STATE st_next) {
+MOVE determine_move ( STATE st_next ) {
 
 	STATE st_prev = cur_state_get();
 	
 	UCHAR my_pieces = ST_get_col_on_move ( st_prev );    //culoarea engineului
+//	printf("%u my pieceeeeeeeeeeees",my_pieces);
+//	fflush(stdout);
 
 	UCHAR his_pieces = not(my_pieces); //culoarea adversarului
 
 	BITMAP my_pic_prev = ST_get_bitmap (st_prev, my_pieces ); //bitmapul starii mele curente
-
-	BITMAP my_pic_next = ST_get_bitmap (st_next, my_pieces ); //bitmapul starii mele urmatoare
 	
+	BITMAP my_pic_next = ST_get_bitmap (st_next, my_pieces ); //bitmapul starii mele urmatoare
+
 	MOVE mov = move_new ();	
 	
-	move_set_what_col (mov , f_ENG_COL );//setez in mutare culoarea on move
+	move_set_what_col ( mov , my_pieces );//setez in mutare culoarea on move
 
 	List list_poz_moved_p;
 	// Here list_poz_moved_p is the list with the initial pozitions of the moved piece
@@ -50,11 +52,14 @@ MOVE determine_move ( STATE st_next) {
 	BITMAP where_moved; //bitmapul care determina pozitia in care se va muta piesa
 
 	int i;
-	
+	printf("%d %d\n",PIECES_OFF,SIZE_BMAP);
+	fflush(stdout);
 	for (i=PIECES_OFF;i<SIZE_BMAP;++i)
-	
-			my_pieces_moved [i] = BM_Compare_BMAPs ( my_pic_prev & ST_get_bitmap(st_prev, i )  , my_pic_next & ST_get_bitmap ( st_next , i ) );
-		
+	{
+			my_pieces_moved [i] =!( BM_Compare_BMAPs ( my_pic_prev & ST_get_bitmap(st_prev, i )  , my_pic_next & ST_get_bitmap ( st_next , i ) ) );
+			printf("%d ",my_pieces_moved[i]);
+			fflush(stdout);
+		}
 
 	/*am setat in mov tot ce trebuie pentru rocada cu urmatoarele exceptii:
 	 *
@@ -65,6 +70,8 @@ MOVE determine_move ( STATE st_next) {
 
 	if ( my_pieces_moved [ T_K ] && my_pieces_moved [ T_R ] ) {
 		
+			printf("ROCADAAAAAAAA\n");
+			fflush(stdout);
 			LOC lcastle; //locatia turei pe tabla
 
 			move_set_p_tag_pro ( mov , 0 ); //nu se promoveaza nici o piesa
@@ -85,7 +92,7 @@ MOVE determine_move ( STATE st_next) {
 								break;
 						}
 			
-			where_moved = ((~ ( my_pic_prev & ST_get_bitmap (st_prev, which_piece ) ) ) & ( my_pic_prev & ST_get_bitmap (st_next, which_piece ) ) );
+		    where_moved = ((my_pic_next & ST_get_bitmap(st_next,which_piece)) & (~(my_pic_prev & ST_get_bitmap(st_prev,which_piece))));
 
 			list_poz_moved_p = ST_get_List_Table_Location ( st_next , my_pieces , which_piece );
 			//lista pentru starea urmatoare
@@ -98,7 +105,7 @@ MOVE determine_move ( STATE st_next) {
 
 							if((move_get_what_col(mov) - move_get_what_col(mov))==2)	//rocada mica
 							{
-								move_set_m_tag (mov,'m'); //nu stiu ce indicator are special moveul rocada mica..ma corecteaza alin
+								move_set_m_tag (mov,1); //nu stiu ce indicator are special moveul rocada mica..ma corecteaza alin
 
 								lcastle.col=move_get_poz_dst(mov).col +1; //se afla pe coloana regelui la destinatie +1
 
@@ -110,7 +117,7 @@ MOVE determine_move ( STATE st_next) {
 							}
 							else	//rocada mare
 							{
-								move_set_m_tag (mov,'M');//nu stiu ce indicator are rocada mare,ma corecteaza alin
+								move_set_m_tag (mov,1);//nu stiu ce indicator are rocada mare,ma corecteaza alin
 									
 								lcastle.col = move_get_poz_src ( mov ) .col -1 ;//se afla pe coloana sursa a regelui -1
 
@@ -135,7 +142,10 @@ MOVE determine_move ( STATE st_next) {
 
 	/*----------------------------------------------------------------------------------------------------*/
 	/*-------------------------------aici incep mutarile fara exceptii------------------------------------*/
-
+	if( my_pieces_moved [T_N] ) {
+					printf("Caluuu sugeeeeeeee\n");
+					fflush(stdout);
+					}
 
 	move_set_p_tag_pro ( mov , 0 ); //nu se promoveaza nici o piesa
 
@@ -156,11 +166,14 @@ MOVE determine_move ( STATE st_next) {
 			}
 			
 	
-	where_moved = ( (~ ( my_pic_prev & ST_get_bitmap (st_prev, which_piece ) ) ) & ( my_pic_prev & ST_get_bitmap (st_next, which_piece ) ) );
+	where_moved = ((my_pic_next & ST_get_bitmap(st_next,which_piece)) & (~(my_pic_prev & ST_get_bitmap(st_prev,which_piece))));
 	
 	list_poz_moved_p = ST_get_List_Table_Location ( st_next , my_pieces , which_piece );
 	//lista pentru starea urmatoare
-
+		
+	BM_print(where_moved,stdout);
+	printf("\n");
+	fflush(stdout);
 
 	for ( loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) ; loc ; loc = (P_LOC) first_nod_list ( &list_poz_moved_p )) 
 		
@@ -171,7 +184,7 @@ MOVE determine_move ( STATE st_next) {
 					break;
 			}
 			
-	move_set_m_tag ( mov, T_MOVE_NA );
+	move_set_m_tag ( mov, 0);
 	
 	return mov;
 }
