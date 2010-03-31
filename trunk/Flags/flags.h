@@ -18,12 +18,6 @@
 
 /* --- Flags --- */
 
-/*Description : Determines whether or not the engine is on move
- *0 - not on move
- *1 - on move
- */
-UCHAR f_ENG_ON_MOVE;
-
 /* Description : Engine color
  *0 - white
  *1 - black
@@ -36,12 +30,12 @@ UCHAR f_INIT_COM;
 
 /* Desc:
  * Flags init
- * 1.Engine not on move
- * 2.Engine plays black
- * 3.Init communication = 0 ( not done )
+ * 1.Engine plays black
+ * 2.Init communication = 0 ( not done )
  * Input:0
  * Output:0
  */
-void flags_init ();
+void flags_init ( void );
+
 #endif
 

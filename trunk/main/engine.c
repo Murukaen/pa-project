@@ -1,47 +1,87 @@
 /* Main Module
- * The engine
+ * The engine , The Shit, The Chuck, 
  */
 
 /* ----- System #includes ----- */
 
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 /* ----- Local #inlcudes ----- */
-#include "../xboard_com/xboard_com.h"
+#include "../../Init/init.h"
+#include "../../xboard_com/xboard_com.h"
+#include "../../Flags/flags.h"
+#include "../../Log/log.h"
+#include "../../bitmap/bitmap.h"
+#include "../../state/state.h"
+#include "../../move/move.h"
+#include "../../decision/decision.h"
 
 /* ---- Macro #define ---- */
-#define LOG_FILE "./Log/log"
-
-
-
-int count;
-
-
+#define LOG_ENGINE_FILE "Log/engine.log"
 
 int main ( void ) {
-
-	/* Define variables */
 	
+	/* COM Inits */
+	log_init ();
+	xboard_com_init ();
+	flags_init ();
+	/* END COM Inits */
 	
-	 /*Input listener with no stop */
-	com_init();
-	while ( 1 ) {
-		sleep(3);
-		FILE* fout = fopen ( LOG_FILE , "a" );
-		fprintf (fout , "<%d>\n" , count++);
-		fflush ( fout );
-		fclose(fout);
-		
-				
-		poll_input();
+	/* Initial Communication */
+	while ( !f_INIT_COM ) { // while initial communication not done
+	
+		poll_input ();
 	}
-
-
-
-
+	/* END Initial Communication */
 	
-
+	
+	/* All Inits */
+	Init();
+	/* END All Inits */
+	
+	/* Variables */
+	STATE chosen_state;
+	MOVE chosen_move;
+	/* END Variables */
+	
+	
+	while ( 1 ) {
+		
+		/* Poll input */
+		poll_input();
+		/* END Poll Input */
+		
+		/* IF Engine is on move : Make a move */
+		if ( is_engine_on_move () ) {
+			
+			chosen_state = decide ();
+			
+			if ( chosen_state != NULL ) { // if there is a valid chosen_state
+				
+				chosen_move = determine_move ( chosen_state );
+				poll_output ( (void *) chosen_move , T_COM_MOVE );
+			}
+			
+			else {   // cannot make move
+				
+				poll_output ( NULL , T_COM_RESIGN );
+				sleep(2);
+				
+				/* LOG */
+				FILE * fout = fopen (LOG_ENGINE_FILE , "a");
+				log_print ("Resign" , fout);
+				fclose(fout);
+				/* END LOG */
+				
+				exit(0);
+			}
+		}
+	}
+	
 	return 0;
 }
+
 

@@ -38,5 +38,12 @@ void cur_state_set ( STATE );
  */
 void cur_state_free ( void );
 
+/* Desc:
+ * Determines whether or not the engine is on move base on the color to move in the current state
+ * Input:0
+ * Output:1
+ */
+UCHAR is_engine_on_move ( void );
+
 #endif
 
