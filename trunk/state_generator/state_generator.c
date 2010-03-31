@@ -27,11 +27,9 @@
 
 /* --- Procedures --- */
 
-
-
 STATE ST_gen(STATE start_state) {
 
-	FILE * fout = fopen("./Log/state_generator.log","a");
+	FILE * fout = fopen("./Log/state_generator.log", "a");
 	UCHAR index = ST_get_move_index(start_state), i, j, k;
 	UCHAR col_on_move = ST_get_col_on_move(start_state);
 
@@ -48,7 +46,9 @@ STATE ST_gen(STATE start_state) {
 		valid_moves = VM_valid_pos(Moves[T_N - 2][old_r][old_c], ST_get_bitmap(
 				start_state, col_on_move));
 
-		if (valid_moves == 0 ||  VM_is_Check_if_piece_moves(start_state,loc) == 1) {//daca nu sunt mutari valide
+		BM_print(valid_moves, stdout);
+		if (valid_moves == 0 || VM_is_Check_if_piece_moves(start_state, loc)
+				== 1) {//daca nu sunt mutari valide
 			//deocamdata intorc start state(cu piesa la mutare schimbata) , o sa trebuiasca sa reapelez functia cu piesa la mutare schimbata
 			break;
 		}
@@ -142,7 +142,13 @@ STATE ST_gen(STATE start_state) {
 					for (k = 0; k < 8; k++) {
 
 						if (j == new_r && k == new_c) {
-							ST_set_tag_Table_What(new_state, new_r, new_c, T_N);
+							if (col_on_move == 0) {
+								ST_set_tag_Table_What(new_state, new_r, new_c,
+										T_N);
+							} else {
+								ST_set_tag_Table_What(new_state, new_r, new_c,
+										T_N + BWP_OFF);
+							}
 						} else if (j == old_r && k == old_c) {
 							ST_set_tag_Table_What(new_state, old_r, old_c, 255);
 						} else {
@@ -158,7 +164,7 @@ STATE ST_gen(STATE start_state) {
 				/*setez in noua stare tot calu la mutare*/
 				ST_set_piece_to_move(new_state, T_N);
 
-				log_print_state(new_state,fout);
+				log_print_state(new_state, fout);
 				fflush(fout);
 				fclose(fout);
 				return new_state;
@@ -168,8 +174,9 @@ STATE ST_gen(STATE start_state) {
 		if (L != NULL)
 			ST_set_cur_poz_in_list(start_state, L);
 	}
-	
-	log_print("state generator a intors NULL",fout);
+
+	log_print("state generator a intors NULL", fout);
+
 	fflush(fout);
 	fclose(fout);
 	return NULL;

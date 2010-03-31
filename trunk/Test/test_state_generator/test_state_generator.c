@@ -20,14 +20,16 @@ int main() {
 	STATE st;
 
 	/* Inits */
+
 	Init ( INIT_ALL );
+
 
 	/* END Inits */
 
 	st = state_read(fin);
-
+	state_print(st,fout);
 	while( (st1 = ST_gen(st)) != NULL){
-		state_print(st1,fout);
+		state_print_table_what(st1,fout);
 	}
 
 	printf("bla");
