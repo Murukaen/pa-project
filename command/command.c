@@ -17,7 +17,7 @@
 #define COM_SEP ' '
 
 
-#define FEATURES "feature playother=1 usermove=1 done=1\n"
+#define FEATURES "feature playother=1 usermove=1 san=1 done=1\n"
 
 /* --- Types --- */
 
@@ -92,7 +92,16 @@ void read_com ( char * com ) {
 			
 			// Now : word is command in XBoard format
 			
-			update_state ( SAN_to_Move ( word ) );  
+			/* LOG */
+			FILE * fout = fopen (LOG_COMMAND_FILE , "a");
+			log_print ("X>Engine>Move" , fout );
+			log_print ( word , fout );
+			log_print ("X>Engine>SAN_to_Move" , fout);
+			log_print_move ( SAN_to_Move ( word ) , fout );
+			fclose(fout);
+			/* END LOG */
+			
+			// update_state ( SAN_to_Move ( word ) );  
 			
 		}
 		

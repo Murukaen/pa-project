@@ -7,6 +7,7 @@
 #include "../../Flags/flags.h"
 #include "../../state_generator/state_generator.h"
 #include "../../read_from_file/read_from_file.h"
+#include "../../Init/init.h"
 
 #define COM_LENGTH 20
 
@@ -28,9 +29,7 @@ int main ( int argc , char ** argv ) {
 		char com[COM_LENGTH];
 		
 		/* Inits */
-		BM_init ();
-		flags_init ();
-		ST_gen_init ();
+		Init(INIT_ALL);
 		/* END Inits */
 		
 		/* Read from file in */
@@ -46,7 +45,8 @@ int main ( int argc , char ** argv ) {
 		/* END Set Current State*/
 			
 		/* Calculate MOVE */
-		MOVE mov = SAN_to_Move ( com );
+		MOVE mov = 0;
+		mov = SAN_to_Move ( com );
 		/* END Calculate MOVE */
 		
 		/* Print MOVE */

@@ -42,6 +42,9 @@ void log_init ( void ) {
 	
 	fout = fopen ("Log/move_handler.log" , "w");
 	fclose(fout);
+	
+	fout = fopen ("Log/validate_move.log" , "w");
+	fclose(fout);
 }
 
 void log_print ( char * text , FILE * fout ) {

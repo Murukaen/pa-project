@@ -152,6 +152,8 @@ void update_state(MOVE mov) {
 	ST_set_move_index(cur, 0);
 	ST_set_piece_to_move(cur, ANALYZED_PIECE );
 	ST_set_cur_poz_in_list(cur, ST_get_List_Table_Location(cur, ST_get_col_on_move(cur), ANALYZED_PIECE));
+	
+	fclose(log);
 }
 
 void flip_state(void) {

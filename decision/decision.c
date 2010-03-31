@@ -6,8 +6,8 @@
 
 /* ----- Local #inlcudes ----- */
 #include "decision.h"
-#include "../../state_generator/state_generator.h"
-#include "../../cur_state/cur_state.h"
+#include "../state_generator/state_generator.h"
+#include "../cur_state/cur_state.h"
 
 /* ---- Macro #define ---- */
 

@@ -62,8 +62,6 @@ MOVE determine_move ( STATE st_next ) {
 
 	if ( my_pieces_moved [ T_K ] && my_pieces_moved [ T_R ] ) {
 		
-			printf("ROCADAAAAAAAA\n");
-			fflush(stdout);
 			LOC lcastle; //locatia turei pe tabla
 
 			move_set_m_tag ( mov , 1 ); //conteaza pozitia turei
@@ -97,8 +95,7 @@ MOVE determine_move ( STATE st_next ) {
 							
 							if((move_get_poz_dst( mov ).row) == 6)	//rocada mica
 							{
-								printf("ROCADAAAA MICAAAAA\n");
-								fflush(stdout);
+							
 								move_set_m_tag (mov,1); //indicator rocada mica
 
 								lcastle.row=move_get_poz_dst(mov).row +1; //se afla pe coloana regelui la destinatie +1
@@ -111,7 +108,6 @@ MOVE determine_move ( STATE st_next ) {
 							}
 							else	//rocada mare
 							{
-								printf("ROCADAAA MAREEEE\n");
 								
 								move_set_m_tag (mov,1);//nu stiu ce indicator are rocada mare,ma corecteaza alin
 									
@@ -132,9 +128,6 @@ MOVE determine_move ( STATE st_next ) {
 	/*------------------------------MUTARI PIONI + PROMOVARE ---------------------*/
 	
 	if ( my_pieces_moved [T_P] ) {
-		
-		printf("PIONU MUTAAAA\n");
-		fflush(stdout);
 		
 		which_piece=T_P;
 		
@@ -211,7 +204,6 @@ MOVE determine_move ( STATE st_next ) {
 		}
 		if( next_stanga == T_Q && stanga != T_Q)
 		{
-				printf("dan pula mea");
 				loc->col=move_get_poz_src(mov).col-1;
 				loc->row=7;
 				move_set_poz_dst ( mov ,  *loc);
@@ -219,8 +211,6 @@ MOVE determine_move ( STATE st_next ) {
 		}			
 		if( mijloc == T_Q && mijloc != T_Q)
 		{
-				printf("mijloc plm");
-				fflush(stdout);
 				loc->col=move_get_poz_src(mov).col;
 				loc->row=7;
 				move_set_poz_dst ( mov ,  *loc);
