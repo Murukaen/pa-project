@@ -33,6 +33,15 @@ void log_init ( void ) {
 	
 	fout = fopen ("Log/command.log" , "w");
 	fclose(fout);
+	
+	fout = fopen ("Log/state_generator.log" , "w");
+	fclose(fout);
+	
+	fout = fopen ("Log/update_state.log" , "w");
+	fclose(fout);
+	
+	fout = fopen ("Log/move_handler.log" , "w");
+	fclose(fout);
 }
 
 void log_print ( char * text , FILE * fout ) {
