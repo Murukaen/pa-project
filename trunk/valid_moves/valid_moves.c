@@ -1,5 +1,8 @@
 #include "valid_moves.h"
 #include <stdlib.h>
+#include "../Log/log.h"
+
+#define LOG_VALIDATE_MOVE_FILE "Log/validate_move.log"
 
 BITMAP VM_valid_pos(BITMAP posibile, BITMAP piese_albe) {
 
@@ -9,9 +12,15 @@ BITMAP VM_valid_pos(BITMAP posibile, BITMAP piese_albe) {
 }
 
 UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc) {
+	
+	
 
 	if (loc == NULL) {
-		printf("locul primit de functia vmischeck e null");
+		/* LOG */
+		FILE * fout = fopen (LOG_VALIDATE_MOVE_FILE , "a");
+		log_print ("locul primit de functia vmischeck e null", fout);
+		fclose(fout);
+		/* END LOG */
 		exit(1);
 	}
 	/*identific piesele la mutare si aflu coordonatele piesei respectiv regelui*/
@@ -266,11 +275,21 @@ UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc) {
 			}
 			return 0;
 		}else{
-			printf("problema la validare mutare , verificare sah :( cam o ora debugg estimez!!");
+			/* LOG */
+			FILE * fout = fopen (LOG_VALIDATE_MOVE_FILE , "a");
+			log_print ("problema la validare mutare , verificare sah :( cam o ora debugg estimez!!" , fout);
+			fclose(fout);
+			/* END LOG */
+			
 			exit(1);
 		}
 	}
-	printf("validare mutare sah, s a ajuns unde nu trebuia , e nashpa!");
+	/* LOG */
+	FILE * fout = fopen (LOG_VALIDATE_MOVE_FILE , "a");
+	log_print ("validare mutare sah, s a ajuns unde nu trebuia , e nashpa!" , fout);
+	fclose(fout);
+	/* END LOG */
+
 	exit(1);
 	return 0;
 }

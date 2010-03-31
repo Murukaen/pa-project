@@ -132,7 +132,6 @@ STATE ST_gen(STATE start_state) {
 								new_state, col_on_move, T_N), loc, fequ_loc);
 
 				LOCp_set_both(loc_modificat, new_r, new_c);
-				//LOC_print(stdout,loc_modificat);
 
 				/*pun in noua stare cur_poz in list*/
 				ST_set_cur_poz_in_list(new_state, NULL);

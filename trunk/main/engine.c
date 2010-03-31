@@ -10,14 +10,16 @@
 #include <unistd.h>
 
 /* ----- Local #inlcudes ----- */
-#include "../../Init/init.h"
-#include "../../xboard_com/xboard_com.h"
-#include "../../Flags/flags.h"
-#include "../../Log/log.h"
-#include "../../bitmap/bitmap.h"
-#include "../../state/state.h"
-#include "../../move/move.h"
-#include "../../decision/decision.h"
+#include "../Init/init.h"
+#include "../xboard_com/xboard_com.h"
+#include "../Flags/flags.h"
+#include "../Log/log.h"
+#include "../bitmap/bitmap.h"
+#include "../state/state.h"
+#include "../move/move.h"
+#include "../decision/decision.h"
+#include "../cur_state/cur_state.h"
+#include "../move_handler/move_handler.h"
 
 /* ---- Macro #define ---- */
 #define LOG_ENGINE_FILE "Log/engine.log"
@@ -25,9 +27,7 @@
 int main ( void ) {
 	
 	/* COM Inits */
-	log_init ();
-	xboard_com_init ();
-	flags_init ();
+	Init(INIT_PREX);
 	/* END COM Inits */
 	
 	/* Initial Communication */
@@ -39,7 +39,7 @@ int main ( void ) {
 	
 	
 	/* All Inits */
-	Init();
+	Init(INIT_POSX);
 	/* END All Inits */
 	
 	/* Variables */
@@ -55,8 +55,10 @@ int main ( void ) {
 		/* END Poll Input */
 		
 		/* IF Engine is on move : Make a move */
+		/* 
 		if ( is_engine_on_move () ) {
 			
+
 			chosen_state = decide ();
 			
 			if ( chosen_state != NULL ) { // if there is a valid chosen_state
@@ -70,15 +72,12 @@ int main ( void ) {
 				poll_output ( NULL , T_COM_RESIGN );
 				sleep(2);
 				
-				/* LOG */
-				FILE * fout = fopen (LOG_ENGINE_FILE , "a");
-				log_print ("Resign" , fout);
-				fclose(fout);
-				/* END LOG */
+			
 				
 				exit(0);
 			}
 		}
+		*/
 	}
 	
 	return 0;

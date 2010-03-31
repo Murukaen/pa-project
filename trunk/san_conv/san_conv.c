@@ -38,8 +38,8 @@ int validate_move(MOVE m, STATE cur){
 	UCHAR piesa = move_get_p_tag(m);
 	LOC l = move_get_poz_dst(m);
 	LOC s = move_get_poz_src(m);
-	return BM_Make_coord(l.row, l.col) & Moves[piesa - PIECES_OFF][s.row][s.col] & ~(ST_get_bitmap(cur, !(f_ENG_COL ^ f_ENG_ON_MOVE))) ? 1 : 0;
-}
+	return BM_Make_coord(l.row, l.col) & Moves[piesa - PIECES_OFF][s.row][s.col] & ~(ST_get_bitmap(cur, !(f_ENG_COL == ST_get_col_on_move ( cur )))) ? 1 : 0;  
+} 
 
 
 /* Conversie UCHAR - SAN */
@@ -392,6 +392,7 @@ MOVE SAN_to_Move(char* s) {
 		}
 		return m;
 	}
+	
 	if (strcmp(s, "O-O-O") == 0 || strcmp(s, "o-o-o") == 0
 			|| strcmp(s, "0-0-0") == 0) {
 		if (!ST_get_col_on_move(cur)) {
