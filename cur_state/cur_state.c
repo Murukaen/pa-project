@@ -36,6 +36,8 @@ void cur_state_free ( void ) {
 
 UCHAR is_engine_on_move ( void ) {
 	
+
 	return ( get_engine_col ()  == ST_get_col_on_move ( cur_state_get () ) ) ;
+
 }
 

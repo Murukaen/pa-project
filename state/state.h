@@ -31,7 +31,7 @@
 #define PIECES_OFF 2 // tags pieces offset ( 2 - 7 )
 #define BWP_OFF 6 // black/white pieces offset ( white : 2 - 7 ; black : 8 - 13 )
 #define NR_COLORS 2 // number of colors
-#define ANALYZED_PIECE T_N // current analyzed piece 
+#define ANALYZED_PIECE T_N // current analyzed piece
 
 /* --- Types --- */
 struct s_state;
@@ -179,6 +179,8 @@ UCHAR ST_get_col_on_move ( STATE );
  * Output:0
  */
 void state_print ( STATE , FILE * );
+
+void state_print_table_what( STATE, FILE *);
 
 /* Desc:
  * Read a state from a file in the following format
