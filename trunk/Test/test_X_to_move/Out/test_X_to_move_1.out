@@ -1,9 +1,9 @@
 {
- p_tag = Knight 
+ p_tag = Pawn 
 
- poz_src = ( g , 8 ) 
+ poz_src = ( e , 2 ) 
 
- poz_dst = ( f , 3 ) 
+ poz_dst = ( e , 4 ) 
 
  m_tag = 0 
 
