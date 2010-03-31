@@ -41,5 +41,19 @@ void log_print ( char * text , FILE * fout ) {
 	fflush(fout);
 }
 
+void log_print_state ( STATE st , FILE * fout ) {
+	
+	fprintf(fout,"Time:%u\n" , get_time ( DEFAULT_PRECISION) );
+	state_print ( st , fout );
+	fflush(fout);
+}
+
+void log_print_move ( MOVE mov , FILE * fout ) {
+	
+	fprintf(fout,"Time:%u\n" , get_time ( DEFAULT_PRECISION) );
+	move_print ( mov , fout );
+	fflush(fout);
+}
+
 	
 
