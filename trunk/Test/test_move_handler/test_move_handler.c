@@ -22,8 +22,12 @@ int main ( int argc , char ** argv ) {
 	
 	/* Read input */
 	FILE * fin = fopen ( argv[1] , "r");
+	FILE * fout = fopen ( argv[2] , "w" );
 	STATE p_st = state_read ( fin );
+	//state_print(p_st,fout);
+	
 	STATE n_st = state_read ( fin );
+	//state_print(n_st,fout);
 	fclose(fin);
 	/* END Read Input */
 	
@@ -32,9 +36,10 @@ int main ( int argc , char ** argv ) {
 	/* END Sets */
 	
 	/* Output */
-	FILE * fout = fopen ( argv[2] , "w" );
+	
 	move_print ( determine_move ( n_st ) , fout );
 	fclose(fout);
+	cur_state_free();
 	/* END Output */
 	
 	
