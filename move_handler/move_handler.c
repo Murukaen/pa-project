@@ -79,7 +79,8 @@ MOVE determine_move ( STATE st_next ) {
 
 			which_piece=T_K;
 			move_set_p_tag (mov , which_piece); //setez regele la mutare
-
+		//	move_print ( mov , stdout );
+		//	fflush(stdout);
 			list_poz_moved_p = ST_get_List_Table_Location ( st_prev , my_pieces , which_piece );
 			//lista pentru starea curenta
 
@@ -91,7 +92,8 @@ MOVE determine_move ( STATE st_next ) {
 
 								break;
 						}
-			
+		//	move_print ( mov , stdout );
+		//	fflush(stdout);
 		    where_moved = ((my_pic_next & ST_get_bitmap(st_next,which_piece)) & (~(my_pic_prev & ST_get_bitmap(st_prev,which_piece))));
 
 			list_poz_moved_p = ST_get_List_Table_Location ( st_next , my_pieces , which_piece );
@@ -102,41 +104,97 @@ MOVE determine_move ( STATE st_next ) {
 					if ( BM_Make_coord ( LOC_get_row ( loc ) , LOC_get_col ( loc ) ) == where_moved ) {
 
 							move_set_poz_dst ( mov ,  *loc); //setez in mutare pozitia finala a piesei
-
-							if((move_get_what_col(mov) - move_get_what_col(mov))==2)	//rocada mica
+							
+							if((move_get_poz_dst( mov ).row) == 6)	//rocada mica
 							{
-								move_set_m_tag (mov,1); //nu stiu ce indicator are special moveul rocada mica..ma corecteaza alin
+								printf("ROCADAAAA MICAAAAA\n");
+								fflush(stdout);
+								move_set_m_tag (mov,1); //indicator rocada mica
 
-								lcastle.col=move_get_poz_dst(mov).col +1; //se afla pe coloana regelui la destinatie +1
+								lcastle.row=move_get_poz_dst(mov).row +1; //se afla pe coloana regelui la destinatie +1
 
-								lcastle.row=move_get_poz_dst(mov).row;//se afla pe aceeasi linie cu regele,indiferent de culoare
+								lcastle.col=move_get_poz_dst(mov).col;//se afla pe aceeasi linie cu regele,indiferent de culoare
 
 								move_set_p_rock(mov,lcastle);//setez in move locatia finala a turei
-
+								
 
 							}
 							else	//rocada mare
 							{
+								printf("ROCADAAA MAREEEE\n");
+								
 								move_set_m_tag (mov,1);//nu stiu ce indicator are rocada mare,ma corecteaza alin
 									
-								lcastle.col = move_get_poz_src ( mov ) .col -1 ;//se afla pe coloana sursa a regelui -1
+								lcastle.row = move_get_poz_src ( mov ) .row -1;//se afla pe coloana sursa a regelui -1
 
-								lcastle.row = move_get_poz_src ( mov ). row;//se afla pe linia regelui,indiferent de culoare
+								lcastle.col = move_get_poz_src ( mov ). col;//se afla pe linia regelui,indiferent de culoare
 
 								move_set_p_rock(mov,lcastle);//setez in move locatia finala a turei
+							
 							}
 
 							break;
 					}
 
 
-			return 0;
+			return mov;
 	}
 	
 	if ( my_pieces_moved [T_P] ) {
 		
-		// TODO Mutare pion
-		return 0;
+		printf("PIONU MUTAAAA\n");
+		fflush(stdout);
+		
+		which_piece=T_P;
+		
+		move_set_p_tag (mov , which_piece);  // setez in mutare tag_piece
+		
+		list_poz_moved_p = ST_get_List_Table_Location ( st_prev , my_pieces , which_piece );
+	
+		for ( loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) ; loc ; loc = (P_LOC) first_nod_list ( &list_poz_moved_p ))
+		
+			if (  ST_get_tag_Table_What ( st_next , LOC_get_row ( loc ) , LOC_get_col ( loc ) ) == T_NA )
+			 {
+				 
+					move_set_poz_src ( mov ,  *loc);  // setez in mutare pozitia de plecare
+					
+					if ( my_pieces == 0 )
+					{			
+								if((move_get_poz_src(mov).col == 6)) //promovare
+									move_set_m_tag ( mov , 1 );
+								else
+									move_set_m_tag ( mov , 0 ); //nu promoveaza
+					}			
+					else
+								if((move_get_poz_src(mov).col == 1)) //promovare
+									move_set_m_tag ( mov , 1 );
+								else
+									move_set_m_tag( mov , 0 ); //nu promoveaza
+					move_print(mov,stdout);
+					fflush(stdout);	
+									
+					break;
+			}
+			
+	where_moved = ((my_pic_next & ST_get_bitmap(st_next,which_piece)) 
+			 & (~(my_pic_prev & ST_get_bitmap(st_prev,which_piece))));
+	
+	list_poz_moved_p = ST_get_List_Table_Location ( st_next , my_pieces , which_piece );
+	//lista pentru starea urmatoare
+	for ( loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) ; loc ; loc = (P_LOC) first_nod_list ( &list_poz_moved_p )) 
+		
+			if ( BM_Make_coord ( LOC_get_row ( loc ) , LOC_get_col ( loc ) ) == where_moved ) {
+				
+					move_set_poz_dst ( mov ,  *loc);
+					
+					break;
+			}
+			
+		
+		
+		
+		
+		return mov;
 	}
 	
 
@@ -147,7 +205,7 @@ MOVE determine_move ( STATE st_next ) {
 					fflush(stdout);
 					}
 
-	move_set_p_tag_pro ( mov , 0 ); //nu se promoveaza nici o piesa
+	move_set_m_tag ( mov , 0 ); //nu se promoveaza nici o piesa
 
 	for ( i=PIECES_OFF ; i< SIZE_BMAP ; ++i )
 		if ( my_pieces_moved[i] ) which_piece = i;
@@ -170,11 +228,6 @@ MOVE determine_move ( STATE st_next ) {
 	
 	list_poz_moved_p = ST_get_List_Table_Location ( st_next , my_pieces , which_piece );
 	//lista pentru starea urmatoare
-		
-	BM_print(where_moved,stdout);
-	printf("\n");
-	fflush(stdout);
-
 	for ( loc = (P_LOC) first_nod_list ( &list_poz_moved_p ) ; loc ; loc = (P_LOC) first_nod_list ( &list_poz_moved_p )) 
 		
 			if ( BM_Make_coord ( LOC_get_row ( loc ) , LOC_get_col ( loc ) ) == where_moved ) {
