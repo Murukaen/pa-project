@@ -12,6 +12,8 @@
 #include "../move/move.h"
 
 /* ---- Macro #define ---- */
+#define WRITE_TAG_OVER 0
+#define WRITE_TAG_ADD 1
 
 /* --- Types --- */
 
@@ -21,7 +23,7 @@ void log_init ( void );
 
 void log_print ( char * , char * );
 
-void log_print_state ( STATE , char *);
+void log_print_state ( STATE , char *, UCHAR );
 
 void log_print_move ( MOVE , char * );
 

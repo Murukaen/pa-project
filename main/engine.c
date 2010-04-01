@@ -101,8 +101,9 @@ int main ( void ) {
 				log_print ("Resign" , LOG_ENGINE_FILE);
 				/* END LOG */
 				
-				poll_output ( NULL , T_COM_RESIGN );
 				quit = 1;
+				poll_output ( NULL , T_COM_RESIGN );
+				
 			}
 		}
 		

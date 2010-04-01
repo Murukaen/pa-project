@@ -37,7 +37,7 @@ int validate_move(MOVE m, STATE cur){
 	UCHAR piesa = move_get_p_tag(m);
 	LOC l = move_get_poz_dst(m);
 	LOC s = move_get_poz_src(m);
-	return BM_Make_coord(l.row, l.col) & Moves[piesa - PIECES_OFF][s.row][s.col] & ~(ST_get_bitmap(cur, ST_get_col_on_move ( cur ))) ? 1 : 0;
+	return BM_Make_coord(l.row, l.col) & VM_valid_moves ( cur , &s ) & ~(ST_get_bitmap(cur, ST_get_col_on_move ( cur ))) ? 1 : 0;
 }
 
 

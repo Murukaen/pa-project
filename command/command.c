@@ -17,12 +17,15 @@
 /* ---- Macro #define ---- */
 #define COM_SEP ' '
 #define LOG_COMMAND_FILE "Log/command.log"
+#define LOG_HISTORY_FILE "Log/history.log"
 
 #define FEATURES "feature usermove=1 san=1 sigint=0 done=1\n"
 
 /* --- Types --- */
 
 /* --- Globals --- */
+
+UCHAR flip_colors;
 
 /* --- Auxiliary Procedures --- */
 
@@ -64,7 +67,7 @@ char * parse_com ( char ** com ) {
 void read_com ( char * com ) {
 	
 		/* LOG */
-		log_print ("XBoard>Engine>Line>>" , LOG_COMMAND_FILE);
+		//log_print ("XBoard>Engine>Line>>" , LOG_COMMAND_FILE);
 		log_print ( com , LOG_COMMAND_FILE );
 		/* END LOG */
 	
@@ -85,6 +88,10 @@ void read_com ( char * com ) {
 		if ( !strcmp ( word , "quit" ) ) 		exit(0);
 		if ( !strcmp ( word , "xboard" ) ) 		write_to_xboard ("\n");
 		if ( !strcmp ( word , "protover" ) ) 	{ set_init_com (1) ; add_mess_to_buffer (FEATURES); }
+		if ( !strcmp ( word , "go" ) ) { 
+			
+				if ( !flip_colors ) { flip_colors = 1; flip_state () ; }
+		}
 		
 		/* Command is a move */
 		if ( !strcmp ( word , "usermove" )) 	{ 
@@ -94,13 +101,20 @@ void read_com ( char * com ) {
 			// Now : word is command in XBoard format
 			
 			/* LOG */
-			
+			/*
 			log_print ("XBoard>Engine>Move" , LOG_COMMAND_FILE );
 			log_print ( word , LOG_COMMAND_FILE );
 			log_print ("XBoard>Engine>SAN_to_Move" , LOG_COMMAND_FILE);
 			log_print_move ( SAN_to_Move ( word ) , LOG_COMMAND_FILE );
-			
+			*/
 			/* END LOG */
+			
+			/* LOG History */
+			char color_text [10];
+			tag_to_text ( not ( get_engine_col () ) , color_text );
+			log_print ( color_text , LOG_HISTORY_FILE );
+			log_print (word , LOG_HISTORY_FILE );
+			/* END LOG History */
 			
 			update_state ( SAN_to_Move ( word ) );  
 			
@@ -114,11 +128,18 @@ void read_com ( char * com ) {
 
 void write_com (void * com , int com_tag ) {
 	
-	char text[30]={0};
+	char text[30]="move ";
+	char text_move[10];
+	char color_text [10];
 	switch (com_tag) {
 		
-		case T_COM_MOVE : 	strcpy(text , "move ");
-							strcat(text , Move_to_SAN ( (MOVE) com ) );
+		case T_COM_MOVE : 	strcpy ( text_move , Move_to_SAN ( (MOVE) com ) );
+							/* LOG History */
+							tag_to_text ( get_engine_col () , color_text );
+							log_print ( color_text , LOG_HISTORY_FILE );
+							log_print (text_move , LOG_HISTORY_FILE );
+							/* END LOG History */
+							strcat(text , text_move );
 							strcat(text, "\n");
 							write_to_xboard(text); 
 							update_state( (MOVE) com ) ; 

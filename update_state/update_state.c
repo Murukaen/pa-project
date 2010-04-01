@@ -50,6 +50,45 @@ void update_state(MOVE mov) {
 		else{
 			boo = 1;
 		}
+		
+			// Verificare daca este rocada
+
+	if(move_get_m_tag(mov) && (piesa == T_K)){
+		LOC tura = move_get_p_rock(mov);
+		UCHAR culoare = ST_get_col_on_move(cur);
+		BITMAP bm_piesa = ST_get_bitmap(cur, T_R) ^ BM_Make_coord(tura.row, tura.col);// eliminare piesa de la locul sursei (Tura)
+		if (dst.row == 2){
+			BM_Put_piece_at_coord(&bm_piesa, 3, tura.col);
+			ST_set_bitmap(cur, T_R, bm_piesa);
+			bm_piesa = ST_get_bitmap(cur, culoare);
+			BM_Clear_piece_at_coord(&bm_piesa, tura.row, tura.col); // scoatem piesa din bmap'ul culorii
+			BM_Put_piece_at_coord(&bm_piesa, 3, tura.col);
+			ST_set_bitmap(cur, culoare, bm_piesa);
+			ST_set_tag_Table_What(cur, tura.row, tura.col, T_NA); // eliminare piesa din tabel
+			if (culoare)
+				ST_set_tag_Table_What(cur, 3, tura.col, (T_R + BWP_OFF)); // adaugam piesa la destinatie
+			else
+				ST_set_tag_Table_What(cur, 3, tura.col, T_R); // adaugam piesa la destinatie
+			list = ST_get_List_Table_Location(cur, culoare, T_R); // extragem lista
+			P_LOC loc = find_nod_list(list, &tura, fequ_loc);
+			LOCp_set_both(loc, 3, tura.col);
+		}else{
+			BM_Put_piece_at_coord(&bm_piesa, 5, tura.col);
+			ST_set_bitmap(cur, T_R, bm_piesa);
+			bm_piesa = ST_get_bitmap(cur, culoare);
+			BM_Clear_piece_at_coord(&bm_piesa, tura.row, tura.col); // scoatem piesa din bmap'ul culorii
+			BM_Put_piece_at_coord(&bm_piesa, 5, tura.col);
+			ST_set_bitmap(cur, culoare, bm_piesa);
+			ST_set_tag_Table_What(cur, tura.row, tura.col, T_NA); // eliminare piesa din tabel
+			if (culoare)
+				ST_set_tag_Table_What(cur, 5, tura.col, (T_R + BWP_OFF)); // adaugam piesa la destinatie
+			else
+				ST_set_tag_Table_What(cur, 5, tura.col, T_R); // adaugam piesa la destinatie
+			list = ST_get_List_Table_Location(cur, culoare, T_R); // extragem lista
+			P_LOC loc = find_nod_list(list, &tura, fequ_loc);
+			LOCp_set_both(loc, 5, tura.col);
+		}
+	}
 	}
 	if (boo) { //verificare daca e captura
 		bm_piesa = ST_get_bitmap(cur, piesa) | BM_Make_coord(dst.row, dst.col); // punem un 1 la locul destinatiei
@@ -69,8 +108,9 @@ void update_state(MOVE mov) {
 		ST_set_col_on_move(cur, not(culoare));
 		ST_set_piece_to_move( cur, ANALYZED_PIECE );
 		ST_set_move_index(cur, 0);
+		
 	} else { // e captura
-		if (boo_en){
+		if (boo_en){ // en_passant
 			UCHAR culoare = ST_get_col_on_move(cur);
 			LOC dst_en;
 			if (culoare){
@@ -111,6 +151,7 @@ void update_state(MOVE mov) {
 			LOCp_set_both(l, dst.row, dst.col);
 			ST_set_piece_to_move(cur, ANALYZED_PIECE );
 			ST_set_move_index(cur, 0);
+			ST_set_col_on_move(cur, not(culoare));
 		}else{
 			UCHAR culoare = ST_get_col_on_move(cur);
 			UCHAR adv;
@@ -145,7 +186,7 @@ void update_state(MOVE mov) {
 			ST_set_col_on_move(cur, not(culoare));
 		}
 	}
-	ST_set_cur_poz_in_list(cur, ST_get_List_Table_Location(cur, ST_get_col_on_move(cur), piesa));
+	ST_set_cur_poz_in_list(cur, ST_get_List_Table_Location(cur, ST_get_col_on_move(cur) , ANALYZED_PIECE));
 	
 	/* LOG */
 	log_print ("Updated State\n" , LOG_UPDATE_STATE_FILE);
