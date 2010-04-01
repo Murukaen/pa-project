@@ -301,7 +301,7 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 	UCHAR M[8][8], pieces_tag = ST_get_tag_Table_What(st, piece_row, i),
 			col_on_move = ST_get_col_on_move(st);
 
-	if (col_on_move = 1) {
+	if (col_on_move == 1) {
 		pieces_tag -= BWP_OFF;
 	}
 
@@ -330,7 +330,7 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 					M[piece_row][i] = 1;
 					break;
 				} else {// daca spatiu liber
-					M[pieces_row][i] = 1;
+					M[piece_row][i] = 1;
 				}
 			}
 		}
