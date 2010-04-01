@@ -51,6 +51,9 @@ void log_init ( void ) {
 	
 	fout = fopen ("Log/history.log" , "w");
 	fclose(fout);
+	
+	fout = fopen ("Log/san_conv.log" , "w");
+	fclose(fout);
 }
 
 void log_print ( char * text , char * FILE_NAME ) {
@@ -144,6 +147,18 @@ void log_print_character ( char c, char * FILE_NAME ) {
 		
 		FILE * fout = fopen ( FILE_NAME , "a");
 		fprintf(fout,"Time:%u:Char:|%c|\n" , get_time ( DEFAULT_PRECISION) , c);
+		fflush(fout);
+		fclose(fout);
+	}
+}
+
+void log_print_bitmap ( BITMAP b , char * FILE_NAME ) {
+	
+	if ( logs_on ) {
+		
+		FILE * fout = fopen ( FILE_NAME , "a");
+		fprintf(fout,"Time:%u:\n" , get_time ( DEFAULT_PRECISION) );
+		BM_print ( b , fout );
 		fflush(fout);
 		fclose(fout);
 	}

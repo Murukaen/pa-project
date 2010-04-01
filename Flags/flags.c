@@ -15,7 +15,7 @@
 
 UCHAR f_ENG_COL;
 
-UCHAR f_INIT_COM;
+UCHAR f_ENG_LOCK;
 
 /* --- Auxiliary Procedures --- */
 
@@ -24,7 +24,7 @@ UCHAR f_INIT_COM;
 void flags_init (void) {
 	
 		set_engine_col (1); // Initially the engine plays black
-		set_init_com (0) ; // Wait for initial Communication with XBoard
+		set_engine_lock (1) ; // Wait for initial Communication with XBoard
 }
 
 UCHAR get_engine_col ( void ) {
@@ -37,14 +37,14 @@ void set_engine_col ( UCHAR val ) {
 	f_ENG_COL = val;
 }
 
-UCHAR get_init_com ( void ) {
+UCHAR get_engine_lock ( void ) {
 	
-	return f_INIT_COM;
+	return f_ENG_LOCK;
 }
 
-void set_init_com ( UCHAR val ) {
+void set_engine_lock ( UCHAR val ) {
 	
-	f_INIT_COM = val;
+	f_ENG_LOCK = val;
 }
 
 

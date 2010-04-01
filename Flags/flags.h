@@ -26,9 +26,9 @@ UCHAR get_engine_col ( void );
 
 void set_engine_col ( UCHAR );
 
-UCHAR get_init_com ( void );
+UCHAR get_engine_lock ( void );
 
-void set_init_com ( UCHAR );
+void set_engine_lock ( UCHAR );
 
 /* --- Procedures --- */
 

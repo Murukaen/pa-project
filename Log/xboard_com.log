@@ -1,16 +1,63 @@
-Time:4706:Engine>XBoard>Line>
-Time:4706:feature done=0
+Time:4021:Engine>XBoard>Line>
+Time:4021:feature done=0
 
-Time:4706:WAIT Input
-Time:4706:RECEIVED Input
-Time:4706:Engine>XBoard>Line>
-Time:4706:
+Time:4021:WAIT Input
+Time:4021:RECEIVED Input
+Time:4021:Engine>XBoard>Line>
+Time:4021:
 
-Time:4706:Engine>XBoard>BUF>
-Time:4706:Engine>XBoard>Line>
-Time:4706:feature usermove=1 san=1 sigint=0 done=1
+Time:4021:Engine>XBoard>Line>
+Time:4021:feature usermove=1 san=1 sigint=0 done=1
 
-Time:4706:WAIT Input
-Time:4707:RECEIVED Input
-Time:4707:WAIT Input
-Time:4710:RECEIVED Input
+Time:4021:WAIT Input
+Time:4021:RECEIVED Input
+Time:4021:WAIT Input
+Time:4023:RECEIVED Input
+Time:4023:WAIT Input
+Time:4023:RECEIVED Input
+Time:4023:Engine>XBoard>Line>
+Time:4023:move Nf6
+
+Time:4023:WAIT Input
+Time:4024:RECEIVED Input
+Time:4024:Engine>XBoard>Line>
+Time:4024:move Nd5
+
+Time:4024:WAIT Input
+Time:4027:RECEIVED Input
+Time:4027:Engine>XBoard>Line>
+Time:4027:move Nd4
+
+Time:4027:WAIT Input
+Time:4031:RECEIVED Input
+Time:4031:Engine>XBoard>Line>
+Time:4031:move Nb3
+
+Time:4031:WAIT Input
+Time:4035:RECEIVED Input
+Time:4035:Engine>XBoard>Line>
+Time:4035:move Na5
+
+Time:4035:WAIT Input
+Time:4038:RECEIVED Input
+Time:4038:Engine>XBoard>Line>
+Time:4038:move Nb4
+
+Time:4038:WAIT Input
+Time:4082:RECEIVED Input
+Time:4082:WAIT Input
+Time:4082:RECEIVED Input
+Time:4082:Engine>XBoard>Line>
+Time:4082:move Nb3
+
+Time:4082:WAIT Input
+Time:4085:RECEIVED Input
+Time:4085:WAIT Input
+Time:4085:RECEIVED Input
+Time:4085:Engine>XBoard>Line>
+Time:4085:move Na5
+
+Time:4085:WAIT Input
+Time:7661:RECEIVED Input
+Time:7661:WAIT Input
+Time:7661:RECEIVED Input

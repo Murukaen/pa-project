@@ -10,8 +10,11 @@
 
 /* ----- Local #inlcudes ----- */
 #include "san_conv.h"
+#include "../valid_moves/valid_moves.h"
+#include "../Log/log.h"
 
 /* ---- Macro #define ---- */
+#define LOG_SAN_CONV_FILE "Log/san_conv.log"
 
 /* --- Types --- */
 
@@ -34,9 +37,16 @@ int is_check_mate(MOVE m, STATE cur){
 /* Prototip validate_move */
 
 int validate_move(MOVE m, STATE cur){
-	UCHAR piesa = move_get_p_tag(m);
+	//UCHAR piesa = move_get_p_tag(m);
 	LOC l = move_get_poz_dst(m);
 	LOC s = move_get_poz_src(m);
+	/* LOG */
+	log_print ( "Row" ,  LOG_SAN_CONV_FILE );
+	log_print_integer ( s.row ,  LOG_SAN_CONV_FILE );
+	log_print ( "Col" , LOG_SAN_CONV_FILE );
+	log_print_integer ( s.col ,  LOG_SAN_CONV_FILE );
+	log_print_bitmap ( VM_valid_moves ( cur , &s ) , LOG_SAN_CONV_FILE );
+	/* END LOG */
 	return BM_Make_coord(l.row, l.col) & VM_valid_moves ( cur , &s ) & ~(ST_get_bitmap(cur, ST_get_col_on_move ( cur ))) ? 1 : 0;
 }
 
@@ -453,8 +463,9 @@ MOVE SAN_to_Move(char* s) {
 			l.row = lp;
 			l.col = cp;
 			move_set_poz_dst(m, l);
-			LOC h = gasire_piesa(cur, cg, lg, l, get_piece(s[0]));
+			LOC h = gasire_piesa(cur, cg, lg, l, T_P);
 			move_set_poz_src(m, h);
+			move_set_p_tag ( m , T_P);
 		}
 	}
 	return m;

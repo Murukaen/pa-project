@@ -13,6 +13,7 @@
 #include "../san_conv/san_conv.h"
 #include "../move_conv/move_conv.h"
 #include "../Log/log.h"
+#include "../Init/init.h"
 
 /* ---- Macro #define ---- */
 #define COM_SEP ' '
@@ -24,8 +25,6 @@
 /* --- Types --- */
 
 /* --- Globals --- */
-
-UCHAR flip_colors;
 
 /* --- Auxiliary Procedures --- */
 
@@ -87,26 +86,30 @@ void read_com ( char * com ) {
 				
 		if ( !strcmp ( word , "quit" ) ) 		exit(0);
 		if ( !strcmp ( word , "xboard" ) ) 		write_to_xboard ("\n");
-		if ( !strcmp ( word , "protover" ) ) 	{ set_init_com (1) ; add_mess_to_buffer (FEATURES); }
+		if ( !strcmp ( word , "protover" ) ) 	{ Init ( INIT_POSX) ; write_to_xboard (FEATURES); }
 		if ( !strcmp ( word , "go" ) ) { 
 			
-				if ( !flip_colors ) { flip_colors = 1; flip_state () ; }
+				set_engine_lock (0); // Remove Lock
+				if ( !is_engine_on_move() ) flip_state () ;
 		}
+		if ( !strcmp ( word , "force" ) ) set_engine_lock(1); // Put Lock
+		if ( !strcmp ( word , "new" ) ) { set_engine_lock (1) ; Init ( INIT_NEW ) ; }
 		
 		/* Command is a move */
 		if ( !strcmp ( word , "usermove" )) 	{ 
 			
+			set_engine_lock (0);
 			word = parse_com ( &poz );
 			
 			// Now : word is command in XBoard format
 			
 			/* LOG */
-			/*
+			
 			log_print ("XBoard>Engine>Move" , LOG_COMMAND_FILE );
 			log_print ( word , LOG_COMMAND_FILE );
 			log_print ("XBoard>Engine>SAN_to_Move" , LOG_COMMAND_FILE);
 			log_print_move ( SAN_to_Move ( word ) , LOG_COMMAND_FILE );
-			*/
+		
 			/* END LOG */
 			
 			/* LOG History */

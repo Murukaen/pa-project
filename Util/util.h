@@ -118,6 +118,8 @@ UCHAR letter_to_row ( char );
 
 UINT get_time ( int );
 
+int is_tag_of_col ( UCHAR , UCHAR );
+
 
 
 #endif
