@@ -290,6 +290,132 @@ UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc) {
 	return 0;
 }
 
+int VM_validate_King_move(STATE st, LOC loc) {
+
+	UCHAR row = loc.row, col = loc.col, col_on_move = ST_get_col_on_move(st),
+			tag, regina, pion, tura, nebun, rege;
+	UCHAR C_DIR[8] = { 1, 1, 1, 0, -1, -1, -1, 0 }, L_DIR[8] = { -1, 0, 1, 1,
+			1, 0, -1, -1 };
+	LOC Locuri[8];
+	int i, j;
+
+	if (col_on_move == 1) {
+		regina = T_Q;
+		rege = T_K;
+		pion = T_P;
+		tura = T_R;
+		nebun = T_B;
+	} else {
+		regina = T_Q + BWP_OFF;
+		rege = T_K + BWP_OFF;
+		pion = T_P + BWP_OFF;
+		tura = T_R + BWP_OFF;
+		nebun = T_B + BWP_OFF;
+	}
+
+	for (i = row + 1; i < 8; i++) { // ma uit pe linie in dreapta
+
+		tag = ST_get_tag_Table_What(st, i, col);
+		if (tag == regina || tag == tura) {
+			return 1;
+		}
+	}
+
+	for (i = row - 1; i >= 0; i++) {// ma uit pe linie in stanga
+
+		tag = ST_get_tag_Table_What(st, i, col);
+		if (tag == regina || tag == tura) {
+			return 1;
+		}
+	}
+
+	for (i = col + 1; i < 8; i++) {// ma uit pe col in sus
+
+		tag = ST_get_tag_Table_What(st, row, i);
+		if (tag == regina || tag == tura) {
+			return 1;
+		}
+	}
+	for (i = col - 1; i >= 0; i--) {// ma uit pe col in jos
+
+		tag = ST_get_tag_Table_What(st, row, i);
+		if (tag == regina || tag == tura) {
+			return 1;
+		}
+	}
+
+	for (i = row + 1, j = col + 1; i < 8 && j < 8; i++, j++) { // ma uit pe diag sus stanga
+
+		tag = ST_get_tag_Table_What(st, i, j);
+		if (tag == regina || tag == nebun) {
+			return 1;
+		}
+	}
+
+	for (i = row - 1, j = col + 1; i >= 0 && j < 8; i--, j++) { // ma uit pe diag sus dreapta
+
+		tag = ST_get_tag_Table_What(st, i, j);
+		if (tag == regina || tag == nebun) {
+			return 1;
+		}
+	}
+
+	for (i = row + 1, j = col - 1; i < 8 && j >= 0; i++, j--) { // ma uit pe diag jos dreapta
+
+		tag = ST_get_tag_Table_What(st, i, j);
+		if (tag == regina || tag == nebun) {
+			return 1;
+		}
+	}
+	for (i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) { // ma uit pe diag jos stanga
+
+		tag = ST_get_tag_Table_What(st, i, j);
+		if (tag == regina || tag == nebun) {
+			return 1;
+		}
+	}
+	for (i = 0; i < 8; i++) {
+		Locuri[i].row = row + L_DIR[i];
+		Locuri[i].col = col + C_DIR[i];
+	}
+
+	for (i = 0; i < 8; i++) {
+		if (ST_get_tag_Table_What(st, Locuri[i].row - 1, Locuri[i].col + 1)
+				== pion || ST_get_tag_Table_What(st, Locuri[i].row + 1,
+				Locuri[i].col + 1) == pion) {// daca sunt pioni in fata stanga/dreapta
+			return 1;
+		}
+	}
+
+	for (i = 0; i < 8; i++) {
+
+		if (i == 0) {// daca vrea sa mute in stanga sus
+
+			if (ST_get_tag_Table_What(st, Locuri[i].row - 1, Locuri[i].col - 1)
+					== rege || ST_get_tag_Table_What(st, Locuri[i].row - 1,
+					Locuri[i].col) == rege || ST_get_tag_Table_What(st,
+					Locuri[i].row - 1, Locuri[i].col + 1) == rege
+					|| ST_get_tag_Table_What(st, Locuri[i].row, Locuri[i].col
+							+ 1) == rege || ST_get_tag_Table_What(st,
+					Locuri[i].row + 1, Locuri[i].col + 1) == rege) {
+
+				return 1;
+			}
+		}else if(i == 1){// daca muta sus
+
+			if( ST_get_tag_Table_What(st, Locuri[i].row - 1, Locuri[i].col + 1)
+								== rege || ST_get_tag_Table_What(st, Locuri[i].row , Locuri[i].col + 1)
+								== rege || ST_get_tag_Table_What(st, Locuri[i].row +1, Locuri[i].col + 1)
+								== rege){
+				return 1;
+			}
+		}else if( i == 2){
+		}
+
+	}
+
+	return 0;
+}
 BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 
 	UCHAR piece_row = LOC_get_row(loc_piesa), piece_col =
@@ -297,13 +423,21 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 	int i, j, regina = 0;
 	BITMAP rezultat = 0;
 	UCHAR ce_piesa, col_on_move = ST_get_col_on_move(st), captura_stanga,
-			captura_dreapta;
+			captura_dreapta, K = T_K, B = T_B, Q = T_Q, R = T_R, P = T_P;
+	UCHAR ce_piesa_e_la_loc_piesa = ST_get_tag_Table_What(st, piece_row, piece_col);
 
-	if (ST_get_tag_Table_What(st,piece_row,piece_col) == T_Q) {
+	if (col_on_move == 1) {
+		K = T_K + BWP_OFF;
+		B = T_B + BWP_OFF;
+		Q = T_Q + BWP_OFF;
+		R = T_R + BWP_OFF;
+		P = T_P + BWP_OFF;
+	}
+	if (ce_piesa_e_la_loc_piesa == Q) {
 		regina = 1;
 	}
 
-	if (ST_get_tag_Table_What(st,piece_row,piece_col) == T_R || regina == 1) {
+	if (ce_piesa_e_la_loc_piesa == R || regina == 1) {
 
 		for (i = piece_col + 1; i < 8; i++) { // verticala  sus
 			ce_piesa = ST_get_tag_Table_What(st, piece_row, i);
@@ -403,8 +537,8 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 		}
 	}
 
-	if (ST_get_tag_Table_What(st,piece_row,piece_col) == T_B || regina == 1) {
-		printf("\n row:%d col:%d \n", piece_row, piece_col);
+	if (ce_piesa_e_la_loc_piesa == B || regina == 1) {
+
 		for (i = piece_row + 1, j = piece_col + 1; i < 8 && j < 8; i++, j++) { // diagonale dreapta SUS
 
 
@@ -516,7 +650,7 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 		}
 	}
 
-	if (ST_get_tag_Table_What(st,piece_row,piece_col) == T_P) {
+	if (ce_piesa_e_la_loc_piesa == P) {
 
 		if (col_on_move == 0) {// daca pioni albi
 
@@ -583,13 +717,29 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 		}
 	}
 
-	if (ST_get_tag_Table_What(st,piece_row,piece_col) == T_K){
+	if (ce_piesa_e_la_loc_piesa == K) {
 
-		if(col_on_move == 0){
+		UCHAR sus, jos, stanga, dreapta, sus_st, sus_dr, jos_st, jos_dr;
+		UCHAR C_DIR[8] = { 1, 1, 1, 0, -1, -1, -1, 0 };
+		UCHAR L_DIR[8] = { -1, 0, 1, 1, 1, 0, -1, -1 };
 
+		sus = ST_get_tag_Table_What(st, piece_row, piece_col + 1);
+		jos = ST_get_tag_Table_What(st, piece_row, piece_col - 1);
+		stanga = ST_get_tag_Table_What(st, piece_row - 1, piece_col);
+		dreapta = ST_get_tag_Table_What(st, piece_row + 1, piece_col);
+		sus_st = ST_get_tag_Table_What(st, piece_row - 1, piece_col + 1);
+		sus_dr = ST_get_tag_Table_What(st, piece_row + 1, piece_col + 1);
+		jos_st = ST_get_tag_Table_What(st, piece_row - 1, piece_col - 1);
+		jos_dr = ST_get_tag_Table_What(st, piece_row - 1, piece_col + 1);
+
+		if (col_on_move == 0) { // daca rege alb
+
+			if (sus > 7) {
 
 		}
 	}
 
-	return rezultat;
+}
+
+return rezultat;
 }
