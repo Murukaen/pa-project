@@ -125,5 +125,9 @@ Piece to move: Knight
 Move index: 0
 
 Current piece location : ( g , 1 )
+
+Gen_Init : 0
+
+En Passsant Location : Void 
 --------------------------------------------------------------
 }

@@ -141,6 +141,26 @@ UCHAR ST_get_col_on_move(STATE st) {
 	return st -> col_on_move;
 }
 
+UCHAR ST_get_gen_init ( STATE st ) {
+	
+	return st -> gen_init;
+}
+
+void ST_set_gen_init ( STATE st , UCHAR val ) {
+	
+	st -> gen_init = val;
+}
+
+P_LOC ST_get_en_passant ( STATE st ) {
+	
+	return st -> en_passant;
+}
+
+void ST_set_en_passant ( STATE st , P_LOC ploc ) {
+	
+	st -> en_passant = ploc;
+}
+
 void ST_free(STATE st) {
 
 	if (st == 0)
@@ -150,6 +170,9 @@ void ST_free(STATE st) {
 	for (i = 0; i < NR_COLORS; ++i)
 		for (j = 0; j < NR_PIECES; ++j)
 			free_list(st -> Table_Location[i][j], LOC_free);
+			
+	/* Free en_passant */
+	if ( st -> en_passant ) LOC_free ( st -> en_passant );
 
 	free(st);
 }
@@ -234,6 +257,15 @@ void state_print(STATE st, FILE * fout) {
 	} else
 		fprintf(fout, "\nCurrent piece location : Void List\n");
 	/* END Print cur_poz_in_list */
+	
+	/* Print gen_init */
+	fprintf( fout , "\nGen_Init : %u\n" , st -> gen_init );
+	/* END Print gen_init */
+	
+	/* Print en_passant */
+	if ( st -> en_passant ) fprintf(fout, "\nEn Passant Location : ( %c , %c )\n", row_to_letter(LOC_get_row(st -> en_passant )), col_to_letter(LOC_get_col(st -> en_passant )));
+		else fprintf(fout, "\nEn Passsant Location : Void \n");
+	/* END Print en_passant */
 	fprintf(fout,
 			"--------------------------------------------------------------\n}\n");
 }
@@ -262,6 +294,7 @@ STATE state_read(FILE * fin) {
 	UCHAR p_to_move;
 	UCHAR m_index;
 	List c_list;
+	UCHAR g_init;
 	/* END Structure fields */
 
 	/* Inits */
@@ -300,6 +333,7 @@ STATE state_read(FILE * fin) {
 	m_index = 0;
 	c_on_move = text_to_tag(color_text);
 	c_list = T_L[c_on_move][ANALYZED_PIECE - PIECES_OFF];
+	g_init = 0;
 	/* END Read from file */
 
 	/* Set the new state */
@@ -313,12 +347,13 @@ STATE state_read(FILE * fin) {
 	ST_set_move_index(st, m_index); // set move_index
 	ST_set_piece_to_move(st, p_to_move); // set piece_to_move
 	ST_set_cur_poz_in_list(st, c_list); // set cur_poz_in_list
+	ST_set_gen_init ( st , 0 );
 	/* END Set the new state */
 
 	return st;
 }
 
-void state_print_table_what(STATE st, FILE *fout) {
+void state_print_Table_What(STATE st, FILE *fout) {
 
 	int i,j;
 	fprintf(fout, "\n~~~Table_What~~~:\n\n");
