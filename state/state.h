@@ -170,6 +170,14 @@ void ST_set_col_on_move ( STATE , UCHAR );
  */
 UCHAR ST_get_col_on_move ( STATE );
 
+UCHAR ST_get_gen_init ( STATE );
+
+void ST_set_gen_init ( STATE , UCHAR );
+
+P_LOC ST_get_en_passant ( STATE );
+
+void ST_set_en_passant ( STATE , P_LOC ); 
+
 
 /* ~~~ Test purposes ONLY : ~~~ */
 
@@ -192,12 +200,4 @@ void state_print_table_what( STATE, FILE *);
  * Output:1: created state
  */
 STATE state_read ( FILE * );
-
-void ST_set_cur_list(STATE,List);
-
-void tag_to_text ( UCHAR , char [] );
-
-char row_to_letter ( UCHAR );
-
-char col_to_letter ( UCHAR );
 #endif
