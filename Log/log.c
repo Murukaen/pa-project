@@ -47,28 +47,35 @@ void log_init ( void ) {
 	fclose(fout);
 }
 
-void log_print ( char * text , FILE * fout ) {
+void log_print ( char * text , char * FILE_NAME ) {
 	
+	FILE * fout = fopen ( FILE_NAME , "a");
 	fprintf(fout,"Time:%u:%s\n" , get_time (DEFAULT_PRECISION) , text );
 	fflush(fout);
+	fclose ( fout );
 }
 
-void log_print_state ( STATE st , FILE * fout ) {
+void log_print_state ( STATE st , char * FILE_NAME ) {
 	
+	FILE * fout = fopen ( FILE_NAME , "a");
 	fprintf(fout,"Time:%u\n" , get_time ( DEFAULT_PRECISION) );
 	state_print ( st , fout );
 	fflush(fout);
+	fclose ( fout );
 }
 
-void log_print_move ( MOVE mov , FILE * fout ) {
+void log_print_move ( MOVE mov , char * FILE_NAME ) {
 	
+	FILE * fout = fopen ( FILE_NAME , "a");
 	fprintf(fout,"Time:%u\n" , get_time ( DEFAULT_PRECISION) );
 	move_print ( mov , fout );
 	fflush(fout);
+	fclose( fout );
 }
 
-void log_print_state_Table_What ( STATE st , FILE * fout ) {
+void log_print_state_Table_What ( STATE st , char * FILE_NAME ) {
 	
+	FILE * fout = fopen ( FILE_NAME , "a");
 	int i, j;
 	
 	fprintf(fout,"Time:%u\n" , get_time ( DEFAULT_PRECISION) );
@@ -79,24 +86,31 @@ void log_print_state_Table_What ( STATE st , FILE * fout ) {
 			fprintf(fout, "%c" , tag_to_letter ( ST_get_tag_Table_What ( st ,  BM_row(i,j) , BM_col(i,j) ) ));
 	/* END Print Table_What */
 	fflush(fout);
+	fclose(fout);
 }
 
-void log_print_cycle ( int nr , FILE * fout ) {
+void log_print_cycle ( int nr , char * FILE_NAME ) {
 	
+	FILE * fout = fopen ( FILE_NAME , "a");
 	fprintf(fout,"Time:%u:Cycle - %d - \n" , get_time ( DEFAULT_PRECISION) , nr);
 	fflush(fout);
+	fclose(fout);
 }
 
-void log_print_integer ( int nr , FILE * fout) {
+void log_print_integer ( int nr , char * FILE_NAME) {
 	
+	FILE * fout = fopen ( FILE_NAME , "a");
 	fprintf(fout,"Time:%u:Value: %d\n" , get_time ( DEFAULT_PRECISION) , nr);
 	fflush(fout);
+	fclose(fout);
 }
 
-void log_print_character ( char c, FILE *fout) {
+void log_print_character ( char c, char * FILE_NAME ) {
 	
+	FILE * fout = fopen ( FILE_NAME , "a");
 	fprintf(fout,"Time:%u:Char:|%c|\n" , get_time ( DEFAULT_PRECISION) , c);
 	fflush(fout);
+	fclose(fout);
 }
 	
 

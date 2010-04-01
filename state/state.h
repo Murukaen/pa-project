@@ -188,7 +188,7 @@ void ST_set_en_passant ( STATE , P_LOC );
  */
 void state_print ( STATE , FILE * );
 
-void state_print_table_what( STATE, FILE *);
+void state_print_Table_What( STATE, FILE *);
 
 /* Desc:
  * Read a state from a file in the following format

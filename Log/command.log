@@ -1,41 +1,43 @@
-Time:3772:XBoard>Engine>>>
-Time:3772:xboard
-Time:3772:XBoard>Engine>>>
-Time:3772:protover 2
-Time:3772:XBoard>Engine>>>
-Time:3772:accepted done
-Time:3772:XBoard>Engine>>>
-Time:3772:accepted usermove
-Time:3772:XBoard>Engine>>>
-Time:3772:accepted san
-Time:3772:XBoard>Engine>>>
-Time:3772:accepted done
-Time:3772:XBoard>Engine>>>
-Time:3772:new
-Time:3772:XBoard>Engine>>>
-Time:3772:random
-Time:3772:XBoard>Engine>>>
-Time:3772:level 40 5 0
-Time:3772:XBoard>Engine>>>
-Time:3772:post
-Time:3772:XBoard>Engine>>>
-Time:3772:hard
-Time:3774:XBoard>Engine>>>
-Time:3774:time 30000
-Time:3774:XBoard>Engine>>>
-Time:3774:otim 30000
-Time:3774:XBoard>Engine>>>
-Time:3774:usermove Nf3
-Time:3774:XBoard>Engine>Move
-Time:3774:Nf3
-Time:3774:XBoard>Engine>SAN_to_Move
-Time:3774
+Time:8746:XBoard>Engine>>>
+Time:8746:xboard
+Time:8746:XBoard>Engine>>>
+Time:8746:protover 2
+Time:8746:XBoard>Engine>>>
+Time:8746:accepted done
+Time:8746:XBoard>Engine>>>
+Time:8746:accepted usermove
+Time:8746:XBoard>Engine>>>
+Time:8746:accepted san
+Time:8746:XBoard>Engine>>>
+Time:8746:accepted sigint
+Time:8746:XBoard>Engine>>>
+Time:8746:accepted done
+Time:8746:XBoard>Engine>>>
+Time:8746:new
+Time:8746:XBoard>Engine>>>
+Time:8746:random
+Time:8746:XBoard>Engine>>>
+Time:8746:level 40 5 0
+Time:8746:XBoard>Engine>>>
+Time:8746:post
+Time:8746:XBoard>Engine>>>
+Time:8746:hard
+Time:8748:XBoard>Engine>>>
+Time:8748:time 30000
+Time:8748:XBoard>Engine>>>
+Time:8748:otim 30000
+Time:8748:XBoard>Engine>>>
+Time:8748:usermove e4
+Time:8748:XBoard>Engine>Move
+Time:8748:e4
+Time:8748:XBoard>Engine>SAN_to_Move
+Time:8748
 {
- p_tag = Knight 
+ p_tag = White 
 
- poz_src = ( g , 1 ) 
+ poz_src = ( a , 2 ) 
 
- poz_dst = ( f , 3 ) 
+ poz_dst = ( e , 4 ) 
 
  m_tag = 0 
 

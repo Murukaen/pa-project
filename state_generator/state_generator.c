@@ -19,6 +19,8 @@
 
 /* ---- Macro #define ---- */
 
+#define LOG_STATE_GENERATOR_FILE "Log/state_generator.log"
+
 /* --- Types --- */
 
 /* --- Globals --- */
@@ -35,10 +37,6 @@ STATE ST_gen(STATE start_state) {
 	List L = ST_get_cur_poz_in_list(start_state);
 	P_LOC loc;
 	BITMAP valid_moves, new_bmap;
-
-
-
-
 
 
 	STATE new_state = ST_new();
@@ -168,9 +166,7 @@ STATE ST_gen(STATE start_state) {
 				/*setez in noua stare tot calu la mutare*/
 				ST_set_piece_to_move(new_state, T_N);
 
-				log_print_state(new_state, fout);
-				fflush(fout);
-				fclose(fout);
+				log_print_state(new_state, LOG_STATE_GENERATOR_FILE);
 				return new_state;
 			}
 
@@ -179,7 +175,7 @@ STATE ST_gen(STATE start_state) {
 			ST_set_cur_poz_in_list(start_state, L);
 	}
 
-	log_print("state generator a intors NULL", "./Log/state_generator.log");
+	log_print("state generator a intors NULL", LOG_STATE_GENERATOR_FILE );
 	return NULL;
 }
 
