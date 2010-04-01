@@ -299,11 +299,11 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 	UCHAR ce_piesa, col_on_move = ST_get_col_on_move(st), captura_stanga,
 			captura_dreapta;
 
-	if (ST_get_piece_to_move(st) == T_Q) {
+	if (ST_get_tag_Table_What(st,piece_row,piece_col) == T_Q) {
 		regina = 1;
 	}
 
-	if (ST_get_piece_to_move(st) == T_R || regina == 1) {
+	if (ST_get_tag_Table_What(st,piece_row,piece_col) == T_R || regina == 1) {
 
 		for (i = piece_col + 1; i < 8; i++) { // verticala  sus
 			ce_piesa = ST_get_tag_Table_What(st, piece_row, i);
@@ -403,7 +403,7 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 		}
 	}
 
-	if (ST_get_piece_to_move(st) == T_B || regina == 1) {
+	if (ST_get_tag_Table_What(st,piece_row,piece_col) == T_B || regina == 1) {
 		printf("\n row:%d col:%d \n", piece_row, piece_col);
 		for (i = piece_row + 1, j = piece_col + 1; i < 8 && j < 8; i++, j++) { // diagonale dreapta SUS
 
@@ -516,7 +516,7 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 		}
 	}
 
-	if (ST_get_piece_to_move(st) == T_P) {
+	if (ST_get_tag_Table_What(st,piece_row,piece_col) == T_P) {
 
 		if (col_on_move == 0) {// daca pioni albi
 
@@ -583,7 +583,7 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 		}
 	}
 
-	if (ST_get_piece_to_move(st) == T_K){
+	if (ST_get_tag_Table_What(st,piece_row,piece_col) == T_K){
 
 		if(col_on_move == 0){
 
