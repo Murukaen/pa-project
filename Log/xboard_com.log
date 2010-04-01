@@ -1,39 +1,136 @@
-Time:8746:Engine>XBoard>>>
-Time:8746:feature done=0
+Time:1651:Engine>XBoard>Line>
+Time:1651:feature done=0
 
-Time:8746:WAIT Input
-Time:8746:RECEIVED Input
-Time:8746:XBoard>Engine>Buffer>>
-Time:8746:xboard
-protover 2
+Time:1651:WAIT Input
+Time:1651:RECEIVED Input
+Time:1651:Engine>XBoard>Line>
+Time:1651:
 
-Time:8746:Engine>XBoard>>>
-Time:8746:
+Time:1651:Engine>XBoard>BUF>
+Time:1651:Engine>XBoard>Line>
+Time:1651:feature usermove=1 san=1 sigint=0 done=1
 
-Time:8746:Engine>XBoard>BUF>>
-Time:8746:feature usermove=1 san=1 sigint=0 done=1
+Time:1651:WAIT Input
+Time:1651:RECEIVED Input
+Time:1651:WAIT Input
+Time:1652:RECEIVED Input
+Time:1652:Engine>XBoard>Line>
+Time:1652:move Nf6
 
-Time:8746:Engine>XBoard>>>
-Time:8746:feature usermove=1 san=1 sigint=0 done=1
+Time:1652:WAIT Input
+Time:1654:RECEIVED Input
+Time:1654:Engine>XBoard>Line>
+Time:1654:move Nd5
 
-Time:8746:WAIT Input
-Time:8746:RECEIVED Input
-Time:8746:XBoard>Engine>Buffer>>
-Time:8746:accepted done
-accepted usermove
-accepted san
-accepted sigint
-accepted done
-new
-random
-level 40 5 0
-post
-hard
+Time:1654:WAIT Input
+Time:1655:RECEIVED Input
+Time:1655:WAIT Input
+Time:1655:RECEIVED Input
+Time:1655:Engine>XBoard>Line>
+Time:1655:move Nb4
 
-Time:8746:WAIT Input
-Time:8748:RECEIVED Input
-Time:8748:XBoard>Engine>Buffer>>
-Time:8748:time 30000
-otim 30000
-usermove e4
+Time:1655:WAIT Input
+Time:1657:RECEIVED Input
+Time:1657:WAIT Input
+Time:1657:RECEIVED Input
+Time:1657:Engine>XBoard>Line>
+Time:1657:move N4a2Ød
 
+Time:1657:WAIT Input
+Time:1659:RECEIVED Input
+Time:1659:Engine>XBoard>Line>
+Time:1659:move Na6
+
+Time:1659:WAIT Input
+Time:1661:RECEIVED Input
+Time:1661:Engine>XBoard>Line>
+Time:1661:move Nb4
+
+Time:1661:WAIT Input
+Time:1665:RECEIVED Input
+Time:1665:Engine>XBoard>Line>
+Time:1665:move N4a2
+
+Time:1665:WAIT Input
+Time:1668:RECEIVED Input
+Time:1668:Engine>XBoard>Line>
+Time:1668:move Nb4
+
+Time:1668:WAIT Input
+Time:1669:RECEIVED Input
+Time:1669:Engine>XBoard>Line>
+Time:1669:move Na2
+
+Time:1669:WAIT Input
+Time:1670:RECEIVED Input
+Time:1670:Engine>XBoard>Line>
+Time:1670:move Nb4
+
+Time:1670:WAIT Input
+Time:1673:RECEIVED Input
+Time:1673:WAIT Input
+Time:1673:RECEIVED Input
+Time:1673:Engine>XBoard>Line>
+Time:1673:move N4a2
+
+Time:1673:WAIT Input
+Time:1674:RECEIVED Input
+Time:1674:Engine>XBoard>Line>
+Time:1674:move Nb4
+
+Time:1674:WAIT Input
+Time:1675:RECEIVED Input
+Time:1675:Engine>XBoard>Line>
+Time:1675:move Na2
+
+Time:1675:WAIT Input
+Time:1676:RECEIVED Input
+Time:1676:Engine>XBoard>Line>
+Time:1676:move Nb4
+
+Time:1676:WAIT Input
+Time:1677:RECEIVED Input
+Time:1677:Engine>XBoard>Line>
+Time:1677:move Na2
+
+Time:1677:WAIT Input
+Time:1678:RECEIVED Input
+Time:1678:Engine>XBoard>Line>
+Time:1678:move Nb4
+
+Time:1678:WAIT Input
+Time:1679:RECEIVED Input
+Time:1679:Engine>XBoard>Line>
+Time:1679:move Na2
+
+Time:1679:WAIT Input
+Time:1680:RECEIVED Input
+Time:1680:Engine>XBoard>Line>
+Time:1680:move Nb4
+
+Time:1680:WAIT Input
+Time:1681:RECEIVED Input
+Time:1681:WAIT Input
+Time:1681:RECEIVED Input
+Time:1681:Engine>XBoard>Line>
+Time:1681:move Na2
+
+Time:1681:WAIT Input
+Time:1683:RECEIVED Input
+Time:1683:Engine>XBoard>Line>
+Time:1683:move Nb4
+
+Time:1683:WAIT Input
+Time:1690:RECEIVED Input
+Time:1690:Engine>XBoard>Line>
+Time:1690:move Na2
+
+Time:1690:WAIT Input
+Time:1691:RECEIVED Input
+Time:1691:WAIT Input
+Time:1691:RECEIVED Input
+Time:1691:Engine>XBoard>Line>
+Time:1691:move N2b4
+
+Time:1691:WAIT Input
+Time:1693:RECEIVED Input

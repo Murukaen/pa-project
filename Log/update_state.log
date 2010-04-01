@@ -1,0 +1,630 @@
+Time:1652:Updated State
+
+Time:1652
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - - - - - - - 
+- - - - - N - - 
+P P P P P P P P 
+R N B Q K B - R 
+Time:1652:Updated State
+
+Time:1652
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p p p p p p p 
+- - - - - n - - 
+- - - - - - - - 
+- - - - - - - - 
+- - - - - N - - 
+P P P P P P P P 
+R N B Q K B - R 
+Time:1654:Updated State
+
+Time:1654
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p p p p p p p 
+- - - - - n - - 
+- - - - - - - - 
+- - - - - - - - 
+- - - - - - - - 
+P P P P P P P P 
+R N B Q K B N R 
+Time:1654:Updated State
+
+Time:1654
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - n - - - - 
+- - - - - - - - 
+- - - - - - - - 
+P P P P P P P P 
+R N B Q K B N R 
+Time:1655:Updated State
+
+Time:1655
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - n - - - - 
+- - - - - - - - 
+- - - - - N - - 
+P P P P P P P P 
+R N B Q K B - R 
+Time:1655:Updated State
+
+Time:1655
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- n - - - - - - 
+- - - - - N - - 
+P P P P P P P P 
+R N B Q K B - R 
+Time:1657:Updated State
+
+Time:1657
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- n - - - - - - 
+- - N - - N - - 
+P P P P P P P P 
+R - B Q K B - R 
+Time:1657:Updated State
+
+Time:1657
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - - - - - - - 
+- - N - - N - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1659:Updated State
+
+Time:1659
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - - - - - - - 
+- - - - - N - - 
+N P P P P P P P 
+R - B Q K B - R 
+Time:1659:Updated State
+
+Time:1659
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+n - - - - - - - 
+- - - - - - - - 
+- - - - - - - - 
+- - - - - N - - 
+N P P P P P P P 
+R - B Q K B - R 
+Time:1661:Updated State
+
+Time:1661
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+n - - - - - - - 
+- - - - - - - - 
+- - - - - - - - 
+- - N - - N - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1661:Updated State
+
+Time:1661
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- n - - - - - - 
+- - N - - N - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1665:Updated State
+
+Time:1665
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- n - N - - - - 
+- - N - - - - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1665:Updated State
+
+Time:1665
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - - N - - - - 
+- - N - - - - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1668:Updated State
+
+Time:1668
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - - N N - - - 
+- - - - - - - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1668:Updated State
+
+Time:1668
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- n - N N - - - 
+- - - - - - - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1669:Updated State
+
+Time:1669
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- n - - N - - - 
+- - - - - N - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1669:Updated State
+
+Time:1669
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - - - N - - - 
+- - - - - N - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1670:Updated State
+
+Time:1670
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - - - - - - - 
+- - N - - N - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1670:Updated State
+
+Time:1670
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- n - - - - - - 
+- - N - - N - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1673:Updated State
+
+Time:1673
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- n - N - - - - 
+- - N - - - - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1673:Updated State
+
+Time:1673
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - - N - - - - 
+- - N - - - - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1674:Updated State
+
+Time:1674
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- N - - - - - - 
+- - - N - - - - 
+- - - - - - - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1674:Updated State
+
+Time:1674
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- N - - - - - - 
+- n - N - - - - 
+- - - - - - - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1675:Updated State
+
+Time:1675
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- N - - - - - - 
+- n - - - - - - 
+- N - - - - - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1675:Updated State
+
+Time:1675
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- N - - - - - - 
+- - - - - - - - 
+- N - - - - - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1676:Updated State
+
+Time:1676
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - - N - - - - 
+- N - - - - - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1676:Updated State
+
+Time:1676
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- n - N - - - - 
+- N - - - - - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1677:Updated State
+
+Time:1677
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- n - - - - - - 
+- N - - - N - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1677:Updated State
+
+Time:1677
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - - - - - - - 
+- N - - - N - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1678:Updated State
+
+Time:1678
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - N - - - 
+- - - - - - - - 
+- N - - - - - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1678:Updated State
+
+Time:1678
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - N - - - 
+- n - - - - - - 
+- N - - - - - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1679:Updated State
+
+Time:1679
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- n N - - - - - 
+- N - - - - - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1679:Updated State
+
+Time:1679
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - N - - - - - 
+- N - - - - - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1680:Updated State
+
+Time:1680
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - - - - - - - 
+- N - - N - - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1680:Updated State
+
+Time:1680
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- n - - - - - - 
+- N - - N - - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1681:Updated State
+
+Time:1681
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- n N - - - - - 
+- N - - - - - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1681:Updated State
+
+Time:1681
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - N - - - - - 
+- N - - - - - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1683:Updated State
+
+Time:1683
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - N - - - - - 
+- - N - - - - - 
+- - - - - - - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1683:Updated State
+
+Time:1683
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - N - - - - - 
+- n N - - - - - 
+- - - - - - - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1690:Updated State
+
+Time:1690
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- n N - - - - - 
+- - - N - - - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1690:Updated State
+
+Time:1690
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - N - - - - - 
+- - - N - - - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1691:Updated State
+
+Time:1691
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - N - - - 
+- - - - - - - - 
+- - - N - - - - 
+n P P P P P P P 
+R - B Q K B - R 
+Time:1691:Updated State
+
+Time:1691
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - N - - - 
+- n - - - - - - 
+- - - N - - - - 
+- P P P P P P P 
+R - B Q K B - R 
+Time:1693:Updated State
+
+Time:1693
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - N - - - 
+- N - - - - - - 
+- - - - - - - - 
+- P P P P P P P 
+R - B Q K B - R 
