@@ -17,12 +17,12 @@ int main() {
 
 	st = state_read(fin);
 
-	l = ST_get_List_Table_Location(st, 0, T_P);
+	l = ST_get_List_Table_Location(st, 1, T_K);
 	ST_set_cur_poz_in_list(st, l);
 	P_LOC loc = LOC_new();
-	LOCp_set_both(loc,4,1);
+	LOCp_set_both(loc,4,7);
 
-	ST_set_piece_to_move(st, T_P);
+	ST_set_piece_to_move(st, T_K);
 
 	state_print(st, fout);
 

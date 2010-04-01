@@ -1,6 +1,8 @@
 #include "valid_moves.h"
 #include <stdlib.h>
 #include "../Log/log.h"
+#include "../list/list.h"
+#include "../Util/util.h"
 
 #define LOG_VALIDATE_MOVE_FILE "Log/validate_move.log"
 
@@ -294,8 +296,6 @@ int VM_validate_King_move(STATE st, LOC loc) {
 
 	UCHAR row = loc.row, col = loc.col, col_on_move = ST_get_col_on_move(st),
 			tag, regina, pion, tura, nebun, rege;
-	UCHAR C_DIR[8] = { 1, 1, 1, 0, -1, -1, -1, 0 }, L_DIR[8] = { -1, 0, 1, 1,
-			1, 0, -1, -1 };
 	LOC Locuri[8];
 	int i, j;
 
@@ -316,104 +316,128 @@ int VM_validate_King_move(STATE st, LOC loc) {
 	for (i = row + 1; i < 8; i++) { // ma uit pe linie in dreapta
 
 		tag = ST_get_tag_Table_What(st, i, col);
-		if (tag == regina || tag == tura) {
-			return 1;
+		if (tag != T_NA) {
+			if (tag == regina || tag == tura) {
+				printf("aici1");
+				return 1;
+			} else {
+				break;
+			}
 		}
 	}
 
-	for (i = row - 1; i >= 0; i++) {// ma uit pe linie in stanga
+	for (i = row - 1; i >= 0; i--) {// ma uit pe linie in stanga
 
 		tag = ST_get_tag_Table_What(st, i, col);
-		if (tag == regina || tag == tura) {
-			return 1;
+		if (tag != T_NA) {
+			if (tag == regina || tag == tura) {
+				printf("aici2 ");
+				return 1;
+			} else {
+				break;
+			}
 		}
 	}
 
 	for (i = col + 1; i < 8; i++) {// ma uit pe col in sus
 
 		tag = ST_get_tag_Table_What(st, row, i);
-		if (tag == regina || tag == tura) {
-			return 1;
+		if (tag != T_NA) {
+			if (tag == regina || tag == tura) {
+				printf("aici3 ");
+				return 1;
+			} else {
+				break;
+			}
 		}
 	}
 	for (i = col - 1; i >= 0; i--) {// ma uit pe col in jos
 
 		tag = ST_get_tag_Table_What(st, row, i);
-		if (tag == regina || tag == tura) {
-			return 1;
+		if (tag != T_NA) {
+			if (tag == regina || tag == tura) {
+				printf("aici4 ");
+				return 1;
+			} else {
+				break;
+			}
 		}
 	}
 
 	for (i = row + 1, j = col + 1; i < 8 && j < 8; i++, j++) { // ma uit pe diag sus stanga
 
 		tag = ST_get_tag_Table_What(st, i, j);
-		if (tag == regina || tag == nebun) {
-			return 1;
+		if (tag != T_NA) {
+			if (tag == regina || tag == nebun) {
+				printf("aici5 ");
+				return 1;
+			} else {
+				break;
+			}
 		}
 	}
 
 	for (i = row - 1, j = col + 1; i >= 0 && j < 8; i--, j++) { // ma uit pe diag sus dreapta
 
 		tag = ST_get_tag_Table_What(st, i, j);
-		if (tag == regina || tag == nebun) {
-			return 1;
+		if (tag != T_NA) {
+			if (tag == regina || tag == nebun) {
+				printf("aici6 ");
+				return 1;
+			} else {
+				break;
+			}
 		}
 	}
 
 	for (i = row + 1, j = col - 1; i < 8 && j >= 0; i++, j--) { // ma uit pe diag jos dreapta
 
 		tag = ST_get_tag_Table_What(st, i, j);
-		if (tag == regina || tag == nebun) {
-			return 1;
+		if (tag != T_NA) {
+			if (tag == regina || tag == nebun) {
+				printf("aici7 ");
+				return 1;
+			} else {
+				break;
+			}
 		}
 	}
 	for (i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) { // ma uit pe diag jos stanga
 
 		tag = ST_get_tag_Table_What(st, i, j);
-		if (tag == regina || tag == nebun) {
-			return 1;
-		}
-	}
-	for (i = 0; i < 8; i++) {
-		Locuri[i].row = row + L_DIR[i];
-		Locuri[i].col = col + C_DIR[i];
-	}
-
-	for (i = 0; i < 8; i++) {
-		if (ST_get_tag_Table_What(st, Locuri[i].row - 1, Locuri[i].col + 1)
-				== pion || ST_get_tag_Table_What(st, Locuri[i].row + 1,
-				Locuri[i].col + 1) == pion) {// daca sunt pioni in fata stanga/dreapta
-			return 1;
-		}
-	}
-
-	for (i = 0; i < 8; i++) {
-
-		if (i == 0) {// daca vrea sa mute in stanga sus
-
-			if (ST_get_tag_Table_What(st, Locuri[i].row - 1, Locuri[i].col - 1)
-					== rege || ST_get_tag_Table_What(st, Locuri[i].row - 1,
-					Locuri[i].col) == rege || ST_get_tag_Table_What(st,
-					Locuri[i].row - 1, Locuri[i].col + 1) == rege
-					|| ST_get_tag_Table_What(st, Locuri[i].row, Locuri[i].col
-							+ 1) == rege || ST_get_tag_Table_What(st,
-					Locuri[i].row + 1, Locuri[i].col + 1) == rege) {
-
+		if (tag != T_NA) {
+			if (tag == regina || tag == nebun) {
+				printf("aici 11");
 				return 1;
+			} else {
+				break;
 			}
-		}else if(i == 1){// daca muta sus
-
-			if( ST_get_tag_Table_What(st, Locuri[i].row - 1, Locuri[i].col + 1)
-								== rege || ST_get_tag_Table_What(st, Locuri[i].row , Locuri[i].col + 1)
-								== rege || ST_get_tag_Table_What(st, Locuri[i].row +1, Locuri[i].col + 1)
-								== rege){
-				return 1;
-			}
-		}else if( i == 2){
 		}
-
 	}
 
+	if (col_on_move == 0) {
+		for (i = 0; i < 8; i++) {
+			if (Locuri[i].row >= 0 && Locuri[i].col < 8 && Locuri[i].row < 8
+					&& Locuri[i].col >= 0)
+				if (ST_get_tag_Table_What(st, row - 1, col + 1) == pion
+						|| ST_get_tag_Table_What(st, row + 1, col + 1) == pion) {// daca sunt pioni in fata stanga/dreapta
+					printf("aici8");
+					return 1;
+
+				}
+		}
+	} else {
+		for (i = 0; i < 8; i++) {
+			if (Locuri[i].row >= 0 && Locuri[i].col < 8 && Locuri[i].row < 8
+					&& Locuri[i].col >= 0)
+				if (ST_get_tag_Table_What(st, row - 1, col - 1) == pion
+						|| ST_get_tag_Table_What(st, row + 1, col - 1) == pion) {// daca sunt pioni in fata stanga/dreapta
+					printf("aici81 ");
+					return 1;
+
+				}
+		}
+	}
 	return 0;
 }
 BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
@@ -424,7 +448,8 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 	BITMAP rezultat = 0;
 	UCHAR ce_piesa, col_on_move = ST_get_col_on_move(st), captura_stanga,
 			captura_dreapta, K = T_K, B = T_B, Q = T_Q, R = T_R, P = T_P;
-	UCHAR ce_piesa_e_la_loc_piesa = ST_get_tag_Table_What(st, piece_row, piece_col);
+	UCHAR ce_piesa_e_la_loc_piesa = ST_get_tag_Table_What(st, piece_row,
+			piece_col);
 
 	if (col_on_move == 1) {
 		K = T_K + BWP_OFF;
@@ -665,7 +690,7 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 								+ 2);
 					}
 				}
-			} else {// daca pioniu giga nu e pe linia de start
+			} else {// daca pioniu gica nu e pe linia de start
 
 				if (ST_get_tag_Table_What(st, piece_row, piece_col + 1) == T_NA) {// daca e liber inaintea lui
 					BM_Put_piece_at_coord(&rezultat, piece_row, piece_col + 1);
@@ -719,27 +744,32 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 
 	if (ce_piesa_e_la_loc_piesa == K) {
 
-		UCHAR sus, jos, stanga, dreapta, sus_st, sus_dr, jos_st, jos_dr;
-		UCHAR C_DIR[8] = { 1, 1, 1, 0, -1, -1, -1, 0 };
-		UCHAR L_DIR[8] = { -1, 0, 1, 1, 1, 0, -1, -1 };
+		UCHAR C_DIR[8] = { 1, 1, 1, 0, -1, -1, -1, 0 }, L_DIR[8] = { -1, 0, 1,
+				1, 1, 0, -1, -1 };
+		LOC Locuri[8];
 
-		sus = ST_get_tag_Table_What(st, piece_row, piece_col + 1);
-		jos = ST_get_tag_Table_What(st, piece_row, piece_col - 1);
-		stanga = ST_get_tag_Table_What(st, piece_row - 1, piece_col);
-		dreapta = ST_get_tag_Table_What(st, piece_row + 1, piece_col);
-		sus_st = ST_get_tag_Table_What(st, piece_row - 1, piece_col + 1);
-		sus_dr = ST_get_tag_Table_What(st, piece_row + 1, piece_col + 1);
-		jos_st = ST_get_tag_Table_What(st, piece_row - 1, piece_col - 1);
-		jos_dr = ST_get_tag_Table_What(st, piece_row - 1, piece_col + 1);
-
-		if (col_on_move == 0) { // daca rege alb
-
-			if (sus > 7) {
-
+		for (i = 0; i < 8; i++) {
+			Locuri[i].row = piece_row + L_DIR[i];
+			Locuri[i].col = piece_col + C_DIR[i];
 		}
+
+		for (i = 0; i < 8; i++) {
+
+			if (VM_validate_King_move(st, Locuri[i]) == 0) {
+				if (Locuri[i].row >= 0 && Locuri[i].row < 8 && Locuri[i].col
+						>= 0 && Locuri[i].col < 8) {
+					BM_Put_piece_at_coord(&rezultat, Locuri[i].row,
+							Locuri[i].col);
+				}
+			}
+		}
+		List l = ST_get_List_Table_Location(st, not(ST_get_col_on_move(st)),
+				T_K);
+		P_LOC poz = first_nod_list(&l);
+		rezultat
+				&= ~Moves[T_K - PIECES_OFF][LOC_get_row(poz)][LOC_get_col(poz)];
+		rezultat &= ~ST_get_bitmap(st, ST_get_col_on_move(st));
 	}
 
-}
-
-return rezultat;
+	return rezultat;
 }
