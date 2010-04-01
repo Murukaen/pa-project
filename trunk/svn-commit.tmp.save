@@ -1,0 +1,8 @@
+dsadsa
+--This line, and those below, will be ignored--
+
+A    Test/test_valid_moves
+AM   Test/test_valid_moves/test_valid_moves.c
+A    Test/test_valid_moves/test_valid_moves.in
+A    Test/test_valid_moves/test_valid_moves.out
+M    valid_moves/valid_moves.c

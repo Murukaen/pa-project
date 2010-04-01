@@ -294,38 +294,302 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 
 	UCHAR piece_row = LOC_get_row(loc_piesa), piece_col =
 			LOC_get_col(loc_piesa);
-	int i, j;
-	UCHAR M[8][8], ce_piesa, col_on_move = ST_get_col_on_move(st);
+	int i, j, regina = 0;
+	BITMAP rezultat = 0;
+	UCHAR ce_piesa, col_on_move = ST_get_col_on_move(st), captura_stanga,
+			captura_dreapta;
 
-	switch (ST_get_piece_to_move(st)) {
+	if (ST_get_piece_to_move(st) == T_Q) {
+		regina = 1;
+	}
 
-	case T_R:
+	if (ST_get_piece_to_move(st) == T_R || regina == 1) {
 
-		for (i = piece_col + 1; i < 8; i++) {
+		for (i = piece_col + 1; i < 8; i++) { // verticala  sus
 			ce_piesa = ST_get_tag_Table_What(st, piece_row, i);
 			if (col_on_move == 0) {// daca tura alba
-
 
 				if (ce_piesa < 8) {// daca e piesa alba
 					break;
 				} else if (ce_piesa < T_NA) { // daca piesa neagra
-					M[piece_row][i] = 1;
+					BM_Put_piece_at_coord(&rezultat, piece_row, i);
 					break;
 				} else {// daca pozitie libera
-					M[piece_row][i] = 1;
+					BM_Put_piece_at_coord(&rezultat, piece_row, i);
 				}
 			} else { // daca tura neagra
 
 				if (ce_piesa >= 8 && ce_piesa < 14) { //daca piesa neagra
 					break;
 				} else if (ce_piesa < 8) {// daca piesa alba
-					M[piece_row][i] = 1;
+					BM_Put_piece_at_coord(&rezultat, piece_row, i);
 					break;
 				} else {// daca spatiu liber
-					M[piece_row][i] = 1;
+					BM_Put_piece_at_coord(&rezultat, piece_row, i);
+				}
+			}
+		}
+		for (i = piece_col - 1; i >= 0; i--) { // verticala jos
+			ce_piesa = ST_get_tag_Table_What(st, piece_row, i);
+			if (col_on_move == 0) {// daca tura alba
+
+				if (ce_piesa < 8) {// daca e piesa alba
+					break;
+				} else if (ce_piesa < T_NA) { // daca piesa neagra
+					BM_Put_piece_at_coord(&rezultat, piece_row, i);
+					break;
+				} else {// daca pozitie libera
+					BM_Put_piece_at_coord(&rezultat, piece_row, i);
+				}
+			} else { // daca tura neagra
+
+				if (ce_piesa >= 8 && ce_piesa < 14) { //daca piesa neagra
+					break;
+				} else if (ce_piesa < 8) {// daca piesa alba
+					BM_Put_piece_at_coord(&rezultat, piece_row, i);
+					break;
+				} else {// daca spatiu liber
+					BM_Put_piece_at_coord(&rezultat, piece_row, i);
+				}
+			}
+		}
+		for (i = piece_row + 1; i < 8; i++) { // orizontala dreapta
+			ce_piesa = ST_get_tag_Table_What(st, i, piece_col);
+			if (col_on_move == 0) {// daca tura alba
+
+				if (ce_piesa < 8) {// daca e piesa alba
+					break;
+				} else if (ce_piesa < T_NA) { // daca piesa neagra
+					BM_Put_piece_at_coord(&rezultat, i, piece_col);
+					break;
+				} else {// daca pozitie libera
+					BM_Put_piece_at_coord(&rezultat, i, piece_col);
+				}
+			} else { // daca tura neagra
+
+				if (ce_piesa >= 8 && ce_piesa < 14) { //daca piesa neagra
+					break;
+				} else if (ce_piesa < 8) {// daca piesa alba
+					BM_Put_piece_at_coord(&rezultat, i, piece_col);
+					break;
+				} else {// daca spatiu liber
+					BM_Put_piece_at_coord(&rezultat, i, piece_col);
+				}
+			}
+		}
+		for (i = piece_row - 1; i >= 0; i--) {// orizontala stanga
+			ce_piesa = ST_get_tag_Table_What(st, i, piece_col);
+			if (col_on_move == 0) {// daca tura alba
+
+				if (ce_piesa < 8) {// daca e piesa alba
+					break;
+				} else if (ce_piesa < T_NA) { // daca piesa neagra
+					BM_Put_piece_at_coord(&rezultat, i, piece_col);
+					break;
+				} else {// daca pozitie libera
+					BM_Put_piece_at_coord(&rezultat, i, piece_col);
+				}
+			} else { // daca tura neagra
+
+				if (ce_piesa >= 8 && ce_piesa < 14) { //daca piesa neagra
+					break;
+				} else if (ce_piesa < 8) {// daca piesa alba
+					BM_Put_piece_at_coord(&rezultat, i, piece_col);
+					break;
+				} else {// daca spatiu liber
+					BM_Put_piece_at_coord(&rezultat, i, piece_col);
+				}
+			}
+		}
+	}
+
+	if (ST_get_piece_to_move(st) == T_B || regina == 1) {
+		printf("\n row:%d col:%d \n", piece_row, piece_col);
+		for (i = piece_row + 1, j = piece_col + 1; i < 8 && j < 8; i++, j++) { // diagonale dreapta SUS
+
+
+			ce_piesa = ST_get_tag_Table_What(st, i, j);
+
+			if (col_on_move == 0) { // daca nebun alb
+
+				if (ce_piesa < 8) {//daca piesa alba
+					break;
+				} else if (ce_piesa < T_NA) {// daca piesa neagra
+					BM_Put_piece_at_coord(&rezultat, i, j);
+					break;
+				} else { // daca spatiu liber
+					BM_Put_piece_at_coord(&rezultat, i, j);
+				}
+			} else { // daca nebun negru
+
+				if (ce_piesa > 7 && ce_piesa < 14) {// daca piesa neagra
+					break;
+				} else if (ce_piesa < 8) {//daca piesa alba
+					BM_Put_piece_at_coord(&rezultat, i, j);
+					break;
+				} else {
+					BM_Put_piece_at_coord(&rezultat, i, j);
 				}
 			}
 		}
 
+		for (i = piece_row + 1, j = piece_col - 1; i < 8 && j >= 0; i++, j--) {// diag dreapta jos
+
+			ce_piesa = ST_get_tag_Table_What(st, i, j);
+
+			if (col_on_move == 0) { // daca nebun alb
+
+				if (ce_piesa < 8) {//daca piesa alba
+					break;
+				} else if (ce_piesa < T_NA) {// daca piesa neagra
+					BM_Put_piece_at_coord(&rezultat, i, j);
+					break;
+				} else { // daca spatiu liber
+					BM_Put_piece_at_coord(&rezultat, i, j);
+				}
+			} else { // daca nebun negru
+
+				if (ce_piesa > 7 && ce_piesa < 14) {// daca piesa neagra
+					break;
+				} else if (ce_piesa < 8) {//daca piesa alba
+					BM_Put_piece_at_coord(&rezultat, i, j);
+					break;
+				} else {
+					BM_Put_piece_at_coord(&rezultat, i, j);
+				}
+			}
+		}
+
+		for (i = piece_row - 1, j = piece_col + 1; i >= 0 && j < 8; i--, j++) {//diagonale stanga sus
+
+
+			ce_piesa = ST_get_tag_Table_What(st, i, j);
+
+			if (col_on_move == 0) { // daca nebun alb
+
+				if (ce_piesa < 8) {//daca piesa alba
+					break;
+				} else if (ce_piesa < T_NA) {// daca piesa neagra
+					BM_Put_piece_at_coord(&rezultat, i, j);
+					break;
+				} else { // daca spatiu liber
+					BM_Put_piece_at_coord(&rezultat, i, j);
+				}
+			} else { // daca nebun negru
+
+				if (ce_piesa > 7 && ce_piesa < 14) {// daca piesa neagra
+					break;
+				} else if (ce_piesa < 8) {//daca piesa alba
+					BM_Put_piece_at_coord(&rezultat, i, j);
+					break;
+				} else {
+					BM_Put_piece_at_coord(&rezultat, i, j);
+				}
+			}
+		}
+
+		for (i = piece_row - 1, j = piece_col - 1; i >= 0 && j >= 0; i--, j--) { // diagonala stanga jos
+
+			ce_piesa = ST_get_tag_Table_What(st, i, j);
+
+			if (col_on_move == 0) { // daca nebun alb
+
+				if (ce_piesa < 8) {//daca piesa alba
+					break;
+				} else if (ce_piesa < T_NA) {// daca piesa neagra
+					BM_Put_piece_at_coord(&rezultat, i, j);
+					break;
+				} else { // daca spatiu liber
+					BM_Put_piece_at_coord(&rezultat, i, j);
+				}
+			} else { // daca nebun negru
+
+				if (ce_piesa > 7 && ce_piesa < 14) {// daca piesa neagra
+					break;
+				} else if (ce_piesa < 8) {//daca piesa alba
+					BM_Put_piece_at_coord(&rezultat, i, j);
+					break;
+				} else {
+					BM_Put_piece_at_coord(&rezultat, i, j);
+				}
+			}
+		}
 	}
+
+	if (ST_get_piece_to_move(st) == T_P) {
+
+		if (col_on_move == 0) {// daca pioni albi
+
+			if (piece_col == 1) {// daca pioni pe pozitia de start
+
+				if (ST_get_tag_Table_What(st, piece_row, piece_col + 1) == T_NA) {// daca e liber pe prima pozitie
+
+					BM_Put_piece_at_coord(&rezultat, piece_row, piece_col + 1);
+					if (ST_get_tag_Table_What(st, piece_row, piece_col + 2)
+							== T_NA) {// daca e liber pe a 2 a pozitie
+						BM_Put_piece_at_coord(&rezultat, piece_row, piece_col
+								+ 2);
+					}
+				}
+			} else {// daca pioniu giga nu e pe linia de start
+
+				if (ST_get_tag_Table_What(st, piece_row, piece_col + 1) == T_NA) {// daca e liber inaintea lui
+					BM_Put_piece_at_coord(&rezultat, piece_row, piece_col + 1);
+				}
+			}
+			// acu verific capturile
+			captura_stanga = ST_get_tag_Table_What(st, piece_row - 1, piece_col
+					+ 1);
+			captura_dreapta = ST_get_tag_Table_What(st, piece_row + 1,
+					piece_col + 1);
+
+			if (captura_stanga > 7 && captura_stanga < 14) { // daca e piesa neagra acolo
+				BM_Put_piece_at_coord(&rezultat, piece_row - 1, piece_col + 1);
+			}
+			if (captura_dreapta > 7 && captura_dreapta < 14) {// daca e piesa neagra acolo
+				BM_Put_piece_at_coord(&rezultat, piece_row + 1, piece_col + 1);
+			}
+		} else { // daca pionii sunt negri
+
+			if (piece_col == 6) {//daca pioni pe pozitia de start
+
+				if (ST_get_tag_Table_What(st, piece_row, piece_col - 1) == T_NA) {// daca e liber pe prima pozitie
+
+					BM_Put_piece_at_coord(&rezultat, piece_row, piece_col - 1);
+					if (ST_get_tag_Table_What(st, piece_row, piece_col - 2)
+							== T_NA) { // daca e liber pe a 2 a pozitie
+						BM_Put_piece_at_coord(&rezultat, piece_row, piece_col
+								- 2);
+					}
+				}
+			} else { // daca pioni nigar nu e pe linia de start
+
+				if (ST_get_tag_Table_What(st, piece_row, piece_col - 1) == T_NA) { // daca e liber inaintea lui
+					BM_Put_piece_at_coord(&rezultat, piece_row, piece_col - 1);
+				}
+			}
+
+			captura_stanga = ST_get_tag_Table_What(st, piece_row - 1, piece_col
+					- 1);
+			captura_dreapta = ST_get_tag_Table_What(st, piece_row + 1,
+					piece_col - 1);
+
+			if (captura_stanga > 1 && captura_stanga < 8) { // daca e piesa alba acolo
+				BM_Put_piece_at_coord(&rezultat, piece_row - 1, piece_col - 1);
+			}
+			if (captura_dreapta > 1 && captura_dreapta < 8) {
+				BM_Put_piece_at_coord(&rezultat, piece_row + 1, piece_col - 1);
+			}
+		}
+	}
+
+	if (ST_get_piece_to_move(st) == T_K){
+
+		if(col_on_move == 0){
+
+
+		}
+	}
+
+	return rezultat;
 }
