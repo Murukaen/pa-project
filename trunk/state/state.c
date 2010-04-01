@@ -42,6 +42,10 @@ struct s_state {
 	List cur_poz_in_list;
 
 	UCHAR col_on_move; // color on move in this state
+
+	P_LOC en_passant;
+
+	UCHAR gen_init;
 };
 /* ~~~ END state structure ~~~ */
 
