@@ -167,7 +167,7 @@ STATE ST_gen(STATE start_state) {
 				/*setez in noua stare tot calu la mutare*/
 				ST_set_piece_to_move(new_state, T_N);
 
-				log_print_state(new_state, LOG_STATE_GENERATOR_FILE);
+				log_print_state(new_state, LOG_STATE_GENERATOR_FILE , WRITE_TAG_OVER);
 				return new_state;
 			}
 
