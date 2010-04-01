@@ -16,9 +16,9 @@
 
 /* ---- Macro #define ---- */
 #define COM_SEP ' '
+#define LOG_COMMAND_FILE "Log/command.log"
 
-
-#define FEATURES "feature usermove=1 san=1 done=1\n"
+#define FEATURES "feature usermove=1 san=1 sigint=0 done=1\n"
 
 /* --- Types --- */
 
@@ -64,11 +64,8 @@ char * parse_com ( char ** com ) {
 void read_com ( char * com ) {
 	
 		/* LOG */
-		FILE * fout = fopen (LOG_COMMAND_FILE , "a");
-		log_print ("XBoard>Engine>>>" , fout);
-		log_print ( com , fout );
-		fflush(fout);
-		fclose(fout);
+		log_print ("XBoard>Engine>Line>>" , LOG_COMMAND_FILE);
+		log_print ( com , LOG_COMMAND_FILE );
 		/* END LOG */
 	
 				
@@ -98,13 +95,10 @@ void read_com ( char * com ) {
 			
 			/* LOG */
 			
-			FILE * fout = fopen (LOG_COMMAND_FILE , "a");
-			log_print ("XBoard>Engine>Move" , fout );
-			log_print ( word , fout );
-			log_print ("XBoard>Engine>SAN_to_Move" , fout);
-			log_print_move ( SAN_to_Move ( word ) , fout );
-			fflush(fout);
-			fclose(fout);
+			log_print ("XBoard>Engine>Move" , LOG_COMMAND_FILE );
+			log_print ( word , LOG_COMMAND_FILE );
+			log_print ("XBoard>Engine>SAN_to_Move" , LOG_COMMAND_FILE);
+			log_print_move ( SAN_to_Move ( word ) , LOG_COMMAND_FILE );
 			
 			/* END LOG */
 			

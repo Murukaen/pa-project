@@ -19,19 +19,19 @@
 
 void log_init ( void );
 
-void log_print ( char * , FILE * );
+void log_print ( char * , char * );
 
-void log_print_state ( STATE , FILE *);
+void log_print_state ( STATE , char *);
 
-void log_print_move ( MOVE , FILE * );
+void log_print_move ( MOVE , char * );
 
-void log_print_state_Table_What ( STATE , FILE * );
+void log_print_state_Table_What ( STATE , char * );
 
-void log_print_cycle ( int , FILE *);
+void log_print_cycle ( int , char *);
 
-void log_print_integer ( int , FILE *);
+void log_print_integer ( int , char *);
 
-void log_print_character ( char , FILE *);
+void log_print_character ( char , char *);
 
 #endif
 

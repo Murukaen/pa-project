@@ -15,9 +15,7 @@ UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc) {
 
 	if (loc == NULL) {
 		/* LOG */
-		FILE * fout = fopen(LOG_VALIDATE_MOVE_FILE, "a");
-		log_print("locul primit de functia vmischeck e null", fout);
-		fclose(fout);
+		log_print("locul primit de functia vmischeck e null", LOG_VALIDATE_MOVE_FILE);
 		/* END LOG */
 		exit(1);
 	}
@@ -274,11 +272,9 @@ UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc) {
 			return 0;
 		} else {
 			/* LOG */
-			FILE * fout = fopen(LOG_VALIDATE_MOVE_FILE, "a");
 			log_print(
 					"problema la validare mutare , verificare sah :( cam o ora debugg estimez!!",
-					fout);
-			fclose(fout);
+					LOG_VALIDATE_MOVE_FILE);
 			/* END LOG */
 
 			exit(1);

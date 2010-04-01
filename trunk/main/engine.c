@@ -55,10 +55,8 @@ int main ( void ) {
 	while ( 1 ) {
 
 		
-		/* LOG */
-		FILE * fout = fopen (LOG_ENGINE_FILE , "a");
-		log_print_cycle ( count_main_cycles , fout );
-		fclose(fout);	
+		/* LOG Print Cycle Number*/
+		log_print_cycle ( count_main_cycles , LOG_ENGINE_FILE );
 		count_main_cycles ++;	
 		/* END LOG */
 		
@@ -71,12 +69,16 @@ int main ( void ) {
 		if ( is_engine_on_move () ) {
 			
 			/* LOG */	
-			FILE * fout = fopen (LOG_ENGINE_FILE , "a");
-			log_print ("Engine on move:\n" , fout);
-			fclose(fout);
+			log_print ("Engine on move:\n" , LOG_ENGINE_FILE);
 			/* END LOG */
 
 			chosen_state = decide ();
+			
+				/* LOG */	
+				log_print ("Chosen State:\n" , LOG_ENGINE_FILE);
+				log_print_state_Table_What ( chosen_state , LOG_ENGINE_FILE );
+				/* END LOG */
+			
 			
 			if ( chosen_state != NULL ) { // if there is a valid chosen_state
 				
@@ -84,10 +86,8 @@ int main ( void ) {
 				chosen_move = determine_move ( chosen_state );
 				
 				/* LOG */	
-				FILE * fout = fopen (LOG_ENGINE_FILE , "a");
-				log_print ("Determine move:\n" , fout);
-				log_print_move ( chosen_move , fout );
-				fclose(fout);
+				log_print ("Determine move:\n" , LOG_ENGINE_FILE);
+				log_print_move ( chosen_move , LOG_ENGINE_FILE );
 				/* END LOG */
 	
 				poll_output ( (void *) chosen_move , T_COM_MOVE );
@@ -95,15 +95,15 @@ int main ( void ) {
 			}
 			
 			else {   // cannot make move
+			
+				/* LOG Resign ( No more moves to make )*/
+				log_print ("Resign" , LOG_ENGINE_FILE);
+				/* END LOG */
 				
 				poll_output ( NULL , T_COM_RESIGN );
 				sleep(2);
 				
-				/* LOG */
-				FILE * fout = fopen (LOG_ENGINE_FILE , "a");
-				log_print ("Resign" , fout);
-				fclose(fout);
-				/* END LOG */
+
 			
 				
 				exit(0);

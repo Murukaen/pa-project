@@ -147,10 +147,8 @@ void update_state(MOVE mov) {
 	ST_set_cur_poz_in_list(cur, ST_get_List_Table_Location(cur, ST_get_col_on_move(cur), piesa));
 	
 	/* LOG */
-	FILE * fout = fopen (LOG_UPDATE_STATE_FILE , "a");
-	log_print ("Updated State\n" , fout);
-	log_print_state_Table_What ( cur_state_get () , fout );
-	fclose(fout);
+	log_print ("Updated State\n" , LOG_UPDATE_STATE_FILE);
+	log_print_state_Table_What ( cur_state_get () , LOG_UPDATE_STATE_FILE );
 	/* END LOG */
 	
 }
