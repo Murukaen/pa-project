@@ -10,6 +10,7 @@
 /* ----- Local #inlcudes ----- */
 #include "../state/state.h"
 #include "../move/move.h"
+#include "../bitmap/bitmap.h"
 
 /* ---- Macro #define ---- */
 #define WRITE_TAG_OVER 0
@@ -34,6 +35,8 @@ void log_print_cycle ( int , char *);
 void log_print_integer ( int , char *);
 
 void log_print_character ( char , char *);
+
+void log_print_bitmap ( BITMAP , char * );
 
 #endif
 

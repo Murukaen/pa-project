@@ -13,6 +13,7 @@
 #define INIT_PREX 0
 #define INIT_POSX 1
 #define INIT_ALL 2
+#define INIT_NEW 3
 
 /* --- Types --- */
 

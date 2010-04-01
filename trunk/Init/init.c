@@ -39,7 +39,10 @@ void Init ( int loc ) {
 							
 		case INIT_ALL:     	log_init ();
 							flags_init ();
-							Init ( INIT_POSX);
+							Init ( INIT_POSX );
+							break;
+							
+		case INIT_NEW:      update_state_init ();
 							break;
 							
 	}

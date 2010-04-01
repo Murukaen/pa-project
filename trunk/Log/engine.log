@@ -1,2 +1,307 @@
-Time:4706:Cycle - 0 - 
-Time:4707:Cycle - 1 - 
+Time:4021:Cycle - 0 - 
+Time:4021:Engine Lock : 
+Time:4021:Value: 1
+Time:4021:Cycle - 1 - 
+Time:4021:Engine Lock : 
+Time:4021:Value: 1
+Time:4021:Cycle - 2 - 
+Time:4023:Engine Lock : 
+Time:4023:Value: 1
+Time:4023:Cycle - 3 - 
+Time:4023:Engine Lock : 
+Time:4023:Value: 0
+Time:4023:Engine on move:
+
+Time:4023:Chosen State:
+
+Time:4023
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p p p p p p p 
+- - - - - n - - 
+- - - - - - - - 
+- - - - - - - - 
+- - - - - N - - 
+P P P P P P P P 
+R N B Q K B - R 
+Time:4023:Determine move:
+
+Time:4023
+{
+ p_tag = Knight 
+
+ poz_src = ( g , 8 ) 
+
+ poz_dst = ( f , 6 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = ERRTAG 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = Black 
+}Time:4023:Cycle - 4 - 
+Time:4024:Engine Lock : 
+Time:4024:Value: 0
+Time:4024:Engine on move:
+
+Time:4024:Chosen State:
+
+Time:4024
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - n - - - - 
+- - - - - - P - 
+- - - - - N - - 
+P P P P P P - P 
+R N B Q K B - R 
+Time:4024:Determine move:
+
+Time:4024
+{
+ p_tag = Knight 
+
+ poz_src = ( f , 6 ) 
+
+ poz_dst = ( d , 5 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = ERRTAG 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = Black 
+}Time:4024:Cycle - 5 - 
+Time:4027:Engine Lock : 
+Time:4027:Value: 0
+Time:4027:Engine on move:
+
+Time:4027:Chosen State:
+
+Time:4027
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p p p p p p p 
+- - - - - - - - 
+- - - n - - - - 
+- - - N - - P - 
+- - - - - - - - 
+P P P P P P - P 
+R N B Q K B - R 
+Time:4027:Determine move:
+
+Time:4027
+{
+ p_tag = Knight 
+
+ poz_src = ( f , 3 ) 
+
+ poz_dst = ( d , 4 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = ERRTAG 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:4027:Cycle - 6 - 
+Time:4031:Engine Lock : 
+Time:4031:Value: 0
+Time:4031:Engine on move:
+
+Time:4031:Chosen State:
+
+Time:4031
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p - p p p p p 
+- - p - - - - - 
+- - - n - - - - 
+- - - - - - P - 
+- N - - - - - - 
+P P P P P P - P 
+R N B Q K B - R 
+Time:4031:Determine move:
+
+Time:4031
+{
+ p_tag = Knight 
+
+ poz_src = ( d , 4 ) 
+
+ poz_dst = ( b , 3 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = ERRTAG 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:4031:Cycle - 7 - 
+Time:4035:Engine Lock : 
+Time:4035:Value: 0
+Time:4035:Engine on move:
+
+Time:4035:Chosen State:
+
+Time:4035
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p - p - p p p 
+- - p - - - - - 
+N - - n p - - - 
+- - - - - - P - 
+- - - - - - - - 
+P P P P P P - P 
+R N B Q K B - R 
+Time:4035:Determine move:
+
+Time:4035
+{
+ p_tag = Knight 
+
+ poz_src = ( b , 3 ) 
+
+ poz_dst = ( a , 5 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = ERRTAG 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:4035:Cycle - 8 - 
+Time:4038:Engine Lock : 
+Time:4038:Value: 0
+Time:4038:Engine on move:
+
+Time:4038:Chosen State:
+
+Time:4038
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p - p - p p p 
+- - p - - - - - 
+N - - - p - - - 
+- n - - - - P - 
+- - - - - - - - 
+P P P P P P - P 
+R N B Q K B - R 
+Time:4038:Determine move:
+
+Time:4038
+{
+ p_tag = Knight 
+
+ poz_src = ( d , 5 ) 
+
+ poz_dst = ( b , 4 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = ERRTAG 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = Black 
+}Time:4038:Cycle - 9 - 
+Time:4082:Engine Lock : 
+Time:4082:Value: 0
+Time:4082:Cycle - 10 - 
+Time:4082:Engine Lock : 
+Time:4082:Value: 0
+Time:4082:Engine on move:
+
+Time:4082:Chosen State:
+
+Time:4082
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p - p - p p p 
+- - p - - - - - 
+- - - - p - - - 
+- n - - - - P - 
+- N - - - - - - 
+P P P P P P - P 
+R N B Q K B - R 
+Time:4082:Determine move:
+
+Time:4082
+{
+ p_tag = Knight 
+
+ poz_src = ( a , 5 ) 
+
+ poz_dst = ( b , 3 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = ERRTAG 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:4082:Cycle - 11 - 
+Time:4085:Engine Lock : 
+Time:4085:Value: 0
+Time:4085:Cycle - 12 - 
+Time:4085:Engine Lock : 
+Time:4085:Value: 0
+Time:4085:Engine on move:
+
+Time:4085:Chosen State:
+
+Time:4085
+
+~~~Table_What~~~:
+
+r n b - k b - r 
+p p - p - p p p 
+- - p - - - - - 
+N - - - p - - - 
+- n - - - - P - 
+- - - - - - - - 
+P P P P P P - P 
+R N B Q K B - R 
+Time:4085:Determine move:
+
+Time:4085
+{
+ p_tag = Knight 
+
+ poz_src = ( b , 3 ) 
+
+ poz_dst = ( a , 5 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = ERRTAG 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:4085:Cycle - 13 - 
+Time:7661:Engine Lock : 
+Time:7661:Value: 0
+Time:7661:Cycle - 14 - 

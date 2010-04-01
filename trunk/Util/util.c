@@ -116,6 +116,11 @@ UCHAR not ( UCHAR b) {
 
 /* Tags */
 
+int is_tag_of_col ( UCHAR tag , UCHAR col ) {
+	
+	return ( ( 2 + BWP_OFF * col ) <= tag && tag <= ( 7 + BWP_OFF ) );
+}
+
 UCHAR letter_to_tag ( char c ) {
 	
 	c = toupper(c);

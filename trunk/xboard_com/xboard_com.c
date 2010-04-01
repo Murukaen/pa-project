@@ -14,6 +14,7 @@
 #include "xboard_com.h"
 #include "../command/command.h"
 #include "../Log/log.h"
+#include "../Flags/flags.h"
 
 /* ---- Macro #define ---- */
 #define STDIN 0

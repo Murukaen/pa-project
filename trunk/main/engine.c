@@ -35,23 +35,11 @@ int main ( void ) {
 	Init(INIT_PREX);
 	/* END COM Inits */
 	
-	/* Initial Communication */
-	while ( !get_init_com ()  ) { // while initial communication not done
-	
-		poll_input ();
-	}
-	/* END Initial Communication */
-
-	/* All Inits */
-	Init(INIT_POSX);
-	/* END All Inits */
-	
 	/* Variables */
 	STATE chosen_state;
 	MOVE chosen_move;
 	UCHAR quit = 0;
 	/* END Variables */
-	
 	
 	while ( 1 ) {
 
@@ -67,7 +55,13 @@ int main ( void ) {
 		/* END Poll Input */
 		
 		/* IF Engine is on move : Make a move */
-		if ( is_engine_on_move () && !quit) {
+		
+		/* LOG If conditions */
+		log_print ( "Engine Lock : " , LOG_ENGINE_FILE);
+		log_print_integer ( get_engine_lock () , LOG_ENGINE_FILE );
+		/* END LOG */
+		
+		if ( get_engine_lock () == 0 && is_engine_on_move () && !quit  ) {
 			
 			/* LOG */	
 			log_print ("Engine on move:\n" , LOG_ENGINE_FILE);
