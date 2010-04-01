@@ -1,21 +1,21 @@
->>>White
-r n b q k b n r
+>>>Black
+r - b q k b - r
 p p p p p p p p
 - - - - - - - -
 - - - - - - - -
-- - - - - - - -
-- - - - - - - -
-P P P P P P P P
-R N B Q K B N R
+- n - - - - - -
+- - - - - N - -
+N P P P P P P P
+R - B Q K B - R
 
 
 
->>>Black
-r n b q k b n r
+>>>White
+r - b q k b - r
 p p p p p p p p
 - - - - - - - -
 - - - - - - - -
 - - - - - - - -
 - - - - - N - -
-P P P P P P P P
-R N B Q K B - R
+n P P P P P P P
+R - B Q K B - R

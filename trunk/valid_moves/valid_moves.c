@@ -326,7 +326,6 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 				}
 			}
 		}
-	case T_B:
 
 	}
 }

@@ -108,7 +108,7 @@ STATE ST_gen(STATE start_state) {
 						piece_to_delete -= 6;
 					}
 					/* iau bitmapul pieselor de tipul celei capturate si il modific*/
-					if (piece_to_delete != ST_get_piece_to_move(st)) {
+					if (piece_to_delete != ST_get_piece_to_move(start_state)) {
 						new_bmap = ST_get_bitmap(start_state, piece_to_delete);
 						BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(new_r,
 								new_c));

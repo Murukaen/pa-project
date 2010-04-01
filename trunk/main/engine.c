@@ -49,6 +49,7 @@ int main ( void ) {
 	/* Variables */
 	STATE chosen_state;
 	MOVE chosen_move;
+	UCHAR quit = 0;
 	/* END Variables */
 	
 	
@@ -66,7 +67,7 @@ int main ( void ) {
 		/* END Poll Input */
 		
 		/* IF Engine is on move : Make a move */
-		if ( is_engine_on_move () ) {
+		if ( is_engine_on_move () && !quit) {
 			
 			/* LOG */	
 			log_print ("Engine on move:\n" , LOG_ENGINE_FILE);
@@ -101,12 +102,7 @@ int main ( void ) {
 				/* END LOG */
 				
 				poll_output ( NULL , T_COM_RESIGN );
-				sleep(2);
-				
-
-			
-				
-				exit(0);
+				quit = 1;
 			}
 		}
 		
