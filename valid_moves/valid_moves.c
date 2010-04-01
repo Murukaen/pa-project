@@ -15,7 +15,8 @@ UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc) {
 
 	if (loc == NULL) {
 		/* LOG */
-		log_print("locul primit de functia vmischeck e null", LOG_VALIDATE_MOVE_FILE);
+		log_print("locul primit de functia vmischeck e null",
+				LOG_VALIDATE_MOVE_FILE);
 		/* END LOG */
 		exit(1);
 	}
@@ -294,25 +295,20 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 	UCHAR piece_row = LOC_get_row(loc_piesa), piece_col =
 			LOC_get_col(loc_piesa);
 	int i, j;
-	UCHAR M[8][8], pieces_tag = ST_get_tag_Table_What(st, piece_row, i),
-			col_on_move = ST_get_col_on_move(st);
-
-	if (col_on_move == 1) {
-		pieces_tag -= BWP_OFF;
-	}
+	UCHAR M[8][8], ce_piesa, col_on_move = ST_get_col_on_move(st);
 
 	switch (ST_get_piece_to_move(st)) {
 
 	case T_R:
 
 		for (i = piece_col + 1; i < 8; i++) {
-
+			ce_piesa = ST_get_tag_Table_What(st, piece_row, i);
 			if (col_on_move == 0) {// daca tura alba
 
 
-				if (pieces_tag < 8) {// daca e piesa alba
+				if (ce_piesa < 8) {// daca e piesa alba
 					break;
-				} else if (pieces_tag < T_NA) { // daca piesa neagra
+				} else if (ce_piesa < T_NA) { // daca piesa neagra
 					M[piece_row][i] = 1;
 					break;
 				} else {// daca pozitie libera
@@ -320,9 +316,9 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 				}
 			} else { // daca tura neagra
 
-				if (pieces_tag >= 8 && pieces_tag < 14) { //daca piesa neagra
+				if (ce_piesa >= 8 && ce_piesa < 14) { //daca piesa neagra
 					break;
-				} else if (pieces_tag < 8) {// daca piesa alba
+				} else if (ce_piesa < 8) {// daca piesa alba
 					M[piece_row][i] = 1;
 					break;
 				} else {// daca spatiu liber
@@ -330,5 +326,7 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 				}
 			}
 		}
+	case T_B:
+
 	}
 }

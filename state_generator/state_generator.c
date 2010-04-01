@@ -38,7 +38,6 @@ STATE ST_gen(STATE start_state) {
 	P_LOC loc;
 	BITMAP valid_moves, new_bmap;
 
-
 	STATE new_state = ST_new();
 
 	for (loc = first_nod_list(&L); loc; index = 0, loc = first_nod_list(&L)) {
@@ -109,10 +108,12 @@ STATE ST_gen(STATE start_state) {
 						piece_to_delete -= 6;
 					}
 					/* iau bitmapul pieselor de tipul celei capturate si il modific*/
-					new_bmap = ST_get_bitmap(start_state, piece_to_delete);
-					BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(new_r,
-							new_c));
-					ST_set_bitmap(new_state, piece_to_delete, new_bmap);
+					if (piece_to_delete != ST_get_piece_to_move(st)) {
+						new_bmap = ST_get_bitmap(start_state, piece_to_delete);
+						BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(new_r,
+								new_c));
+						ST_set_bitmap(new_state, piece_to_delete, new_bmap);
+					}
 
 					/*modific bitmapul pieselor ~col_on_move*/
 					new_bmap = ST_get_bitmap(start_state, not(col_on_move));
