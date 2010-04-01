@@ -1,15 +1,218 @@
-Time:7551:Engine>XBoard>>>
-Time:7551:feature done=0
+Time:3772:Engine>XBoard>>>
+Time:3772:feature done=0
 
-Time:7551:Engine>XBoard>>>
-Time:7551:
+Time:3772:WAIT Input
+Time:3772:Char:|x|
+Time:3772:Char:|b|
+Time:3772:Char:|o|
+Time:3772:Char:|a|
+Time:3772:Char:|r|
+Time:3772:Char:|d|
+Time:3772:RECEIVED Input
+Time:3772:XBoard>Engine>Buffer>>
+Time:3772:xboard
 
-Time:7552:Engine>XBoard>BUF>>
-Time:7552:feature usermove=1 san=1 done=1
+Time:3772:Engine>XBoard>>>
+Time:3772:
 
-Time:7552:Engine>XBoard>>>
-Time:7552:feature usermove=1 san=1 done=1
+Time:3772:WAIT Input
+Time:3772:Char:|p|
+Time:3772:Char:|r|
+Time:3772:Char:|o|
+Time:3772:Char:|t|
+Time:3772:Char:|o|
+Time:3772:Char:|v|
+Time:3772:Char:|e|
+Time:3772:Char:|r|
+Time:3772:Char:| |
+Time:3772:Char:|2|
+Time:3772:RECEIVED Input
+Time:3772:XBoard>Engine>Buffer>>
+Time:3772:protover 2
 
-Time:7554:Engine>XBoard>>>
-Time:7554:move Nf6
+Time:3772:Engine>XBoard>BUF>>
+Time:3772:feature usermove=1 san=1 done=1
 
+Time:3772:Engine>XBoard>>>
+Time:3772:feature usermove=1 san=1 done=1
+
+Time:3772:WAIT Input
+Time:3772:Char:|a|
+Time:3772:Char:|c|
+Time:3772:Char:|c|
+Time:3772:Char:|e|
+Time:3772:Char:|p|
+Time:3772:Char:|t|
+Time:3772:Char:|e|
+Time:3772:Char:|d|
+Time:3772:Char:| |
+Time:3772:Char:|d|
+Time:3772:Char:|o|
+Time:3772:Char:|n|
+Time:3772:Char:|e|
+Time:3772:RECEIVED Input
+Time:3772:XBoard>Engine>Buffer>>
+Time:3772:accepted done
+
+Time:3772:WAIT Input
+Time:3772:Char:|a|
+Time:3772:Char:|c|
+Time:3772:Char:|c|
+Time:3772:Char:|e|
+Time:3772:Char:|p|
+Time:3772:Char:|t|
+Time:3772:Char:|e|
+Time:3772:Char:|d|
+Time:3772:Char:| |
+Time:3772:Char:|u|
+Time:3772:Char:|s|
+Time:3772:Char:|e|
+Time:3772:Char:|r|
+Time:3772:Char:|m|
+Time:3772:Char:|o|
+Time:3772:Char:|v|
+Time:3772:Char:|e|
+Time:3772:RECEIVED Input
+Time:3772:XBoard>Engine>Buffer>>
+Time:3772:accepted usermove
+
+Time:3772:WAIT Input
+Time:3772:Char:|a|
+Time:3772:Char:|c|
+Time:3772:Char:|c|
+Time:3772:Char:|e|
+Time:3772:Char:|p|
+Time:3772:Char:|t|
+Time:3772:Char:|e|
+Time:3772:Char:|d|
+Time:3772:Char:| |
+Time:3772:Char:|s|
+Time:3772:Char:|a|
+Time:3772:Char:|n|
+Time:3772:RECEIVED Input
+Time:3772:XBoard>Engine>Buffer>>
+Time:3772:accepted san
+
+Time:3772:WAIT Input
+Time:3772:Char:|a|
+Time:3772:Char:|c|
+Time:3772:Char:|c|
+Time:3772:Char:|e|
+Time:3772:Char:|p|
+Time:3772:Char:|t|
+Time:3772:Char:|e|
+Time:3772:Char:|d|
+Time:3772:Char:| |
+Time:3772:Char:|d|
+Time:3772:Char:|o|
+Time:3772:Char:|n|
+Time:3772:Char:|e|
+Time:3772:RECEIVED Input
+Time:3772:XBoard>Engine>Buffer>>
+Time:3772:accepted done
+
+Time:3772:WAIT Input
+Time:3772:Char:|n|
+Time:3772:Char:|e|
+Time:3772:Char:|w|
+Time:3772:RECEIVED Input
+Time:3772:XBoard>Engine>Buffer>>
+Time:3772:new
+
+Time:3772:WAIT Input
+Time:3772:Char:|r|
+Time:3772:Char:|a|
+Time:3772:Char:|n|
+Time:3772:Char:|d|
+Time:3772:Char:|o|
+Time:3772:Char:|m|
+Time:3772:RECEIVED Input
+Time:3772:XBoard>Engine>Buffer>>
+Time:3772:random
+
+Time:3772:WAIT Input
+Time:3772:Char:|l|
+Time:3772:Char:|e|
+Time:3772:Char:|v|
+Time:3772:Char:|e|
+Time:3772:Char:|l|
+Time:3772:Char:| |
+Time:3772:Char:|4|
+Time:3772:Char:|0|
+Time:3772:Char:| |
+Time:3772:Char:|5|
+Time:3772:Char:| |
+Time:3772:Char:|0|
+Time:3772:RECEIVED Input
+Time:3772:XBoard>Engine>Buffer>>
+Time:3772:level 40 5 0
+
+Time:3772:WAIT Input
+Time:3772:Char:|p|
+Time:3772:Char:|o|
+Time:3772:Char:|s|
+Time:3772:Char:|t|
+Time:3772:RECEIVED Input
+Time:3772:XBoard>Engine>Buffer>>
+Time:3772:post
+
+Time:3772:WAIT Input
+Time:3772:Char:|h|
+Time:3772:Char:|a|
+Time:3772:Char:|r|
+Time:3772:Char:|d|
+Time:3772:RECEIVED Input
+Time:3772:XBoard>Engine>Buffer>>
+Time:3772:hard
+
+Time:3772:WAIT Input
+Time:3774:Char:|t|
+Time:3774:Char:|i|
+Time:3774:Char:|m|
+Time:3774:Char:|e|
+Time:3774:Char:| |
+Time:3774:Char:|3|
+Time:3774:Char:|0|
+Time:3774:Char:|0|
+Time:3774:Char:|0|
+Time:3774:Char:|0|
+Time:3774:RECEIVED Input
+Time:3774:XBoard>Engine>Buffer>>
+Time:3774:time 30000
+
+Time:3774:WAIT Input
+Time:3774:Char:|o|
+Time:3774:Char:|t|
+Time:3774:Char:|i|
+Time:3774:Char:|m|
+Time:3774:Char:| |
+Time:3774:Char:|3|
+Time:3774:Char:|0|
+Time:3774:Char:|0|
+Time:3774:Char:|0|
+Time:3774:Char:|0|
+Time:3774:RECEIVED Input
+Time:3774:XBoard>Engine>Buffer>>
+Time:3774:otim 30000
+
+Time:3774:WAIT Input
+Time:3774:Char:|u|
+Time:3774:Char:|s|
+Time:3774:Char:|e|
+Time:3774:Char:|r|
+Time:3774:Char:|m|
+Time:3774:Char:|o|
+Time:3774:Char:|v|
+Time:3774:Char:|e|
+Time:3774:Char:| |
+Time:3774:Char:|N|
+Time:3774:Char:|f|
+Time:3774:Char:|3|
+Time:3774:RECEIVED Input
+Time:3774:XBoard>Engine>Buffer>>
+Time:3774:usermove Nf3
+
+Time:3774:Engine>XBoard>>>
+Time:3774:move Nf6
+
+Time:3774:WAIT Input

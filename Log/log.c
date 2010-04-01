@@ -92,5 +92,11 @@ void log_print_integer ( int nr , FILE * fout) {
 	fprintf(fout,"Time:%u:Value: %d\n" , get_time ( DEFAULT_PRECISION) , nr);
 	fflush(fout);
 }
+
+void log_print_character ( char c, FILE *fout) {
+	
+	fprintf(fout,"Time:%u:Char:|%c|\n" , get_time ( DEFAULT_PRECISION) , c);
+	fflush(fout);
+}
 	
 

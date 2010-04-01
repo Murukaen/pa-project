@@ -17,7 +17,7 @@
 
 /* ---- Macro #define ---- */
 #define STDIN 0
-#define BUF_LENGTH 100 
+#define BUF_LENGTH 200
 #define BUF_SEP "\n"
 
 #define INIT_FEATURES "feature done=0\n"
@@ -33,13 +33,48 @@ char mem_buffer [BUF_LENGTH];
 
 char * get_input_buffer ( void ) {
 	
-	int length = read(STDIN,read_buffer,BUF_LENGTH-1);
-	read_buffer[length] = '\0';
+	/* LOG */
+	FILE * fout = fopen (LOG_XBOARD_COM_FILE , "a");
+	log_print ( "WAIT Input" , fout );
+	fflush(fout);
+	fclose(fout);
+	/* END LOG */
+	
+	int poz = 0;
+	fflush(stdin);
+	while ( scanf( "%c" , &read_buffer [poz ] ) && read_buffer [poz] != '\n' ) {
+			
+				/* LOG */
+				FILE * fout = fopen (LOG_XBOARD_COM_FILE , "a");
+				log_print_character ( read_buffer[poz] , fout );
+				fflush(fout);
+				fclose(fout);
+				/* END LOG */
+				poz ++;
+	}
+	read_buffer [poz+1] = '\0';
+	//int length = read(STDIN,read_buffer,BUF_LENGTH-1);
+	//read_buffer[length] = '\0';
+	//gets ( read_buffer );
+	
+	/* LOG */
+	fout = fopen (LOG_XBOARD_COM_FILE , "a");
+	log_print ( "RECEIVED Input" , fout );
+	fflush(fout);
+	fclose(fout);
+	/* END LOG */
 
 	return read_buffer;
 }
 
 void parse_buf ( char * buf ) {
+	
+		/* LOG */
+		FILE * fout = fopen (LOG_XBOARD_COM_FILE , "a");
+		log_print ( "XBoard>Engine>Buffer>>" , fout );
+		log_print ( buf , fout );
+		fclose(fout);
+		/* END LOG */
 	
 		char *com;
 		for(com = strtok(buf , BUF_SEP); com ; com = strtok(0 , BUF_SEP) ) 
@@ -74,6 +109,7 @@ void write_to_xboard ( char * text) {
 
 void xboard_com_init ( void ) {
 	
+		setbuf(stdin, NULL);
 		empty_mem_buf ();
 		write_to_xboard (INIT_FEATURES);  
 }
@@ -97,7 +133,8 @@ void poll_input ( void ) {
 			write_to_xboard ( mem_buffer ); // flush xboard_com buffer to XBoard
 			empty_mem_buf () ; // empty the memory buffer
 		}
-				
+		
+	
 		parse_buf ( get_input_buffer () );  // wait and get all the available input
 }
 
