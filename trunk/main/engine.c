@@ -53,8 +53,8 @@ int main ( void ) {
 	
 	
 	while ( 1 ) {
+
 		
-		sleep (1);
 		/* LOG */
 		FILE * fout = fopen (LOG_ENGINE_FILE , "a");
 		log_print_cycle ( count_main_cycles , fout );
@@ -69,6 +69,12 @@ int main ( void ) {
 		
 		/* IF Engine is on move : Make a move */
 		if ( is_engine_on_move () ) {
+			
+			/* LOG */	
+			FILE * fout = fopen (LOG_ENGINE_FILE , "a");
+			log_print ("Engine on move:\n" , fout);
+			fclose(fout);
+			/* END LOG */
 
 			chosen_state = decide ();
 			

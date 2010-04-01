@@ -31,5 +31,7 @@ void log_print_cycle ( int , FILE *);
 
 void log_print_integer ( int , FILE *);
 
+void log_print_character ( char , FILE *);
+
 #endif
 

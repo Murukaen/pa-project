@@ -63,6 +63,14 @@ char * parse_com ( char ** com ) {
 
 void read_com ( char * com ) {
 	
+		/* LOG */
+		FILE * fout = fopen (LOG_COMMAND_FILE , "a");
+		log_print ("XBoard>Engine>>>" , fout);
+		log_print ( com , fout );
+		fflush(fout);
+		fclose(fout);
+		/* END LOG */
+	
 				
 		int length = strlen(com) + 1;
 		char *prop = (char *) malloc ( length * sizeof (char) );
@@ -73,13 +81,7 @@ void read_com ( char * com ) {
 		
 		word = parse_com ( &poz );
 		
-		/* LOG */
-		FILE * fout = fopen (LOG_COMMAND_FILE , "a");
-		log_print ("XBoard>Engine>>>" , fout);
-		log_print ( word , fout );
-		fflush(fout);
-		fclose(fout);
-		/* END LOG */
+
 		
 		/* Analyse command */
 				

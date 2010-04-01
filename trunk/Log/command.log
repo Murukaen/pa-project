@@ -1,35 +1,35 @@
-Time:7551:XBoard>Engine>>>
-Time:7551:xboard
-Time:7551:XBoard>Engine>>>
-Time:7551:protover
-Time:7552:XBoard>Engine>>>
-Time:7552:accepted
-Time:7553:XBoard>Engine>>>
-Time:7553:accepted
-Time:7553:XBoard>Engine>>>
-Time:7553:accepted
-Time:7553:XBoard>Engine>>>
-Time:7553:accepted
-Time:7553:XBoard>Engine>>>
-Time:7553:new
-Time:7553:XBoard>Engine>>>
-Time:7553:random
-Time:7553:XBoard>Engine>>>
-Time:7553:level
-Time:7553:XBoard>Engine>>>
-Time:7553:post
-Time:7553:XBoard>Engine>>>
-Time:7553:hard
-Time:7554:XBoard>Engine>>>
-Time:7554:time
-Time:7554:XBoard>Engine>>>
-Time:7554:otim
-Time:7554:XBoard>Engine>>>
-Time:7554:usermove
-Time:7554:XBoard>Engine>Move
-Time:7554:Nf3
-Time:7554:XBoard>Engine>SAN_to_Move
-Time:7554
+Time:3772:XBoard>Engine>>>
+Time:3772:xboard
+Time:3772:XBoard>Engine>>>
+Time:3772:protover 2
+Time:3772:XBoard>Engine>>>
+Time:3772:accepted done
+Time:3772:XBoard>Engine>>>
+Time:3772:accepted usermove
+Time:3772:XBoard>Engine>>>
+Time:3772:accepted san
+Time:3772:XBoard>Engine>>>
+Time:3772:accepted done
+Time:3772:XBoard>Engine>>>
+Time:3772:new
+Time:3772:XBoard>Engine>>>
+Time:3772:random
+Time:3772:XBoard>Engine>>>
+Time:3772:level 40 5 0
+Time:3772:XBoard>Engine>>>
+Time:3772:post
+Time:3772:XBoard>Engine>>>
+Time:3772:hard
+Time:3774:XBoard>Engine>>>
+Time:3774:time 30000
+Time:3774:XBoard>Engine>>>
+Time:3774:otim 30000
+Time:3774:XBoard>Engine>>>
+Time:3774:usermove Nf3
+Time:3774:XBoard>Engine>Move
+Time:3774:Nf3
+Time:3774:XBoard>Engine>SAN_to_Move
+Time:3774
 {
  p_tag = Knight 
 
