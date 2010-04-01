@@ -12,13 +12,11 @@ BITMAP VM_valid_pos(BITMAP posibile, BITMAP piese_albe) {
 }
 
 UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc) {
-	
-	
 
 	if (loc == NULL) {
 		/* LOG */
-		FILE * fout = fopen (LOG_VALIDATE_MOVE_FILE , "a");
-		log_print ("locul primit de functia vmischeck e null", fout);
+		FILE * fout = fopen(LOG_VALIDATE_MOVE_FILE, "a");
+		log_print("locul primit de functia vmischeck e null", fout);
 		fclose(fout);
 		/* END LOG */
 		exit(1);
@@ -106,7 +104,7 @@ UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc) {
 			if (row_king > row_piece) { // daca regele e in dreapta piesei
 
 				for (i = row_king - 1; i >= 0; i--) {
-					tag = ST_get_tag_Table_What(st, i,col_king);
+					tag = ST_get_tag_Table_What(st, i, col_king);
 					if (col_on_move == 0) { // daca e albu la mutare
 						if (tag == piece_to_move || tag == 255) {// daca nu e nicio piesa pe pozitia respectiva sau e piesa mutata sar peste
 							continue;
@@ -274,22 +272,67 @@ UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc) {
 				}
 			}
 			return 0;
-		}else{
+		} else {
 			/* LOG */
-			FILE * fout = fopen (LOG_VALIDATE_MOVE_FILE , "a");
-			log_print ("problema la validare mutare , verificare sah :( cam o ora debugg estimez!!" , fout);
+			FILE * fout = fopen(LOG_VALIDATE_MOVE_FILE, "a");
+			log_print(
+					"problema la validare mutare , verificare sah :( cam o ora debugg estimez!!",
+					fout);
 			fclose(fout);
 			/* END LOG */
-			
+
 			exit(1);
 		}
 	}
 	/* LOG */
-	FILE * fout = fopen (LOG_VALIDATE_MOVE_FILE , "a");
-	log_print ("validare mutare sah, s a ajuns unde nu trebuia , e nashpa!" , fout);
-	fclose(fout);
+	log_print("validare mutare sah, s a ajuns unde nu trebuia , e nashpa!",
+			LOG_VALIDATE_MOVE_FILE);
 	/* END LOG */
 
 	exit(1);
 	return 0;
+}
+
+BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
+
+	UCHAR piece_row = LOC_get_row(loc_piesa), piece_col =
+			LOC_get_col(loc_piesa);
+	int i, j;
+	UCHAR M[8][8], pieces_tag = ST_get_tag_Table_What(st, piece_row, i),
+			col_on_move = ST_get_col_on_move(st);
+
+	if (col_on_move = 1) {
+		pieces_tag -= BWP_OFF;
+	}
+
+	switch (ST_get_piece_to_move(st)) {
+
+	case T_R:
+
+		for (i = piece_col + 1; i < 8; i++) {
+
+			if (col_on_move == 0) {// daca tura alba
+
+
+				if (pieces_tag < 8) {// daca e piesa alba
+					break;
+				} else if (pieces_tag < T_NA) { // daca piesa neagra
+					M[piece_row][i] = 1;
+					break;
+				} else {// daca pozitie libera
+					M[piece_row][i] = 1;
+				}
+			} else { // daca tura neagra
+
+				if (pieces_tag >= 8 && pieces_tag < 14) { //daca piesa neagra
+					break;
+				} else if (pieces_tag < 8) {// daca piesa alba
+					M[piece_row][i] = 1;
+					break;
+				} else {// daca spatiu liber
+					M[pieces_row][i] = 1;
+				}
+			}
+		}
+	}
 }

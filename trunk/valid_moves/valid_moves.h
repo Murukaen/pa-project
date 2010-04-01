@@ -13,6 +13,6 @@ BITMAP VM_valid_pos(BITMAP,BITMAP);
  * 1 true 0 false */
 UCHAR VM_is_Check_if_piece_moves(STATE,P_LOC);
 
-// functie vm_is_check to do
+BITMAP VM_valid_moves(STATE,P_LOC);
 
 #endif /* VALID_MOVES_H_ */

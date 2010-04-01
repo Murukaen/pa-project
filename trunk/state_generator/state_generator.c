@@ -29,13 +29,17 @@
 
 STATE ST_gen(STATE start_state) {
 
-	FILE * fout = fopen("./Log/state_generator.log", "a");
 	UCHAR index = ST_get_move_index(start_state), i, j, k;
 	UCHAR col_on_move = ST_get_col_on_move(start_state);
 
 	List L = ST_get_cur_poz_in_list(start_state);
 	P_LOC loc;
 	BITMAP valid_moves, new_bmap;
+
+
+
+
+
 
 	STATE new_state = ST_new();
 
@@ -175,10 +179,7 @@ STATE ST_gen(STATE start_state) {
 			ST_set_cur_poz_in_list(start_state, L);
 	}
 
-	log_print("state generator a intors NULL", fout);
-
-	fflush(fout);
-	fclose(fout);
+	log_print("state generator a intors NULL", "./Log/state_generator.log");
 	return NULL;
 }
 
