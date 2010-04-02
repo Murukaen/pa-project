@@ -33,7 +33,6 @@ void Init ( int loc ) {
 							break;
 					
 		case INIT_POSX: 	BM_init ();
-							update_state_init ();
 							ST_gen_init ();
 							break;
 							
@@ -43,6 +42,7 @@ void Init ( int loc ) {
 							break;
 							
 		case INIT_NEW:      update_state_init ();
+							flags_init ();
 							break;
 							
 	}

@@ -38,8 +38,11 @@ char * get_input_buffer ( void ) {
 	log_print ( "WAIT Input" , LOG_XBOARD_COM_FILE );
 	/* END LOG */
 	
-	int length = read(STDIN,read_buffer,BUF_LENGTH-1);
-	read_buffer[length] = '\0';
+	//int length = read(STDIN,read_buffer,BUF_LENGTH-1);
+	//read_buffer[length] = '\0';
+	
+	/* TEMP !!! */
+	fgets ( read_buffer , BUF_LENGTH - 1 , stdin );
 
 	
 	/* LOG */
