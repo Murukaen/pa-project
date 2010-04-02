@@ -41,7 +41,6 @@ STATE ST_gen(STATE start_state) {
 				ST_get_piece_to_move(start_state)));
 
 	}
-	state_print(start_state, stdout);
 	UCHAR index = ST_get_move_index(start_state), i, j, k, iter;
 	UCHAR col_on_move = ST_get_col_on_move(start_state);
 	List L = ST_get_cur_poz_in_list(start_state);
