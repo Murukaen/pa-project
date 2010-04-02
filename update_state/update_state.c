@@ -16,6 +16,7 @@
 #include "../Log/log.h"
 /* ---- Macro #define ---- */
 #define LOG_UPDATE_STATE_FILE "Log/update_state.log"
+#define LOG_CURRENT_STATE_FILE "Log/current_state.log"
 
 /* --- Types --- */
 
@@ -31,6 +32,7 @@ void update_state_init(void) {
 }
 
 void update_state(MOVE mov) {
+	
 	STATE cur = cur_state_get();
 	UCHAR piesa = move_get_p_tag(mov);
 	LOC src = move_get_poz_src(mov);
@@ -191,8 +193,10 @@ void update_state(MOVE mov) {
 	/* LOG */
 	log_print ("Updated State\n" , LOG_UPDATE_STATE_FILE);
 	log_print_state_Table_What ( cur_state_get () , LOG_UPDATE_STATE_FILE );
+	log_print ("~~~ Current State ~~~ \n" , LOG_CURRENT_STATE_FILE);
+	log_print_state ( cur_state_get () , LOG_CURRENT_STATE_FILE , WRITE_TAG_ADD );
 	/* END LOG */
-	
+
 }
 
 void flip_state(void) {

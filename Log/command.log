@@ -1,0 +1,57 @@
+Time:5098:xboard
+Time:5098:protover 2
+Time:5099:accepted done
+Time:5099:accepted usermove
+Time:5099:accepted san
+Time:5099:accepted sigint
+Time:5099:accepted done
+Time:5099:new
+Time:5099:random
+Time:5099:level 40 5 0
+Time:5099:post
+Time:5099:hard
+Time:5101:time 30000
+Time:5101:otim 30000
+Time:5101:usermove e4
+Time:5101:XBoard>Engine>Move
+Time:5101:e4
+Time:5101:XBoard>Engine>SAN_to_Move
+Time:5101
+{
+ p_tag = Pawn 
+
+ poz_src = ( e , 2 ) 
+
+ poz_dst = ( e , 4 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = White 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:5104:time 29998
+Time:5104:otim 29696
+Time:5104:usermove h4
+Time:5104:XBoard>Engine>Move
+Time:5104:h4
+Time:5104:XBoard>Engine>SAN_to_Move
+Time:5104
+{
+ p_tag = Pawn 
+
+ poz_src = ( h , 2 ) 
+
+ poz_dst = ( h , 4 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = White 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:5108:result * {xboard exit}
+Time:5108:force
+Time:5108:quit

@@ -170,9 +170,9 @@ void ST_set_col_on_move ( STATE , UCHAR );
  */
 UCHAR ST_get_col_on_move ( STATE );
 
-UCHAR ST_get_gen_init ( STATE );
+UCHAR ST_get_new_st_gen ( STATE );
 
-void ST_set_gen_init ( STATE , UCHAR );
+void ST_set_new_st_gen ( STATE , UCHAR );
 
 P_LOC ST_get_en_passant ( STATE );
 

@@ -41,11 +41,13 @@ int validate_move(MOVE m, STATE cur){
 	LOC l = move_get_poz_dst(m);
 	LOC s = move_get_poz_src(m);
 	/* LOG */
+	/*
 	log_print ( "Row" ,  LOG_SAN_CONV_FILE );
 	log_print_integer ( s.row ,  LOG_SAN_CONV_FILE );
 	log_print ( "Col" , LOG_SAN_CONV_FILE );
 	log_print_integer ( s.col ,  LOG_SAN_CONV_FILE );
 	log_print_bitmap ( VM_valid_moves ( cur , &s ) , LOG_SAN_CONV_FILE );
+	*/
 	/* END LOG */
 	return BM_Make_coord(l.row, l.col) & VM_valid_moves ( cur , &s ) & ~(ST_get_bitmap(cur, ST_get_col_on_move ( cur ))) ? 1 : 0;
 }
@@ -286,6 +288,7 @@ LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
 /* --- Procedures --- */
 
 char* Move_to_SAN(MOVE s) {
+	
 	if (move_get_m_tag(s) && (move_get_p_tag(s) == T_K)) {
 		if (move_get_p_rock(s).row == 3){
 			char *msg = (char*) malloc(5 * sizeof(char));

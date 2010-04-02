@@ -31,9 +31,9 @@
 
 STATE ST_gen(STATE start_state) {
 
-	if (ST_get_gen_init(start_state) == 0) {
+	if (ST_get_new_st_gen(start_state) == 0) {
 
-		ST_set_gen_init(start_state, 1);
+		ST_set_new_st_gen(start_state, 1);
 		ST_set_piece_to_move(start_state, T_P);
 		ST_set_move_index(start_state, 0);
 		ST_set_cur_poz_in_list(start_state, ST_get_List_Table_Location(
@@ -172,24 +172,14 @@ STATE ST_gen(STATE start_state) {
 				/*pun in noua stare culoarea la mutare*/
 				ST_set_col_on_move(new_state, not(col_on_move));
 
-				/*setez in noua stare tot calu la mutare*/
-				ST_set_piece_to_move(new_state, iter);
-
-				ST_set_cur_poz_in_list(new_state, ST_get_List_Table_Location(
-						new_state, not(col_on_move), iter));
-
-				ST_set_gen_init(new_state, 0);
-
-				ST_set_move_index(new_state, 0);
+				ST_set_new_st_gen(new_state, 0);
 
 				log_print_state(new_state, LOG_STATE_GENERATOR_FILE,
-						WRITE_TAG_OVER);
+						WRITE_TAG_ADD);
 				return new_state;
 			}
 
 		}
-		if (L != NULL)
-			ST_set_cur_poz_in_list(start_state, L);
 	}
 }
 log_print("state generator a intors NULL", LOG_STATE_GENERATOR_FILE );
