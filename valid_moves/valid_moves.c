@@ -318,7 +318,6 @@ int VM_validate_King_move(STATE st, LOC loc) {
 		tag = ST_get_tag_Table_What(st, i, col);
 		if (tag != T_NA) {
 			if (tag == regina || tag == tura) {
-				printf("aici1");
 				return 1;
 			} else {
 				break;
@@ -331,7 +330,6 @@ int VM_validate_King_move(STATE st, LOC loc) {
 		tag = ST_get_tag_Table_What(st, i, col);
 		if (tag != T_NA) {
 			if (tag == regina || tag == tura) {
-				printf("aici2 ");
 				return 1;
 			} else {
 				break;
@@ -344,7 +342,6 @@ int VM_validate_King_move(STATE st, LOC loc) {
 		tag = ST_get_tag_Table_What(st, row, i);
 		if (tag != T_NA) {
 			if (tag == regina || tag == tura) {
-				printf("aici3 ");
 				return 1;
 			} else {
 				break;
@@ -356,7 +353,6 @@ int VM_validate_King_move(STATE st, LOC loc) {
 		tag = ST_get_tag_Table_What(st, row, i);
 		if (tag != T_NA) {
 			if (tag == regina || tag == tura) {
-				printf("aici4 ");
 				return 1;
 			} else {
 				break;
@@ -369,7 +365,6 @@ int VM_validate_King_move(STATE st, LOC loc) {
 		tag = ST_get_tag_Table_What(st, i, j);
 		if (tag != T_NA) {
 			if (tag == regina || tag == nebun) {
-				printf("aici5 ");
 				return 1;
 			} else {
 				break;
@@ -382,7 +377,6 @@ int VM_validate_King_move(STATE st, LOC loc) {
 		tag = ST_get_tag_Table_What(st, i, j);
 		if (tag != T_NA) {
 			if (tag == regina || tag == nebun) {
-				printf("aici6 ");
 				return 1;
 			} else {
 				break;
@@ -395,7 +389,6 @@ int VM_validate_King_move(STATE st, LOC loc) {
 		tag = ST_get_tag_Table_What(st, i, j);
 		if (tag != T_NA) {
 			if (tag == regina || tag == nebun) {
-				printf("aici7 ");
 				return 1;
 			} else {
 				break;
@@ -407,7 +400,6 @@ int VM_validate_King_move(STATE st, LOC loc) {
 		tag = ST_get_tag_Table_What(st, i, j);
 		if (tag != T_NA) {
 			if (tag == regina || tag == nebun) {
-				printf("aici 11");
 				return 1;
 			} else {
 				break;
@@ -421,7 +413,6 @@ int VM_validate_King_move(STATE st, LOC loc) {
 					&& Locuri[i].col >= 0)
 				if (ST_get_tag_Table_What(st, row - 1, col + 1) == pion
 						|| ST_get_tag_Table_What(st, row + 1, col + 1) == pion) {// daca sunt pioni in fata stanga/dreapta
-					printf("aici8");
 					return 1;
 
 				}
@@ -432,7 +423,6 @@ int VM_validate_King_move(STATE st, LOC loc) {
 					&& Locuri[i].col >= 0)
 				if (ST_get_tag_Table_What(st, row - 1, col - 1) == pion
 						|| ST_get_tag_Table_What(st, row + 1, col - 1) == pion) {// daca sunt pioni in fata stanga/dreapta
-					printf("aici81 ");
 					return 1;
 
 				}
