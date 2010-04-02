@@ -54,6 +54,12 @@ void log_init ( void ) {
 	
 	fout = fopen ("Log/san_conv.log" , "w");
 	fclose(fout);
+	
+	fout = fopen ("Log/current_state.log" , "w");
+	fclose(fout);
+	
+	fout = fopen ("Log/move_handler.log" , "w");
+	fclose(fout);
 }
 
 void log_print ( char * text , char * FILE_NAME ) {

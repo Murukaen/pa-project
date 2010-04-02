@@ -9,9 +9,11 @@
 #include "../cur_state/cur_state.h"
 #include "../Flags/flags.h"
 #include "../Util/util.h"
+#include "../Log/log.h"
 
 
 /* ---- Macro #define ---- */
+#define LOG_MOVE_HANDLER_FILE "Log/move_handler.log"
 
 /* --- Types --- */
 
@@ -295,6 +297,13 @@ MOVE determine_move ( STATE st_next ) {
 			}
 			
 	move_set_m_tag ( mov, 0);
+	
+	/*LOG GEN INIT*/
+	/*
+	log_print ( "GEN INIT : " , LOG_MOVE_HANDLER_FILE );
+	log_print_integer ( ST_get_gen_init ( cur_state_get () ) , LOG_MOVE_HANDLER_FILE);
+	*/
+	/* END LOG GEN INIT */
 	
 	return mov;
 }

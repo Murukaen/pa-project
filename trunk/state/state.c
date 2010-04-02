@@ -45,7 +45,7 @@ struct s_state {
 
 	P_LOC en_passant;
 
-	UCHAR gen_init;
+	UCHAR new_st_gen;
 };
 /* ~~~ END state structure ~~~ */
 
@@ -133,6 +133,7 @@ void ST_set_cur_poz_in_list(STATE st, List l) {
 
 void ST_set_col_on_move(STATE st, UCHAR color) {
 
+	ST_set_new_st_gen ( st , 0 ) ; // !!! 
 	st -> col_on_move = color;
 }
 
@@ -141,14 +142,14 @@ UCHAR ST_get_col_on_move(STATE st) {
 	return st -> col_on_move;
 }
 
-UCHAR ST_get_gen_init(STATE st) {
+UCHAR ST_get_new_st_gen(STATE st) {
 
-	return st -> gen_init;
+	return st -> new_st_gen;
 }
 
-void ST_set_gen_init(STATE st, UCHAR val) {
+void ST_set_new_st_gen(STATE st, UCHAR val) {
 
-	st -> gen_init = val;
+	st -> new_st_gen = val;
 }
 
 P_LOC ST_get_en_passant(STATE st) {
@@ -263,9 +264,9 @@ void state_print(STATE st, FILE * fout) {
 		fprintf(fout, "\nCurrent piece location : Void List\n");
 	/* END Print cur_poz_in_list */
 
-	/* Print gen_init */
-	fprintf(fout, "\nGen_Init : %u\n", st -> gen_init);
-	/* END Print gen_init */
+	/* Print new_st_gen */
+	fprintf(fout, "\nNew_st_gen : %u\n", st -> new_st_gen);
+	/* END Print new_st_gen */
 
 	/* Print en_passant */
 	if (st -> en_passant)
@@ -356,7 +357,7 @@ STATE state_read(FILE * fin) {
 	ST_set_move_index(st, m_index); // set move_index
 	ST_set_piece_to_move(st, p_to_move); // set piece_to_move
 	ST_set_cur_poz_in_list(st, c_list); // set cur_poz_in_list
-	ST_set_gen_init(st, 0);
+	ST_set_new_st_gen(st, 0);
 	/* END Set the new state */
 
 	return st;
