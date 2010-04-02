@@ -1,4 +1,4 @@
-	/* General description :
+/* General description :
  * 
  */
 
@@ -141,23 +141,23 @@ UCHAR ST_get_col_on_move(STATE st) {
 	return st -> col_on_move;
 }
 
-UCHAR ST_get_gen_init ( STATE st ) {
-	
+UCHAR ST_get_gen_init(STATE st) {
+
 	return st -> gen_init;
 }
 
-void ST_set_gen_init ( STATE st , UCHAR val ) {
-	
+void ST_set_gen_init(STATE st, UCHAR val) {
+
 	st -> gen_init = val;
 }
 
-P_LOC ST_get_en_passant ( STATE st ) {
-	
+P_LOC ST_get_en_passant(STATE st) {
+
 	return st -> en_passant;
 }
 
-void ST_set_en_passant ( STATE st , P_LOC ploc ) {
-	
+void ST_set_en_passant(STATE st, P_LOC ploc) {
+
 	st -> en_passant = ploc;
 }
 
@@ -170,9 +170,10 @@ void ST_free(STATE st) {
 	for (i = 0; i < NR_COLORS; ++i)
 		for (j = 0; j < NR_PIECES; ++j)
 			free_list(st -> Table_Location[i][j], LOC_free);
-			
+
 	/* Free en_passant */
-	if ( st -> en_passant ) LOC_free ( st -> en_passant );
+	if (st -> en_passant)
+		LOC_free(st -> en_passant);
 
 	free(st);
 }
@@ -251,20 +252,28 @@ void state_print(STATE st, FILE * fout) {
 	l = st -> cur_poz_in_list;
 	if (l) {
 		loc = first_nod_list(&l);
-		fprintf(fout, "\nCurrent piece location : ( %c , %c )\n",
-				row_to_letter(LOC_get_row(loc)),
-				col_to_letter(LOC_get_col(loc)));
+		if (loc) {
+			fprintf(fout, "\nCurrent piece location : ( %c , %c )\n",
+					row_to_letter(LOC_get_row(loc)), col_to_letter(LOC_get_col(
+							loc)));
+		}else{
+			fprintf(fout,"\nCurrent piece location: -VOID-\n");
+		}
 	} else
 		fprintf(fout, "\nCurrent piece location : Void List\n");
 	/* END Print cur_poz_in_list */
-	
+
 	/* Print gen_init */
-	fprintf( fout , "\nGen_Init : %u\n" , st -> gen_init );
+	fprintf(fout, "\nGen_Init : %u\n", st -> gen_init);
 	/* END Print gen_init */
-	
+
 	/* Print en_passant */
-	if ( st -> en_passant ) fprintf(fout, "\nEn Passant Location : ( %c , %c )\n", row_to_letter(LOC_get_row(st -> en_passant )), col_to_letter(LOC_get_col(st -> en_passant )));
-		else fprintf(fout, "\nEn Passsant Location : Void \n");
+	if (st -> en_passant)
+		fprintf(fout, "\nEn Passant Location : ( %c , %c )\n", row_to_letter(
+				LOC_get_row(st -> en_passant)), col_to_letter(LOC_get_col(
+				st -> en_passant)));
+	else
+		fprintf(fout, "\nEn Passsant Location : Void \n");
 	/* END Print en_passant */
 	fprintf(fout,
 			"--------------------------------------------------------------\n}\n");
@@ -347,7 +356,7 @@ STATE state_read(FILE * fin) {
 	ST_set_move_index(st, m_index); // set move_index
 	ST_set_piece_to_move(st, p_to_move); // set piece_to_move
 	ST_set_cur_poz_in_list(st, c_list); // set cur_poz_in_list
-	ST_set_gen_init ( st , 0 );
+	ST_set_gen_init(st, 0);
 	/* END Set the new state */
 
 	return st;
@@ -355,13 +364,12 @@ STATE state_read(FILE * fin) {
 
 void state_print_Table_What(STATE st, FILE *fout) {
 
-	int i,j;
+	int i, j;
 	fprintf(fout, "\n~~~Table_What~~~:\n\n");
 	for (i = 0; i < SIZE_BMAP; ++i, fprintf(fout, "\n"))
 		for (j = 0; j < SIZE_BMAP; ++j, fprintf(fout, " "))
 			fprintf(fout, "%c", tag_to_letter(
 					st -> Table_What[BM_row(i, j)][BM_col(i, j)]));
-
 
 }
 

@@ -40,31 +40,36 @@ STATE ST_gen(STATE start_state) {
 				start_state, ST_get_col_on_move(start_state),
 				ST_get_piece_to_move(start_state)));
 
-
 	}
-	state_print(start_state,stdout);
+	state_print(start_state, stdout);
 	UCHAR index = ST_get_move_index(start_state), i, j, k, iter;
 	UCHAR col_on_move = ST_get_col_on_move(start_state);
 	List L = ST_get_cur_poz_in_list(start_state);
-	P_LOC loc,index_loc = first_nod_list(&L);
+	P_LOC loc, index_loc = first_nod_list(&L);
 	BITMAP valid_moves, new_bmap;
 
 	STATE new_state = ST_new();
 
-	for (iter = ST_get_piece_to_move(start_state); iter >= T_K; --iter, L
-			= ST_get_List_Table_Location(start_state, col_on_move, iter), index_loc
+	for (iter = ST_get_piece_to_move(start_state); iter >= T_K; --iter, index
+			= 0, L = ST_get_List_Table_Location(start_state, col_on_move, iter), index_loc
 			= first_nod_list(&L)) {
 
 		for (loc = index_loc; loc; index = 0, loc = first_nod_list(&L)) {
 
 			UCHAR old_c = LOC_get_col(loc), old_r = LOC_get_row(loc);
 
-			valid_moves = VM_valid_pos(Moves[iter - 2][old_r][old_c],
-					ST_get_bitmap(start_state, col_on_move));
+			if (iter == T_N) {
+				valid_moves = VM_valid_pos(Moves[iter - 2][old_r][old_c],
+						ST_get_bitmap(start_state, col_on_move));
+			} else {
+				valid_moves = VM_valid_moves(start_state, loc);
+			}
+
+			BM_print(valid_moves, stdout);
+			fflush(stdout);
 
 			if (valid_moves == 0
 					|| VM_is_Check_if_piece_moves(start_state, loc) == 1) {//daca nu sunt mutari valide
-				//deocamdata intorc start state(cu piesa la mutare schimbata) , o sa trebuiasca sa reapelez functia cu piesa la mutare schimbata
 				break;
 			}
 
@@ -72,7 +77,7 @@ STATE ST_gen(STATE start_state) {
 
 				UCHAR new_r = i / 8, new_c = i % 8;
 
-				/*daca exista mutari valide,in afara de sah, ca nu am facut mai sus verificarea*/
+				/*daca exista mutari valide*/
 				if ((BM_Make_pos(i) & valid_moves) != 0) {
 
 					/*setez noul index*/
@@ -95,7 +100,7 @@ STATE ST_gen(STATE start_state) {
 					BM_Put_piece_at_coord(&new_bmap, new_r, new_c);
 					ST_set_bitmap(new_state, col_on_move, new_bmap);
 
-					/*refac bitmapul pentru cai*/
+					/*refac bitmapul pentru iter*/
 
 					new_bmap = ST_get_bitmap(start_state, iter);
 					BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(old_r,
@@ -155,9 +160,6 @@ STATE ST_gen(STATE start_state) {
 
 					LOCp_set_both(loc_modificat, new_r, new_c);
 
-					/*pun in noua stare cur_poz in list*/
-					ST_set_cur_poz_in_list(new_state, NULL);
-
 					/*am refacut Table_What*/
 					UCHAR temp;
 					for (j = 0; j < 8; j++) {
@@ -186,6 +188,12 @@ STATE ST_gen(STATE start_state) {
 
 					/*setez in noua stare tot calu la mutare*/
 					ST_set_piece_to_move(new_state, iter);
+
+					ST_set_cur_poz_in_list(new_state,ST_get_List_Table_Location(new_state,not(col_on_move),iter));
+
+					ST_set_gen_init(new_state,0);
+
+					ST_set_move_index(new_state,0);
 
 					log_print_state(new_state, LOG_STATE_GENERATOR_FILE,
 							WRITE_TAG_OVER);
