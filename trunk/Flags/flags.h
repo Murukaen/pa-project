@@ -30,6 +30,10 @@ UCHAR get_engine_lock ( void );
 
 void set_engine_lock ( UCHAR );
 
+UCHAR get_engine_quit ( void );
+
+void set_engine_quit ( UCHAR );
+
 /* --- Procedures --- */
 
 /* Desc:

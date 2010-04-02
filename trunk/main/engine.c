@@ -38,7 +38,6 @@ int main ( void ) {
 	/* Variables */
 	STATE chosen_state;
 	MOVE chosen_move;
-	UCHAR quit = 0;
 	/* END Variables */
 	
 	while ( 1 ) {
@@ -59,9 +58,11 @@ int main ( void ) {
 		/* LOG If conditions */
 		log_print ( "Engine Lock : " , LOG_ENGINE_FILE);
 		log_print_integer ( get_engine_lock () , LOG_ENGINE_FILE );
+		log_print ( "Engine Quit : " , LOG_ENGINE_FILE);
+		log_print_integer ( get_engine_quit () , LOG_ENGINE_FILE );
 		/* END LOG */
 		
-		if ( get_engine_lock () == 0 && is_engine_on_move () && !quit  ) {
+		if ( get_engine_lock () == 0 && is_engine_on_move () && get_engine_quit () == 0  ) {
 			
 			/* LOG */	
 			log_print ("Engine on move:\n" , LOG_ENGINE_FILE);
@@ -95,7 +96,7 @@ int main ( void ) {
 				log_print ("Resign" , LOG_ENGINE_FILE);
 				/* END LOG */
 				
-				quit = 1;
+				set_engine_quit (1);
 				poll_output ( NULL , T_COM_RESIGN );
 				
 			}

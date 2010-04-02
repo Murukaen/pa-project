@@ -1,0 +1,1504 @@
+Time:4351:Updated State
+
+Time:4351:Color on move:
+Time:4351:Black
+Time:4351
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - - - - - - - 
+- - - - P - - - 
+P P P P - P P P 
+R N B Q K B N R 
+Time:4351:Updated State
+
+Time:4351:Color on move:
+Time:4351:White
+Time:4351
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p p - 
+- - - - - - - - 
+- - - - - - - p 
+- - - - - - - - 
+- - - - P - - - 
+P P P P - P P P 
+R N B Q K B N R 
+Time:4352:Updated State
+
+Time:4352:Color on move:
+Time:4352:Black
+Time:4352
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p p - 
+- - - - - - - - 
+- - - - - - - Q 
+- - - - - - - - 
+- - - - P - - - 
+P P P P - P P P 
+R N B - K B N R 
+Time:4352:Updated State
+
+Time:4352:Color on move:
+Time:4352:White
+Time:4352
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - - - p Q 
+- - - - - - - - 
+- - - - P - - - 
+P P P P - P P P 
+R N B - K B N R 
+Time:4353:Updated State
+
+Time:4353:Color on move:
+Time:4353:Black
+Time:4353
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - - - Q - 
+- - - - - - - - 
+- - - - P - - - 
+P P P P - P P P 
+R N B - K B N R 
+Time:4353:Updated State
+
+Time:4353:Color on move:
+Time:4353:White
+Time:4353
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p - - - 
+- - - - - - - - 
+- - - - - p Q - 
+- - - - - - - - 
+- - - - P - - - 
+P P P P - P P P 
+R N B - K B N R 
+Time:4358:Updated State
+
+Time:4358:Color on move:
+Time:4358:Black
+Time:4358
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p - - - 
+- - - - - - - - 
+- - - - - p Q - 
+- - - - - - - - 
+- - - - P - P - 
+P P P P - P - P 
+R N B - K B N R 
+Time:4358:Updated State
+
+Time:4358:Color on move:
+Time:4358:White
+Time:4358
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p - - - 
+- - - - - - - - 
+- - - - - - Q - 
+- - - - - p - - 
+- - - - P - P - 
+P P P P - P - P 
+R N B - K B N R 
+Time:4359:Updated State
+
+Time:4359:Color on move:
+Time:4359:Black
+Time:4359
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p - - - 
+- - - - - - - - 
+- - - - - - Q - 
+- - - - - P - - 
+- - - - P - - - 
+P P P P - P - P 
+R N B - K B N R 
+Time:4359:Updated State
+
+Time:4359:Color on move:
+Time:4359:White
+Time:4359
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p - - - - 
+- - - - - - - - 
+- - - - p - Q - 
+- - - - - P - - 
+- - - - P - - - 
+P P P P - P - P 
+R N B - K B N R 
+Time:4360:Updated State
+
+Time:4360:Color on move:
+Time:4360:Black
+Time:4360
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p - - - - 
+- - - - - - - - 
+- - - - P - Q - 
+- - - - - - - - 
+- - - - P - - - 
+P P P P - P - P 
+R N B - K B N R 
+Time:4360:Updated State
+
+Time:4360:Color on move:
+Time:4360:White
+Time:4360
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p - - - - - 
+- - - - - - - - 
+- - - p P - Q - 
+- - - - - - - - 
+- - - - P - - - 
+P P P P - P - P 
+R N B - K B N R 
+Time:4364:Updated State
+
+Time:4364:Color on move:
+Time:4364:Black
+Time:4364
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p - - - - - 
+- - - - - - - - 
+- - - p P - Q - 
+- - - - - - - - 
+- - - - P - - N 
+P P P P - P - P 
+R N B - K B - R 
+Time:4364:Updated State
+
+Time:4364:Color on move:
+Time:4364:White
+Time:4364
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p - - - - - 
+- - - - - - - - 
+- - - - P - Q - 
+- - - p - - - - 
+- - - - P - - N 
+P P P P - P - P 
+R N B - K B - R 
+Time:4366:Updated State
+
+Time:4366:Color on move:
+Time:4366:Black
+Time:4366
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p - - - - - 
+- - - - - - - - 
+- - - - P - Q - 
+- - - P - - - - 
+- - - - - - - N 
+P P P P - P - P 
+R N B - K B - R 
+Time:4366:Updated State
+
+Time:4366:Color on move:
+Time:4366:White
+Time:4366
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p - - - - - - 
+- - - - - - - - 
+- - p - P - Q - 
+- - - P - - - - 
+- - - - - - - N 
+P P P P - P - P 
+R N B - K B - R 
+Time:4367:Updated State
+
+Time:4367:Color on move:
+Time:4367:Black
+Time:4367
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p - - - - - - 
+- - - - P - - - 
+- - p - - - Q - 
+- - - P - - - - 
+- - - - - - - N 
+P P P P - P - P 
+R N B - K B - R 
+Time:4367:Updated State
+
+Time:4367:Color on move:
+Time:4367:White
+Time:4367
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p - - - - - - 
+- - - - P - - - 
+- - - - - - Q - 
+- - p P - - - - 
+- - - - - - - N 
+P P P P - P - P 
+R N B - K B - R 
+Time:4369:Updated State
+
+Time:4369:Color on move:
+Time:4369:Black
+Time:4369
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p - - - - - - 
+- - - - P - - - 
+- - - - - - Q - 
+- - p P - - - - 
+- - - P - - - N 
+P P P - - P - P 
+R N B - K B - R 
+Time:4369:Updated State
+
+Time:4369:Color on move:
+Time:4369:White
+Time:4369
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p - - - - - - 
+- - - - P - - - 
+- - - - - - Q - 
+- - - P - - - - 
+- - p P - - - N 
+P P P - - P - P 
+R N B - K B - R 
+Time:4370:Updated State
+
+Time:4370:Color on move:
+Time:4370:Black
+Time:4370
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p - - - - - - 
+- - - - P - - - 
+- - - - - - Q - 
+- - - P - - - - 
+- - P P - - - N 
+P - P - - P - P 
+R N B - K B - R 
+Time:4370:Updated State
+
+Time:4370:Color on move:
+Time:4370:White
+Time:4370
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p - - - - - - - 
+- - - - P - - - 
+- p - - - - Q - 
+- - - P - - - - 
+- - P P - - - N 
+P - P - - P - P 
+R N B - K B - R 
+Time:4373:Updated State
+
+Time:4373:Color on move:
+Time:4373:Black
+Time:4373
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p - - - - - - - 
+- - - - P - - - 
+- p - - - - Q - 
+- - P P - - - - 
+- - - P - - - N 
+P - P - - P - P 
+R N B - K B - R 
+Time:4373:Updated State
+
+Time:4373:Color on move:
+Time:4373:White
+Time:4373
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p - - - - - - - 
+- - - - P - - - 
+- - - - - - Q - 
+- p P P - - - - 
+- - - P - - - N 
+P - P - - P - P 
+R N B - K B - R 
+Time:4375:Updated State
+
+Time:4375:Color on move:
+Time:4375:Black
+Time:4375
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p - - - - - - - 
+- - - - P - - - 
+- - - - - - Q - 
+- p P P - - - - 
+- - - P - - - N 
+P - P B - P - P 
+R N - - K B - R 
+Time:4375:Updated State
+
+Time:4375:Color on move:
+Time:4375:White
+Time:4375
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p - - - - - - - 
+- - - - P - - - 
+- - - - - - Q - 
+- - P P - - - - 
+- p - P - - - N 
+P - P B - P - P 
+R N - - K B - R 
+Time:4377:Updated State
+
+Time:4377:Color on move:
+Time:4377:Black
+Time:4377
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p - - - - - - - 
+- - - - P - - - 
+- - - - - - Q - 
+- - P P - - - - 
+- P - P - - - N 
+P - - B - P - P 
+R N - - K B - R 
+Time:4377:Updated State
+
+Time:4377:Color on move:
+Time:4377:White
+Time:4377
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+- - - - - - - - 
+- - - - P - - - 
+p - - - - - Q - 
+- - P P - - - - 
+- P - P - - - N 
+P - - B - P - P 
+R N - - K B - R 
+Time:4381:Updated State
+
+Time:4381:Color on move:
+Time:4381:Black
+Time:4381
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+- - - - - - - - 
+- - - - P - - - 
+B - - - - - Q - 
+- - P P - - - - 
+- P - P - - - N 
+P - - - - P - P 
+R N - - K B - R 
+Time:4381:Updated State
+
+Time:4381:Color on move:
+Time:4381:White
+Time:4381
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+- - - - n - - - 
+- - - - P - - - 
+B - - - - - Q - 
+- - P P - - - - 
+- P - P - - - N 
+P - - - - P - P 
+R N - - K B - R 
+Time:4388:Updated State
+
+Time:4388:Color on move:
+Time:4388:Black
+Time:4388
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+- - - - n - - - 
+- - - - P - - - 
+- - - - - - Q - 
+- - P P - - - - 
+- P - P - - - N 
+P - - B - P - P 
+R N - - K B - R 
+Time:4388:Updated State
+
+Time:4388:Color on move:
+Time:4388:White
+Time:4388
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+- - - - - - - - 
+- - n - P - - - 
+- - - - - - Q - 
+- - P P - - - - 
+- P - P - - - N 
+P - - B - P - P 
+R N - - K B - R 
+Time:4389:Updated State
+
+Time:4389:Color on move:
+Time:4389:Black
+Time:4389
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+- - - - - - - - 
+- - n - P - - - 
+- Q - - - - - - 
+- - P P - - - - 
+- P - P - - - N 
+P - - B - P - P 
+R N - - K B - R 
+Time:4389:Updated State
+
+Time:4389:Color on move:
+Time:4389:White
+Time:4389
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+- - - - - - - - 
+n - n - P - - - 
+- Q - - - - - - 
+- - P P - - - - 
+- P - P - - - N 
+P - - B - P - P 
+R N - - K B - R 
+Time:4394:Updated State
+
+Time:4394:Color on move:
+Time:4394:Black
+Time:4394
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+- - - - - - - - 
+Q - n - P - - - 
+- - - - - - - - 
+- - P P - - - - 
+- P - P - - - N 
+P - - B - P - P 
+R N - - K B - R 
+Time:4394:Updated State
+
+Time:4394:Color on move:
+Time:4394:White
+Time:4394
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+- - - - - - - - 
+Q - - - P - - - 
+n - - - - - - - 
+- - P P - - - - 
+- P - P - - - N 
+P - - B - P - P 
+R N - - K B - R 
+Time:4396:Updated State
+
+Time:4396:Color on move:
+Time:4396:Black
+Time:4396
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+- - - - - - - - 
+- - - - P - - - 
+Q - - - - - - - 
+- - P P - - - - 
+- P - P - - - N 
+P - - B - P - P 
+R N - - K B - R 
+Time:4396:Updated State
+
+Time:4396:Color on move:
+Time:4396:White
+Time:4396
+
+~~~Table_What~~~:
+
+r - b q k - - r 
+- - - - - - - - 
+- - - - P - - - 
+Q - - - - - - - 
+- - P P - - - - 
+b P - P - - - N 
+P - - B - P - P 
+R N - - K B - R 
+Time:4400:Updated State
+
+Time:4400:Color on move:
+Time:4400:Black
+Time:4400
+
+~~~Table_What~~~:
+
+r - b q k - - r 
+- - - - - - - - 
+- - - - P - - - 
+- Q - - - - - - 
+- - P P - - - - 
+b P - P - - - N 
+P - - B - P - P 
+R N - - K B - R 
+Time:4400:Updated State
+
+Time:4400:Color on move:
+Time:4400:White
+Time:4400
+
+~~~Table_What~~~:
+
+r - b q k - - r 
+- - - - - - - - 
+- - - - P - - - 
+- Q - - - - - - 
+- - P P - - - - 
+- P - P - - - N 
+P b - B - P - P 
+R N - - K B - R 
+Time:4433:Updated State
+
+Time:4433:Color on move:
+Time:4433:Black
+Time:4433
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - - - P - - - 
+- - - - - - - - 
+P P P P - P P P 
+R N B Q K B N R 
+Time:4433:Updated State
+
+Time:4433:Color on move:
+Time:4433:White
+Time:4433
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p p - 
+- - - - - - - - 
+- - - - - - - p 
+- - - - P - - - 
+- - - - - - - - 
+P P P P - P P P 
+R N B Q K B N R 
+Time:4436:Updated State
+
+Time:4436:Color on move:
+Time:4436:Black
+Time:4436
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p p - 
+- - - - - - - - 
+- - - - - - - p 
+- - - - P - - P 
+- - - - - - - - 
+P P P P - P P - 
+R N B Q K B N R 
+Time:4436:Updated State
+
+Time:4436:Color on move:
+Time:4436:White
+Time:4436
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - - - p p 
+- - - - P - - P 
+- - - - - - - - 
+P P P P - P P - 
+R N B Q K B N R 
+Time:4438:Updated State
+
+Time:4438:Color on move:
+Time:4438:Black
+Time:4438
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - - - p p 
+- - - - P - P P 
+- - - - - - - - 
+P P P P - P - - 
+R N B Q K B N R 
+Time:4438:Updated State
+
+Time:4438:Color on move:
+Time:4438:White
+Time:4438
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - - - p - 
+- - - - P - p P 
+- - - - - - - - 
+P P P P - P - - 
+R N B Q K B N R 
+Time:4442:Updated State
+
+Time:4442:Color on move:
+Time:4442:Black
+Time:4442
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - P - p - 
+- - - - - - p P 
+- - - - - - - - 
+P P P P - P - - 
+R N B Q K B N R 
+Time:4442:Updated State
+
+Time:4442:Color on move:
+Time:4442:White
+Time:4442
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - P - p - 
+- - - - - - - P 
+- - - - - - p - 
+P P P P - P - - 
+R N B Q K B N R 
+Time:4443:Updated State
+
+Time:4443:Color on move:
+Time:4443:Black
+Time:4443
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - P - p - 
+- - - - - - - P 
+- - - - - - P - 
+P P P P - - - - 
+R N B Q K B N R 
+Time:4443:Updated State
+
+Time:4443:Color on move:
+Time:4443:White
+Time:4443
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - P - - - 
+- - - - - - p P 
+- - - - - - P - 
+P P P P - - - - 
+R N B Q K B N R 
+Time:4445:Updated State
+
+Time:4445:Color on move:
+Time:4445:Black
+Time:4445
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - P - - - 
+- - - - - - Q P 
+- - - - - - P - 
+P P P P - - - - 
+R N B - K B N R 
+Time:4445:Updated State
+
+Time:4445:Color on move:
+Time:4445:White
+Time:4445
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p - - - 
+- - - - - - - - 
+- - - - P p - - 
+- - - - - - Q P 
+- - - - - - P - 
+P P P P - - - - 
+R N B - K B N R 
+Time:4446:Updated State
+
+Time:4446:Color on move:
+Time:4446:Black
+Time:4446
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p - - - 
+- - - - - - - - 
+- - - - P Q - - 
+- - - - - - - P 
+- - - - - - P - 
+P P P P - - - - 
+R N B - K B N R 
+Time:4446:Updated State
+
+Time:4446:Color on move:
+Time:4446:White
+Time:4446
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p - - - - 
+- - - - p - - - 
+- - - - P Q - - 
+- - - - - - - P 
+- - - - - - P - 
+P P P P - - - - 
+R N B - K B N R 
+Time:4453:Updated State
+
+Time:4453:Color on move:
+Time:4453:Black
+Time:4453
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p - - - - 
+- - - - p - - - 
+- - - - P - - - 
+- - - - Q - - P 
+- - - - - - P - 
+P P P P - - - - 
+R N B - K B N R 
+Time:4453:Updated State
+
+Time:4453:Color on move:
+Time:4453:White
+Time:4453
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p - - - - - 
+- - - - p - - - 
+- - - p P - - - 
+- - - - Q - - P 
+- - - - - - P - 
+P P P P - - - - 
+R N B - K B N R 
+Time:4458:Updated State
+
+Time:4458:Color on move:
+Time:4458:Black
+Time:4458
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p - - - - - 
+- - - - p - - - 
+- - - p P - - - 
+- - - Q - - - P 
+- - - - - - P - 
+P P P P - - - - 
+R N B - K B N R 
+Time:4458:Updated State
+
+Time:4458:Color on move:
+Time:4458:White
+Time:4458
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p - - - - - - 
+- - - - p - - - 
+- - p p P - - - 
+- - - Q - - - P 
+- - - - - - P - 
+P P P P - - - - 
+R N B - K B N R 
+Time:4459:Updated State
+
+Time:4459:Color on move:
+Time:4459:Black
+Time:4459
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p - - - - - - 
+- - - - p - - - 
+- - Q p P - - - 
+- - - - - - - P 
+- - - - - - P - 
+P P P P - - - - 
+R N B - K B N R 
+Time:4459:Updated State
+
+Time:4459:Color on move:
+Time:4459:White
+Time:4459
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p - - - - - - 
+- - - - p - - - 
+- - Q - P - - - 
+- - - p - - - P 
+- - - - - - P - 
+P P P P - - - - 
+R N B - K B N R 
+Time:4462:Updated State
+
+Time:4462:Color on move:
+Time:4462:Black
+Time:4462
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p - - - - - - 
+- - - - p - - - 
+- - - - P - - - 
+- - - Q - - - P 
+- - - - - - P - 
+P P P P - - - - 
+R N B - K B N R 
+Time:4462:Updated State
+
+Time:4462:Color on move:
+Time:4462:White
+Time:4462
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p - - - - - - - 
+- - - - p - - - 
+- p - - P - - - 
+- - - Q - - - P 
+- - - - - - P - 
+P P P P - - - - 
+R N B - K B N R 
+Time:4469:Updated State
+
+Time:4469:Color on move:
+Time:4469:Black
+Time:4469
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p - - - - - - - 
+- - - - p - - - 
+- p - - P - - - 
+- - - Q - - - P 
+- - - P - - P - 
+P P P - - - - - 
+R N B - K B N R 
+Time:4469:Updated State
+
+Time:4469:Color on move:
+Time:4469:White
+Time:4469
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p - - - - - - - 
+- - - - p - - - 
+- - - - P - - - 
+- p - Q - - - P 
+- - - P - - P - 
+P P P - - - - - 
+R N B - K B N R 
+Time:4474:Updated State
+
+Time:4474:Color on move:
+Time:4474:Black
+Time:4474
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p - - - - - - - 
+- - - - p - - - 
+- - - - P - - - 
+- Q - - - - - P 
+- - - P - - P - 
+P P P - - - - - 
+R N B - K B N R 
+Time:4474:Updated State
+
+Time:4474:Color on move:
+Time:4474:White
+Time:4474
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+- - - - - - - - 
+- - - - p - - - 
+p - - - P - - - 
+- Q - - - - - P 
+- - - P - - P - 
+P P P - - - - - 
+R N B - K B N R 
+Time:4476:Updated State
+
+Time:4476:Color on move:
+Time:4476:Black
+Time:4476
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+- - - - - - - - 
+- - - - p - - - 
+p - - - P - - - 
+- Q - P - - - P 
+- - - - - - P - 
+P P P - - - - - 
+R N B - K B N R 
+Time:4476:Updated State
+
+Time:4476:Color on move:
+Time:4476:White
+Time:4476
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+- - - - - - - - 
+- - - - p - - - 
+- - - - P - - - 
+p Q - P - - - P 
+- - - - - - P - 
+P P P - - - - - 
+R N B - K B N R 
+Time:4478:Updated State
+
+Time:4478:Color on move:
+Time:4478:Black
+Time:4478
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+- - - - - - - - 
+- - - - p - - - 
+- - - - P - - - 
+p Q B P - - - P 
+- - - - - - P - 
+P P P - - - - - 
+R N B - K - N R 
+Time:4478:Updated State
+
+Time:4478:Color on move:
+Time:4478:White
+Time:4478
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+- - - - - - - - 
+- - - - p - - - 
+- - - - P - - - 
+- Q B P - - - P 
+p - - - - - P - 
+P P P - - - - - 
+R N B - K - N R 
+Time:4480:Updated State
+
+Time:4480:Color on move:
+Time:4480:Black
+Time:4480
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+- - - - - - - - 
+- - - - p - - - 
+- - - - P - - - 
+- Q B P - - - P 
+P - - - - - P - 
+P - P - - - - - 
+R N B - K - N R 
+Time:4480:Updated State
+
+Time:4480:Color on move:
+Time:4480:White
+Time:4480
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+- - - - n - - - 
+- - - - p - - - 
+- - - - P - - - 
+- Q B P - - - P 
+P - - - - - P - 
+P - P - - - - - 
+R N B - K - N R 
+Time:4482:Updated State
+
+Time:4482:Color on move:
+Time:4482:Black
+Time:4482
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+- - - - n - - - 
+- - - - B - - - 
+- - - - P - - - 
+- Q - P - - - P 
+P - - - - - P - 
+P - P - - - - - 
+R N B - K - N R 
+Time:4482:Updated State
+
+Time:4482:Color on move:
+Time:4482:White
+Time:4482
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+- - - - - - - - 
+- - n - B - - - 
+- - - - P - - - 
+- Q - P - - - P 
+P - - - - - P - 
+P - P - - - - - 
+R N B - K - N R 
+Time:4484:Updated State
+
+Time:4484:Color on move:
+Time:4484:Black
+Time:4484
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+- - - - - - - - 
+- - n - B - - - 
+- Q - - P - - - 
+- - - P - - - P 
+P - - - - - P - 
+P - P - - - - - 
+R N B - K - N R 
+Time:4484:Updated State
+
+Time:4484:Color on move:
+Time:4484:White
+Time:4484
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+- - - - - - - - 
+n - n - B - - - 
+- Q - - P - - - 
+- - - P - - - P 
+P - - - - - P - 
+P - P - - - - - 
+R N B - K - N R 
+Time:4488:Updated State
+
+Time:4488:Color on move:
+Time:4488:Black
+Time:4488
+
+~~~Table_What~~~:
+
+r - B q k b - r 
+- - - - - - - - 
+n - n - - - - - 
+- Q - - P - - - 
+- - - P - - - P 
+P - - - - - P - 
+P - P - - - - - 
+R N B - K - N R 
+Time:4488:Updated State
+
+Time:4488:Color on move:
+Time:4488:White
+Time:4488
+
+~~~Table_What~~~:
+
+r - B q k b - r 
+- - - - - - - - 
+- - n - - - - - 
+- Q - - P - - - 
+- n - P - - - P 
+P - - - - - P - 
+P - P - - - - - 
+R N B - K - N R 
+Time:4491:Updated State
+
+Time:4491:Color on move:
+Time:4491:Black
+Time:4491
+
+~~~Table_What~~~:
+
+r - B q k b - r 
+- - - - - - - - 
+- - n - - - - - 
+- - - - P - - - 
+- Q - P - - - P 
+P - - - - - P - 
+P - P - - - - - 
+R N B - K - N R 
+Time:4491:Updated State
+
+Time:4491:Color on move:
+Time:4491:White
+Time:4491
+
+~~~Table_What~~~:
+
+r - B q k b - r 
+- - - - - - - - 
+- - - - - - - - 
+n - - - P - - - 
+- Q - P - - - P 
+P - - - - - P - 
+P - P - - - - - 
+R N B - K - N R 
+Time:4493:Updated State
+
+Time:4493:Color on move:
+Time:4493:Black
+Time:4493
+
+~~~Table_What~~~:
+
+r - B q k b - r 
+- - - - - - - - 
+- - - - - - - - 
+Q - - - P - - - 
+- - - P - - - P 
+P - - - - - P - 
+P - P - - - - - 
+R N B - K - N R 
+Time:4493:Updated State
+
+Time:4493:Color on move:
+Time:4493:White
+Time:4493
+
+~~~Table_What~~~:
+
+r - B q k - - r 
+- - - - - - - - 
+- - - - - - - - 
+Q - - - P - - - 
+- - - P - - - P 
+b - - - - - P - 
+P - P - - - - - 
+R N B - K - N R 
+Time:4498:Updated State
+
+Time:4498:Color on move:
+Time:4498:Black
+Time:4498
+
+~~~Table_What~~~:
+
+Q - B q k - - r 
+- - - - - - - - 
+- - - - - - - - 
+- - - - P - - - 
+- - - P - - - P 
+b - - - - - P - 
+P - P - - - - - 
+R N B - K - N R 
+Time:4498:Updated State
+
+Time:4498:Color on move:
+Time:4498:White
+Time:4498
+
+~~~Table_What~~~:
+
+Q - B q k - - r 
+- - - - - - - - 
+- - - - - - - - 
+- - - - P - - - 
+- - - P - - - P 
+- - - - - - P - 
+P b P - - - - - 
+R N B - K - N R 
+Time:4502:Updated State
+
+Time:4502:Color on move:
+Time:4502:Black
+Time:4502
+
+~~~Table_What~~~:
+
+Q - - q k - - r 
+- - - - - - - - 
+- - - - - - - - 
+- - - - P B - - 
+- - - P - - - P 
+- - - - - - P - 
+P b P - - - - - 
+R N B - K - N R 
+Time:4502:Updated State
+
+Time:4502:Color on move:
+Time:4502:White
+Time:4502
+
+~~~Table_What~~~:
+
+Q - - q k - - r 
+- - - - - - - - 
+- - - - - - - - 
+- - - - P B - - 
+- - - P - - - P 
+- - - - - - P - 
+P - P - - - - - 
+b N B - K - N R 
+Time:4506:Updated State
+
+Time:4506:Color on move:
+Time:4506:Black
+Time:4506
+
+~~~Table_What~~~:
+
+Q - - q k - - r 
+- - - - - - - - 
+- - - - - - - - 
+- - - - P B - - 
+- - - P - - - P 
+N - - - - - P - 
+P - P - - - - - 
+b - B - K - N R 
+Time:4506:Updated State
+
+Time:4506:Color on move:
+Time:4506:White
+Time:4506
+
+~~~Table_What~~~:
+
+Q - - q k - - r 
+- - - - - - - - 
+- - - - - - - - 
+- - - - P B - - 
+- - - P - - - P 
+N - - - - - P - 
+P b P - - - - - 
+- - B - K - N R 
+Time:4508:Updated State
+
+Time:4508:Color on move:
+Time:4508:Black
+Time:4508
+
+~~~Table_What~~~:
+
+Q - - q k - - r 
+- - - - - - - - 
+- - - - - - - - 
+- - - - P B - - 
+- - - P - - - P 
+N - - - - - P - 
+P B P - - - - - 
+- - - - K - N R 
+Time:4508:Updated State
+
+Time:4508:Color on move:
+Time:4508:White
+Time:4508
+
+~~~Table_What~~~:
+
+Q - - q k r - - 
+- - - - - - - - 
+- - - - - - - - 
+- - - - P B - - 
+- - - P - - - P 
+N - - - - - P - 
+P B P - - - - - 
+- - - - K - N R 
+Time:4512:Updated State
+
+Time:4512:Color on move:
+Time:4512:Black
+Time:4512
+
+~~~Table_What~~~:
+
+Q - - q k r - - 
+- - - - - - - - 
+- - - - - - - - 
+- - - - P - - - 
+- - - P - - - P 
+N - - B - - P - 
+P B P - - - - - 
+- - - - K - N R 
+Time:4512:Updated State
+
+Time:4512:Color on move:
+Time:4512:White
+Time:4512
+
+~~~Table_What~~~:
+
+Q - - q k - - - 
+- - - - - - - - 
+- - - - - - - - 
+- - - - P - - - 
+- - - P - - - P 
+N - - B - - P - 
+P B P - - - - - 
+- - - - K r N R 
+Time:4514:Updated State
+
+Time:4514:Color on move:
+Time:4514:Black
+Time:4514
+
+~~~Table_What~~~:
+
+Q - - q k - - - 
+- - - - - - - - 
+- - - - - - - - 
+- - - - P - - - 
+- - - P - - - P 
+N - - - - - P - 
+P B P - - - - - 
+- - - - K B N R 
+Time:4514:Updated State
+
+Time:4514:Color on move:
+Time:4514:White
+Time:4514
+
+~~~Table_What~~~:
+
+Q - - q - - - - 
+- - - k - - - - 
+- - - - - - - - 
+- - - - P - - - 
+- - - P - - - P 
+N - - - - - P - 
+P B P - - - - - 
+- - - - K B N R 

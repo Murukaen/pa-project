@@ -9,7 +9,7 @@ int main() {
 	FILE * fout = fopen("./Test/test_valid_moves/test_valid_moves.out", "w");
 	FILE * fin = fopen("./Test/test_valid_moves/test_valid_moves.in", "r");
 
-	BITMAP rez;
+	int rez;
 	STATE st;
 	List l;
 
@@ -17,17 +17,14 @@ int main() {
 
 	st = state_read(fin);
 
-	l = ST_get_List_Table_Location(st, 1, T_K);
-	ST_set_cur_poz_in_list(st, l);
 	P_LOC loc = LOC_new();
-	LOCp_set_both(loc,4,7);
+	LOCp_set_both(loc,4,6);
 
-	ST_set_piece_to_move(st, T_K);
 
-	state_print(st, fout);
+	//state_print(st, fout);
 
-	rez = VM_valid_moves(st, loc);
-	BM_print(rez, fout);
+	rez = VM_is_Check_if_piece_moves(st, loc);
+	printf ( "Rez:%d\n" , rez );
 
 	return 0;
 }

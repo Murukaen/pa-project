@@ -58,6 +58,8 @@ STATE ST_gen(STATE start_state) {
 			UCHAR old_c = LOC_get_col(loc), old_r = LOC_get_row(loc);
 
 			valid_moves = VM_valid_moves(start_state, loc);
+			
+			printf ( " Tsup : (%d , %d) %d " , LOC_get_row(loc) , LOC_get_col(loc),  VM_is_Check_if_piece_moves(start_state, loc) );
 
 			if (VM_is_Check_if_piece_moves(start_state, loc) == 1
 					|| valid_moves == 0) {//daca nu sunt mutari valide
@@ -121,7 +123,7 @@ STATE ST_gen(STATE start_state) {
 						}
 						/* iau bitmapul pieselor de tipul celei capturate si il modific*/
 						if (piece_to_delete
-								!= ST_get_piece_to_move(start_state)) {
+								!= iter) {
 							new_bmap = ST_get_bitmap(start_state,
 									piece_to_delete);
 							BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(

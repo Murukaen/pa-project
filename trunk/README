@@ -1,0 +1,37 @@
+Chess prohect - PA
+Echipa CHECK THIS
+	- Gherasim Alin
+	- Ortelecan Mihai
+	- Petreanu Adelin
+	- Savu Razvan ( cap )
+	
+-------------------
+Rulare
+-------------------
+
+	In direcectorul radacina ( ECHIPA_CHECK_THIS ) se gaseste un makefile pentru compilarea surselor. Comanda de compilare este make. Se creeaza 
+engine-ul de sah sub forma executabilului "engine". Comanda de rulare a xboard-ului trebuie data in radacina ( pentru a putea deschide fisierele
+date prin cale relativa).
+
+
+-------------------
+Ce stie sa faca ?
+-------------------
+
+1) Interpreteaza corect orice comanda data din exterior ( mai putin mutarile speciale )
+2) Stie sa mute orice tip de piesa ( si sa nu intre in sah ca urmare a mutarii )
+3) Stie sa se restarteze la comanda "new"
+4) Stie sa schimbe culoarea engine-ului in orice moment.
+5) In afara de cazul in care i se da sah , daca are o mutare legala , o face.
+6) Stie sa interpreteze rocada
+7) Stie sa faca hack pe webcam si daca pleci din fata calculatorului iti ia regina :))
+
+-------------------
+Ce nu stie sa faca ?
+-------------------
+
+1) Nu stie sa interpreteze mutarile speciale ( en passant , promotie )
+2) Nu stie sa iasa din sah
+3) Nu stie sa joace sah :))
+
+

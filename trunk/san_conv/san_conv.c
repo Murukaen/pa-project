@@ -203,7 +203,7 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 	LOC l;
 	LOC d;
 	int boo = 1;
-	BITMAP s = ST_get_bitmap(cur, piesa) & ST_get_bitmap(cur, not(ST_get_col_on_move ( cur )));
+	BITMAP s = ST_get_bitmap(cur, piesa) & ST_get_bitmap(cur, ST_get_col_on_move ( cur ));
 	BM_Clear_piece_at_coord(&s, lp, cp);
 
 
