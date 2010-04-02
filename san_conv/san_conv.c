@@ -355,6 +355,16 @@ char* Move_to_SAN(MOVE s) {
 				msg[j++] = aux;
 			set_flags(j, msg, cur, s);
 		}
+		/* RAZVAN A SCRIS AICI: :), MIHAI SE UITA */
+		char text[10];
+		if(msg[0] == 'x' ) {
+			
+			text[0] = row_to_letter ( lp );
+			text[1] = '\0';
+			strcat(text , msg);
+			strcpy (msg , text );
+		}
+		
 		return msg;
 	}
 }

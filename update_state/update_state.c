@@ -192,6 +192,10 @@ void update_state(MOVE mov) {
 	
 	/* LOG */
 	log_print ("Updated State\n" , LOG_UPDATE_STATE_FILE);
+	log_print ("Color on move:" , LOG_UPDATE_STATE_FILE);
+	char text[10];
+	tag_to_text ( ST_get_col_on_move ( cur_state_get () ) , text );
+	log_print ( text , LOG_UPDATE_STATE_FILE);
 	log_print_state_Table_What ( cur_state_get () , LOG_UPDATE_STATE_FILE );
 	log_print ("~~~ Current State ~~~ \n" , LOG_CURRENT_STATE_FILE);
 	log_print_state ( cur_state_get () , LOG_CURRENT_STATE_FILE , WRITE_TAG_ADD );
