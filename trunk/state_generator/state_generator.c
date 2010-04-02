@@ -42,7 +42,7 @@ STATE ST_gen(STATE start_state) {
 
 
 	}
-
+	state_print(start_state,stdout);
 	UCHAR index = ST_get_move_index(start_state), i, j, k, iter;
 	UCHAR col_on_move = ST_get_col_on_move(start_state);
 	List L = ST_get_cur_poz_in_list(start_state);
@@ -59,7 +59,7 @@ STATE ST_gen(STATE start_state) {
 
 			UCHAR old_c = LOC_get_col(loc), old_r = LOC_get_row(loc);
 
-			valid_moves = VM_valid_pos(Moves[T_N - 2][old_r][old_c],
+			valid_moves = VM_valid_pos(Moves[iter - 2][old_r][old_c],
 					ST_get_bitmap(start_state, col_on_move));
 
 			if (valid_moves == 0
@@ -97,11 +97,11 @@ STATE ST_gen(STATE start_state) {
 
 					/*refac bitmapul pentru cai*/
 
-					new_bmap = ST_get_bitmap(start_state, T_N);
+					new_bmap = ST_get_bitmap(start_state, iter);
 					BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(old_r,
 							old_c));
 					BM_Put_piece_at_coord(&new_bmap, new_r, new_c);
-					ST_set_bitmap(new_state, T_N, new_bmap);
+					ST_set_bitmap(new_state, iter, new_bmap);
 
 					/*copiez in new_state vechea lista de pozitii pt piese*/
 					for (j = 0; j < 2; j++) {
@@ -151,7 +151,7 @@ STATE ST_gen(STATE start_state) {
 					/*modific din lista lui new_state locatia piesei mutate*/
 					P_LOC loc_modificat = (P_LOC) find_nod_list(
 							ST_get_List_Table_Location(new_state, col_on_move,
-									T_N), loc, fequ_loc);
+									iter), loc, fequ_loc);
 
 					LOCp_set_both(loc_modificat, new_r, new_c);
 
@@ -166,10 +166,10 @@ STATE ST_gen(STATE start_state) {
 							if (j == new_r && k == new_c) {
 								if (col_on_move == 0) {
 									ST_set_tag_Table_What(new_state, new_r,
-											new_c, T_N);
+											new_c, iter);
 								} else {
 									ST_set_tag_Table_What(new_state, new_r,
-											new_c, T_N + BWP_OFF);
+											new_c, iter + BWP_OFF);
 								}
 							} else if (j == old_r && k == old_c) {
 								ST_set_tag_Table_What(new_state, old_r, old_c,
@@ -185,7 +185,7 @@ STATE ST_gen(STATE start_state) {
 					ST_set_col_on_move(new_state, not(col_on_move));
 
 					/*setez in noua stare tot calu la mutare*/
-					ST_set_piece_to_move(new_state, T_N);
+					ST_set_piece_to_move(new_state, iter);
 
 					log_print_state(new_state, LOG_STATE_GENERATOR_FILE,
 							WRITE_TAG_OVER);

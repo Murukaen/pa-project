@@ -7,6 +7,7 @@
 #include "../../bitmap/bitmap.h"
 #include "../../Flags/flags.h"
 #include "../../Init/init.h"
+#include "../../Log/log.h"
 
 int main() {
 
@@ -17,7 +18,7 @@ int main() {
 		printf("eroare deschidere fisier intrare");
 		exit(0);
 	}
-	STATE st;
+	STATE st,st1;
 
 	/* Inits */
 
@@ -27,13 +28,10 @@ int main() {
 	/* END Inits */
 
 	st = state_read(fin);
-	state_print(st,fout);
-	while( (st1 = ST_gen(st)) != NULL){
-		state_print_table_what(st1,fout);
-	}
+	//state_print(st,stdout);
+	st1 = ST_gen(st);
+	//state_print_Table_What(ST_gen(st),stdout);
 
-	printf("bla");
 	printf("fara");
-
 	return 0;
 }
