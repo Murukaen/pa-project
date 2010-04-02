@@ -1,0 +1,624 @@
+Time:1763:Updated State
+
+Time:1763:Color on move:
+Time:1763:Black
+Time:1763
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p p p 
+- - - - - - - - 
+- - - - - - - - 
+- - - - P - - - 
+- - - - - - - - 
+P P P P - P P P 
+R N B Q K B N R 
+Time:1763:Updated State
+
+Time:1763:Color on move:
+Time:1763:White
+Time:1763
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p p - 
+- - - - - - - - 
+- - - - - - - p 
+- - - - P - - - 
+- - - - - - - - 
+P P P P - P P P 
+R N B Q K B N R 
+Time:1765:Updated State
+
+Time:1765:Color on move:
+Time:1765:Black
+Time:1765
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p p - 
+- - - - - - - - 
+- - - - - - - p 
+- - - - P - - P 
+- - - - - - - - 
+P P P P - P P - 
+R N B Q K B N R 
+Time:1765:Updated State
+
+Time:1765:Color on move:
+Time:1765:White
+Time:1765
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - - - p p 
+- - - - P - - P 
+- - - - - - - - 
+P P P P - P P - 
+R N B Q K B N R 
+Time:1767:Updated State
+
+Time:1767:Color on move:
+Time:1767:Black
+Time:1767
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - - - p p 
+- - - - P - - P 
+- - - - - - - - 
+P P P P B P P - 
+R N B Q K - N R 
+Time:1767:Updated State
+
+Time:1767:Color on move:
+Time:1767:White
+Time:1767
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - - - - p 
+- - - - P - p P 
+- - - - - - - - 
+P P P P B P P - 
+R N B Q K - N R 
+Time:1768:Updated State
+
+Time:1768:Color on move:
+Time:1768:Black
+Time:1768
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - - - - p 
+- - - P P - p P 
+- - - - - - - - 
+P P P - B P P - 
+R N B Q K - N R 
+Time:1768:Updated State
+
+Time:1768:Color on move:
+Time:1768:White
+Time:1768
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - - - - p 
+- - - P P - - P 
+- - - - - - p - 
+P P P - B P P - 
+R N B Q K - N R 
+Time:1769:Updated State
+
+Time:1769:Color on move:
+Time:1769:Black
+Time:1769
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - - - - p 
+- - - P P - - P 
+- - - - - P p - 
+P P P - B - P - 
+R N B Q K - N R 
+Time:1769:Updated State
+
+Time:1769:Color on move:
+Time:1769:White
+Time:1769
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p - - - 
+- - - - - - - - 
+- - - - - p - p 
+- - - P P - - P 
+- - - - - P p - 
+P P P - B - P - 
+R N B Q K - N R 
+Time:1770:Updated State
+
+Time:1770:Color on move:
+Time:1770:Black
+Time:1770
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p - - - 
+- - - - - - - - 
+- - - - P p - p 
+- - - P - - - P 
+- - - - - P p - 
+P P P - B - P - 
+R N B Q K - N R 
+Time:1770:Updated State
+
+Time:1770:Color on move:
+Time:1770:White
+Time:1770
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p - - - 
+- - - - - - - - 
+- - - - P - - p 
+- - - P - p - P 
+- - - - - P p - 
+P P P - B - P - 
+R N B Q K - N R 
+Time:1773:Updated State
+
+Time:1773:Color on move:
+Time:1773:Black
+Time:1773
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p - - - 
+- - - - - - - - 
+- - - - P - - p 
+- - - P - p - P 
+- - - B - P p - 
+P P P - - - P - 
+R N B Q K - N R 
+Time:1773:Updated State
+
+Time:1773:Color on move:
+Time:1773:White
+Time:1773
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p - - - - 
+- - - - p - - - 
+- - - - P - - p 
+- - - P - p - P 
+- - - B - P p - 
+P P P - - - P - 
+R N B Q K - N R 
+Time:1776:Updated State
+
+Time:1776:Color on move:
+Time:1776:Black
+Time:1776
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p - - - B 
+- - - - p - - - 
+- - - - P - - p 
+- - - P - p - P 
+- - - - - P p - 
+P P P - - - P - 
+R N B Q K - N R 
+Time:1776:Updated State
+
+Time:1776:Color on move:
+Time:1776:White
+Time:1776
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p - - - - B 
+- - - - p - - - 
+- - - p P - - p 
+- - - P - p - P 
+- - - - - P p - 
+P P P - - - P - 
+R N B Q K - N R 
+Time:1777:Updated State
+
+Time:1777:Color on move:
+Time:1777:Black
+Time:1777
+
+~~~Table_What~~~:
+
+r n b q k b B r 
+p p p - - - - - 
+- - - - p - - - 
+- - - p P - - p 
+- - - P - p - P 
+- - - - - P p - 
+P P P - - - P - 
+R N B Q K - N R 
+Time:1777:Updated State
+
+Time:1777:Color on move:
+Time:1777:White
+Time:1777
+
+~~~Table_What~~~:
+
+r n b q k b B r 
+p p - - - - - - 
+- - - - p - - - 
+- - p p P - - p 
+- - - P - p - P 
+- - - - - P p - 
+P P P - - - P - 
+R N B Q K - N R 
+Time:1780:Updated State
+
+Time:1780:Color on move:
+Time:1780:Black
+Time:1780
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p - - - - - - 
+- - - - B - - - 
+- - p p P - - p 
+- - - P - p - P 
+- - - - - P p - 
+P P P - - - P - 
+R N B Q K - N R 
+Time:1780:Updated State
+
+Time:1780:Color on move:
+Time:1780:White
+Time:1780
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p - - - - - - 
+- - - - B - - - 
+- - - p P - - p 
+- - p P - p - P 
+- - - - - P p - 
+P P P - - - P - 
+R N B Q K - N R 
+Time:1781:Updated State
+
+Time:1781:Color on move:
+Time:1781:Black
+Time:1781
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p - - - - - - 
+- - - - - - - - 
+- - - B P - - p 
+- - p P - p - P 
+- - - - - P p - 
+P P P - - - P - 
+R N B Q K - N R 
+Time:1781:Updated State
+
+Time:1781:Color on move:
+Time:1781:White
+Time:1781
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p - - - - - - 
+- - - - - - - - 
+- - - B P - - p 
+- - - P - p - P 
+- - p - - P p - 
+P P P - - - P - 
+R N B Q K - N R 
+Time:1782:Updated State
+
+Time:1782:Color on move:
+Time:1782:Black
+Time:1782
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p p - - - - - - 
+- - - - - - - - 
+- - - B P - - p 
+- - - P - p - P 
+- P p - - P p - 
+P - P - - - P - 
+R N B Q K - N R 
+Time:1782:Updated State
+
+Time:1782:Color on move:
+Time:1782:White
+Time:1782
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p - - - - - - - 
+- - - - - - - - 
+- p - B P - - p 
+- - - P - p - P 
+- P p - - P p - 
+P - P - - - P - 
+R N B Q K - N R 
+Time:1785:Updated State
+
+Time:1785:Color on move:
+Time:1785:Black
+Time:1785
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p - - - - - - - 
+- - - - - - - - 
+- p - B P - - p 
+- - - P - p - P 
+- P p - - P p - 
+P - P B - - P - 
+R N - Q K - N R 
+Time:1785:Updated State
+
+Time:1785:Color on move:
+Time:1785:White
+Time:1785
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p - - - - - - - 
+- - - - - - - - 
+- p - B P - - p 
+- - - P - p - P 
+- P - - - P p - 
+P - P p - - P - 
+R N - Q K - N R 
+Time:1786:Updated State
+
+Time:1786:Color on move:
+Time:1786:Black
+Time:1786
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p - - - - - - - 
+- - - - - - - - 
+- p - B P - - p 
+- - - P - p - P 
+- P - - - P p - 
+P - P Q - - P - 
+R N - - K - N R 
+Time:1786:Updated State
+
+Time:1786:Color on move:
+Time:1786:White
+Time:1786
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p - - - - - - - 
+- - - - - - - - 
+- - - B P - - p 
+- p - P - p - P 
+- P - - - P p - 
+P - P Q - - P - 
+R N - - K - N R 
+Time:1787:Updated State
+
+Time:1787:Color on move:
+Time:1787:Black
+Time:1787
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+p - - - - - - - 
+- - - - - - - - 
+- - - B P - - p 
+- Q - P - p - P 
+- P - - - P p - 
+P - P - - - P - 
+R N - - K - N R 
+Time:1787:Updated State
+
+Time:1787:Color on move:
+Time:1787:White
+Time:1787
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+- - - - - - - - 
+- - - - - - - - 
+p - - B P - - p 
+- Q - P - p - P 
+- P - - - P p - 
+P - P - - - P - 
+R N - - K - N R 
+Time:1789:Updated State
+
+Time:1789:Color on move:
+Time:1789:Black
+Time:1789
+
+~~~Table_What~~~:
+
+r n b q k b - r 
+- - - - - - - - 
+- - - - - - - - 
+Q - - B P - - p 
+- - - P - p - P 
+- P - - - P p - 
+P - P - - - P - 
+R N - - K - N R 
+Time:1789:Updated State
+
+Time:1789:Color on move:
+Time:1789:White
+Time:1789
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+- - - - - - - - 
+n - - - - - - - 
+Q - - B P - - p 
+- - - P - p - P 
+- P - - - P p - 
+P - P - - - P - 
+R N - - K - N R 
+Time:1793:Updated State
+
+Time:1793:Color on move:
+Time:1793:Black
+Time:1793
+
+~~~Table_What~~~:
+
+r - b q k b - r 
+- - - - - - - - 
+Q - - - - - - - 
+- - - B P - - p 
+- - - P - p - P 
+- P - - - P p - 
+P - P - - - P - 
+R N - - K - N R 
+Time:1793:Updated State
+
+Time:1793:Color on move:
+Time:1793:White
+Time:1793
+
+~~~Table_What~~~:
+
+r - b q k - - r 
+- - - - - - - - 
+Q - - - - - - - 
+- - - B P - - p 
+- - - P - p - P 
+b P - - - P p - 
+P - P - - - P - 
+R N - - K - N R 
+Time:1796:Updated State
+
+Time:1796:Color on move:
+Time:1796:Black
+Time:1796
+
+~~~Table_What~~~:
+
+r - b q k - - r 
+- - - - - - - - 
+Q - - - - - - - 
+- - - B P - - p 
+- - - P - p - P 
+N P - - - P p - 
+P - P - - - P - 
+R - - - K - N R 
+Time:1796:Updated State
+
+Time:1796:Color on move:
+Time:1796:White
+Time:1796
+
+~~~Table_What~~~:
+
+r - - q k - - r 
+- - - - - - - - 
+b - - - - - - - 
+- - - B P - - p 
+- - - P - p - P 
+N P - - - P p - 
+P - P - - - P - 
+R - - - K - N R 
+Time:1799:Updated State
+
+Time:1799:Color on move:
+Time:1799:Black
+Time:1799
+
+~~~Table_What~~~:
+
+r - - q k - - r 
+- - - - - - - - 
+b - - - - - - - 
+- - - B P - - p 
+- - N P - p - P 
+- P - - - P p - 
+P - P - - - P - 
+R - - - K - N R 
+Time:1799:Updated State
+
+Time:1799:Color on move:
+Time:1799:White
+Time:1799
+
+~~~Table_What~~~:
+
+r - - q k - - r 
+- - - - - - - - 
+- - - - - - - - 
+- b - B P - - p 
+- - N P - p - P 
+- P - - - P p - 
+P - P - - - P - 
+R - - - K - N R 
+Time:1801:Updated State
+
+Time:1801:Color on move:
+Time:1801:Black
+Time:1801
+
+~~~Table_What~~~:
+
+r - - q k - - r 
+- - - - - - - - 
+- - - - - - - - 
+- b - B P - - p 
+P - N P - p - P 
+- P - - - P p - 
+- - P - - - P - 
+R - - - K - N R 
