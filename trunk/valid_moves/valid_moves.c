@@ -437,17 +437,27 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 	int i, j, regina = 0;
 	BITMAP rezultat = 0;
 	UCHAR ce_piesa, col_on_move = ST_get_col_on_move(st), captura_stanga,
-			captura_dreapta, K = T_K, B = T_B, Q = T_Q, R = T_R, P = T_P;
+			captura_dreapta, K = T_K, B = T_B, Q = T_Q, R = T_R, P = T_P, N =
+					T_N;
 	UCHAR ce_piesa_e_la_loc_piesa = ST_get_tag_Table_What(st, piece_row,
 			piece_col);
 
 	if (col_on_move == 1) {
 		K = T_K + BWP_OFF;
 		B = T_B + BWP_OFF;
+		N = T_N + BWP_OFF;
 		Q = T_Q + BWP_OFF;
 		R = T_R + BWP_OFF;
 		P = T_P + BWP_OFF;
 	}
+
+	if (ce_piesa_e_la_loc_piesa == N) {
+
+		rezultat = VM_valid_pos(Moves[T_N - 2][piece_row][piece_col],
+				ST_get_bitmap(st, col_on_move));
+		return rezultat;
+	}
+
 	if (ce_piesa_e_la_loc_piesa == Q) {
 		regina = 1;
 	}
