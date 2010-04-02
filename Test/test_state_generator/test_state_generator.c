@@ -29,8 +29,8 @@ int main() {
 
 	st = state_read(fin);
 	//state_print(st,stdout);
-	st1 = ST_gen(st);
-	//state_print_Table_What(ST_gen(st),stdout);
+	//st1 = ST_gen(st);
+	state_print_Table_What(ST_gen(st),stdout);
 
 	printf("fara");
 	return 0;

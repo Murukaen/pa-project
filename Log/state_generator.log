@@ -1,4 +1,4 @@
-Time:6168
+Time:9214
 
 {
 --------------------------------------------------------------
@@ -11,10 +11,10 @@ Time:6168
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 1 0 0 0 0 
-1 0 0 0 0 1 0 0 
-1 1 1 0 1 1 1 1 
-1 0 1 0 1 1 0 1 
+0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 
+0 0 1 0 0 0 0 0 
 
  V[Black]=
 
@@ -35,8 +35,8 @@ Time:6168
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 0 0 0 0 0 
 0 0 0 0 1 0 0 0 
+0 0 0 0 0 0 0 0 
 
  V[Queen]=
 
@@ -44,7 +44,7 @@ Time:6168
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 0 1 0 0 0 0 
+0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
@@ -58,7 +58,7 @@ Time:6168
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-1 0 0 0 0 0 0 1 
+0 0 0 0 0 0 0 0 
 
  V[Bishop]=
 
@@ -69,7 +69,7 @@ Time:6168
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-0 0 1 0 0 1 0 0 
+0 0 1 0 0 0 0 0 
 
  V[Knight]=
 
@@ -78,7 +78,7 @@ Time:6168
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-1 0 0 0 0 1 0 0 
+0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 
@@ -90,7 +90,7 @@ Time:6168
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
-1 1 1 0 1 1 1 1 
+0 0 0 0 0 0 0 0 
 0 0 0 0 0 0 0 0 
 
 ~~~Table_What~~~:
@@ -99,19 +99,19 @@ r n b q k b n r
 p p p p p p p p 
 - - - - - - - - 
 - - - - - - - - 
-- - - Q - - - - 
-N - - - - N - - 
-P P P - P P P P 
-R - B - K B - R 
+- - - - - - - - 
+- - - - - - - - 
+- - - - K - - - 
+- - B - - - - - 
 
 ~~~Table_Location~~~:
 
-Table_Location[White][King]: ( e , 1 ) 
-Table_Location[White][Queen]: ( d , 4 ) 
-Table_Location[White][Rock]: ( a , 1 )  ( h , 1 ) 
-Table_Location[White][Bishop]: ( c , 1 )  ( f , 1 ) 
-Table_Location[White][Knight]: ( f , 3 )  ( a , 3 ) 
-Table_Location[White][Pawn]: ( a , 2 )  ( b , 2 )  ( c , 2 )  ( e , 2 )  ( f , 2 )  ( g , 2 )  ( h , 2 ) 
+Table_Location[White][King]: ( e , 2 ) 
+Table_Location[White][Queen]:
+Table_Location[White][Rock]:
+Table_Location[White][Bishop]: ( c , 1 ) 
+Table_Location[White][Knight]:
+Table_Location[White][Pawn]:
 Table_Location[Black][King]: ( e , 8 ) 
 Table_Location[Black][Queen]: ( d , 8 ) 
 Table_Location[Black][Rock]: ( a , 8 )  ( h , 8 ) 
@@ -121,11 +121,11 @@ Table_Location[Black][Pawn]: ( a , 7 )  ( b , 7 )  ( c , 7 )  ( d , 7 )  ( e , 7
 
 Color on move : Black
 
-Piece to move: Knight
+Piece to move: Bishop
 
 Move index: 0
 
-Current piece location : Void List
+Current piece location : ( c , 8 )
 
 Gen_Init : 0
 
