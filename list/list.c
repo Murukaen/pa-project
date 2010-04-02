@@ -77,6 +77,10 @@ List list_copy(List l, FALLOC falloc) {
 
 void delete_elem_list(List L, key k, FEQU fequ, FFREE ffree) {
 
+	if (L == NULL) {
+		printf("null");
+		exit(1);
+	}
 	if (L -> next == NULL)
 		return;
 
