@@ -44,7 +44,7 @@ STATE ST_gen(STATE start_state) {
 	UCHAR index = ST_get_move_index(start_state), i, j, k, iter;
 	UCHAR col_on_move = ST_get_col_on_move(start_state);
 	List L = ST_get_cur_poz_in_list(start_state);
-	P_LOC loc, index_loc = first_nod_list(&L),loc_pinning_piece = LOC_new();
+	P_LOC loc, index_loc = first_nod_list(&L), loc_pinning_piece = LOC_new();
 	BITMAP valid_moves, new_bmap;
 
 	STATE new_state = ST_new();
@@ -56,15 +56,16 @@ STATE ST_gen(STATE start_state) {
 		for (loc = index_loc; loc; index = 0, loc = first_nod_list(&L)) {
 
 			UCHAR old_c = LOC_get_col(loc), old_r = LOC_get_row(loc);
-			
-			if (VM_is_Check_if_piece_moves(start_state, loc,loc_pinning_piece) == 1) { // daca e sah daca muta piesa
 
-				if ( VM_get_valid_if_check(start_state,loc,loc_pinning_piece) == 0){// daca nu poate sa mute efectiv
-				continue;
-				}else{
-					valid_moves = VM_get_valid_if_check(start_state,loc,loc_pinning_piece);
+			if (VM_is_Check_if_piece_moves(start_state, loc, loc_pinning_piece)
+					== 1) { // daca e sah daca muta piesa
+
+				valid_moves = VM_get_valid_if_check(start_state, loc,
+						loc_pinning_piece);
+				if (valid_moves == 0) {// daca nu poate sa mute efectiv
+					continue;
 				}
-			}else{
+			} else {// daca nu intra in sah daca muta
 				valid_moves = VM_valid_moves(start_state, loc);
 			}
 
@@ -124,8 +125,7 @@ STATE ST_gen(STATE start_state) {
 							piece_to_delete -= BWP_OFF;
 						}
 						/* iau bitmapul pieselor de tipul celei capturate si il modific*/
-						if (piece_to_delete
-								!= iter) {
+						if (piece_to_delete != iter) {
 							new_bmap = ST_get_bitmap(start_state,
 									piece_to_delete);
 							BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(
