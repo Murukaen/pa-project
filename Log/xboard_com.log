@@ -1,474 +1,273 @@
-Time:4344:Engine>XBoard>Line>
-Time:4344:feature done=0
+Time:7562:Engine>XBoard>Line>
+Time:7562:feature done=0
 
-Time:4344:WAIT Input
-Time:4344:RECEIVED Input
-Time:4344:Engine>XBoard>Line>
-Time:4344:
+Time:7562:WAIT Input
+Time:7562:RECEIVED Input
+Time:7562:Engine>XBoard>Line>
+Time:7562:
 
-Time:4344:WAIT Input
-Time:4344:RECEIVED Input
-Time:4344:Engine>XBoard>Line>
-Time:4344:feature usermove=1 san=1 sigint=0 done=1
+Time:7562:WAIT Input
+Time:7562:RECEIVED Input
+Time:7562:Engine>XBoard>Line>
+Time:7562:feature usermove=1 san=1 sigint=0 done=1
 
-Time:4344:WAIT Input
-Time:4344:RECEIVED Input
-Time:4344:WAIT Input
-Time:4344:RECEIVED Input
-Time:4344:WAIT Input
-Time:4344:RECEIVED Input
-Time:4344:WAIT Input
-Time:4344:RECEIVED Input
-Time:4344:WAIT Input
-Time:4344:RECEIVED Input
-Time:4344:WAIT Input
-Time:4344:RECEIVED Input
-Time:4344:WAIT Input
-Time:4344:RECEIVED Input
-Time:4344:WAIT Input
-Time:4344:RECEIVED Input
-Time:4344:WAIT Input
-Time:4344:RECEIVED Input
-Time:4344:WAIT Input
-Time:4344:RECEIVED Input
-Time:4344:WAIT Input
-Time:4351:RECEIVED Input
-Time:4351:WAIT Input
-Time:4351:RECEIVED Input
-Time:4351:WAIT Input
-Time:4351:RECEIVED Input
-Time:4351:Engine>XBoard>Line>
-Time:4351:move h5
+Time:7562:WAIT Input
+Time:7563:RECEIVED Input
+Time:7563:WAIT Input
+Time:7563:RECEIVED Input
+Time:7563:WAIT Input
+Time:7563:RECEIVED Input
+Time:7563:WAIT Input
+Time:7563:RECEIVED Input
+Time:7563:WAIT Input
+Time:7563:RECEIVED Input
+Time:7563:WAIT Input
+Time:7563:RECEIVED Input
+Time:7563:WAIT Input
+Time:7563:RECEIVED Input
+Time:7563:WAIT Input
+Time:7563:RECEIVED Input
+Time:7563:WAIT Input
+Time:7563:RECEIVED Input
+Time:7563:WAIT Input
+Time:7563:RECEIVED Input
+Time:7563:WAIT Input
+Time:7569:RECEIVED Input
+Time:7569:WAIT Input
+Time:7569:RECEIVED Input
+Time:7569:WAIT Input
+Time:7569:RECEIVED Input
+Time:7569:Engine>XBoard>Line>
+Time:7569:move h5
 
-Time:4351:WAIT Input
-Time:4352:RECEIVED Input
-Time:4352:WAIT Input
-Time:4352:RECEIVED Input
-Time:4352:WAIT Input
-Time:4352:RECEIVED Input
-Time:4352:Engine>XBoard>Line>
-Time:4352:move g5
+Time:7569:WAIT Input
+Time:7573:RECEIVED Input
+Time:7573:WAIT Input
+Time:7573:RECEIVED Input
+Time:7573:WAIT Input
+Time:7573:RECEIVED Input
+Time:7573:Engine>XBoard>Line>
+Time:7573:move hxg4
 
-Time:4352:WAIT Input
-Time:4353:RECEIVED Input
-Time:4353:WAIT Input
-Time:4353:RECEIVED Input
-Time:4353:WAIT Input
-Time:4353:RECEIVED Input
-Time:4353:Engine>XBoard>Line>
-Time:4353:move f5
+Time:7573:WAIT Input
+Time:7577:RECEIVED Input
+Time:7577:WAIT Input
+Time:7577:RECEIVED Input
+Time:7577:WAIT Input
+Time:7577:RECEIVED Input
+Time:7577:Engine>XBoard>Line>
+Time:7577:move gxf3
 
-Time:4353:WAIT Input
-Time:4358:RECEIVED Input
-Time:4358:WAIT Input
-Time:4358:RECEIVED Input
-Time:4358:WAIT Input
-Time:4358:RECEIVED Input
-Time:4358:Engine>XBoard>Line>
-Time:4358:move f4
+Time:7577:WAIT Input
+Time:7579:RECEIVED Input
+Time:7579:WAIT Input
+Time:7579:RECEIVED Input
+Time:7579:WAIT Input
+Time:7579:RECEIVED Input
+Time:7579:Engine>XBoard>Line>
+Time:7579:move fxe2
 
-Time:4358:WAIT Input
-Time:4359:RECEIVED Input
-Time:4359:WAIT Input
-Time:4359:RECEIVED Input
-Time:4359:WAIT Input
-Time:4359:RECEIVED Input
-Time:4359:Engine>XBoard>Line>
-Time:4359:move e5
+Time:7579:WAIT Input
+Time:7580:RECEIVED Input
+Time:7580:WAIT Input
+Time:7580:RECEIVED Input
+Time:7580:WAIT Input
+Time:7580:RECEIVED Input
+Time:7580:Engine>XBoard>Line>
+Time:7580:move g5
 
-Time:4359:WAIT Input
-Time:4360:RECEIVED Input
-Time:4360:WAIT Input
-Time:4360:RECEIVED Input
-Time:4360:WAIT Input
-Time:4360:RECEIVED Input
-Time:4360:Engine>XBoard>Line>
-Time:4360:move d5
+Time:7580:WAIT Input
+Time:7582:RECEIVED Input
+Time:7582:WAIT Input
+Time:7582:RECEIVED Input
+Time:7582:WAIT Input
+Time:7582:RECEIVED Input
+Time:7582:Engine>XBoard>Line>
+Time:7582:move f5
 
-Time:4360:WAIT Input
-Time:4364:RECEIVED Input
-Time:4364:WAIT Input
-Time:4364:RECEIVED Input
-Time:4364:WAIT Input
-Time:4364:RECEIVED Input
-Time:4364:Engine>XBoard>Line>
-Time:4364:move d4
+Time:7582:WAIT Input
+Time:7584:RECEIVED Input
+Time:7584:WAIT Input
+Time:7584:RECEIVED Input
+Time:7584:WAIT Input
+Time:7584:RECEIVED Input
+Time:7584:Engine>XBoard>Line>
+Time:7584:move f4
 
-Time:4364:WAIT Input
-Time:4366:RECEIVED Input
-Time:4366:WAIT Input
-Time:4366:RECEIVED Input
-Time:4366:WAIT Input
-Time:4366:RECEIVED Input
-Time:4366:Engine>XBoard>Line>
-Time:4366:move c5
+Time:7584:WAIT Input
+Time:7589:RECEIVED Input
+Time:7589:WAIT Input
+Time:7589:RECEIVED Input
+Time:7589:WAIT Input
+Time:7589:RECEIVED Input
+Time:7589:Engine>XBoard>Line>
+Time:7589:move f3
 
-Time:4366:WAIT Input
-Time:4367:RECEIVED Input
-Time:4367:WAIT Input
-Time:4367:RECEIVED Input
-Time:4367:WAIT Input
-Time:4367:RECEIVED Input
-Time:4367:Engine>XBoard>Line>
-Time:4367:move c4
+Time:7589:WAIT Input
+Time:7597:RECEIVED Input
+Time:7597:WAIT Input
+Time:7597:RECEIVED Input
+Time:7597:WAIT Input
+Time:7597:RECEIVED Input
+Time:7597:Engine>XBoard>Line>
+Time:7597:move e5
 
-Time:4367:WAIT Input
-Time:4369:RECEIVED Input
-Time:4369:WAIT Input
-Time:4369:RECEIVED Input
-Time:4369:WAIT Input
-Time:4369:RECEIVED Input
-Time:4369:Engine>XBoard>Line>
-Time:4369:move c3
+Time:7597:WAIT Input
+Time:7600:RECEIVED Input
+Time:7600:WAIT Input
+Time:7600:RECEIVED Input
+Time:7600:WAIT Input
+Time:7600:RECEIVED Input
+Time:7600:Engine>XBoard>Line>
+Time:7600:move e4
 
-Time:4369:WAIT Input
-Time:4370:RECEIVED Input
-Time:4370:WAIT Input
-Time:4370:RECEIVED Input
-Time:4370:WAIT Input
-Time:4370:RECEIVED Input
-Time:4370:Engine>XBoard>Line>
-Time:4370:move b5
+Time:7600:WAIT Input
+Time:7605:RECEIVED Input
+Time:7605:WAIT Input
+Time:7605:RECEIVED Input
+Time:7605:WAIT Input
+Time:7605:RECEIVED Input
+Time:7605:Engine>XBoard>Line>
+Time:7605:move e3
 
-Time:4370:WAIT Input
-Time:4373:RECEIVED Input
-Time:4373:WAIT Input
-Time:4373:RECEIVED Input
-Time:4373:WAIT Input
-Time:4373:RECEIVED Input
-Time:4373:Engine>XBoard>Line>
-Time:4373:move b4
+Time:7605:WAIT Input
+Time:7611:RECEIVED Input
+Time:7611:WAIT Input
+Time:7611:RECEIVED Input
+Time:7611:WAIT Input
+Time:7611:RECEIVED Input
+Time:7611:Engine>XBoard>Line>
+Time:7611:move exd2
 
-Time:4373:WAIT Input
-Time:4375:RECEIVED Input
-Time:4375:WAIT Input
-Time:4375:RECEIVED Input
-Time:4375:WAIT Input
-Time:4375:RECEIVED Input
-Time:4375:Engine>XBoard>Line>
-Time:4375:move b3
+Time:7611:WAIT Input
+Time:7614:RECEIVED Input
+Time:7614:WAIT Input
+Time:7614:RECEIVED Input
+Time:7614:WAIT Input
+Time:7614:RECEIVED Input
+Time:7614:Engine>XBoard>Line>
+Time:7614:move d5
 
-Time:4375:WAIT Input
-Time:4377:RECEIVED Input
-Time:4377:WAIT Input
-Time:4377:RECEIVED Input
-Time:4377:WAIT Input
-Time:4377:RECEIVED Input
-Time:4377:Engine>XBoard>Line>
-Time:4377:move a5
+Time:7614:WAIT Input
+Time:7616:RECEIVED Input
+Time:7616:WAIT Input
+Time:7616:RECEIVED Input
+Time:7616:WAIT Input
+Time:7616:RECEIVED Input
+Time:7616:Engine>XBoard>Line>
+Time:7616:move d4
 
-Time:4377:WAIT Input
-Time:4381:RECEIVED Input
-Time:4381:WAIT Input
-Time:4381:RECEIVED Input
-Time:4381:WAIT Input
-Time:4381:RECEIVED Input
-Time:4381:Engine>XBoard>Line>
-Time:4381:move Ne7
+Time:7616:WAIT Input
+Time:7618:RECEIVED Input
+Time:7618:WAIT Input
+Time:7618:RECEIVED Input
+Time:7618:WAIT Input
+Time:7618:RECEIVED Input
+Time:7618:Engine>XBoard>Line>
+Time:7618:move d3
 
-Time:4381:WAIT Input
-Time:4388:RECEIVED Input
-Time:4388:WAIT Input
-Time:4388:RECEIVED Input
-Time:4388:WAIT Input
-Time:4388:RECEIVED Input
-Time:4388:Engine>XBoard>Line>
-Time:4388:move N7c6
+Time:7618:WAIT Input
+Time:7622:RECEIVED Input
+Time:7622:WAIT Input
+Time:7622:RECEIVED Input
+Time:7622:WAIT Input
+Time:7622:RECEIVED Input
+Time:7622:Engine>XBoard>Line>
+Time:7622:move c5
 
-Time:4388:WAIT Input
-Time:4389:RECEIVED Input
-Time:4389:WAIT Input
-Time:4389:RECEIVED Input
-Time:4389:WAIT Input
-Time:4389:RECEIVED Input
-Time:4389:Engine>XBoard>Line>
-Time:4389:move Na6
+Time:7622:WAIT Input
+Time:7626:RECEIVED Input
+Time:7626:WAIT Input
+Time:7626:RECEIVED Input
+Time:7626:WAIT Input
+Time:7626:RECEIVED Input
+Time:7626:Engine>XBoard>Line>
+Time:7626:move c4
 
-Time:4389:WAIT Input
-Time:4394:RECEIVED Input
-Time:4394:WAIT Input
-Time:4394:RECEIVED Input
-Time:4394:WAIT Input
-Time:4394:RECEIVED Input
-Time:4394:Engine>XBoard>Line>
-Time:4394:move Na5
+Time:7626:WAIT Input
+Time:7630:RECEIVED Input
+Time:7630:WAIT Input
+Time:7630:RECEIVED Input
+Time:7630:WAIT Input
+Time:7630:RECEIVED Input
+Time:7630:Engine>XBoard>Line>
+Time:7630:move b5
 
-Time:4394:WAIT Input
-Time:4396:RECEIVED Input
-Time:4396:WAIT Input
-Time:4396:RECEIVED Input
-Time:4396:WAIT Input
-Time:4396:RECEIVED Input
-Time:4396:Engine>XBoard>Line>
-Time:4396:move Ba3
+Time:7630:WAIT Input
+Time:7632:RECEIVED Input
+Time:7632:WAIT Input
+Time:7632:RECEIVED Input
+Time:7632:WAIT Input
+Time:7632:RECEIVED Input
+Time:7632:Engine>XBoard>Line>
+Time:7632:move a5
 
-Time:4396:WAIT Input
-Time:4400:RECEIVED Input
-Time:4400:WAIT Input
-Time:4400:RECEIVED Input
-Time:4400:WAIT Input
-Time:4400:RECEIVED Input
-Time:4400:Engine>XBoard>Line>
-Time:4400:move Bb2
+Time:7632:WAIT Input
+Time:7635:RECEIVED Input
+Time:7635:WAIT Input
+Time:7635:RECEIVED Input
+Time:7635:WAIT Input
+Time:7635:RECEIVED Input
+Time:7635:Engine>XBoard>Line>
+Time:7635:move a4
 
-Time:4400:WAIT Input
-Time:4430:RECEIVED Input
-Time:4430:WAIT Input
-Time:4430:RECEIVED Input
-Time:4430:WAIT Input
-Time:4430:RECEIVED Input
-Time:4430:WAIT Input
-Time:4430:RECEIVED Input
-Time:4430:WAIT Input
-Time:4430:RECEIVED Input
-Time:4430:WAIT Input
-Time:4430:RECEIVED Input
-Time:4430:WAIT Input
-Time:4433:RECEIVED Input
-Time:4433:WAIT Input
-Time:4433:RECEIVED Input
-Time:4433:WAIT Input
-Time:4433:RECEIVED Input
-Time:4433:Engine>XBoard>Line>
-Time:4433:move h5
+Time:7635:WAIT Input
+Time:7638:RECEIVED Input
+Time:7638:WAIT Input
+Time:7638:RECEIVED Input
+Time:7638:WAIT Input
+Time:7638:RECEIVED Input
+Time:7638:Engine>XBoard>Line>
+Time:7638:move Na6
 
-Time:4433:WAIT Input
-Time:4436:RECEIVED Input
-Time:4436:WAIT Input
-Time:4436:RECEIVED Input
-Time:4436:WAIT Input
-Time:4436:RECEIVED Input
-Time:4436:Engine>XBoard>Line>
-Time:4436:move g5
+Time:7638:WAIT Input
+Time:7647:RECEIVED Input
+Time:7647:WAIT Input
+Time:7647:RECEIVED Input
+Time:7647:WAIT Input
+Time:7647:RECEIVED Input
+Time:7647:Engine>XBoard>Line>
+Time:7647:move Nb4
 
-Time:4436:WAIT Input
-Time:4438:RECEIVED Input
-Time:4438:WAIT Input
-Time:4438:RECEIVED Input
-Time:4438:WAIT Input
-Time:4438:RECEIVED Input
-Time:4438:Engine>XBoard>Line>
-Time:4438:move hxg4
+Time:7647:WAIT Input
+Time:7649:RECEIVED Input
+Time:7649:WAIT Input
+Time:7649:RECEIVED Input
+Time:7649:WAIT Input
+Time:7649:RECEIVED Input
+Time:7649:Engine>XBoard>Line>
+Time:7649:move Na2
 
-Time:4438:WAIT Input
-Time:4442:RECEIVED Input
-Time:4442:WAIT Input
-Time:4442:RECEIVED Input
-Time:4442:WAIT Input
-Time:4442:RECEIVED Input
-Time:4442:Engine>XBoard>Line>
-Time:4442:move g3
+Time:7649:WAIT Input
+Time:7651:RECEIVED Input
+Time:7651:WAIT Input
+Time:7651:RECEIVED Input
+Time:7651:WAIT Input
+Time:7651:RECEIVED Input
+Time:7651:Engine>XBoard>Line>
+Time:7651:move Nb4
 
-Time:4442:WAIT Input
-Time:4443:RECEIVED Input
-Time:4443:WAIT Input
-Time:4443:RECEIVED Input
-Time:4443:WAIT Input
-Time:4443:RECEIVED Input
-Time:4443:Engine>XBoard>Line>
-Time:4443:move g4
+Time:7651:WAIT Input
+Time:7656:RECEIVED Input
+Time:7656:WAIT Input
+Time:7656:RECEIVED Input
+Time:7656:WAIT Input
+Time:7656:RECEIVED Input
+Time:7656:Engine>XBoard>Line>
+Time:7656:move Na2
 
-Time:4443:WAIT Input
-Time:4445:RECEIVED Input
-Time:4445:WAIT Input
-Time:4445:RECEIVED Input
-Time:4445:WAIT Input
-Time:4445:RECEIVED Input
-Time:4445:Engine>XBoard>Line>
-Time:4445:move f5
+Time:7656:WAIT Input
+Time:7658:RECEIVED Input
+Time:7658:WAIT Input
+Time:7658:RECEIVED Input
+Time:7658:WAIT Input
+Time:7658:RECEIVED Input
+Time:7658:Engine>XBoard>Line>
+Time:7658:move Qa8
 
-Time:4445:WAIT Input
-Time:4446:RECEIVED Input
-Time:4446:WAIT Input
-Time:4446:RECEIVED Input
-Time:4446:WAIT Input
-Time:4446:RECEIVED Input
-Time:4446:Engine>XBoard>Line>
-Time:4446:move e6
-
-Time:4446:WAIT Input
-Time:4453:RECEIVED Input
-Time:4453:WAIT Input
-Time:4453:RECEIVED Input
-Time:4453:WAIT Input
-Time:4453:RECEIVED Input
-Time:4453:Engine>XBoard>Line>
-Time:4453:move d5
-
-Time:4453:WAIT Input
-Time:4458:RECEIVED Input
-Time:4458:WAIT Input
-Time:4458:RECEIVED Input
-Time:4458:WAIT Input
-Time:4458:RECEIVED Input
-Time:4458:Engine>XBoard>Line>
-Time:4458:move c5
-
-Time:4458:WAIT Input
-Time:4459:RECEIVED Input
-Time:4459:WAIT Input
-Time:4459:RECEIVED Input
-Time:4459:WAIT Input
-Time:4459:RECEIVED Input
-Time:4459:Engine>XBoard>Line>
-Time:4459:move d4
-
-Time:4459:WAIT Input
-Time:4462:RECEIVED Input
-Time:4462:WAIT Input
-Time:4462:RECEIVED Input
-Time:4462:WAIT Input
-Time:4462:RECEIVED Input
-Time:4462:Engine>XBoard>Line>
-Time:4462:move b5
-
-Time:4462:WAIT Input
-Time:4469:RECEIVED Input
-Time:4469:WAIT Input
-Time:4469:RECEIVED Input
-Time:4469:WAIT Input
-Time:4469:RECEIVED Input
-Time:4469:Engine>XBoard>Line>
-Time:4469:move b4
-
-Time:4469:WAIT Input
-Time:4474:RECEIVED Input
-Time:4474:WAIT Input
-Time:4474:RECEIVED Input
-Time:4474:WAIT Input
-Time:4474:RECEIVED Input
-Time:4474:Engine>XBoard>Line>
-Time:4474:move a5
-
-Time:4474:WAIT Input
-Time:4476:RECEIVED Input
-Time:4476:WAIT Input
-Time:4476:RECEIVED Input
-Time:4476:WAIT Input
-Time:4476:RECEIVED Input
-Time:4476:Engine>XBoard>Line>
-Time:4476:move a4
-
-Time:4476:WAIT Input
-Time:4478:RECEIVED Input
-Time:4478:WAIT Input
-Time:4478:RECEIVED Input
-Time:4478:WAIT Input
-Time:4478:RECEIVED Input
-Time:4478:Engine>XBoard>Line>
-Time:4478:move a3
-
-Time:4478:WAIT Input
-Time:4480:RECEIVED Input
-Time:4480:WAIT Input
-Time:4480:RECEIVED Input
-Time:4480:WAIT Input
-Time:4480:RECEIVED Input
-Time:4480:Engine>XBoard>Line>
-Time:4480:move Ne7
-
-Time:4480:WAIT Input
-Time:4482:RECEIVED Input
-Time:4482:WAIT Input
-Time:4482:RECEIVED Input
-Time:4482:WAIT Input
-Time:4482:RECEIVED Input
-Time:4482:Engine>XBoard>Line>
-Time:4482:move N7c6
-
-Time:4482:WAIT Input
-Time:4484:RECEIVED Input
-Time:4484:WAIT Input
-Time:4484:RECEIVED Input
-Time:4484:WAIT Input
-Time:4484:RECEIVED Input
-Time:4484:Engine>XBoard>Line>
-Time:4484:move Na6
-
-Time:4484:WAIT Input
-Time:4488:RECEIVED Input
-Time:4488:WAIT Input
-Time:4488:RECEIVED Input
-Time:4488:WAIT Input
-Time:4488:RECEIVED Input
-Time:4488:Engine>XBoard>Line>
-Time:4488:move Nab4
-
-Time:4488:WAIT Input
-Time:4491:RECEIVED Input
-Time:4491:WAIT Input
-Time:4491:RECEIVED Input
-Time:4491:WAIT Input
-Time:4491:RECEIVED Input
-Time:4491:Engine>XBoard>Line>
-Time:4491:move Na5
-
-Time:4491:WAIT Input
-Time:4493:RECEIVED Input
-Time:4493:WAIT Input
-Time:4493:RECEIVED Input
-Time:4493:WAIT Input
-Time:4493:RECEIVED Input
-Time:4493:Engine>XBoard>Line>
-Time:4493:move Ba3
-
-Time:4493:WAIT Input
-Time:4498:RECEIVED Input
-Time:4498:WAIT Input
-Time:4498:RECEIVED Input
-Time:4498:WAIT Input
-Time:4498:RECEIVED Input
-Time:4498:Engine>XBoard>Line>
-Time:4498:move Bb2
-
-Time:4498:WAIT Input
-Time:4502:RECEIVED Input
-Time:4502:WAIT Input
-Time:4502:RECEIVED Input
-Time:4502:WAIT Input
-Time:4502:RECEIVED Input
-Time:4502:Engine>XBoard>Line>
-Time:4502:move Ba1
-
-Time:4502:WAIT Input
-Time:4506:RECEIVED Input
-Time:4506:WAIT Input
-Time:4506:RECEIVED Input
-Time:4506:WAIT Input
-Time:4506:RECEIVED Input
-Time:4506:Engine>XBoard>Line>
-Time:4506:move Bb2
-
-Time:4506:WAIT Input
-Time:4508:RECEIVED Input
-Time:4508:WAIT Input
-Time:4508:RECEIVED Input
-Time:4508:WAIT Input
-Time:4508:RECEIVED Input
-Time:4508:Engine>XBoard>Line>
-Time:4508:move Rf8
-
-Time:4508:WAIT Input
-Time:4512:RECEIVED Input
-Time:4512:WAIT Input
-Time:4512:RECEIVED Input
-Time:4512:WAIT Input
-Time:4512:RECEIVED Input
-Time:4512:Engine>XBoard>Line>
-Time:4512:move Rf1
-
-Time:4512:WAIT Input
-Time:4514:RECEIVED Input
-Time:4514:WAIT Input
-Time:4514:RECEIVED Input
-Time:4514:WAIT Input
-Time:4514:RECEIVED Input
-Time:4514:Engine>XBoard>Line>
-Time:4514:move Kd7
-
-Time:4514:WAIT Input
-Time:5081:RECEIVED Input
-Time:5081:WAIT Input
-Time:5081:RECEIVED Input
-Time:5081:WAIT Input
-Time:5081:RECEIVED Input
+Time:7658:WAIT Input
+Time:7674:RECEIVED Input
+Time:7674:WAIT Input
+Time:7674:RECEIVED Input
+Time:7674:WAIT Input
+Time:7674:RECEIVED Input

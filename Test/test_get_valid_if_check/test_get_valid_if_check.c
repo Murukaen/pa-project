@@ -12,8 +12,6 @@
 
 int main() {
 
-	FILE * fout = fopen("./Test/test_get_valid_if_check/test_get_valid_if_check.out",
-			"w");
 	FILE * fin = fopen("./Test/test_get_valid_if_check/test_get_valid_if_check.in", "r");
 	if (fin == NULL) {
 		printf("eroare deschidere fisier intrare");
@@ -26,12 +24,14 @@ int main() {
 	Init ( INIT_ALL );
 
 	st = state_read(fin);
+	//state_print(st,stdout);
 	P_LOC pinned = LOC_new(),checking = LOC_new();
 
 	LOCp_set_both(pinned,3,3);
-	LOCp_set_both(checking,6,6);
+	LOCp_set_both(checking,1,5);
 
 	rez = VM_get_valid_if_check(st,pinned, checking);
 	BM_print(rez,stdout);
+	fclose(fin);
 	return 0;
 }
