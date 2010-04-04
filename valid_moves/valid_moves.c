@@ -996,6 +996,5 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 				&= ~Moves[T_K - PIECES_OFF][LOC_get_row(poz)][LOC_get_col(poz)];
 		rezultat &= ~ST_get_bitmap(st, ST_get_col_on_move(st));
 	}
-
 	return rezultat;
 }
