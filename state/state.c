@@ -133,7 +133,7 @@ void ST_set_cur_poz_in_list(STATE st, List l) {
 
 void ST_set_col_on_move(STATE st, UCHAR color) {
 
-	ST_set_new_st_gen ( st , 0 ) ; // !!! 
+	ST_set_new_st_gen(st, 0); // !!!
 	st -> col_on_move = color;
 }
 
@@ -209,10 +209,30 @@ void state_print(STATE st, FILE * fout) {
 
 	/* Print Table_What */
 	fprintf(fout, "\n~~~Table_What~~~:\n\n");
-	for (i = 0; i < SIZE_BMAP; ++i, fprintf(fout, "\n"))
-		for (j = 0; j < SIZE_BMAP; ++j, fprintf(fout, " "))
-			fprintf(fout, "%c", tag_to_letter(
-					st -> Table_What[BM_row(i, j)][BM_col(i, j)]));
+	int linie = 8, litera = 65;
+	for (i = 0; i < 18; ++i, fprintf(fout, "\n")) {
+		for (j = -1; j < 8; ++j) {
+
+			if (j == -1) {
+				if (i % 2 == 0 && i != 17) {
+					fprintf(fout, " +");
+				} else {
+					fprintf(fout, "%d|", linie--);
+					continue;
+				}
+			}
+			if (i % 2 == 1 && i != 17) {
+				fprintf(fout, " %c |", tag_to_letter(st -> Table_What[BM_row((i
+						- 1) / 2, j)][BM_col((i - 1) / 2, j)]));
+			} else if (i % 2 == 0 && i != 17) {
+				if (j != 7) {
+					fprintf(fout, "---+");
+				}
+			} else {
+				fprintf(fout, " %c  ", litera++);
+			}
+		}
+	}
 	/* END Print Table_What */
 
 	/* Print Table_Location */
@@ -257,8 +277,8 @@ void state_print(STATE st, FILE * fout) {
 			fprintf(fout, "\nCurrent piece location : ( %c , %c )\n",
 					row_to_letter(LOC_get_row(loc)), col_to_letter(LOC_get_col(
 							loc)));
-		}else{
-			fprintf(fout,"\nCurrent piece location: -VOID-\n");
+		} else {
+			fprintf(fout, "\nCurrent piece location: -VOID-\n");
 		}
 	} else
 		fprintf(fout, "\nCurrent piece location : Void List\n");
