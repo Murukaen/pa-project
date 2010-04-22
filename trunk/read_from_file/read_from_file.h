@@ -34,5 +34,9 @@ void print_all_possible_moves(FILE * ,BITMAP[5][8][8]);
  */
 STATE Read_initial_state( void );
 
+/* citeste din fisierul de database si adauga la hashtable*/
+/*are argument fisierul din care citeste*/
+void Read_from_db(FILE *);
+
 
 #endif

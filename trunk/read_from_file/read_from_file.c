@@ -75,3 +75,50 @@ void print_all_possible_moves(FILE * fout, BITMAP Moves[5][8][8]) {
 		}
 	}
 }
+void Read_from_db(FILE *f){
+
+	/*  TODO:
+	 *  State new_initial_state(void) care returneaza o tabla la inceputul jocului
+	 *  void update(State,char *) care face update la orice stare State cu mutarea char*
+	 *  void add_to_hash(State) adauga State in hash (daca nu mai exista deja in hash)
+	 */
+
+
+		int i,k=0,j=0,h;
+		char *elem,*buffer;
+		elem=(char*)malloc(10*sizeof(char));	//elem va fii fiecare mutare in parte de pe linie
+		buffer=(char*)malloc(1000*sizeof(char)); //buffer va fii fiecare linie in parte
+		strcpy(elem,"");
+		State Sinit;
+		Sinit=new_initial_state();//functie care returneaa o tabla la inceput de joc
+
+		while(j<=100)	//citesc doar primele 100 de linii din fisier pentru etapa3
+		{
+			j++;
+			fgets(buffer,1000,f); //citesc linia
+			k=0;
+			for(i=0;i<=strlen(buffer);i++)
+			{
+				if(buffer[i]==' ' || buffer[i]=="\n") {
+									update(Sinit,elem); //fac update la starea curenta cu mutarea curenta
+									add_to_hash(Sinit); //adaug starea rezultata in hash
+									k=0;
+									strcpy(elem,"");
+									}
+				else
+					elem[k++]=buffer[i];
+			}
+			update(Sinit,elem); //fac update pentru ultimul element de pe linie
+								//care nu va intra in iful forului de mai sus
+			add_to_hash(Sinit); //adaug in hash
+			Sinit=new_initial_state(); //refac starea la starea initiala pentru a trece la urmatoarea linie
+			k=0;
+			strcpy(elem,"");
+		}
+
+}
+
+
+
+
+
