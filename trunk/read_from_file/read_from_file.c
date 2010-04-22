@@ -101,11 +101,12 @@ void Read_openings(){
 			{
 					
 				if(buffer[i]==' ' || i==strlen(buffer)-2) {
+									elem[k]='\0';
 								//	printf("bufferul este:\n-------------------\n");puts(buffer);printf("---------------\n");
-									printf("dimens %d string %s\n",k-1,elem);
+									printf("dimens %d string %s-\n",k,elem);
 								//	printf("mata suge2\n");
 									fflush(stdout);
-								//	move_print(SAN_to_Move(Sinit,elem),stdout);
+									move_print(SAN_to_Move(Sinit,elem),stdout);
 								//	update_state(Sinit,SAN_to_Move(Sinit, elem)); //fac update la starea curenta cu mutarea curenta
 									tt_add_opening ( Sinit ); //adaug starea rezultata in hash
 									
@@ -113,7 +114,8 @@ void Read_openings(){
 									strcpy(elem,"");
 									}
 				else
-				{	printf("buffer[%d]=%c-\n",i,buffer[i]);
+				{
+					printf("buffer[%d]=%c-\n",i,buffer[i]);
 					fflush(stdout);
 					elem[k++]=buffer[i];
 				
