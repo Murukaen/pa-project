@@ -3,6 +3,7 @@
 #include "../Log/log.h"
 #include "../list/list.h"
 #include "../Util/util.h"
+#include "../state_generator/state_generator.h"
 
 #define LOG_VALIDATE_MOVE_FILE "Log/validate_move.log"
 
@@ -13,12 +14,257 @@ BITMAP VM_valid_pos(BITMAP posibile, BITMAP piese_albe) {
 	return rez;
 }
 
+BITMAP VM_is_Check(STATE st, int* nr, P_LOC checking_piece) {
+
+	UCHAR tag, col_on_move = ST_get_col_on_move(st), K, Q, R, B, P, N;
+	BITMAP rez = 0, cai = 0, daca_regele_ar_fi_cal = 0, rezultat_cal = 0;
+	List L = ST_get_List_Table_Location(st, col_on_move, T_K);
+	P_LOC king_loc = first_nod_list(&L);
+	UCHAR row_king = LOC_get_row(king_loc), col_king = LOC_get_col(king_loc);
+
+	int i, j, k, l;
+
+	if (col_on_move == 0) {
+		K = T_K + BWP_OFF;
+		Q = T_Q + BWP_OFF;
+		R = T_R + BWP_OFF;
+		B = T_B + BWP_OFF;
+		N = T_N + BWP_OFF;
+		P = T_P + BWP_OFF;
+	} else {
+		K = T_K;
+		Q = T_Q;
+		R = T_R;
+		B = T_B;
+		N = T_N;
+		P = T_P;
+	}
+
+	// ma uit pe coloana in sus
+
+	for (i = col_king + 1; i < 8; i++) {
+
+		tag = ST_get_tag_Table_What(st, row_king, i);
+		if (tag == T_NA) {
+			continue;
+		} else if (tag == Q) {
+			LOCp_set_both(checking_piece, row_king, i);
+			nr[0] += 1;
+			for (j = col_king + 1; j <= i; j++) {
+				rez |= BM_Make_coord(row_king, j);
+			}
+		} else if (tag == R) {
+			LOCp_set_both(checking_piece, row_king, i);
+			nr[0] += 1;
+			for (j = col_king + 1; j <= i; j++) {
+				rez |= BM_Make_coord(row_king, j);
+			}
+		} else {
+			break;
+		}
+	}
+
+	//ma uit pe coloana in jos
+
+	for (i = col_king - 1; i >= 0; i--) {
+
+		tag = ST_get_tag_Table_What(st, row_king, i);
+		if (tag == T_NA) {
+			continue;
+		} else if (tag == Q) {
+			LOCp_set_both(checking_piece, row_king, i);
+			nr[0] += 1;
+			for (j = col_king - 1; j >= i; j--) {
+				rez |= BM_Make_coord(row_king, j);
+			}
+		} else if (tag == R) {
+			LOCp_set_both(checking_piece, row_king, i);
+			nr[0] += 1;
+			for (j = col_king - 1; j >= i; j--) {
+				rez |= BM_Make_coord(row_king, j);
+			}
+		} else {
+			break;
+		}
+	}
+
+	// ma uit pe linie in stanga
+
+	for (i = row_king - 1; i >= 0; i--) {
+		tag = ST_get_tag_Table_What(st, i, col_king);
+		if (tag == T_NA) {
+			continue;
+		} else if (tag == Q) {
+			LOCp_set_both(checking_piece, i, col_king);
+			nr[0] += 1;
+			for (j = row_king - 1; j >= i; j--) {
+				rez |= BM_Make_coord(j, col_king);
+			}
+		} else if (tag == R) {
+			LOCp_set_both(checking_piece, i, col_king);
+			nr[0] += 1;
+			for (j = row_king - 1; j >= i; j--) {
+				rez |= BM_Make_coord(j, col_king);
+			}
+		} else {
+			break;
+		}
+	}
+	// ma uit pe linie in dreapta
+
+	for (i = row_king + 1; i < 8; i++) {
+		tag = ST_get_tag_Table_What(st, i, col_king);
+		if (tag == T_NA) {
+			continue;
+		} else if (tag == Q) {
+			LOCp_set_both(checking_piece, i, col_king);
+			nr[0] += 1;
+			for (j = row_king + 1; j <= i; j++) {
+				rez |= BM_Make_coord(j, col_king);
+			}
+
+		} else if (tag == R) {
+			LOCp_set_both(checking_piece, i, col_king);
+			nr[0] += 1;
+			for (j = row_king + 1; j <= i; j++) {
+				rez |= BM_Make_coord(j, col_king);
+			}
+		} else {
+			break;
+		}
+	}
+	// ma uit pe diag sus-stanga
+
+	for (i = row_king - 1, j = col_king + 1; i >= 0 && j < 8; i--, j++) {
+
+		tag = ST_get_tag_Table_What(st, i, j);
+		if (tag == T_NA) {
+			continue;
+		} else if (tag == Q) {
+			LOCp_set_both(checking_piece, i, j);
+			nr[0] += 1;
+			for (k = row_king - 1, l = col_king + 1; k >= i && l <= j; k--, l++) {
+				rez |= BM_Make_coord(k, l);
+			}
+		} else if (tag == B) {
+			LOCp_set_both(checking_piece, i, j);
+			nr[0] += 1;
+			for (k = row_king - 1, l = col_king - 1; k >= i && l <= j; k--, l++) {
+				rez |= BM_Make_coord(k, l);
+			}
+		} else if ((i == row_king - 1) && (j == col_king + 1) && (col_on_move == 0) && (tag == P)) {
+			LOCp_set_both(checking_piece, i, j);
+			nr[0] += 1;
+			rez |= BM_Make_coord(i, j);
+		} else {
+			break;
+		}
+
+	}
+
+	// diag sus-dreapta
+
+	for (i = row_king + 1, j = col_king + 1; i < 8 && j < 8; i++, j++) {
+
+		tag = ST_get_tag_Table_What(st, i, j);
+		if (tag == T_NA) {
+			continue;
+		} else if (tag == Q) {
+			LOCp_set_both(checking_piece, i, j);
+			nr[0] += 1;
+			for (k = row_king + 1, l = col_king + 1; k <= i && l <= j; k++, l++) {
+				rez |= BM_Make_coord(k, l);
+			}
+		} else if (tag == B) {
+			LOCp_set_both(checking_piece, i, j);
+			nr[0] += 1;
+			for (k = row_king + 1, l = col_king + 1; k <= i && l <= j; k++, l++) {
+				rez |= BM_Make_coord(k, l);
+			}
+		} else if ((i == row_king + 1) && (j == col_king + 1) && (col_on_move == 0) && (tag == P)) {
+			LOCp_set_both(checking_piece, i, j);
+			nr[0] += 1;
+			rez |= BM_Make_coord(i, j);
+		} else {
+			break;
+		}
+
+	}
+
+	//diag jos dreapta
+
+	for (i = row_king + 1, j = col_king - 1; i < 8 && j >= 0; i++, j--) {
+
+		tag = ST_get_tag_Table_What(st, i, j);
+		if (tag == T_NA) {
+			continue;
+		} else if (tag == Q) {
+			LOCp_set_both(checking_piece, i, col_king);
+			nr[0] += 1;
+			for (k = row_king + 1, l = col_king - 1; k <= i && l >= j; k++, l--) {
+				rez |= BM_Make_coord(k, l);
+			}
+		} else if (tag == B) {
+			LOCp_set_both(checking_piece, i, col_king);
+			nr[0] += 1;
+			for (k = row_king + 1, l = col_king - 1; k <= i && l <= j; k++, l--) {
+				rez |= BM_Make_coord(k, l);
+			}
+		} else if ((i == row_king + 1) && (j == col_king - 1) && (col_on_move == 1) && (tag == P)) {
+			LOCp_set_both(checking_piece, i, j);
+			nr[0] += 1;
+			rez |= BM_Make_coord(i, j);
+		} else {
+			break;
+		}
+	}
+
+	// diag jos stanga
+
+	for (i = row_king - 1, j = col_king - 1; i >= 0 && j >= 0; i--, j--) {
+
+		tag = ST_get_tag_Table_What(st, i, j);
+		if (tag == T_NA) {
+			continue;
+		} else if (tag == Q) {
+			LOCp_set_both(checking_piece, i, col_king);
+			nr[0] += 1;
+			for (k = row_king - 1, l = col_king - 1; k >= i && l >= j; k--, l--) {
+				rez |= BM_Make_coord(k, l);
+			}
+		} else if (tag == B) {
+			LOCp_set_both(checking_piece, i, col_king);
+			nr[0] += 1;
+			for (k = row_king - 1, l = col_king - 1; k >= i && l >= j; k--, l--) {
+				rez |= BM_Make_coord(k, l);
+			}
+		} else if ((i == row_king - 1) && (j == col_king - 1) && (col_on_move == 1) && (tag == P)) {
+			LOCp_set_both(checking_piece, i, j);
+			nr[0] += 1;
+			rez |= BM_Make_coord(i, j);
+		} else {
+			break;
+		}
+	}
+
+	cai = ST_get_bitmap(st, T_N) & ST_get_bitmap(st, not(col_on_move));
+	daca_regele_ar_fi_cal = Moves[T_N - 2][row_king][col_king];
+
+	rezultat_cal = cai & daca_regele_ar_fi_cal;
+
+	if (rezultat_cal != 0) {
+		rez |= rezultat_cal;
+		nr[0] += 1;
+	}
+
+	return rez;
+}
+
 UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc, P_LOC who_check) {
 
 	if (loc == NULL) {
 		/* LOG */
-		log_print("locul primit de functia vmischeck e null",
-				LOG_VALIDATE_MOVE_FILE);
+		log_print("locul primit de functia vmischeck e null", LOG_VALIDATE_MOVE_FILE);
 		/* END LOG */
 		exit(1);
 	}
@@ -27,12 +273,10 @@ UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc, P_LOC who_check) {
 	int i, j;
 	List l = ST_get_List_Table_Location(st, col_on_move, T_K);
 	P_LOC king_loc = first_nod_list(&l);
-	UCHAR row_king = LOC_get_row(king_loc), col_king = LOC_get_col(king_loc),
-			row_piece = LOC_get_row(loc), col_piece = LOC_get_col(loc), tag;
+	UCHAR row_king = LOC_get_row(king_loc), col_king = LOC_get_col(king_loc), row_piece = LOC_get_row(loc), col_piece = LOC_get_col(loc), tag;
 
 	/*fac bitmapul cu piesa la mutare, si bitmapul care arata locurile ce ataca regele*/
-	BITMAP piece_pos = BM_Make_coord(row_piece, col_piece), attack_to_king =
-			Moves[T_Q - 2][row_king][col_king];
+	BITMAP piece_pos = BM_Make_coord(row_piece, col_piece), attack_to_king = Moves[T_Q - 2][row_king][col_king];
 
 	/*verific daca piesa mutata poate afecta intr un fel regele*/
 
@@ -294,17 +538,14 @@ UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc, P_LOC who_check) {
 			return 0;
 		} else {
 			/* LOG */
-			log_print(
-					"problema la validare mutare , verificare sah :( cam o ora debugg estimez!!",
-					LOG_VALIDATE_MOVE_FILE);
+			log_print("problema la validare mutare , verificare sah :( cam o ora debugg estimez!!", LOG_VALIDATE_MOVE_FILE);
 			/* END LOG */
 
 			exit(1);
 		}
 	}
 	/* LOG */
-	log_print("validare mutare sah, s a ajuns unde nu trebuia , e nashpa!",
-			LOG_VALIDATE_MOVE_FILE);
+	log_print("validare mutare sah, s a ajuns unde nu trebuia , e nashpa!", LOG_VALIDATE_MOVE_FILE);
 	/* END LOG */
 
 	exit(1);
@@ -313,11 +554,9 @@ UCHAR VM_is_Check_if_piece_moves(STATE st, P_LOC loc, P_LOC who_check) {
 
 BITMAP VM_get_valid_if_check(STATE st, P_LOC pinned_piece, P_LOC checking_piece) {
 
-	UCHAR row_checking_piece = LOC_get_row(checking_piece), col_checking_piece =
-			LOC_get_col(checking_piece), col_on_move = ST_get_col_on_move(st),
-			row_pinned_piece = LOC_get_row(pinned_piece), col_pinned_piece =
-					LOC_get_col(pinned_piece), N = T_N, P = T_P, Q = T_Q, R =
-					T_R, B = T_B;
+	UCHAR row_checking_piece = LOC_get_row(checking_piece), col_checking_piece = LOC_get_col(checking_piece), col_on_move =
+			ST_get_col_on_move(st), row_pinned_piece = LOC_get_row(pinned_piece), col_pinned_piece = LOC_get_col(pinned_piece), N = T_N,
+			P = T_P, Q = T_Q, R = T_R, B = T_B;
 	BITMAP rezultat = 0, unu = 0;
 	int i, j, pt_regina = 0;
 
@@ -343,44 +582,36 @@ BITMAP VM_get_valid_if_check(STATE st, P_LOC pinned_piece, P_LOC checking_piece)
 
 		List l = ST_get_List_Table_Location(st, col_on_move, T_K);
 		P_LOC king_loc = first_nod_list(&l);
-		UCHAR row_king = LOC_get_row(king_loc), col_king =
-				LOC_get_col(king_loc);
+		UCHAR row_king = LOC_get_row(king_loc), col_king = LOC_get_col(king_loc);
 
 		if (col_on_move == 0) {// daca e pion alb pinuit
 			if (row_king > row_pinned_piece && col_king < col_pinned_piece) {// daca regele e in dreapta jos
 				if ((row_pinned_piece - 1 == row_checking_piece)//si gasesc nebun sau regina neagra in stanga sus
 						&& (col_pinned_piece + 1 == col_checking_piece)) {
 
-					rezultat = BM_Make_coord(row_pinned_piece - 1,
-							col_pinned_piece + 1);
+					rezultat = BM_Make_coord(row_pinned_piece - 1, col_pinned_piece + 1);
 					return rezultat;
 				}
 			}
 
 			if (row_king < row_pinned_piece && col_king < col_pinned_piece) {// daca regele e in stanga jos
-				if ((row_pinned_piece + 1 == row_checking_piece)
-						&& (col_pinned_piece + 1 == col_checking_piece)) {// daca pionu alb are piesa care l pune in pin in dreapta sus
+				if ((row_pinned_piece + 1 == row_checking_piece) && (col_pinned_piece + 1 == col_checking_piece)) {// daca pionu alb are piesa care l pune in pin in dreapta sus
 
-					rezultat = BM_Make_coord(row_pinned_piece + 1,
-							col_pinned_piece + 1);
+					rezultat = BM_Make_coord(row_pinned_piece + 1, col_pinned_piece + 1);
 					return rezultat;
 				}
 			}
 		} else {// daca e pion negru pinuit
 
 			if (row_king > row_pinned_piece && col_king > col_pinned_piece) {// daca regele e in dreapta sus
-				if ((row_pinned_piece - 1 == row_checking_piece)
-						&& (col_pinned_piece - 1 == col_pinned_piece)) { // daca piesa ce l pune in pin e in stanga jos
-					rezultat = BM_Make_coord(row_pinned_piece - 1,
-							col_pinned_piece - 1);
+				if ((row_pinned_piece - 1 == row_checking_piece) && (col_pinned_piece - 1 == col_pinned_piece)) { // daca piesa ce l pune in pin e in stanga jos
+					rezultat = BM_Make_coord(row_pinned_piece - 1, col_pinned_piece - 1);
 					return rezultat;
 				}
 			}
 			if (row_king < row_pinned_piece && col_king > col_pinned_piece) {// daca rege in stanga sus
-				if ((row_pinned_piece + 1 == row_checking_piece)
-						&& (col_pinned_piece - 1 == col_pinned_piece)) {// daca piesa ce l pune in pin e in dreapta jos
-					rezultat = BM_Make_coord(row_pinned_piece + 1,
-							col_pinned_piece - 1);
+				if ((row_pinned_piece + 1 == row_checking_piece) && (col_pinned_piece - 1 == col_pinned_piece)) {// daca piesa ce l pune in pin e in dreapta jos
+					rezultat = BM_Make_coord(row_pinned_piece + 1, col_pinned_piece - 1);
 					return rezultat;
 				}
 			}
@@ -397,11 +628,9 @@ BITMAP VM_get_valid_if_check(STATE st, P_LOC pinned_piece, P_LOC checking_piece)
 		} else {
 			Q = T_Q;
 		}
-		if (ST_get_tag_Table_What(st, row_checking_piece, col_checking_piece)
-				== Q) {
+		if (ST_get_tag_Table_What(st, row_checking_piece, col_checking_piece) == Q) {
 			// daca reginele sunt conectate pe linie
-			if (row_checking_piece == row_pinned_piece || col_checking_piece
-					== col_pinned_piece) {
+			if (row_checking_piece == row_pinned_piece || col_checking_piece == col_pinned_piece) {
 
 				pt_regina = 1;
 			} else {
@@ -409,17 +638,14 @@ BITMAP VM_get_valid_if_check(STATE st, P_LOC pinned_piece, P_LOC checking_piece)
 			}
 
 		}
-		if (ST_get_tag_Table_What(st, row_checking_piece, col_checking_piece)
-				== R) {
+		if (ST_get_tag_Table_What(st, row_checking_piece, col_checking_piece) == R) {
 			pt_regina = 1;
 		}
-		if (ST_get_tag_Table_What(st, row_checking_piece, col_checking_piece)
-				== B) {
+		if (ST_get_tag_Table_What(st, row_checking_piece, col_checking_piece) == B) {
 			pt_regina = 2;
 		}
 	}
-	if (ST_get_tag_Table_What(st, row_pinned_piece, col_pinned_piece) == R
-			|| pt_regina == 1) {
+	if (ST_get_tag_Table_What(st, row_pinned_piece, col_pinned_piece) == R || pt_regina == 1) {
 
 		// daca sunt pe aceeasi linie
 		if (row_pinned_piece == row_checking_piece) {
@@ -462,48 +688,39 @@ BITMAP VM_get_valid_if_check(STATE st, P_LOC pinned_piece, P_LOC checking_piece)
 		return rezultat;
 	}
 
-	if (ST_get_tag_Table_What(st, row_pinned_piece, col_pinned_piece) == B
-			|| pt_regina == 2) {
+	if (ST_get_tag_Table_What(st, row_pinned_piece, col_pinned_piece) == B || pt_regina == 2) {
 
 		// daca piesa ce da sah e pe diag dreapta sus
-		if (row_checking_piece > row_pinned_piece && col_checking_piece
-				> col_pinned_piece) {
+		if (row_checking_piece > row_pinned_piece && col_checking_piece > col_pinned_piece) {
 
-			for (i = row_pinned_piece + 1, j = col_pinned_piece + 1; i
-					<= row_checking_piece && j <= col_checking_piece; i++, j++) {
+			for (i = row_pinned_piece + 1, j = col_pinned_piece + 1; i <= row_checking_piece && j <= col_checking_piece; i++, j++) {
 
 				unu = BM_Make_coord(i, j);
 				rezultat |= unu;
 			}
 		}
 		// daca piesa ce da sah e pe diag sus stanga
-		if (row_checking_piece < row_pinned_piece && col_checking_piece
-				> col_pinned_piece) {
+		if (row_checking_piece < row_pinned_piece && col_checking_piece > col_pinned_piece) {
 
-			for (i = row_pinned_piece - 1, j = col_pinned_piece + 1; i
-					>= row_checking_piece && j <= col_checking_piece; i--, j++) {
+			for (i = row_pinned_piece - 1, j = col_pinned_piece + 1; i >= row_checking_piece && j <= col_checking_piece; i--, j++) {
 
 				unu = BM_Make_coord(i, j);
 				rezultat |= unu;
 			}
 		}
 		// daca piesa ce da sah e pe diag stanga jos
-		if (row_checking_piece < row_pinned_piece && col_checking_piece
-				< col_pinned_piece) {
+		if (row_checking_piece < row_pinned_piece && col_checking_piece < col_pinned_piece) {
 
-			for (i = row_pinned_piece - 1, j = col_pinned_piece - 1; i
-					>= row_checking_piece && j >= col_checking_piece; i--, j--) {
+			for (i = row_pinned_piece - 1, j = col_pinned_piece - 1; i >= row_checking_piece && j >= col_checking_piece; i--, j--) {
 
 				unu = BM_Make_coord(i, j);
 				rezultat |= unu;
 			}
 		}
 		// daca piesa ce da sah e pe diag dreapta jos
-		if (row_checking_piece > row_pinned_piece && col_checking_piece
-				< col_pinned_piece) {
+		if (row_checking_piece > row_pinned_piece && col_checking_piece < col_pinned_piece) {
 
-			for (i = row_pinned_piece + 1, j = col_pinned_piece - 1; i
-					<= row_checking_piece && j >= col_checking_piece; i++, j--) {
+			for (i = row_pinned_piece + 1, j = col_pinned_piece - 1; i <= row_checking_piece && j >= col_checking_piece; i++, j--) {
 
 				unu = BM_Make_coord(i, j);
 				rezultat |= unu;
@@ -519,8 +736,7 @@ BITMAP VM_get_valid_if_check(STATE st, P_LOC pinned_piece, P_LOC checking_piece)
 
 int VM_validate_King_move(STATE st, LOC loc) {
 
-	UCHAR row = loc.row, col = loc.col, col_on_move = ST_get_col_on_move(st),
-			tag, regina, pion, tura, nebun, rege;
+	UCHAR row = loc.row, col = loc.col, col_on_move = ST_get_col_on_move(st), tag, regina, pion, tura, nebun, rege;
 	LOC Locuri[8];
 	int i, j;
 
@@ -634,38 +850,40 @@ int VM_validate_King_move(STATE st, LOC loc) {
 
 	if (col_on_move == 0) {
 		for (i = 0; i < 8; i++) {
-			if (Locuri[i].row >= 0 && Locuri[i].col < 8 && Locuri[i].row < 8
-					&& Locuri[i].col >= 0)
-				if (ST_get_tag_Table_What(st, row - 1, col + 1) == pion
-						|| ST_get_tag_Table_What(st, row + 1, col + 1) == pion) {// daca sunt pioni in fata stanga/dreapta
+			if (Locuri[i].row >= 0 && Locuri[i].col < 8 && Locuri[i].row < 8 && Locuri[i].col >= 0)
+				if (ST_get_tag_Table_What(st, row - 1, col + 1) == pion || ST_get_tag_Table_What(st, row + 1, col + 1) == pion) {// daca sunt pioni in fata stanga/dreapta
 					return 1;
 
 				}
 		}
 	} else {
 		for (i = 0; i < 8; i++) {
-			if (Locuri[i].row >= 0 && Locuri[i].col < 8 && Locuri[i].row < 8
-					&& Locuri[i].col >= 0)
-				if (ST_get_tag_Table_What(st, row - 1, col - 1) == pion
-						|| ST_get_tag_Table_What(st, row + 1, col - 1) == pion) {// daca sunt pioni in fata stanga/dreapta
+			if (Locuri[i].row >= 0 && Locuri[i].col < 8 && Locuri[i].row < 8 && Locuri[i].col >= 0)
+				if (ST_get_tag_Table_What(st, row - 1, col - 1) == pion || ST_get_tag_Table_What(st, row + 1, col - 1) == pion) {// daca sunt pioni in fata stanga/dreapta
 					return 1;
 
 				}
 		}
 	}
+
+	BITMAP cai = 0, daca_regele_ar_fi_cal, rezultat_cal;
+
+	cai = ST_get_bitmap(st, T_N) & ST_get_bitmap(st, not(col_on_move));
+	daca_regele_ar_fi_cal = Moves[T_N - 2][row][col];
+
+	rezultat_cal = cai & daca_regele_ar_fi_cal;
+	if (rezultat_cal != 0)
+		return 1;
+
 	return 0;
 }
 BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 
-	UCHAR piece_row = LOC_get_row(loc_piesa), piece_col =
-			LOC_get_col(loc_piesa);
+	UCHAR piece_row = LOC_get_row(loc_piesa), piece_col = LOC_get_col(loc_piesa);
 	int i, j, regina = 0;
 	BITMAP rezultat = 0;
-	UCHAR ce_piesa, col_on_move = ST_get_col_on_move(st), captura_stanga,
-			captura_dreapta, K = T_K, B = T_B, Q = T_Q, R = T_R, P = T_P, N =
-					T_N;
-	UCHAR ce_piesa_e_la_loc_piesa = ST_get_tag_Table_What(st, piece_row,
-			piece_col);
+	UCHAR ce_piesa, col_on_move = ST_get_col_on_move(st), captura_stanga, captura_dreapta, K = T_K, B = T_B, Q = T_Q, R = T_R, P = T_P, N = T_N;
+	UCHAR ce_piesa_e_la_loc_piesa = ST_get_tag_Table_What(st, piece_row, piece_col);
 
 	if (col_on_move == 1) {
 		K = T_K + BWP_OFF;
@@ -678,8 +896,7 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 
 	if (ce_piesa_e_la_loc_piesa == N) {
 
-		rezultat = VM_valid_pos(Moves[T_N - 2][piece_row][piece_col],
-				ST_get_bitmap(st, col_on_move));
+		rezultat = VM_valid_pos(Moves[T_N - 2][piece_row][piece_col], ST_get_bitmap(st, col_on_move));
 
 		return rezultat;
 	}
@@ -910,10 +1127,8 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 				if (ST_get_tag_Table_What(st, piece_row, piece_col + 1) == T_NA) {// daca e liber pe prima pozitie
 
 					BM_Put_piece_at_coord(&rezultat, piece_row, piece_col + 1);
-					if (ST_get_tag_Table_What(st, piece_row, piece_col + 2)
-							== T_NA) {// daca e liber pe a 2 a pozitie
-						BM_Put_piece_at_coord(&rezultat, piece_row, piece_col
-								+ 2);
+					if (ST_get_tag_Table_What(st, piece_row, piece_col + 2) == T_NA) {// daca e liber pe a 2 a pozitie
+						BM_Put_piece_at_coord(&rezultat, piece_row, piece_col + 2);
 					}
 				}
 			} else {// daca pioniu gica nu e pe linia de start
@@ -923,10 +1138,8 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 				}
 			}
 			// acu verific capturile
-			captura_stanga = ST_get_tag_Table_What(st, piece_row - 1, piece_col
-					+ 1);
-			captura_dreapta = ST_get_tag_Table_What(st, piece_row + 1,
-					piece_col + 1);
+			captura_stanga = ST_get_tag_Table_What(st, piece_row - 1, piece_col + 1);
+			captura_dreapta = ST_get_tag_Table_What(st, piece_row + 1, piece_col + 1);
 
 			if (captura_stanga > 7 && captura_stanga < 14) { // daca e piesa neagra acolo
 				BM_Put_piece_at_coord(&rezultat, piece_row - 1, piece_col + 1);
@@ -941,10 +1154,8 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 				if (ST_get_tag_Table_What(st, piece_row, piece_col - 1) == T_NA) {// daca e liber pe prima pozitie
 
 					BM_Put_piece_at_coord(&rezultat, piece_row, piece_col - 1);
-					if (ST_get_tag_Table_What(st, piece_row, piece_col - 2)
-							== T_NA) { // daca e liber pe a 2 a pozitie
-						BM_Put_piece_at_coord(&rezultat, piece_row, piece_col
-								- 2);
+					if (ST_get_tag_Table_What(st, piece_row, piece_col - 2) == T_NA) { // daca e liber pe a 2 a pozitie
+						BM_Put_piece_at_coord(&rezultat, piece_row, piece_col - 2);
 					}
 				}
 			} else { // daca pioni nigar nu e pe linia de start
@@ -954,10 +1165,8 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 				}
 			}
 
-			captura_stanga = ST_get_tag_Table_What(st, piece_row - 1, piece_col
-					- 1);
-			captura_dreapta = ST_get_tag_Table_What(st, piece_row + 1,
-					piece_col - 1);
+			captura_stanga = ST_get_tag_Table_What(st, piece_row - 1, piece_col - 1);
+			captura_dreapta = ST_get_tag_Table_What(st, piece_row + 1, piece_col - 1);
 
 			if (captura_stanga > 1 && captura_stanga < 8) { // daca e piesa alba acolo
 				BM_Put_piece_at_coord(&rezultat, piece_row - 1, piece_col - 1);
@@ -970,8 +1179,7 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 
 	if (ce_piesa_e_la_loc_piesa == K) {
 
-		UCHAR C_DIR[8] = { 1, 1, 1, 0, -1, -1, -1, 0 }, L_DIR[8] = { -1, 0, 1,
-				1, 1, 0, -1, -1 };
+		UCHAR C_DIR[8] = { 1, 1, 1, 0, -1, -1, -1, 0 }, L_DIR[8] = { -1, 0, 1, 1, 1, 0, -1, -1 };
 		LOC Locuri[8];
 
 		for (i = 0; i < 8; i++) {
@@ -982,18 +1190,14 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 		for (i = 0; i < 8; i++) {
 
 			if (VM_validate_King_move(st, Locuri[i]) == 0) {
-				if (Locuri[i].row >= 0 && Locuri[i].row < 8 && Locuri[i].col
-						>= 0 && Locuri[i].col < 8) {
-					BM_Put_piece_at_coord(&rezultat, Locuri[i].row,
-							Locuri[i].col);
+				if (Locuri[i].row >= 0 && Locuri[i].row < 8 && Locuri[i].col >= 0 && Locuri[i].col < 8) {
+					BM_Put_piece_at_coord(&rezultat, Locuri[i].row, Locuri[i].col);
 				}
 			}
 		}
-		List l = ST_get_List_Table_Location(st, not(ST_get_col_on_move(st)),
-				T_K);
+		List l = ST_get_List_Table_Location(st, not(ST_get_col_on_move(st)), T_K);
 		P_LOC poz = first_nod_list(&l);
-		rezultat
-				&= ~Moves[T_K - PIECES_OFF][LOC_get_row(poz)][LOC_get_col(poz)];
+		rezultat &= ~Moves[T_K - PIECES_OFF][LOC_get_row(poz)][LOC_get_col(poz)];
 		rezultat &= ~ST_get_bitmap(st, ST_get_col_on_move(st));
 	}
 	return rezultat;
