@@ -14,6 +14,7 @@
 #include "../move_conv/move_conv.h"
 #include "../Log/log.h"
 #include "../Init/init.h"
+#include "../cur_state/cur_state.h"
 
 /* ---- Macro #define ---- */
 #define COM_SEP ' '
@@ -119,7 +120,7 @@ void read_com ( char * com ) {
 			log_print (word , LOG_HISTORY_FILE );
 			/* END LOG History */
 			
-			update_state ( SAN_to_Move ( word ) );  
+			update_state ( cur_state_get() , SAN_to_Move ( word ) );  
 			
 		}
 		
@@ -145,7 +146,7 @@ void write_com (void * com , int com_tag ) {
 							strcat(text , text_move );
 							strcat(text, "\n");
 							write_to_xboard(text); 
-							update_state( (MOVE) com ) ; 
+							update_state( cur_state_get() , (MOVE) com ) ; 
 							break;
 		case T_COM_DRAW : write_to_xboard ("offer draw\n"); break;
 		case T_COM_RESIGN : write_to_xboard ("resign\n"); break;

@@ -10,6 +10,7 @@
 /* ----- Local #inlcudes ----- */
 #include "../move/move.h"
 #include "../Flags/flags.h"
+#include "../state/state.h"
 
 /* ---- Macro #define ---- */
 
