@@ -369,9 +369,8 @@ char* Move_to_SAN(MOVE s) {
 	}
 }
 
-MOVE SAN_to_Move(char* s) {
+MOVE SAN_to_Move(char* s, STATE cur) {
 	MOVE m = move_new();
-	STATE cur = cur_state_get();
 	if (strcmp(s, "O-O") == 0 || strcmp(s, "o-o") == 0 || strcmp(s, "0-0") == 0) {
 		if (!ST_get_col_on_move(cur)) {
 			LOC src;
@@ -479,6 +478,10 @@ MOVE SAN_to_Move(char* s) {
 			LOC h = gasire_piesa(cur, cg, lg, l, T_P);
 			move_set_poz_src(m, h);
 			move_set_p_tag ( m , T_P);
+			if (s[j++] == '='){
+				move_set_m_tag(m, 1);
+				move_set_p_tag_pro(m, get_piece(s[j]));
+			}
 		}
 	}
 	return m;
