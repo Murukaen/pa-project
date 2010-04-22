@@ -49,11 +49,15 @@ STATE ST_gen(STATE start_state) {
 
 	STATE new_state = ST_new();
 
-
 	valid_moves_when_check = VM_is_Check(start_state, nr_of_pieces_checking, loc_checking_piece);
 
 	for (iter = ST_get_piece_to_move(start_state); iter >= T_K; --iter, index = 0, L = ST_get_List_Table_Location(start_state, col_on_move, iter), index_loc
 			= first_nod_list(&L)) {
+		if (nr_of_pieces_checking[0] > 1) {// daca e sah de la mai mult de o piesa, tre sa mut regele
+			iter = T_K;
+			L = ST_get_List_Table_Location(start_state, col_on_move, iter);
+			index_loc = first_nod_list(&L);
+		}
 
 		for (loc = index_loc; loc; index = 0, loc = first_nod_list(&L)) {
 
@@ -73,12 +77,6 @@ STATE ST_gen(STATE start_state) {
 
 				if ((iter != T_K) && (nr_of_pieces_checking[0] == 1)) {// daca nu e regele la mutare si e sah de la o piesa
 					valid_moves &= valid_moves_when_check;
-				}
-				if (nr_of_pieces_checking[0] > 1) {// daca e sah de la mai mult de o piesa, tre sa mut regele
-					iter = T_K;
-					List L = ST_get_List_Table_Location(start_state, col_on_move, T_K);
-					P_LOC king_loc = first_nod_list(&L);
-					loc = king_loc;
 				}
 
 				UCHAR new_r = i / 8, new_c = i % 8;

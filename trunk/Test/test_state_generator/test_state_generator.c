@@ -18,7 +18,7 @@ int main() {
 		printf("eroare deschidere fisier intrare");
 		exit(0);
 	}
-	STATE st,st1;
+	STATE st;
 
 	/* Inits */
 
@@ -32,6 +32,6 @@ int main() {
 	//st1 = ST_gen(st);
 	state_print(ST_gen(st),stdout);
 
-	printf("fara");
+	printf("fardsaa");
 	return 0;
 }
