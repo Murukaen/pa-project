@@ -29,7 +29,7 @@ void update_state_init(void);
  * Input:1: move
  * Output:0
  */
-void update_state(MOVE);
+void update_state(STATE, MOVE);
 
 /* schimba pozitia initiala a pieselor(rege-regina) - pt alb sau pt negru*/
 void flip_state(void);
