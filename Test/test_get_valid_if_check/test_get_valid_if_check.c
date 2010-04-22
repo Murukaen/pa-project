@@ -25,11 +25,11 @@ int main() {
 	Init(INIT_ALL);
 
 	st = state_read(fin);
-	//state_print(st,stdout);
+	state_print(st,stdout);
 	P_LOC pinned = LOC_new(), checking = LOC_new();
 
-	LOCp_set_both(pinned, 3, 3);
-	LOCp_set_both(checking, 1, 5);
+	LOCp_set_both(pinned, 4, 6);
+	LOCp_set_both(checking, 4, 4);
 
 	rez = VM_get_valid_if_check(st, pinned, checking);
 	BM_print(rez, stdout);
