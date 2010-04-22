@@ -83,7 +83,9 @@ void Read_openings(){
 
 		FILE *f=fopen("Database/database.txt","r");
 		int i,k,j;
+		UCHAR ec=get_engine_col();
 		char *elem,*buffer;
+		MOVE m;
 		elem=(char*)malloc(10*sizeof(char));	//elem va fii fiecare mutare in parte de pe linie
 		buffer=(char*)malloc(1000*sizeof(char)); //buffer va fii fiecare linie in parte
 		strcpy(elem,"");
@@ -91,40 +93,61 @@ void Read_openings(){
 		Sinit=Read_initial_state();//functie care returneaa o tabla la inceput de joc
 		state_print(Sinit,stdout);
 		j=0;
-		while(j<=10)	//citesc doar primele 100 de linii din fisier pentru etapa3
+		while(j<=5)	//citesc doar primele 100 de linii din fisier pentru etapa3
 		{
-			j++;
+			j++;    //j reprezinta linia la care ma aflu
 			fgets(buffer,1000,f); //citesc linia
+
+			/*initializari pentru fiecare inceput de linie */
 			k=0;
-		
+			ec=get_engine_col();
+
+			/*parcurgere buffer*/
 			for(i=0;i<strlen(buffer)-1;i++)
 			{
 					
-				if(buffer[i]==' ' || i==strlen(buffer)-2) { //daca gasesc spatiu sau am ajuns la sfarsitul liniei
-									    //  pana in \n
-
-									elem[k]='\0'; //fac trimm tuturor caracterelor necorespunzatoare
-									printf("dimens %d string %s-\n",k,elem);
-									fflush(stdout);
-									move_print(SAN_to_Move(Sinit,elem),stdout); //printez mutarea
-								//	update_state(Sinit,SAN_to_Move(Sinit, elem)); //fac update la starea curenta cu mutarea curenta
-									tt_add_opening ( Sinit ); //adaug starea rezultata in hash
-									k=0;
-									strcpy(elem,"");
-									}
-				else
+				if(buffer[i]==' ' || i==strlen(buffer)-2) 
 				{
-				
+				 	/*daca gasesc spatiu sau am ajuns la sfarsitul liniei pana in \n*/
+				 	/*inversez culoarea on move pentru fiecare move nou*/
+					if(ec==0) 
+						ec=1;
+					else ec=0;
+					/*fac trimm tuturor caracterelor necorespunzatoare*/
+					elem[k]='\0'; 
+					
+					printf("dimens %d string %s-\n",k,elem);
 					fflush(stdout);
+					
+					/*m reprezinta moveul convertit string->SAN*/
+					m=SAN_to_Move(Sinit,elem);
+					/*setez in move culoarea care face mutarea*/
+					move_set_what_col(m,ec);
+					/*printare mutare*/
+					move_print(m,stdout); 
+				//	update_state(Sinit,SAN_to_Move(Sinit, elem)); //fac update la starea curenta cu mutarea curenta
+				//	tt_add_opening ( Sinit ); //adaug starea rezultata in hash
+
+					k=0;
+				//	ST_set_col_on_move(Sinit,ec);
+					printf("\nsucki mucki suge curu\n");
+					fflush(stdout);
+					
+					/*sterg continut elem*/
+					strcpy(elem,"");
+				}
+				/*formez fiecare mutare in parte*/
+				else
 					elem[k++]=buffer[i];
 				
-				}
 			}
 		//	update_state(Sinit,SAN_to_Move(Sinit, elem)); //fac update pentru ultimul element de pe linie
 								      //care nu va intra in iful forului de mai sus
-			tt_add_opening ( Sinit ); //adaug in hash
-			Sinit=Read_initial_state(); //refac starea la starea initiala pentru a trece la urmatoarea linie
-			k=0;
+
+			/*adaug in hash*/
+			tt_add_opening ( Sinit );
+			/*refac starea la starea initiala pentru a trece la urmatoarea linie*/
+			Sinit=Read_initial_state(); 
 			strcpy(elem,"");
 		}
 		fclose(f);
