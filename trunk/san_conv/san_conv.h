@@ -42,6 +42,6 @@ char * Move_to_SAN (MOVE);
  * Output:1: MOVE
  */
 
-MOVE SAN_to_Move (char*, STATE);
+MOVE SAN_to_Move (STATE, char* );
 
 #endif /* SAN_H_ */

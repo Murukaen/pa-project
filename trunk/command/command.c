@@ -109,7 +109,7 @@ void read_com ( char * com ) {
 			log_print ("XBoard>Engine>Move" , LOG_COMMAND_FILE );
 			log_print ( word , LOG_COMMAND_FILE );
 			log_print ("XBoard>Engine>SAN_to_Move" , LOG_COMMAND_FILE);
-			log_print_move ( SAN_to_Move ( word ) , LOG_COMMAND_FILE );
+			log_print_move ( SAN_to_Move ( cur_state_get() , word ) , LOG_COMMAND_FILE );
 		
 			/* END LOG */
 			
@@ -120,7 +120,7 @@ void read_com ( char * com ) {
 			log_print (word , LOG_HISTORY_FILE );
 			/* END LOG History */
 			
-			update_state ( cur_state_get() , SAN_to_Move ( word ) );  
+			update_state ( cur_state_get() , SAN_to_Move ( cur_state_get() , word ) );  
 			
 		}
 		
