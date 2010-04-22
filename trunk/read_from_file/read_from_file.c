@@ -81,7 +81,7 @@ void print_all_possible_moves(FILE * fout, BITMAP Moves[5][8][8]) {
 void Read_openings(){
 
 		FILE *f=fopen("../Database/database.txt","r");
-		int i,k=0,j=0,h;
+		int i,k,j;
 		char *elem,*buffer;
 		elem=(char*)malloc(10*sizeof(char));	//elem va fii fiecare mutare in parte de pe linie
 		buffer=(char*)malloc(1000*sizeof(char)); //buffer va fii fiecare linie in parte
@@ -112,6 +112,8 @@ void Read_openings(){
 			k=0;
 			strcpy(elem,"");
 		}
+		fclose(f);
+		return;
 
 }
 
