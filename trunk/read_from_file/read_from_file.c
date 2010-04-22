@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 /* ----- Local #inlcudes ----- */
 #include "../state/state.h"
 #include "../bitmap/bitmap.h"
@@ -14,6 +15,7 @@
 #include "../list/list.h"
 #include "../Util/util.h"
 #include "../Flags/flags.h"
+#include "../transp_table/transp_table.h"
 
 /* ---- Macro #define ---- */
 #define FILE_INITIAL_STATE "Database/initial_state.in"
@@ -80,7 +82,7 @@ void Read_openings(FILE *f){
 	/*  TODO:
 	 *  State new_initial_state(void) care returneaza o tabla la inceputul jocului
 	 *  void update(State,char *) care face update la orice stare State cu mutarea char*
-	 *  void add_to_hash(State) adauga State in hash (daca nu mai exista deja in hash)
+	 *  void tt_add_opening(State) adauga State in hash (daca nu mai exista deja in hash)
 	 */
 
 
@@ -101,7 +103,7 @@ void Read_openings(FILE *f){
 			{
 				if(buffer[i]==' ' || buffer[i]=="\n") {
 									update(Sinit,elem); //fac update la starea curenta cu mutarea curenta
-									add_to_hash(Sinit); //adaug starea rezultata in hash
+									tt_add_opening(Sinit); //adaug starea rezultata in hash
 									k=0;
 									strcpy(elem,"");
 									}
@@ -110,7 +112,7 @@ void Read_openings(FILE *f){
 			}
 			update(Sinit,elem); //fac update pentru ultimul element de pe linie
 								//care nu va intra in iful forului de mai sus
-			add_to_hash(Sinit); //adaug in hash
+			tt_add_opening(Sinit); //adaug in hash
 			Sinit=new_initial_state(); //refac starea la starea initiala pentru a trece la urmatoarea linie
 			k=0;
 			strcpy(elem,"");
