@@ -81,7 +81,7 @@ void print_all_possible_moves(FILE * fout, BITMAP Moves[5][8][8]) {
 }
 void Read_openings(){
 
-		FILE *f=fopen("../Database/database.txt","r");
+		FILE *f=fopen("Database/database.txt","r");
 		int i,k,j;
 		char *elem,*buffer;
 		elem=(char*)malloc(10*sizeof(char));	//elem va fii fiecare mutare in parte de pe linie
@@ -89,24 +89,37 @@ void Read_openings(){
 		strcpy(elem,"");
 		STATE Sinit;
 		Sinit=Read_initial_state();//functie care returneaa o tabla la inceput de joc
+		state_print(Sinit,stdout);
 		j=0;
-		while(j<=100)	//citesc doar primele 100 de linii din fisier pentru etapa3
+		while(j<=3)	//citesc doar primele 100 de linii din fisier pentru etapa3
 		{
 			j++;
 			fgets(buffer,1000,f); //citesc linia
 			k=0;
-			for(i=0;i<=strlen(buffer);i++)
+		
+			for(i=0;i<strlen(buffer)-1;i++)
 			{
-				if(buffer[i]==' ' || buffer[i]=="\n") {
-									update_state(Sinit,SAN_to_Move(Sinit, elem)); //fac update la starea curenta cu mutarea curenta
+					
+				if(buffer[i]==' ' || i==strlen(buffer)-2) {
+								//	printf("bufferul este:\n-------------------\n");puts(buffer);printf("---------------\n");
+									printf("dimens %d string %s\n",k-1,elem);
+								//	printf("mata suge2\n");
+									fflush(stdout);
+								//	move_print(SAN_to_Move(Sinit,elem),stdout);
+								//	update_state(Sinit,SAN_to_Move(Sinit, elem)); //fac update la starea curenta cu mutarea curenta
 									tt_add_opening ( Sinit ); //adaug starea rezultata in hash
+									
 									k=0;
 									strcpy(elem,"");
 									}
 				else
+				{	printf("buffer[%d]=%c-\n",i,buffer[i]);
+					fflush(stdout);
 					elem[k++]=buffer[i];
+				
+				}
 			}
-			update_state(Sinit,SAN_to_Move(Sinit, elem)); //fac update pentru ultimul element de pe linie
+		//	update_state(Sinit,SAN_to_Move(Sinit, elem)); //fac update pentru ultimul element de pe linie
 												   //care nu va intra in iful forului de mai sus
 			tt_add_opening ( Sinit ); //adaug in hash
 			Sinit=Read_initial_state(); //refac starea la starea initiala pentru a trece la urmatoarea linie
