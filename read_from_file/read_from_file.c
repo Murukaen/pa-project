@@ -75,7 +75,7 @@ void print_all_possible_moves(FILE * fout, BITMAP Moves[5][8][8]) {
 		}
 	}
 }
-void Read_from_db(FILE *f){
+void Read_openings(FILE *f){
 
 	/*  TODO:
 	 *  State new_initial_state(void) care returneaza o tabla la inceputul jocului
