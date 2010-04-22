@@ -91,7 +91,7 @@ void Read_openings(){
 		Sinit=Read_initial_state();//functie care returneaa o tabla la inceput de joc
 		state_print(Sinit,stdout);
 		j=0;
-		while(j<=1000)	//citesc doar primele 100 de linii din fisier pentru etapa3
+		while(j<=10)	//citesc doar primele 100 de linii din fisier pentru etapa3
 		{
 			j++;
 			fgets(buffer,1000,f); //citesc linia
@@ -109,20 +109,19 @@ void Read_openings(){
 									move_print(SAN_to_Move(Sinit,elem),stdout); //printez mutarea
 								//	update_state(Sinit,SAN_to_Move(Sinit, elem)); //fac update la starea curenta cu mutarea curenta
 									tt_add_opening ( Sinit ); //adaug starea rezultata in hash
-									
 									k=0;
 									strcpy(elem,"");
 									}
 				else
 				{
-				//	printf("buffer[%d]=%c-\n",i,buffer[i]);
+				
 					fflush(stdout);
 					elem[k++]=buffer[i];
 				
 				}
 			}
 		//	update_state(Sinit,SAN_to_Move(Sinit, elem)); //fac update pentru ultimul element de pe linie
-												   //care nu va intra in iful forului de mai sus
+								      //care nu va intra in iful forului de mai sus
 			tt_add_opening ( Sinit ); //adaug in hash
 			Sinit=Read_initial_state(); //refac starea la starea initiala pentru a trece la urmatoarea linie
 			k=0;
