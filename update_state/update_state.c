@@ -31,9 +31,8 @@ void update_state_init(void) {
 	cur_state_set(Read_initial_state());
 }
 
-void update_state(MOVE mov) {
+void update_state(STATE cur, MOVE mov) {
 	
-	STATE cur = cur_state_get();
 	UCHAR piesa = move_get_p_tag(mov);
 	LOC src = move_get_poz_src(mov);
 	LOC dst = move_get_poz_dst(mov);
