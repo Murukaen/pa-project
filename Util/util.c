@@ -191,8 +191,8 @@ char tag_to_letter ( UCHAR tag ) {
 		case T_R : rez = 'R'; break;
 		case T_B : rez = 'B'; break;
 		case T_N : rez = 'N'; break;
-		case T_P : rez = 'P'; break;
-		case T_NA : rez = '-' ; break ;
+		case T_P : rez = 'F'; break;
+		case T_NA : rez = ' ' ; break ;
 		
 		default: rez = 'X';
 	}
