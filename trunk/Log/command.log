@@ -1,36 +1,36 @@
-Time:2455:xboard
-Time:2455:END read_com
-Time:2455:protover 2
-Time:2455:END read_com
-Time:2455:accepted done
-Time:2455:END read_com
-Time:2455:accepted usermove
-Time:2455:END read_com
-Time:2455:accepted san
-Time:2455:END read_com
-Time:2455:accepted sigint
-Time:2455:END read_com
-Time:2455:accepted done
-Time:2455:END read_com
-Time:2455:new
-Time:2455:END read_com
-Time:2455:random
-Time:2455:END read_com
-Time:2455:level 40 5 0
-Time:2455:END read_com
-Time:2455:post
-Time:2455:END read_com
-Time:2455:hard
-Time:2455:END read_com
-Time:2457:time 30000
-Time:2457:END read_com
-Time:2457:otim 30000
-Time:2457:END read_com
-Time:2457:usermove h4
-Time:2457:XBoard>Engine>Move
-Time:2457:h4
-Time:2457:XBoard>Engine>SAN_to_Move
-Time:2457
+Time:2870:xboard
+Time:2870:END read_com
+Time:2870:protover 2
+Time:2870:END read_com
+Time:2870:accepted done
+Time:2870:END read_com
+Time:2870:accepted usermove
+Time:2870:END read_com
+Time:2870:accepted san
+Time:2870:END read_com
+Time:2870:accepted sigint
+Time:2870:END read_com
+Time:2870:accepted done
+Time:2870:END read_com
+Time:2870:new
+Time:2870:END read_com
+Time:2870:random
+Time:2870:END read_com
+Time:2870:level 40 5 0
+Time:2870:END read_com
+Time:2870:post
+Time:2870:END read_com
+Time:2870:hard
+Time:2870:END read_com
+Time:2872:time 30000
+Time:2872:END read_com
+Time:2872:otim 30000
+Time:2872:END read_com
+Time:2872:usermove h4
+Time:2872:XBoard>Engine>Move
+Time:2872:h4
+Time:2872:XBoard>Engine>SAN_to_Move
+Time:2872
 {
  p_tag = Pawn 
 
@@ -45,22 +45,118 @@ Time:2457
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:2457:END read_com
-Time:2458:time 29999
-Time:2458:END read_com
-Time:2458:otim 29850
-Time:2458:END read_com
-Time:2458:usermove Nh3
-Time:2458:XBoard>Engine>Move
-Time:2458:Nh3
-Time:2458:XBoard>Engine>SAN_to_Move
-Time:2458
+}Time:2872:END read_com
+Time:2873:time 29998
+Time:2873:END read_com
+Time:2873:otim 29900
+Time:2873:END read_com
+Time:2873:usermove d3
+Time:2873:XBoard>Engine>Move
+Time:2873:d3
+Time:2873:XBoard>Engine>SAN_to_Move
+Time:2873
+{
+ p_tag = Pawn 
+
+ poz_src = ( d , 2 ) 
+
+ poz_dst = ( d , 3 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = White 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:2873:END read_com
+Time:2874:time 29997
+Time:2874:END read_com
+Time:2874:otim 29795
+Time:2874:END read_com
+Time:2874:usermove f3
+Time:2874:XBoard>Engine>Move
+Time:2874:f3
+Time:2874:XBoard>Engine>SAN_to_Move
+Time:2874
+{
+ p_tag = Pawn 
+
+ poz_src = ( f , 2 ) 
+
+ poz_dst = ( f , 3 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = White 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:2874:END read_com
+Time:2874:time 29996
+Time:2874:END read_com
+Time:2874:otim 29719
+Time:2874:END read_com
+Time:2874:usermove f4
+Time:2874:XBoard>Engine>Move
+Time:2874:f4
+Time:2874:XBoard>Engine>SAN_to_Move
+Time:2874
+{
+ p_tag = Pawn 
+
+ poz_src = ( f , 3 ) 
+
+ poz_dst = ( f , 4 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = White 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:2874:END read_com
+Time:2876:time 29994
+Time:2876:END read_com
+Time:2876:otim 29570
+Time:2876:END read_com
+Time:2876:usermove e4
+Time:2876:XBoard>Engine>Move
+Time:2876:e4
+Time:2876:XBoard>Engine>SAN_to_Move
+Time:2876
+{
+ p_tag = Pawn 
+
+ poz_src = ( e , 2 ) 
+
+ poz_dst = ( e , 4 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = White 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:2876:END read_com
+Time:2877:time 29991
+Time:2877:END read_com
+Time:2877:otim 29482
+Time:2877:END read_com
+Time:2877:usermove Ne2
+Time:2877:XBoard>Engine>Move
+Time:2877:Ne2
+Time:2877:XBoard>Engine>SAN_to_Move
+Time:2877
 {
  p_tag = Knight 
 
  poz_src = ( g , 1 ) 
 
- poz_dst = ( h , 3 ) 
+ poz_dst = ( e , 2 ) 
 
  m_tag = 0 
 
@@ -69,22 +165,22 @@ Time:2458
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:2458:END read_com
-Time:2461:time 29997
-Time:2461:END read_com
-Time:2461:otim 29633
-Time:2461:END read_com
-Time:2461:usermove Nxg5
-Time:2461:XBoard>Engine>Move
-Time:2461:Nxg5
-Time:2461:XBoard>Engine>SAN_to_Move
-Time:2461
+}Time:2877:END read_com
+Time:2878:time 29989
+Time:2878:END read_com
+Time:2878:otim 29391
+Time:2878:END read_com
+Time:2878:usermove Nxg3
+Time:2878:XBoard>Engine>Move
+Time:2878:Nxg3
+Time:2878:XBoard>Engine>SAN_to_Move
+Time:2878
 {
  p_tag = Knight 
 
- poz_src = ( h , 3 ) 
+ poz_src = ( e , 2 ) 
 
- poz_dst = ( g , 5 ) 
+ poz_dst = ( g , 3 ) 
 
  m_tag = 0 
 
@@ -93,4 +189,4 @@ Time:2461
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:2461:END read_com
+}Time:2878:END read_com
