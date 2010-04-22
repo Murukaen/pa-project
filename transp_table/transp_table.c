@@ -17,3 +17,8 @@
 
 /* --- Procedures --- */
 
+void tt_add_opening ( STATE st ) {
+	
+	// TODO
+}
+
