@@ -369,7 +369,7 @@ char* Move_to_SAN(MOVE s) {
 	}
 }
 
-MOVE SAN_to_Move(char* s, STATE cur) {
+MOVE SAN_to_Move(STATE cur , char* s ) {
 	MOVE m = move_new();
 	if (strcmp(s, "O-O") == 0 || strcmp(s, "o-o") == 0 || strcmp(s, "0-0") == 0) {
 		if (!ST_get_col_on_move(cur)) {

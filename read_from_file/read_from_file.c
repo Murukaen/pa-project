@@ -17,6 +17,7 @@
 #include "../Flags/flags.h"
 #include "../transp_table/transp_table.h"
 #include "../san_conv/san_conv.h"
+#include "../update_state/update_state.h"
 
 /* ---- Macro #define ---- */
 #define FILE_INITIAL_STATE "Database/initial_state.in"
@@ -97,7 +98,7 @@ void Read_openings(){
 			for(i=0;i<=strlen(buffer);i++)
 			{
 				if(buffer[i]==' ' || buffer[i]=="\n") {
-									update_state(Sinit,SAN_to_Move(elem)); //fac update la starea curenta cu mutarea curenta
+									update_state(Sinit,SAN_to_Move(Sinit, elem)); //fac update la starea curenta cu mutarea curenta
 									tt_add_opening ( Sinit ); //adaug starea rezultata in hash
 									k=0;
 									strcpy(elem,"");
@@ -105,7 +106,7 @@ void Read_openings(){
 				else
 					elem[k++]=buffer[i];
 			}
-			update_state(Sinit,SAN_to_Move(elem)); //fac update pentru ultimul element de pe linie
+			update_state(Sinit,SAN_to_Move(Sinit, elem)); //fac update pentru ultimul element de pe linie
 												   //care nu va intra in iful forului de mai sus
 			tt_add_opening ( Sinit ); //adaug in hash
 			Sinit=Read_initial_state(); //refac starea la starea initiala pentru a trece la urmatoarea linie
