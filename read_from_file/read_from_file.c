@@ -111,7 +111,7 @@ void Read_openings(FILE *f){
 					elem[k++]=buffer[i];
 			}
 			update_state(Sinit,SAN_to_move(elem)); //fac update pentru ultimul element de pe linie
-								//care nu va intra in iful forului de mai sus
+												   //care nu va intra in iful forului de mai sus
 			tt_add_opening(Sinit); //adaug in hash
 			Sinit=new_initial_state(); //refac starea la starea initiala pentru a trece la urmatoarea linie
 			k=0;
