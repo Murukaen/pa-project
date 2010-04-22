@@ -46,7 +46,8 @@ char * get_input_buffer ( void ) {
 
 	
 	/* LOG */
-	log_print ( "RECEIVED Input" , LOG_XBOARD_COM_FILE );
+	log_print ( "RECEIVED Input:" , LOG_XBOARD_COM_FILE );
+	log_print ( read_buffer , LOG_XBOARD_COM_FILE);
 	/* END LOG */
 
 	return read_buffer;
@@ -54,11 +55,14 @@ char * get_input_buffer ( void ) {
 
 void parse_buf ( char * buf ) {
 	
-	
+		/*
 		char *com;
 		for(com = strtok(buf , BUF_SEP); com ; com = strtok(0 , BUF_SEP) ) 
 				
 					read_com ( com );
+		*/
+		buf[strlen(buf)-1]=0;
+		read_com(buf);
 		
 }	
 
@@ -111,6 +115,10 @@ void poll_input ( void ) {
 		
 	
 		parse_buf ( get_input_buffer () );  // wait and get all the available input
+		
+		/* LOG */
+		log_print ("END poll_input" , LOG_XBOARD_COM_FILE );
+		/* END Log */
 }
 
 void poll_output ( void * com , int com_tag) {

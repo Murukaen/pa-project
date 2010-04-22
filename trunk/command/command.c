@@ -127,6 +127,9 @@ void read_com ( char * com ) {
 		/* Free statement */
 		free(prop);
 		
+		/* LOG */
+		log_print("END read_com", LOG_COMMAND_FILE );
+		/* END LOG */
 		
 }
 

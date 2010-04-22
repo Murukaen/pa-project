@@ -1,28 +1,42 @@
-Time:6479:xboard
-Time:6479:protover 2
-Time:6479:accepted done
-Time:6479:accepted usermove
-Time:6479:accepted san
-Time:6479:accepted sigint
-Time:6479:accepted done
-Time:6479:new
-Time:6479:random
-Time:6479:level 40 5 0
-Time:6479:post
-Time:6479:hard
-Time:6481:time 30000
-Time:6481:otim 30000
-Time:6481:usermove e4
-Time:6481:XBoard>Engine>Move
-Time:6481:e4
-Time:6481:XBoard>Engine>SAN_to_Move
-Time:6481
+Time:2455:xboard
+Time:2455:END read_com
+Time:2455:protover 2
+Time:2455:END read_com
+Time:2455:accepted done
+Time:2455:END read_com
+Time:2455:accepted usermove
+Time:2455:END read_com
+Time:2455:accepted san
+Time:2455:END read_com
+Time:2455:accepted sigint
+Time:2455:END read_com
+Time:2455:accepted done
+Time:2455:END read_com
+Time:2455:new
+Time:2455:END read_com
+Time:2455:random
+Time:2455:END read_com
+Time:2455:level 40 5 0
+Time:2455:END read_com
+Time:2455:post
+Time:2455:END read_com
+Time:2455:hard
+Time:2455:END read_com
+Time:2457:time 30000
+Time:2457:END read_com
+Time:2457:otim 30000
+Time:2457:END read_com
+Time:2457:usermove h4
+Time:2457:XBoard>Engine>Move
+Time:2457:h4
+Time:2457:XBoard>Engine>SAN_to_Move
+Time:2457
 {
  p_tag = Pawn 
 
- poz_src = ( e , 2 ) 
+ poz_src = ( h , 2 ) 
 
- poz_dst = ( e , 4 ) 
+ poz_dst = ( h , 4 ) 
 
  m_tag = 0 
 
@@ -31,19 +45,22 @@ Time:6481
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:6482:time 29998
-Time:6482:otim 29835
-Time:6482:usermove Qxh5
-Time:6482:XBoard>Engine>Move
-Time:6482:Qxh5
-Time:6482:XBoard>Engine>SAN_to_Move
-Time:6482
+}Time:2457:END read_com
+Time:2458:time 29999
+Time:2458:END read_com
+Time:2458:otim 29850
+Time:2458:END read_com
+Time:2458:usermove Nh3
+Time:2458:XBoard>Engine>Move
+Time:2458:Nh3
+Time:2458:XBoard>Engine>SAN_to_Move
+Time:2458
 {
- p_tag = Queen 
+ p_tag = Knight 
 
- poz_src = ( d , 1 ) 
+ poz_src = ( g , 1 ) 
 
- poz_dst = ( h , 5 ) 
+ poz_dst = ( h , 3 ) 
 
  m_tag = 0 
 
@@ -52,40 +69,22 @@ Time:6482
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:6500:time 29997
-Time:6500:otim 28093
-Time:6500:usermove g4
-Time:6500:XBoard>Engine>Move
-Time:6500:g4
-Time:6500:XBoard>Engine>SAN_to_Move
-Time:6500
+}Time:2458:END read_com
+Time:2461:time 29997
+Time:2461:END read_com
+Time:2461:otim 29633
+Time:2461:END read_com
+Time:2461:usermove Nxg5
+Time:2461:XBoard>Engine>Move
+Time:2461:Nxg5
+Time:2461:XBoard>Engine>SAN_to_Move
+Time:2461
 {
- p_tag = Pawn 
+ p_tag = Knight 
 
- poz_src = ( g , 2 ) 
+ poz_src = ( h , 3 ) 
 
- poz_dst = ( g , 4 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:6506:time 29996
-Time:6506:otim 27509
-Time:6506:usermove d4
-Time:6506:XBoard>Engine>Move
-Time:6506:d4
-Time:6506:XBoard>Engine>SAN_to_Move
-Time:6506
-{
- p_tag = Pawn 
-
- poz_src = ( d , 2 ) 
-
- poz_dst = ( d , 4 ) 
+ poz_dst = ( g , 5 ) 
 
  m_tag = 0 
 
@@ -94,4 +93,4 @@ Time:6506
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}
+}Time:2461:END read_com
