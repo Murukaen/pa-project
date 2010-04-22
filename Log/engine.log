@@ -1,83 +1,83 @@
-Time:7562:Cycle - 0 - 
-Time:7562:Engine Lock : 
-Time:7562:Value: 1
-Time:7562:Engine Quit : 
-Time:7562:Value: 0
-Time:7562:Cycle - 1 - 
-Time:7562:Engine Lock : 
-Time:7562:Value: 1
-Time:7562:Engine Quit : 
-Time:7562:Value: 0
-Time:7562:Cycle - 2 - 
-Time:7563:Engine Lock : 
-Time:7563:Value: 1
-Time:7563:Engine Quit : 
-Time:7563:Value: 0
-Time:7563:Cycle - 3 - 
-Time:7563:Engine Lock : 
-Time:7563:Value: 1
-Time:7563:Engine Quit : 
-Time:7563:Value: 0
-Time:7563:Cycle - 4 - 
-Time:7563:Engine Lock : 
-Time:7563:Value: 1
-Time:7563:Engine Quit : 
-Time:7563:Value: 0
-Time:7563:Cycle - 5 - 
-Time:7563:Engine Lock : 
-Time:7563:Value: 1
-Time:7563:Engine Quit : 
-Time:7563:Value: 0
-Time:7563:Cycle - 6 - 
-Time:7563:Engine Lock : 
-Time:7563:Value: 1
-Time:7563:Engine Quit : 
-Time:7563:Value: 0
-Time:7563:Cycle - 7 - 
-Time:7563:Engine Lock : 
-Time:7563:Value: 1
-Time:7563:Engine Quit : 
-Time:7563:Value: 0
-Time:7563:Cycle - 8 - 
-Time:7563:Engine Lock : 
-Time:7563:Value: 1
-Time:7563:Engine Quit : 
-Time:7563:Value: 0
-Time:7563:Cycle - 9 - 
-Time:7563:Engine Lock : 
-Time:7563:Value: 1
-Time:7563:Engine Quit : 
-Time:7563:Value: 0
-Time:7563:Cycle - 10 - 
-Time:7563:Engine Lock : 
-Time:7563:Value: 1
-Time:7563:Engine Quit : 
-Time:7563:Value: 0
-Time:7563:Cycle - 11 - 
-Time:7563:Engine Lock : 
-Time:7563:Value: 1
-Time:7563:Engine Quit : 
-Time:7563:Value: 0
-Time:7563:Cycle - 12 - 
-Time:7569:Engine Lock : 
-Time:7569:Value: 1
-Time:7569:Engine Quit : 
-Time:7569:Value: 0
-Time:7569:Cycle - 13 - 
-Time:7569:Engine Lock : 
-Time:7569:Value: 1
-Time:7569:Engine Quit : 
-Time:7569:Value: 0
-Time:7569:Cycle - 14 - 
-Time:7569:Engine Lock : 
-Time:7569:Value: 0
-Time:7569:Engine Quit : 
-Time:7569:Value: 0
-Time:7569:Engine on move:
+Time:9068:Cycle - 0 - 
+Time:9068:Engine Lock : 
+Time:9068:Value: 1
+Time:9068:Engine Quit : 
+Time:9068:Value: 0
+Time:9068:Cycle - 1 - 
+Time:9068:Engine Lock : 
+Time:9068:Value: 1
+Time:9068:Engine Quit : 
+Time:9068:Value: 0
+Time:9068:Cycle - 2 - 
+Time:9069:Engine Lock : 
+Time:9069:Value: 1
+Time:9069:Engine Quit : 
+Time:9069:Value: 0
+Time:9069:Cycle - 3 - 
+Time:9069:Engine Lock : 
+Time:9069:Value: 1
+Time:9069:Engine Quit : 
+Time:9069:Value: 0
+Time:9069:Cycle - 4 - 
+Time:9069:Engine Lock : 
+Time:9069:Value: 1
+Time:9069:Engine Quit : 
+Time:9069:Value: 0
+Time:9069:Cycle - 5 - 
+Time:9069:Engine Lock : 
+Time:9069:Value: 1
+Time:9069:Engine Quit : 
+Time:9069:Value: 0
+Time:9069:Cycle - 6 - 
+Time:9069:Engine Lock : 
+Time:9069:Value: 1
+Time:9069:Engine Quit : 
+Time:9069:Value: 0
+Time:9069:Cycle - 7 - 
+Time:9069:Engine Lock : 
+Time:9069:Value: 1
+Time:9069:Engine Quit : 
+Time:9069:Value: 0
+Time:9069:Cycle - 8 - 
+Time:9069:Engine Lock : 
+Time:9069:Value: 1
+Time:9069:Engine Quit : 
+Time:9069:Value: 0
+Time:9069:Cycle - 9 - 
+Time:9069:Engine Lock : 
+Time:9069:Value: 1
+Time:9069:Engine Quit : 
+Time:9069:Value: 0
+Time:9069:Cycle - 10 - 
+Time:9069:Engine Lock : 
+Time:9069:Value: 1
+Time:9069:Engine Quit : 
+Time:9069:Value: 0
+Time:9069:Cycle - 11 - 
+Time:9069:Engine Lock : 
+Time:9069:Value: 1
+Time:9069:Engine Quit : 
+Time:9069:Value: 0
+Time:9069:Cycle - 12 - 
+Time:9070:Engine Lock : 
+Time:9070:Value: 1
+Time:9070:Engine Quit : 
+Time:9070:Value: 0
+Time:9070:Cycle - 13 - 
+Time:9070:Engine Lock : 
+Time:9070:Value: 1
+Time:9070:Engine Quit : 
+Time:9070:Value: 0
+Time:9070:Cycle - 14 - 
+Time:9070:Engine Lock : 
+Time:9070:Value: 0
+Time:9070:Engine Quit : 
+Time:9070:Value: 0
+Time:9070:Engine on move:
 
-Time:7569:Chosen State:
+Time:9070:Chosen State:
 
-Time:7569
+Time:9070
 
 ~~~Table_What~~~:
 
@@ -85,13 +85,13 @@ r n b q k b n r
 p p p p p p p - 
 - - - - - - - - 
 - - - - - - - p 
-- - - - - - - P 
+- - - - P - - - 
 - - - - - - - - 
-P P P P P P P - 
+P P P P - P P P 
 R N B Q K B N R 
-Time:7569:Determine move:
+Time:9070:Determine move:
 
-Time:7569
+Time:9070
 {
  p_tag = Pawn 
 
@@ -106,26 +106,26 @@ Time:7569
  p_rock = ( a , 1 ) 
 
  what_col = Black 
-}Time:7569:Cycle - 15 - 
-Time:7573:Engine Lock : 
-Time:7573:Value: 0
-Time:7573:Engine Quit : 
-Time:7573:Value: 0
-Time:7573:Cycle - 16 - 
-Time:7573:Engine Lock : 
-Time:7573:Value: 0
-Time:7573:Engine Quit : 
-Time:7573:Value: 0
-Time:7573:Cycle - 17 - 
-Time:7573:Engine Lock : 
-Time:7573:Value: 0
-Time:7573:Engine Quit : 
-Time:7573:Value: 0
-Time:7573:Engine on move:
+}Time:9070:Cycle - 15 - 
+Time:9072:Engine Lock : 
+Time:9072:Value: 0
+Time:9072:Engine Quit : 
+Time:9072:Value: 0
+Time:9072:Cycle - 16 - 
+Time:9072:Engine Lock : 
+Time:9072:Value: 0
+Time:9072:Engine Quit : 
+Time:9072:Value: 0
+Time:9072:Cycle - 17 - 
+Time:9072:Engine Lock : 
+Time:9072:Value: 0
+Time:9072:Engine Quit : 
+Time:9072:Value: 0
+Time:9072:Engine on move:
 
-Time:7573:Chosen State:
+Time:9072:Chosen State:
 
-Time:7573
+Time:9072
 
 ~~~Table_What~~~:
 
@@ -133,19 +133,19 @@ r n b q k b n r
 p p p p p p p - 
 - - - - - - - - 
 - - - - - - - - 
-- - - - - - p P 
-- - - - - - - - 
-P P P P P P - - 
+- - - - P - - p 
+- - - - - P - - 
+P P P P - - P P 
 R N B Q K B N R 
-Time:7573:Determine move:
+Time:9072:Determine move:
 
-Time:7573
+Time:9072
 {
  p_tag = Pawn 
 
  poz_src = ( h , 5 ) 
 
- poz_dst = ( g , 4 ) 
+ poz_dst = ( h , 4 ) 
 
  m_tag = 0 
 
@@ -154,122 +154,26 @@ Time:7573
  p_rock = ( a , 1 ) 
 
  what_col = Black 
-}Time:7573:Cycle - 18 - 
-Time:7577:Engine Lock : 
-Time:7577:Value: 0
-Time:7577:Engine Quit : 
-Time:7577:Value: 0
-Time:7577:Cycle - 19 - 
-Time:7577:Engine Lock : 
-Time:7577:Value: 0
-Time:7577:Engine Quit : 
-Time:7577:Value: 0
-Time:7577:Cycle - 20 - 
-Time:7577:Engine Lock : 
-Time:7577:Value: 0
-Time:7577:Engine Quit : 
-Time:7577:Value: 0
-Time:7577:Engine on move:
+}Time:9072:Cycle - 18 - 
+Time:9073:Engine Lock : 
+Time:9073:Value: 0
+Time:9073:Engine Quit : 
+Time:9073:Value: 0
+Time:9073:Cycle - 19 - 
+Time:9073:Engine Lock : 
+Time:9073:Value: 0
+Time:9073:Engine Quit : 
+Time:9073:Value: 0
+Time:9073:Cycle - 20 - 
+Time:9073:Engine Lock : 
+Time:9073:Value: 0
+Time:9073:Engine Quit : 
+Time:9073:Value: 0
+Time:9073:Engine on move:
 
-Time:7577:Chosen State:
+Time:9073:Chosen State:
 
-Time:7577
-
-~~~Table_What~~~:
-
-r n b q k b n r 
-p p p p p p p - 
-- - - - - - - - 
-- - - - - - - - 
-- - - - - - - P 
-- - - - - p - - 
-P P P P P - - - 
-R N B Q K B N R 
-Time:7577:Determine move:
-
-Time:7577
-{
- p_tag = Pawn 
-
- poz_src = ( g , 4 ) 
-
- poz_dst = ( f , 3 ) 
-
- m_tag = 0 
-
- p_tag_pro = ERRTAG 
-
- p_rock = ( a , 1 ) 
-
- what_col = Black 
-}Time:7577:Cycle - 21 - 
-Time:7579:Engine Lock : 
-Time:7579:Value: 0
-Time:7579:Engine Quit : 
-Time:7579:Value: 0
-Time:7579:Cycle - 22 - 
-Time:7579:Engine Lock : 
-Time:7579:Value: 0
-Time:7579:Engine Quit : 
-Time:7579:Value: 0
-Time:7579:Cycle - 23 - 
-Time:7579:Engine Lock : 
-Time:7579:Value: 0
-Time:7579:Engine Quit : 
-Time:7579:Value: 0
-Time:7579:Engine on move:
-
-Time:7579:Chosen State:
-
-Time:7579
-
-~~~Table_What~~~:
-
-r n b q k b n r 
-p p p p p p p - 
-- - - - - - - - 
-- - - - - - - - 
-- - - - - - - P 
-- - - - - - - - 
-P P P P p K - - 
-R N B Q - B N R 
-Time:7579:Determine move:
-
-Time:7579
-{
- p_tag = Pawn 
-
- poz_src = ( f , 3 ) 
-
- poz_dst = ( e , 2 ) 
-
- m_tag = 0 
-
- p_tag_pro = ERRTAG 
-
- p_rock = ( a , 1 ) 
-
- what_col = Black 
-}Time:7579:Cycle - 24 - 
-Time:7580:Engine Lock : 
-Time:7580:Value: 0
-Time:7580:Engine Quit : 
-Time:7580:Value: 0
-Time:7580:Cycle - 25 - 
-Time:7580:Engine Lock : 
-Time:7580:Value: 0
-Time:7580:Engine Quit : 
-Time:7580:Value: 0
-Time:7580:Cycle - 26 - 
-Time:7580:Engine Lock : 
-Time:7580:Value: 0
-Time:7580:Engine Quit : 
-Time:7580:Value: 0
-Time:7580:Engine on move:
-
-Time:7580:Chosen State:
-
-Time:7580
+Time:9073
 
 ~~~Table_What~~~:
 
@@ -277,13 +181,13 @@ r n b q k b n r
 p p p p p p - - 
 - - - - - - - - 
 - - - - - - p - 
-- - - - - - - P 
-- - - - - - - - 
-P P P P K - - - 
-R N B Q - B N R 
-Time:7580:Determine move:
+- - - - P - - p 
+- - - - - P - P 
+P P P P - - P - 
+R N B Q K B N R 
+Time:9073:Determine move:
 
-Time:7580
+Time:9073
 {
  p_tag = Pawn 
 
@@ -298,40 +202,136 @@ Time:7580
  p_rock = ( a , 1 ) 
 
  what_col = Black 
-}Time:7580:Cycle - 27 - 
-Time:7582:Engine Lock : 
-Time:7582:Value: 0
-Time:7582:Engine Quit : 
-Time:7582:Value: 0
-Time:7582:Cycle - 28 - 
-Time:7582:Engine Lock : 
-Time:7582:Value: 0
-Time:7582:Engine Quit : 
-Time:7582:Value: 0
-Time:7582:Cycle - 29 - 
-Time:7582:Engine Lock : 
-Time:7582:Value: 0
-Time:7582:Engine Quit : 
-Time:7582:Value: 0
-Time:7582:Engine on move:
+}Time:9073:Cycle - 21 - 
+Time:9074:Engine Lock : 
+Time:9074:Value: 0
+Time:9074:Engine Quit : 
+Time:9074:Value: 0
+Time:9074:Cycle - 22 - 
+Time:9074:Engine Lock : 
+Time:9074:Value: 0
+Time:9074:Engine Quit : 
+Time:9074:Value: 0
+Time:9074:Cycle - 23 - 
+Time:9074:Engine Lock : 
+Time:9074:Value: 0
+Time:9074:Engine Quit : 
+Time:9074:Value: 0
+Time:9074:Engine on move:
 
-Time:7582:Chosen State:
+Time:9074:Chosen State:
 
-Time:7582
+Time:9074
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - - - - - 
+- - - - P - p p 
+- - - - - P - P 
+P P P P N - P - 
+R N B Q K B - R 
+Time:9074:Determine move:
+
+Time:9074
+{
+ p_tag = Pawn 
+
+ poz_src = ( g , 5 ) 
+
+ poz_dst = ( g , 4 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = ERRTAG 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = Black 
+}Time:9074:Cycle - 24 - 
+Time:9076:Engine Lock : 
+Time:9076:Value: 0
+Time:9076:Engine Quit : 
+Time:9076:Value: 0
+Time:9076:Cycle - 25 - 
+Time:9076:Engine Lock : 
+Time:9076:Value: 0
+Time:9076:Engine Quit : 
+Time:9076:Value: 0
+Time:9076:Cycle - 26 - 
+Time:9076:Engine Lock : 
+Time:9076:Value: 0
+Time:9076:Engine Quit : 
+Time:9076:Value: 0
+Time:9076:Engine on move:
+
+Time:9076:Chosen State:
+
+Time:9076
+
+~~~Table_What~~~:
+
+r n b q k b n r 
+p p p p p p - - 
+- - - - - - - - 
+- - - - - - - - 
+- - - P P - - p 
+- - - - - p - P 
+P P P - N - P - 
+R N B Q K B - R 
+Time:9076:Determine move:
+
+Time:9076
+{
+ p_tag = Pawn 
+
+ poz_src = ( g , 4 ) 
+
+ poz_dst = ( f , 3 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = ERRTAG 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = Black 
+}Time:9076:Cycle - 27 - 
+Time:9077:Engine Lock : 
+Time:9077:Value: 0
+Time:9077:Engine Quit : 
+Time:9077:Value: 0
+Time:9077:Cycle - 28 - 
+Time:9077:Engine Lock : 
+Time:9077:Value: 0
+Time:9077:Engine Quit : 
+Time:9077:Value: 0
+Time:9077:Cycle - 29 - 
+Time:9077:Engine Lock : 
+Time:9077:Value: 0
+Time:9077:Engine Quit : 
+Time:9077:Value: 0
+Time:9077:Engine on move:
+
+Time:9077:Chosen State:
+
+Time:9077
 
 ~~~Table_What~~~:
 
 r n b q k b n r 
 p p p p p - - - 
 - - - - - - - - 
-- - - - - p P - 
-- - - - - - - - 
-- - - - - - - - 
-P P P P K - - - 
-R N B Q - B N R 
-Time:7582:Determine move:
+- - - - - p - - 
+- - - P P - - p 
+- - - - - P - P 
+P P P - N - - - 
+R N B Q K B - R 
+Time:9077:Determine move:
 
-Time:7582
+Time:9077
 {
  p_tag = Pawn 
 
@@ -346,40 +346,40 @@ Time:7582
  p_rock = ( a , 1 ) 
 
  what_col = Black 
-}Time:7582:Cycle - 30 - 
-Time:7584:Engine Lock : 
-Time:7584:Value: 0
-Time:7584:Engine Quit : 
-Time:7584:Value: 0
-Time:7584:Cycle - 31 - 
-Time:7584:Engine Lock : 
-Time:7584:Value: 0
-Time:7584:Engine Quit : 
-Time:7584:Value: 0
-Time:7584:Cycle - 32 - 
-Time:7584:Engine Lock : 
-Time:7584:Value: 0
-Time:7584:Engine Quit : 
-Time:7584:Value: 0
-Time:7584:Engine on move:
+}Time:9077:Cycle - 30 - 
+Time:9078:Engine Lock : 
+Time:9078:Value: 0
+Time:9078:Engine Quit : 
+Time:9078:Value: 0
+Time:9078:Cycle - 31 - 
+Time:9078:Engine Lock : 
+Time:9078:Value: 0
+Time:9078:Engine Quit : 
+Time:9078:Value: 0
+Time:9078:Cycle - 32 - 
+Time:9078:Engine Lock : 
+Time:9078:Value: 0
+Time:9078:Engine Quit : 
+Time:9078:Value: 0
+Time:9078:Engine on move:
 
-Time:7584:Chosen State:
+Time:9078:Chosen State:
 
-Time:7584
+Time:9078
 
 ~~~Table_What~~~:
 
 r n b q k b n r 
 p p p p p - - - 
 - - - - - - - - 
-- - - - - - P - 
-- - - - - p - - 
-- - - - - - - - 
-P P P P - - - - 
-R N B Q K B N R 
-Time:7584:Determine move:
+- - - - P - - - 
+- - - P - p - p 
+- - - - - P - P 
+P P P - N - - - 
+R N B Q K B - R 
+Time:9078:Determine move:
 
-Time:7584
+Time:9078
 {
  p_tag = Pawn 
 
@@ -394,94 +394,46 @@ Time:7584
  p_rock = ( a , 1 ) 
 
  what_col = Black 
-}Time:7584:Cycle - 33 - 
-Time:7589:Engine Lock : 
-Time:7589:Value: 0
-Time:7589:Engine Quit : 
-Time:7589:Value: 0
-Time:7589:Cycle - 34 - 
-Time:7589:Engine Lock : 
-Time:7589:Value: 0
-Time:7589:Engine Quit : 
-Time:7589:Value: 0
-Time:7589:Cycle - 35 - 
-Time:7589:Engine Lock : 
-Time:7589:Value: 0
-Time:7589:Engine Quit : 
-Time:7589:Value: 0
-Time:7589:Engine on move:
+}Time:9078:Cycle - 33 - 
+Time:9079:Engine Lock : 
+Time:9079:Value: 0
+Time:9079:Engine Quit : 
+Time:9079:Value: 0
+Time:9079:Cycle - 34 - 
+Time:9079:Engine Lock : 
+Time:9079:Value: 0
+Time:9079:Engine Quit : 
+Time:9079:Value: 0
+Time:9079:Cycle - 35 - 
+Time:9079:Engine Lock : 
+Time:9079:Value: 0
+Time:9079:Engine Quit : 
+Time:9079:Value: 0
+Time:9079:Engine on move:
 
-Time:7589:Chosen State:
+Time:9079:Chosen State:
 
-Time:7589
-
-~~~Table_What~~~:
-
-r n b q k b n r 
-p p p p p - - - 
-- - - - - - - - 
-- - - - - - P - 
-- - B - - - - - 
-- - - - - p - - 
-P P P P - - - - 
-R N B Q K - N R 
-Time:7589:Determine move:
-
-Time:7589
-{
- p_tag = Pawn 
-
- poz_src = ( f , 4 ) 
-
- poz_dst = ( f , 3 ) 
-
- m_tag = 0 
-
- p_tag_pro = ERRTAG 
-
- p_rock = ( a , 1 ) 
-
- what_col = Black 
-}Time:7589:Cycle - 36 - 
-Time:7597:Engine Lock : 
-Time:7597:Value: 0
-Time:7597:Engine Quit : 
-Time:7597:Value: 0
-Time:7597:Cycle - 37 - 
-Time:7597:Engine Lock : 
-Time:7597:Value: 0
-Time:7597:Engine Quit : 
-Time:7597:Value: 0
-Time:7597:Cycle - 38 - 
-Time:7597:Engine Lock : 
-Time:7597:Value: 0
-Time:7597:Engine Quit : 
-Time:7597:Value: 0
-Time:7597:Engine on move:
-
-Time:7597:Chosen State:
-
-Time:7597
+Time:9079
 
 ~~~Table_What~~~:
 
 r n b q k b n r 
 p p p p - - - - 
-- - - - - - - - 
-- - - - p - P - 
-- - B - - - - - 
-- - - - - N - - 
-P P P P - - - - 
-R N B Q K - - R 
-Time:7597:Determine move:
+- - - - p - - - 
+- - - - P - - - 
+- - - P - N - p 
+- - - - - P - P 
+P P P - - - - - 
+R N B Q K B - R 
+Time:9079:Determine move:
 
-Time:7597
+Time:9079
 {
  p_tag = Pawn 
 
  poz_src = ( e , 7 ) 
 
- poz_dst = ( e , 5 ) 
+ poz_dst = ( e , 6 ) 
 
  m_tag = 0 
 
@@ -490,184 +442,40 @@ Time:7597
  p_rock = ( a , 1 ) 
 
  what_col = Black 
-}Time:7597:Cycle - 39 - 
-Time:7600:Engine Lock : 
-Time:7600:Value: 0
-Time:7600:Engine Quit : 
-Time:7600:Value: 0
-Time:7600:Cycle - 40 - 
-Time:7600:Engine Lock : 
-Time:7600:Value: 0
-Time:7600:Engine Quit : 
-Time:7600:Value: 0
-Time:7600:Cycle - 41 - 
-Time:7600:Engine Lock : 
-Time:7600:Value: 0
-Time:7600:Engine Quit : 
-Time:7600:Value: 0
-Time:7600:Engine on move:
+}Time:9079:Cycle - 36 - 
+Time:9080:Engine Lock : 
+Time:9080:Value: 0
+Time:9080:Engine Quit : 
+Time:9080:Value: 0
+Time:9080:Cycle - 37 - 
+Time:9080:Engine Lock : 
+Time:9080:Value: 0
+Time:9080:Engine Quit : 
+Time:9080:Value: 0
+Time:9080:Cycle - 38 - 
+Time:9080:Engine Lock : 
+Time:9080:Value: 0
+Time:9080:Engine Quit : 
+Time:9080:Value: 0
+Time:9080:Engine on move:
 
-Time:7600:Chosen State:
+Time:9080:Chosen State:
 
-Time:7600
-
-~~~Table_What~~~:
-
-r n b q k b B r 
-p p p p - - - - 
-- - - - - - - - 
-- - - - - - P - 
-- - - - p - - - 
-- - - - - N - - 
-P P P P - - - - 
-R N B Q K - - R 
-Time:7600:Determine move:
-
-Time:7600
-{
- p_tag = Pawn 
-
- poz_src = ( e , 5 ) 
-
- poz_dst = ( e , 4 ) 
-
- m_tag = 0 
-
- p_tag_pro = ERRTAG 
-
- p_rock = ( a , 1 ) 
-
- what_col = Black 
-}Time:7600:Cycle - 42 - 
-Time:7605:Engine Lock : 
-Time:7605:Value: 0
-Time:7605:Engine Quit : 
-Time:7605:Value: 0
-Time:7605:Cycle - 43 - 
-Time:7605:Engine Lock : 
-Time:7605:Value: 0
-Time:7605:Engine Quit : 
-Time:7605:Value: 0
-Time:7605:Cycle - 44 - 
-Time:7605:Engine Lock : 
-Time:7605:Value: 0
-Time:7605:Engine Quit : 
-Time:7605:Value: 0
-Time:7605:Engine on move:
-
-Time:7605:Chosen State:
-
-Time:7605
+Time:9080
 
 ~~~Table_What~~~:
 
-r n b q k b B R 
-p p p p - - - - 
-- - - - - - - - 
-- - - - - - P - 
-- - - - - - - - 
-- - - - p N - - 
-P P P P - - - - 
-R N B Q K - - - 
-Time:7605:Determine move:
-
-Time:7605
-{
- p_tag = Pawn 
-
- poz_src = ( e , 4 ) 
-
- poz_dst = ( e , 3 ) 
-
- m_tag = 0 
-
- p_tag_pro = ERRTAG 
-
- p_rock = ( a , 1 ) 
-
- what_col = Black 
-}Time:7605:Cycle - 45 - 
-Time:7611:Engine Lock : 
-Time:7611:Value: 0
-Time:7611:Engine Quit : 
-Time:7611:Value: 0
-Time:7611:Cycle - 46 - 
-Time:7611:Engine Lock : 
-Time:7611:Value: 0
-Time:7611:Engine Quit : 
-Time:7611:Value: 0
-Time:7611:Cycle - 47 - 
-Time:7611:Engine Lock : 
-Time:7611:Value: 0
-Time:7611:Engine Quit : 
-Time:7611:Value: 0
-Time:7611:Engine on move:
-
-Time:7611:Chosen State:
-
-Time:7611
-
-~~~Table_What~~~:
-
-r n b q k b B R 
-p p p p - - - - 
-- - - - - - - - 
-- - - - N - P - 
-- - - - - - - - 
-- - - - - - - - 
-P P P p - - - - 
-R N B Q K - - - 
-Time:7611:Determine move:
-
-Time:7611
-{
- p_tag = Pawn 
-
- poz_src = ( e , 3 ) 
-
- poz_dst = ( d , 2 ) 
-
- m_tag = 0 
-
- p_tag_pro = ERRTAG 
-
- p_rock = ( a , 1 ) 
-
- what_col = Black 
-}Time:7611:Cycle - 48 - 
-Time:7614:Engine Lock : 
-Time:7614:Value: 0
-Time:7614:Engine Quit : 
-Time:7614:Value: 0
-Time:7614:Cycle - 49 - 
-Time:7614:Engine Lock : 
-Time:7614:Value: 0
-Time:7614:Engine Quit : 
-Time:7614:Value: 0
-Time:7614:Cycle - 50 - 
-Time:7614:Engine Lock : 
-Time:7614:Value: 0
-Time:7614:Engine Quit : 
-Time:7614:Value: 0
-Time:7614:Engine on move:
-
-Time:7614:Chosen State:
-
-Time:7614
-
-~~~Table_What~~~:
-
-r n b q k b B R 
+r n b q k b n r 
 p p p - - - - - 
-- - - - - - - - 
-- - - p N - P - 
-- - - - - - - - 
-- - - - - - - - 
-P P P Q - - - - 
-R N B - K - - - 
-Time:7614:Determine move:
+- - - - N - - - 
+- - - p P - - - 
+- - - P - - - p 
+- - - - - P - P 
+P P P - - - - - 
+R N B Q K B - R 
+Time:9080:Determine move:
 
-Time:7614
+Time:9080
 {
  p_tag = Pawn 
 
@@ -682,136 +490,40 @@ Time:7614
  p_rock = ( a , 1 ) 
 
  what_col = Black 
-}Time:7614:Cycle - 51 - 
-Time:7616:Engine Lock : 
-Time:7616:Value: 0
-Time:7616:Engine Quit : 
-Time:7616:Value: 0
-Time:7616:Cycle - 52 - 
-Time:7616:Engine Lock : 
-Time:7616:Value: 0
-Time:7616:Engine Quit : 
-Time:7616:Value: 0
-Time:7616:Cycle - 53 - 
-Time:7616:Engine Lock : 
-Time:7616:Value: 0
-Time:7616:Engine Quit : 
-Time:7616:Value: 0
-Time:7616:Engine on move:
+}Time:9080:Cycle - 39 - 
+Time:9082:Engine Lock : 
+Time:9082:Value: 0
+Time:9082:Engine Quit : 
+Time:9082:Value: 0
+Time:9082:Cycle - 40 - 
+Time:9082:Engine Lock : 
+Time:9082:Value: 0
+Time:9082:Engine Quit : 
+Time:9082:Value: 0
+Time:9082:Cycle - 41 - 
+Time:9082:Engine Lock : 
+Time:9082:Value: 0
+Time:9082:Engine Quit : 
+Time:9082:Value: 0
+Time:9082:Engine on move:
 
-Time:7616:Chosen State:
+Time:9082:Chosen State:
 
-Time:7616
-
-~~~Table_What~~~:
-
-r n b q k b B R 
-p p p - - - - - 
-- - - - - - N - 
-- - - - - - P - 
-- - - p - - - - 
-- - - - - - - - 
-P P P Q - - - - 
-R N B - K - - - 
-Time:7616:Determine move:
-
-Time:7616
-{
- p_tag = Pawn 
-
- poz_src = ( d , 5 ) 
-
- poz_dst = ( d , 4 ) 
-
- m_tag = 0 
-
- p_tag_pro = ERRTAG 
-
- p_rock = ( a , 1 ) 
-
- what_col = Black 
-}Time:7616:Cycle - 54 - 
-Time:7618:Engine Lock : 
-Time:7618:Value: 0
-Time:7618:Engine Quit : 
-Time:7618:Value: 0
-Time:7618:Cycle - 55 - 
-Time:7618:Engine Lock : 
-Time:7618:Value: 0
-Time:7618:Engine Quit : 
-Time:7618:Value: 0
-Time:7618:Cycle - 56 - 
-Time:7618:Engine Lock : 
-Time:7618:Value: 0
-Time:7618:Engine Quit : 
-Time:7618:Value: 0
-Time:7618:Engine on move:
-
-Time:7618:Chosen State:
-
-Time:7618
+Time:9082
 
 ~~~Table_What~~~:
 
-r n b q k N B R 
-p p p - - - - - 
-- - - - - - - - 
-- - - - - - P - 
-- - - - - - - - 
-- - - p - - - - 
-P P P Q - - - - 
-R N B - K - - - 
-Time:7618:Determine move:
-
-Time:7618
-{
- p_tag = Pawn 
-
- poz_src = ( d , 4 ) 
-
- poz_dst = ( d , 3 ) 
-
- m_tag = 0 
-
- p_tag_pro = ERRTAG 
-
- p_rock = ( a , 1 ) 
-
- what_col = Black 
-}Time:7618:Cycle - 57 - 
-Time:7622:Engine Lock : 
-Time:7622:Value: 0
-Time:7622:Engine Quit : 
-Time:7622:Value: 0
-Time:7622:Cycle - 58 - 
-Time:7622:Engine Lock : 
-Time:7622:Value: 0
-Time:7622:Engine Quit : 
-Time:7622:Value: 0
-Time:7622:Cycle - 59 - 
-Time:7622:Engine Lock : 
-Time:7622:Value: 0
-Time:7622:Engine Quit : 
-Time:7622:Value: 0
-Time:7622:Engine on move:
-
-Time:7622:Chosen State:
-
-Time:7622
-
-~~~Table_What~~~:
-
-r n b q k N B R 
+r n b N k b n r 
 p p - - - - - - 
 - - - - - - - - 
-- - p - - - P - 
-- - - - - - - - 
-- - - Q - - - - 
+- - p p P - - - 
+- - - P - - - p 
+- - - - - P - P 
 P P P - - - - - 
-R N B - K - - - 
-Time:7622:Determine move:
+R N B Q K B - R 
+Time:9082:Determine move:
 
-Time:7622
+Time:9082
 {
  p_tag = Pawn 
 
@@ -826,40 +538,40 @@ Time:7622
  p_rock = ( a , 1 ) 
 
  what_col = Black 
-}Time:7622:Cycle - 60 - 
-Time:7626:Engine Lock : 
-Time:7626:Value: 0
-Time:7626:Engine Quit : 
-Time:7626:Value: 0
-Time:7626:Cycle - 61 - 
-Time:7626:Engine Lock : 
-Time:7626:Value: 0
-Time:7626:Engine Quit : 
-Time:7626:Value: 0
-Time:7626:Cycle - 62 - 
-Time:7626:Engine Lock : 
-Time:7626:Value: 0
-Time:7626:Engine Quit : 
-Time:7626:Value: 0
-Time:7626:Engine on move:
+}Time:9082:Cycle - 42 - 
+Time:9083:Engine Lock : 
+Time:9083:Value: 0
+Time:9083:Engine Quit : 
+Time:9083:Value: 0
+Time:9083:Cycle - 43 - 
+Time:9083:Engine Lock : 
+Time:9083:Value: 0
+Time:9083:Engine Quit : 
+Time:9083:Value: 0
+Time:9083:Cycle - 44 - 
+Time:9083:Engine Lock : 
+Time:9083:Value: 0
+Time:9083:Engine Quit : 
+Time:9083:Value: 0
+Time:9083:Engine on move:
 
-Time:7626:Chosen State:
+Time:9083:Chosen State:
 
-Time:7626
+Time:9083
 
 ~~~Table_What~~~:
 
-r n b q k N B R 
-p p - - - - - - 
+r n b - k b n r 
+p N - - - - - - 
 - - - - - - - - 
-- - - - - - P - 
-P - p - - - - - 
-- - - Q - - - - 
-- P P - - - - - 
-R N B - K - - - 
-Time:7626:Determine move:
+- - - p P - - - 
+- - p P - - - p 
+- - - - - P - P 
+P P P - - - - - 
+R N B Q K B - R 
+Time:9083:Determine move:
 
-Time:7626
+Time:9083
 {
  p_tag = Pawn 
 
@@ -874,46 +586,46 @@ Time:7626
  p_rock = ( a , 1 ) 
 
  what_col = Black 
-}Time:7626:Cycle - 63 - 
-Time:7630:Engine Lock : 
-Time:7630:Value: 0
-Time:7630:Engine Quit : 
-Time:7630:Value: 0
-Time:7630:Cycle - 64 - 
-Time:7630:Engine Lock : 
-Time:7630:Value: 0
-Time:7630:Engine Quit : 
-Time:7630:Value: 0
-Time:7630:Cycle - 65 - 
-Time:7630:Engine Lock : 
-Time:7630:Value: 0
-Time:7630:Engine Quit : 
-Time:7630:Value: 0
-Time:7630:Engine on move:
+}Time:9083:Cycle - 45 - 
+Time:9084:Engine Lock : 
+Time:9084:Value: 0
+Time:9084:Engine Quit : 
+Time:9084:Value: 0
+Time:9084:Cycle - 46 - 
+Time:9084:Engine Lock : 
+Time:9084:Value: 0
+Time:9084:Engine Quit : 
+Time:9084:Value: 0
+Time:9084:Cycle - 47 - 
+Time:9084:Engine Lock : 
+Time:9084:Value: 0
+Time:9084:Engine Quit : 
+Time:9084:Value: 0
+Time:9084:Engine on move:
 
-Time:7630:Chosen State:
+Time:9084:Chosen State:
 
-Time:7630
+Time:9084
 
 ~~~Table_What~~~:
 
-r n b q k N B R 
+r n b - k b n r 
 p - - - - - - - 
 - - - - - - - - 
-- p - - - - P - 
-P - Q - - - - - 
-- - - - - - - - 
-- P P - - - - - 
-R N B - K - - - 
-Time:7630:Determine move:
+- - N p P - - - 
+- - - P - - - p 
+- - p - - P - P 
+P P P - - - - - 
+R N B Q K B - R 
+Time:9084:Determine move:
 
-Time:7630
+Time:9084
 {
  p_tag = Pawn 
 
- poz_src = ( b , 7 ) 
+ poz_src = ( c , 4 ) 
 
- poz_dst = ( b , 5 ) 
+ poz_dst = ( c , 3 ) 
 
  m_tag = 0 
 
@@ -922,40 +634,40 @@ Time:7630
  p_rock = ( a , 1 ) 
 
  what_col = Black 
-}Time:7630:Cycle - 66 - 
-Time:7632:Engine Lock : 
-Time:7632:Value: 0
-Time:7632:Engine Quit : 
-Time:7632:Value: 0
-Time:7632:Cycle - 67 - 
-Time:7632:Engine Lock : 
-Time:7632:Value: 0
-Time:7632:Engine Quit : 
-Time:7632:Value: 0
-Time:7632:Cycle - 68 - 
-Time:7632:Engine Lock : 
-Time:7632:Value: 0
-Time:7632:Engine Quit : 
-Time:7632:Value: 0
-Time:7632:Engine on move:
+}Time:9084:Cycle - 48 - 
+Time:9085:Engine Lock : 
+Time:9085:Value: 0
+Time:9085:Engine Quit : 
+Time:9085:Value: 0
+Time:9085:Cycle - 49 - 
+Time:9085:Engine Lock : 
+Time:9085:Value: 0
+Time:9085:Engine Quit : 
+Time:9085:Value: 0
+Time:9085:Cycle - 50 - 
+Time:9085:Engine Lock : 
+Time:9085:Value: 0
+Time:9085:Engine Quit : 
+Time:9085:Value: 0
+Time:9085:Engine on move:
 
-Time:7632:Chosen State:
+Time:9085:Chosen State:
 
-Time:7632
+Time:9085
 
 ~~~Table_What~~~:
 
-r n b q k N B R 
+r n b - k b n r 
 - - - - - - - - 
 - - - - - - - - 
-p P - - - - P - 
-- - Q - - - - - 
-- - - - - - - - 
-- P P - - - - - 
-R N B - K - - - 
-Time:7632:Determine move:
+p - N p P - - - 
+- - - P - - - p 
+- P p - - P - P 
+P - P - - - - - 
+R N B Q K B - R 
+Time:9085:Determine move:
 
-Time:7632
+Time:9085
 {
  p_tag = Pawn 
 
@@ -970,40 +682,40 @@ Time:7632
  p_rock = ( a , 1 ) 
 
  what_col = Black 
-}Time:7632:Cycle - 69 - 
-Time:7635:Engine Lock : 
-Time:7635:Value: 0
-Time:7635:Engine Quit : 
-Time:7635:Value: 0
-Time:7635:Cycle - 70 - 
-Time:7635:Engine Lock : 
-Time:7635:Value: 0
-Time:7635:Engine Quit : 
-Time:7635:Value: 0
-Time:7635:Cycle - 71 - 
-Time:7635:Engine Lock : 
-Time:7635:Value: 0
-Time:7635:Engine Quit : 
-Time:7635:Value: 0
-Time:7635:Engine on move:
+}Time:9085:Cycle - 51 - 
+Time:9089:Engine Lock : 
+Time:9089:Value: 0
+Time:9089:Engine Quit : 
+Time:9089:Value: 0
+Time:9089:Cycle - 52 - 
+Time:9089:Engine Lock : 
+Time:9089:Value: 0
+Time:9089:Engine Quit : 
+Time:9089:Value: 0
+Time:9089:Cycle - 53 - 
+Time:9089:Engine Lock : 
+Time:9089:Value: 0
+Time:9089:Engine Quit : 
+Time:9089:Value: 0
+Time:9089:Engine on move:
 
-Time:7635:Chosen State:
+Time:9089:Chosen State:
 
-Time:7635
+Time:9089
 
 ~~~Table_What~~~:
 
-r n b q k N B R 
+r n b - k b n r 
 - - - - - - - - 
 - - - - - - - - 
-- P - - - - P - 
-p - Q - - - - - 
-- - N - - - - - 
-- P P - - - - - 
-R - B - K - - - 
-Time:7635:Determine move:
+- - N p P - - - 
+p - - P - - - p 
+- P p - - P - P 
+P - P - Q - - - 
+R N B - K B - R 
+Time:9089:Determine move:
 
-Time:7635
+Time:9089
 {
  p_tag = Pawn 
 
@@ -1018,40 +730,136 @@ Time:7635
  p_rock = ( a , 1 ) 
 
  what_col = Black 
-}Time:7635:Cycle - 72 - 
-Time:7638:Engine Lock : 
-Time:7638:Value: 0
-Time:7638:Engine Quit : 
-Time:7638:Value: 0
-Time:7638:Cycle - 73 - 
-Time:7638:Engine Lock : 
-Time:7638:Value: 0
-Time:7638:Engine Quit : 
-Time:7638:Value: 0
-Time:7638:Cycle - 74 - 
-Time:7638:Engine Lock : 
-Time:7638:Value: 0
-Time:7638:Engine Quit : 
-Time:7638:Value: 0
-Time:7638:Engine on move:
+}Time:9089:Cycle - 54 - 
+Time:9090:Engine Lock : 
+Time:9090:Value: 0
+Time:9090:Engine Quit : 
+Time:9090:Value: 0
+Time:9090:Cycle - 55 - 
+Time:9090:Engine Lock : 
+Time:9090:Value: 0
+Time:9090:Engine Quit : 
+Time:9090:Value: 0
+Time:9090:Cycle - 56 - 
+Time:9090:Engine Lock : 
+Time:9090:Value: 0
+Time:9090:Engine Quit : 
+Time:9090:Value: 0
+Time:9090:Engine on move:
 
-Time:7638:Chosen State:
+Time:9090:Chosen State:
 
-Time:7638
+Time:9090
 
 ~~~Table_What~~~:
 
-r - b q k N B R 
+r n b - k b - r 
+- - - - n - - - 
 - - - - - - - - 
-n - - - - - - - 
-- P - - - - P - 
-Q - - - - - - - 
-- - N - - - - - 
-- P P - - - - - 
-R - B - K - - - 
-Time:7638:Determine move:
+- - N p P - - - 
+P - - P - - - p 
+- - p - - P - P 
+P - P - Q - - - 
+R N B - K B - R 
+Time:9090:Determine move:
 
-Time:7638
+Time:9090
+{
+ p_tag = Knight 
+
+ poz_src = ( g , 8 ) 
+
+ poz_dst = ( e , 7 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = ERRTAG 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = Black 
+}Time:9090:Cycle - 57 - 
+Time:9092:Engine Lock : 
+Time:9092:Value: 0
+Time:9092:Engine Quit : 
+Time:9092:Value: 0
+Time:9092:Cycle - 58 - 
+Time:9092:Engine Lock : 
+Time:9092:Value: 0
+Time:9092:Engine Quit : 
+Time:9092:Value: 0
+Time:9092:Cycle - 59 - 
+Time:9092:Engine Lock : 
+Time:9092:Value: 0
+Time:9092:Engine Quit : 
+Time:9092:Value: 0
+Time:9092:Engine on move:
+
+Time:9092:Chosen State:
+
+Time:9092
+
+~~~Table_What~~~:
+
+r n b - k b - r 
+- - - - - - - - 
+- - n - - - - - 
+- Q N p P - - - 
+P - - P - - - p 
+- - p - - P - P 
+P - P - - - - - 
+R N B - K B - R 
+Time:9092:Determine move:
+
+Time:9092
+{
+ p_tag = Knight 
+
+ poz_src = ( e , 7 ) 
+
+ poz_dst = ( c , 6 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = ERRTAG 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = Black 
+}Time:9092:Cycle - 60 - 
+Time:9095:Engine Lock : 
+Time:9095:Value: 0
+Time:9095:Engine Quit : 
+Time:9095:Value: 0
+Time:9095:Cycle - 61 - 
+Time:9095:Engine Lock : 
+Time:9095:Value: 0
+Time:9095:Engine Quit : 
+Time:9095:Value: 0
+Time:9095:Cycle - 62 - 
+Time:9095:Engine Lock : 
+Time:9095:Value: 0
+Time:9095:Engine Quit : 
+Time:9095:Value: 0
+Time:9095:Engine on move:
+
+Time:9095:Chosen State:
+
+Time:9095
+
+~~~Table_What~~~:
+
+r - b - k b - r 
+- - - - - - - - 
+n - Q - - - - - 
+- - N p P - - - 
+P - - P - - - p 
+- - p - - P - P 
+P - P - - - - - 
+R N B - K B - R 
+Time:9095:Determine move:
+
+Time:9095
 {
  p_tag = Knight 
 
@@ -1066,254 +874,14 @@ Time:7638
  p_rock = ( a , 1 ) 
 
  what_col = Black 
-}Time:7638:Cycle - 75 - 
-Time:7647:Engine Lock : 
-Time:7647:Value: 0
-Time:7647:Engine Quit : 
-Time:7647:Value: 0
-Time:7647:Cycle - 76 - 
-Time:7647:Engine Lock : 
-Time:7647:Value: 0
-Time:7647:Engine Quit : 
-Time:7647:Value: 0
-Time:7647:Cycle - 77 - 
-Time:7647:Engine Lock : 
-Time:7647:Value: 0
-Time:7647:Engine Quit : 
-Time:7647:Value: 0
-Time:7647:Engine on move:
-
-Time:7647:Chosen State:
-
-Time:7647
-
-~~~Table_What~~~:
-
-r - b q k N B R 
-- - - - - - - - 
-- - - - - - - - 
-- P - - - - P - 
-Q n - - - - - - 
-- - N - - - - - 
-- P P B - - - - 
-R - - - K - - - 
-Time:7647:Determine move:
-
-Time:7647
-{
- p_tag = Knight 
-
- poz_src = ( a , 6 ) 
-
- poz_dst = ( b , 4 ) 
-
- m_tag = 0 
-
- p_tag_pro = ERRTAG 
-
- p_rock = ( a , 1 ) 
-
- what_col = Black 
-}Time:7647:Cycle - 78 - 
-Time:7649:Engine Lock : 
-Time:7649:Value: 0
-Time:7649:Engine Quit : 
-Time:7649:Value: 0
-Time:7649:Cycle - 79 - 
-Time:7649:Engine Lock : 
-Time:7649:Value: 0
-Time:7649:Engine Quit : 
-Time:7649:Value: 0
-Time:7649:Cycle - 80 - 
-Time:7649:Engine Lock : 
-Time:7649:Value: 0
-Time:7649:Engine Quit : 
-Time:7649:Value: 0
-Time:7649:Engine on move:
-
-Time:7649:Chosen State:
-
-Time:7649
-
-~~~Table_What~~~:
-
-Q - b q k N B R 
-- - - - - - - - 
-- - - - - - - - 
-- P - - - - P - 
-- - - - - - - - 
-- - N - - - - - 
-n P P B - - - - 
-R - - - K - - - 
-Time:7649:Determine move:
-
-Time:7649
-{
- p_tag = Knight 
-
- poz_src = ( b , 4 ) 
-
- poz_dst = ( a , 2 ) 
-
- m_tag = 0 
-
- p_tag_pro = ERRTAG 
-
- p_rock = ( a , 1 ) 
-
- what_col = Black 
-}Time:7649:Cycle - 81 - 
-Time:7651:Engine Lock : 
-Time:7651:Value: 0
-Time:7651:Engine Quit : 
-Time:7651:Value: 0
-Time:7651:Cycle - 82 - 
-Time:7651:Engine Lock : 
-Time:7651:Value: 0
-Time:7651:Engine Quit : 
-Time:7651:Value: 0
-Time:7651:Cycle - 83 - 
-Time:7651:Engine Lock : 
-Time:7651:Value: 0
-Time:7651:Engine Quit : 
-Time:7651:Value: 0
-Time:7651:Engine on move:
-
-Time:7651:Chosen State:
-
-Time:7651
-
-~~~Table_What~~~:
-
-- - Q q k N B R 
-- - - - - - - - 
-- - - - - - - - 
-- P - - - - P - 
-- n - - - - - - 
-- - N - - - - - 
-- P P B - - - - 
-R - - - K - - - 
-Time:7651:Determine move:
-
-Time:7651
-{
- p_tag = Knight 
-
- poz_src = ( a , 2 ) 
-
- poz_dst = ( b , 4 ) 
-
- m_tag = 0 
-
- p_tag_pro = ERRTAG 
-
- p_rock = ( a , 1 ) 
-
- what_col = Black 
-}Time:7651:Cycle - 84 - 
-Time:7656:Engine Lock : 
-Time:7656:Value: 0
-Time:7656:Engine Quit : 
-Time:7656:Value: 0
-Time:7656:Cycle - 85 - 
-Time:7656:Engine Lock : 
-Time:7656:Value: 0
-Time:7656:Engine Quit : 
-Time:7656:Value: 0
-Time:7656:Cycle - 86 - 
-Time:7656:Engine Lock : 
-Time:7656:Value: 0
-Time:7656:Engine Quit : 
-Time:7656:Value: 0
-Time:7656:Engine on move:
-
-Time:7656:Chosen State:
-
-Time:7656
-
-~~~Table_What~~~:
-
-Q - - q k N B R 
-- - - - - - - - 
-- - - - - - - - 
-- P - - - - P - 
-- - - - - - - - 
-- - N - - - - - 
-n P P B - - - - 
-R - - - K - - - 
-Time:7656:Determine move:
-
-Time:7656
-{
- p_tag = Knight 
-
- poz_src = ( b , 4 ) 
-
- poz_dst = ( a , 2 ) 
-
- m_tag = 0 
-
- p_tag_pro = ERRTAG 
-
- p_rock = ( a , 1 ) 
-
- what_col = Black 
-}Time:7656:Cycle - 87 - 
-Time:7658:Engine Lock : 
-Time:7658:Value: 0
-Time:7658:Engine Quit : 
-Time:7658:Value: 0
-Time:7658:Cycle - 88 - 
-Time:7658:Engine Lock : 
-Time:7658:Value: 0
-Time:7658:Engine Quit : 
-Time:7658:Value: 0
-Time:7658:Cycle - 89 - 
-Time:7658:Engine Lock : 
-Time:7658:Value: 0
-Time:7658:Engine Quit : 
-Time:7658:Value: 0
-Time:7658:Engine on move:
-
-Time:7658:Chosen State:
-
-Time:7658
-
-~~~Table_What~~~:
-
-q - - - k N B R 
-- - - - - - - - 
-- - - - - - - - 
-- P - - - - P - 
-- - - - - - - - 
-- - N - - - - - 
-R P P B - - - - 
-- - - - K - - - 
-Time:7658:Determine move:
-
-Time:7658
-{
- p_tag = Queen 
-
- poz_src = ( d , 8 ) 
-
- poz_dst = ( a , 8 ) 
-
- m_tag = 0 
-
- p_tag_pro = ERRTAG 
-
- p_rock = ( a , 1 ) 
-
- what_col = Black 
-}Time:7658:Cycle - 90 - 
-Time:7674:Engine Lock : 
-Time:7674:Value: 0
-Time:7674:Engine Quit : 
-Time:7674:Value: 0
-Time:7674:Cycle - 91 - 
-Time:7674:Engine Lock : 
-Time:7674:Value: 1
-Time:7674:Engine Quit : 
-Time:7674:Value: 0
-Time:7674:Cycle - 92 - 
+}Time:9095:Cycle - 63 - 
+Time:9332:Engine Lock : 
+Time:9332:Value: 0
+Time:9332:Engine Quit : 
+Time:9332:Value: 0
+Time:9332:Cycle - 64 - 
+Time:9332:Engine Lock : 
+Time:9332:Value: 1
+Time:9332:Engine Quit : 
+Time:9332:Value: 0
+Time:9332:Cycle - 65 - 
