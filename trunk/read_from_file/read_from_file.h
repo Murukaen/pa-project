@@ -36,7 +36,7 @@ STATE Read_initial_state( void );
 
 /* citeste din fisierul de database si adauga la hashtable*/
 /*are argument fisierul din care citeste*/
-void Read_from_db(FILE *);
+void Read_openings(FILE *);
 
 
 #endif
