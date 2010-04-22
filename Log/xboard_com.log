@@ -1,70 +1,119 @@
-Time:6479:Engine>XBoard>Line>
-Time:6479:feature done=0
+Time:2455:Engine>XBoard>Line>
+Time:2455:feature done=0
 
-Time:6479:WAIT Input
-Time:6479:RECEIVED Input
-Time:6479:Engine>XBoard>Line>
-Time:6479:
+Time:2455:WAIT Input
+Time:2455:RECEIVED Input:
+Time:2455:xboard
 
-Time:6479:WAIT Input
-Time:6479:RECEIVED Input
-Time:6479:Engine>XBoard>Line>
-Time:6479:feature usermove=1 san=1 sigint=0 done=1
+Time:2455:Engine>XBoard>Line>
+Time:2455:
 
-Time:6479:WAIT Input
-Time:6479:RECEIVED Input
-Time:6479:WAIT Input
-Time:6479:RECEIVED Input
-Time:6479:WAIT Input
-Time:6479:RECEIVED Input
-Time:6479:WAIT Input
-Time:6479:RECEIVED Input
-Time:6479:WAIT Input
-Time:6479:RECEIVED Input
-Time:6479:WAIT Input
-Time:6479:RECEIVED Input
-Time:6479:WAIT Input
-Time:6479:RECEIVED Input
-Time:6479:WAIT Input
-Time:6479:RECEIVED Input
-Time:6479:WAIT Input
-Time:6479:RECEIVED Input
-Time:6479:WAIT Input
-Time:6479:RECEIVED Input
-Time:6479:WAIT Input
-Time:6481:RECEIVED Input
-Time:6481:WAIT Input
-Time:6481:RECEIVED Input
-Time:6481:WAIT Input
-Time:6481:RECEIVED Input
-Time:6481:Engine>XBoard>Line>
-Time:6481:move h5
+Time:2455:END poll_input
+Time:2455:WAIT Input
+Time:2455:RECEIVED Input:
+Time:2455:protover 2
 
-Time:6481:WAIT Input
-Time:6482:RECEIVED Input
-Time:6482:WAIT Input
-Time:6482:RECEIVED Input
-Time:6482:WAIT Input
-Time:6482:RECEIVED Input
-Time:6482:Engine>XBoard>Line>
-Time:6482:move g5
+Time:2455:Engine>XBoard>Line>
+Time:2455:feature usermove=1 san=1 sigint=0 done=1
 
-Time:6482:WAIT Input
-Time:6500:RECEIVED Input
-Time:6500:WAIT Input
-Time:6500:RECEIVED Input
-Time:6500:WAIT Input
-Time:6500:RECEIVED Input
-Time:6500:Engine>XBoard>Line>
-Time:6500:move e5
+Time:2455:END poll_input
+Time:2455:WAIT Input
+Time:2455:RECEIVED Input:
+Time:2455:accepted done
 
-Time:6500:WAIT Input
-Time:6506:RECEIVED Input
-Time:6506:WAIT Input
-Time:6506:RECEIVED Input
-Time:6506:WAIT Input
-Time:6506:RECEIVED Input
-Time:6506:Engine>XBoard>Line>
-Time:6506:move exd4
+Time:2455:END poll_input
+Time:2455:WAIT Input
+Time:2455:RECEIVED Input:
+Time:2455:accepted usermove
 
-Time:6506:WAIT Input
+Time:2455:END poll_input
+Time:2455:WAIT Input
+Time:2455:RECEIVED Input:
+Time:2455:accepted san
+
+Time:2455:END poll_input
+Time:2455:WAIT Input
+Time:2455:RECEIVED Input:
+Time:2455:accepted sigint
+
+Time:2455:END poll_input
+Time:2455:WAIT Input
+Time:2455:RECEIVED Input:
+Time:2455:accepted done
+
+Time:2455:END poll_input
+Time:2455:WAIT Input
+Time:2455:RECEIVED Input:
+Time:2455:new
+
+Time:2455:END poll_input
+Time:2455:WAIT Input
+Time:2455:RECEIVED Input:
+Time:2455:random
+
+Time:2455:END poll_input
+Time:2455:WAIT Input
+Time:2455:RECEIVED Input:
+Time:2455:level 40 5 0
+
+Time:2455:END poll_input
+Time:2455:WAIT Input
+Time:2455:RECEIVED Input:
+Time:2455:post
+
+Time:2455:END poll_input
+Time:2455:WAIT Input
+Time:2455:RECEIVED Input:
+Time:2455:hard
+
+Time:2455:END poll_input
+Time:2455:WAIT Input
+Time:2457:RECEIVED Input:
+Time:2457:time 30000
+
+Time:2457:END poll_input
+Time:2457:WAIT Input
+Time:2457:RECEIVED Input:
+Time:2457:otim 30000
+
+Time:2457:END poll_input
+Time:2457:WAIT Input
+Time:2457:RECEIVED Input:
+Time:2457:usermove h4
+
+Time:2457:END poll_input
+Time:2457:Engine>XBoard>Line>
+Time:2457:move h5
+
+Time:2457:WAIT Input
+Time:2458:RECEIVED Input:
+Time:2458:time 29999
+
+Time:2458:END poll_input
+Time:2458:WAIT Input
+Time:2458:RECEIVED Input:
+Time:2458:otim 29850
+
+Time:2458:END poll_input
+Time:2458:WAIT Input
+Time:2458:RECEIVED Input:
+Time:2458:usermove Nh3
+
+Time:2458:END poll_input
+Time:2458:Engine>XBoard>Line>
+Time:2458:move g5
+
+Time:2458:WAIT Input
+Time:2461:RECEIVED Input:
+Time:2461:time 29997
+
+Time:2461:END poll_input
+Time:2461:WAIT Input
+Time:2461:RECEIVED Input:
+Time:2461:otim 29633
+
+Time:2461:END poll_input
+Time:2461:WAIT Input
+Time:2461:RECEIVED Input:
+Time:2461:usermove Nxg5
+

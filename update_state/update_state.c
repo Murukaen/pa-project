@@ -214,6 +214,7 @@ void update_state(STATE cur, MOVE mov) {
 	ST_set_cur_poz_in_list(cur, ST_get_List_Table_Location(cur, ST_get_col_on_move(cur) , ANALYZED_PIECE));
 	
 	/* LOG */
+	
 	log_print ("Updated State\n" , LOG_UPDATE_STATE_FILE);
 	log_print ("Color on move:" , LOG_UPDATE_STATE_FILE);
 	char text[10];
@@ -222,6 +223,7 @@ void update_state(STATE cur, MOVE mov) {
 	log_print_state_Table_What ( cur_state_get () , LOG_UPDATE_STATE_FILE );
 	log_print ("~~~ Current State ~~~ \n" , LOG_CURRENT_STATE_FILE);
 	log_print_state ( cur_state_get () , LOG_CURRENT_STATE_FILE , WRITE_TAG_ADD );
+	
 	/* END LOG */
 
 }
