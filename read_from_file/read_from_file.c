@@ -91,7 +91,7 @@ void Read_openings(){
 		Sinit=Read_initial_state();//functie care returneaa o tabla la inceput de joc
 		state_print(Sinit,stdout);
 		j=0;
-		while(j<=3)	//citesc doar primele 100 de linii din fisier pentru etapa3
+		while(j<=1000)	//citesc doar primele 100 de linii din fisier pentru etapa3
 		{
 			j++;
 			fgets(buffer,1000,f); //citesc linia
@@ -100,13 +100,13 @@ void Read_openings(){
 			for(i=0;i<strlen(buffer)-1;i++)
 			{
 					
-				if(buffer[i]==' ' || i==strlen(buffer)-2) {
-									elem[k]='\0';
-								//	printf("bufferul este:\n-------------------\n");puts(buffer);printf("---------------\n");
+				if(buffer[i]==' ' || i==strlen(buffer)-2) { //daca gasesc spatiu sau am ajuns la sfarsitul liniei
+									    //  pana in \n
+
+									elem[k]='\0'; //fac trimm tuturor caracterelor necorespunzatoare
 									printf("dimens %d string %s-\n",k,elem);
-								//	printf("mata suge2\n");
 									fflush(stdout);
-									move_print(SAN_to_Move(Sinit,elem),stdout);
+									move_print(SAN_to_Move(Sinit,elem),stdout); //printez mutarea
 								//	update_state(Sinit,SAN_to_Move(Sinit, elem)); //fac update la starea curenta cu mutarea curenta
 									tt_add_opening ( Sinit ); //adaug starea rezultata in hash
 									
@@ -115,7 +115,7 @@ void Read_openings(){
 									}
 				else
 				{
-					printf("buffer[%d]=%c-\n",i,buffer[i]);
+				//	printf("buffer[%d]=%c-\n",i,buffer[i]);
 					fflush(stdout);
 					elem[k++]=buffer[i];
 				
