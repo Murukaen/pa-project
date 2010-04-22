@@ -88,7 +88,7 @@ void Read_openings(){
 		strcpy(elem,"");
 		STATE Sinit;
 		Sinit=Read_initial_state();//functie care returneaa o tabla la inceput de joc
-
+		j=0;
 		while(j<=100)	//citesc doar primele 100 de linii din fisier pentru etapa3
 		{
 			j++;
