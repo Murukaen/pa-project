@@ -207,6 +207,11 @@ void state_print(STATE st, FILE * fout) {
 	}
 	/* END Print V_BMAP */
 
+	/* Print col_on_move */
+	tag_to_text(st -> col_on_move, text1);
+	fprintf(fout, "\nColor on move : %s\n", text1);
+
+	/* END Print col_on_move */
 	/* Print Table_What */
 	fprintf(fout, "\n~~~Table_What~~~:\n\n");
 	int linie = 8, litera = 65;
@@ -254,11 +259,6 @@ void state_print(STATE st, FILE * fout) {
 				fprintf(fout, " Void List ");
 		}
 	/* END Print Table_Location */
-
-	/* Print col_on_move */
-	tag_to_text(st -> col_on_move, text1);
-	fprintf(fout, "\n\nColor on move : %s\n", text1);
-	/* END Print col_on_move */
 
 	/* Print piece_to_move */
 	tag_to_text(st -> piece_to_move, text1);
