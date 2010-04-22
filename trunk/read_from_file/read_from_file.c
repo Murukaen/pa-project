@@ -81,7 +81,7 @@ void Read_openings(FILE *f){
 
 	/*  TODO:
 	 *  State new_initial_state(void) care returneaza o tabla la inceputul jocului
-	 *  void update(State,char *) care face update la orice stare State cu mutarea char*
+	 *  void update_state(State,SAN_to_move(char *)) care face update la orice stare State cu mutarea char*
 	 *  void tt_add_opening(State) adauga State in hash (daca nu mai exista deja in hash)
 	 */
 
@@ -102,7 +102,7 @@ void Read_openings(FILE *f){
 			for(i=0;i<=strlen(buffer);i++)
 			{
 				if(buffer[i]==' ' || buffer[i]=="\n") {
-									update(Sinit,elem); //fac update la starea curenta cu mutarea curenta
+									update_state(Sinit,SAN_to_move(elem)); //fac update la starea curenta cu mutarea curenta
 									tt_add_opening(Sinit); //adaug starea rezultata in hash
 									k=0;
 									strcpy(elem,"");
@@ -110,7 +110,7 @@ void Read_openings(FILE *f){
 				else
 					elem[k++]=buffer[i];
 			}
-			update(Sinit,elem); //fac update pentru ultimul element de pe linie
+			update_state(Sinit,SAN_to_move(elem)); //fac update pentru ultimul element de pe linie
 								//care nu va intra in iful forului de mai sus
 			tt_add_opening(Sinit); //adaug in hash
 			Sinit=new_initial_state(); //refac starea la starea initiala pentru a trece la urmatoarea linie
