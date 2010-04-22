@@ -1,28 +1,28 @@
-Time:7562:xboard
-Time:7562:protover 2
-Time:7563:accepted done
-Time:7563:accepted usermove
-Time:7563:accepted san
-Time:7563:accepted sigint
-Time:7563:accepted done
-Time:7563:new
-Time:7563:random
-Time:7563:level 40 5 0
-Time:7563:post
-Time:7563:hard
-Time:7569:time 30000
-Time:7569:otim 30000
-Time:7569:usermove h4
-Time:7569:XBoard>Engine>Move
-Time:7569:h4
-Time:7569:XBoard>Engine>SAN_to_Move
-Time:7569
+Time:9068:xboard
+Time:9068:protover 2
+Time:9069:accepted done
+Time:9069:accepted usermove
+Time:9069:accepted san
+Time:9069:accepted sigint
+Time:9069:accepted done
+Time:9069:new
+Time:9069:random
+Time:9069:level 40 5 0
+Time:9069:post
+Time:9069:hard
+Time:9070:time 30000
+Time:9070:otim 30000
+Time:9070:usermove e4
+Time:9070:XBoard>Engine>Move
+Time:9070:e4
+Time:9070:XBoard>Engine>SAN_to_Move
+Time:9070
 {
  p_tag = Pawn 
 
- poz_src = ( h , 2 ) 
+ poz_src = ( e , 2 ) 
 
- poz_dst = ( h , 4 ) 
+ poz_dst = ( e , 4 ) 
 
  m_tag = 0 
 
@@ -31,34 +31,13 @@ Time:7569
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:7573:time 29909
-Time:7573:otim 29699
-Time:7573:usermove g4
-Time:7573:XBoard>Engine>Move
-Time:7573:g4
-Time:7573:XBoard>Engine>SAN_to_Move
-Time:7573
-{
- p_tag = Pawn 
-
- poz_src = ( g , 2 ) 
-
- poz_dst = ( g , 4 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:7577:time 29812
-Time:7577:otim 29400
-Time:7577:usermove f3
-Time:7577:XBoard>Engine>Move
-Time:7577:f3
-Time:7577:XBoard>Engine>SAN_to_Move
-Time:7577
+}Time:9072:time 29998
+Time:9072:otim 29806
+Time:9072:usermove f3
+Time:9072:XBoard>Engine>Move
+Time:9072:f3
+Time:9072:XBoard>Engine>SAN_to_Move
+Time:9072
 {
  p_tag = Pawn 
 
@@ -73,19 +52,19 @@ Time:7577
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:7579:time 29796
-Time:7579:otim 29199
-Time:7579:usermove Kf2
-Time:7579:XBoard>Engine>Move
-Time:7579:Kf2
-Time:7579:XBoard>Engine>SAN_to_Move
-Time:7579
+}Time:9073:time 29996
+Time:9073:otim 29706
+Time:9073:usermove h3
+Time:9073:XBoard>Engine>Move
+Time:9073:h3
+Time:9073:XBoard>Engine>SAN_to_Move
+Time:9073
 {
- p_tag = King 
+ p_tag = Pawn 
 
- poz_src = ( e , 1 ) 
+ poz_src = ( h , 2 ) 
 
- poz_dst = ( f , 2 ) 
+ poz_dst = ( h , 3 ) 
 
  m_tag = 0 
 
@@ -94,17 +73,17 @@ Time:7579
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:7580:time 29713
-Time:7580:otim 29191
-Time:7580:usermove Kxe2
-Time:7580:XBoard>Engine>Move
-Time:7580:Kxe2
-Time:7580:XBoard>Engine>SAN_to_Move
-Time:7580
+}Time:9074:time 29993
+Time:9074:otim 29551
+Time:9074:usermove Ne2
+Time:9074:XBoard>Engine>Move
+Time:9074:Ne2
+Time:9074:XBoard>Engine>SAN_to_Move
+Time:9074
 {
- p_tag = King 
+ p_tag = Knight 
 
- poz_src = ( f , 2 ) 
+ poz_src = ( g , 1 ) 
 
  poz_dst = ( e , 2 ) 
 
@@ -115,40 +94,19 @@ Time:7580
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:7582:time 29706
-Time:7582:otim 29000
-Time:7582:usermove hxg5
-Time:7582:XBoard>Engine>Move
-Time:7582:hxg5
-Time:7582:XBoard>Engine>SAN_to_Move
-Time:7582
+}Time:9076:time 29992
+Time:9076:otim 29400
+Time:9076:usermove d4
+Time:9076:XBoard>Engine>Move
+Time:9076:d4
+Time:9076:XBoard>Engine>SAN_to_Move
+Time:9076
 {
  p_tag = Pawn 
 
- poz_src = ( h , 4 ) 
+ poz_src = ( d , 2 ) 
 
- poz_dst = ( g , 5 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:7584:time 29670
-Time:7584:otim 28800
-Time:7584:usermove Ke1
-Time:7584:XBoard>Engine>Move
-Time:7584:Ke1
-Time:7584:XBoard>Engine>SAN_to_Move
-Time:7584
-{
- p_tag = King 
-
- poz_src = ( e , 2 ) 
-
- poz_dst = ( e , 1 ) 
+ poz_dst = ( d , 4 ) 
 
  m_tag = 0 
 
@@ -157,38 +115,17 @@ Time:7584
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:7589:time 29645
-Time:7589:otim 28299
-Time:7589:usermove Bc4
-Time:7589:XBoard>Engine>Move
-Time:7589:Bc4
-Time:7589:XBoard>Engine>SAN_to_Move
-Time:7589
+}Time:9077:time 29991
+Time:9077:otim 29294
+Time:9077:usermove gxf3
+Time:9077:XBoard>Engine>Move
+Time:9077:gxf3
+Time:9077:XBoard>Engine>SAN_to_Move
+Time:9077
 {
- p_tag = Bishop 
+ p_tag = Pawn 
 
- poz_src = ( f , 1 ) 
-
- poz_dst = ( c , 4 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:7597:time 29638
-Time:7597:otim 27500
-Time:7597:usermove Nxf3
-Time:7597:XBoard>Engine>Move
-Time:7597:Nxf3
-Time:7597:XBoard>Engine>SAN_to_Move
-Time:7597
-{
- p_tag = Knight 
-
- poz_src = ( g , 1 ) 
+ poz_src = ( g , 2 ) 
 
  poz_dst = ( f , 3 ) 
 
@@ -199,59 +136,17 @@ Time:7597
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:7600:time 29618
-Time:7600:otim 27300
-Time:7600:usermove Bxg8
-Time:7600:XBoard>Engine>Move
-Time:7600:Bxg8
-Time:7600:XBoard>Engine>SAN_to_Move
-Time:7600
+}Time:9078:time 29990
+Time:9078:otim 29156
+Time:9078:usermove e5
+Time:9078:XBoard>Engine>Move
+Time:9078:e5
+Time:9078:XBoard>Engine>SAN_to_Move
+Time:9078
 {
- p_tag = Bishop 
+ p_tag = Pawn 
 
- poz_src = ( c , 4 ) 
-
- poz_dst = ( g , 8 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:7605:time 29574
-Time:7605:otim 26800
-Time:7605:usermove Rxh8
-Time:7605:XBoard>Engine>Move
-Time:7605:Rxh8
-Time:7605:XBoard>Engine>SAN_to_Move
-Time:7605
-{
- p_tag = Rock 
-
- poz_src = ( h , 1 ) 
-
- poz_dst = ( h , 8 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:7611:time 29540
-Time:7611:otim 26200
-Time:7611:usermove Ne5
-Time:7611:XBoard>Engine>Move
-Time:7611:Ne5
-Time:7611:XBoard>Engine>SAN_to_Move
-Time:7611
-{
- p_tag = Knight 
-
- poz_src = ( f , 3 ) 
+ poz_src = ( e , 4 ) 
 
  poz_dst = ( e , 5 ) 
 
@@ -262,19 +157,145 @@ Time:7611
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:7614:time 29456
-Time:7614:otim 25999
-Time:7614:usermove Qxd2
-Time:7614:XBoard>Engine>Move
-Time:7614:Qxd2
-Time:7614:XBoard>Engine>SAN_to_Move
-Time:7614
+}Time:9079:time 29989
+Time:9079:otim 29027
+Time:9079:usermove Nxf4
+Time:9079:XBoard>Engine>Move
+Time:9079:Nxf4
+Time:9079:XBoard>Engine>SAN_to_Move
+Time:9079
+{
+ p_tag = Knight 
+
+ poz_src = ( e , 2 ) 
+
+ poz_dst = ( f , 4 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = White 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:9080:time 29987
+Time:9080:otim 28935
+Time:9080:usermove Nxe6
+Time:9080:XBoard>Engine>Move
+Time:9080:Nxe6
+Time:9080:XBoard>Engine>SAN_to_Move
+Time:9080
+{
+ p_tag = Knight 
+
+ poz_src = ( f , 4 ) 
+
+ poz_dst = ( e , 6 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = White 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:9082:time 29985
+Time:9082:otim 28784
+Time:9082:usermove Nxd8
+Time:9082:XBoard>Engine>Move
+Time:9082:Nxd8
+Time:9082:XBoard>Engine>SAN_to_Move
+Time:9082
+{
+ p_tag = Knight 
+
+ poz_src = ( e , 6 ) 
+
+ poz_dst = ( d , 8 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = White 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:9083:time 29985
+Time:9083:otim 28686
+Time:9083:usermove Nxb7
+Time:9083:XBoard>Engine>Move
+Time:9083:Nxb7
+Time:9083:XBoard>Engine>SAN_to_Move
+Time:9083
+{
+ p_tag = Knight 
+
+ poz_src = ( d , 8 ) 
+
+ poz_dst = ( b , 7 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = White 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:9084:time 29984
+Time:9084:otim 28549
+Time:9084:usermove Nc5
+Time:9084:XBoard>Engine>Move
+Time:9084:Nc5
+Time:9084:XBoard>Engine>SAN_to_Move
+Time:9084
+{
+ p_tag = Knight 
+
+ poz_src = ( b , 7 ) 
+
+ poz_dst = ( c , 5 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = White 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:9085:time 29983
+Time:9085:otim 28455
+Time:9085:usermove b3
+Time:9085:XBoard>Engine>Move
+Time:9085:b3
+Time:9085:XBoard>Engine>SAN_to_Move
+Time:9085
+{
+ p_tag = Pawn 
+
+ poz_src = ( b , 2 ) 
+
+ poz_dst = ( b , 3 ) 
+
+ m_tag = 0 
+
+ p_tag_pro = White 
+
+ p_rock = ( a , 1 ) 
+
+ what_col = White 
+}Time:9089:time 29982
+Time:9089:otim 28080
+Time:9089:usermove Qe2
+Time:9089:XBoard>Engine>Move
+Time:9089:Qe2
+Time:9089:XBoard>Engine>SAN_to_Move
+Time:9089
 {
  p_tag = Queen 
 
  poz_src = ( d , 1 ) 
 
- poz_dst = ( d , 2 ) 
+ poz_dst = ( e , 2 ) 
 
  m_tag = 0 
 
@@ -283,80 +304,17 @@ Time:7614
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:7616:time 29435
-Time:7616:otim 25799
-Time:7616:usermove Ng6
-Time:7616:XBoard>Engine>Move
-Time:7616:Ng6
-Time:7616:XBoard>Engine>SAN_to_Move
-Time:7616
-{
- p_tag = Knight 
-
- poz_src = ( e , 5 ) 
-
- poz_dst = ( g , 6 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:7618:time 29350
-Time:7618:otim 25699
-Time:7618:usermove Nxf8
-Time:7618:XBoard>Engine>Move
-Time:7618:Nxf8
-Time:7618:XBoard>Engine>SAN_to_Move
-Time:7618
-{
- p_tag = Knight 
-
- poz_src = ( g , 6 ) 
-
- poz_dst = ( f , 8 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:7622:time 29346
-Time:7622:otim 25299
-Time:7622:usermove Qxd3
-Time:7622:XBoard>Engine>Move
-Time:7622:Qxd3
-Time:7622:XBoard>Engine>SAN_to_Move
-Time:7622
-{
- p_tag = Queen 
-
- poz_src = ( d , 2 ) 
-
- poz_dst = ( d , 3 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:7626:time 29251
-Time:7626:otim 25000
-Time:7626:usermove a4
-Time:7626:XBoard>Engine>Move
-Time:7626:a4
-Time:7626:XBoard>Engine>SAN_to_Move
-Time:7626
+}Time:9090:time 29981
+Time:9090:otim 27943
+Time:9090:usermove bxa4
+Time:9090:XBoard>Engine>Move
+Time:9090:bxa4
+Time:9090:XBoard>Engine>SAN_to_Move
+Time:9090
 {
  p_tag = Pawn 
 
- poz_src = ( a , 2 ) 
+ poz_src = ( b , 3 ) 
 
  poz_dst = ( a , 4 ) 
 
@@ -367,38 +325,17 @@ Time:7626
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:7630:time 29181
-Time:7630:otim 24699
-Time:7630:usermove Qxc4
-Time:7630:XBoard>Engine>Move
-Time:7630:Qxc4
-Time:7630:XBoard>Engine>SAN_to_Move
-Time:7630
+}Time:9092:time 29980
+Time:9092:otim 27764
+Time:9092:usermove Qb5+
+Time:9092:XBoard>Engine>Move
+Time:9092:Qb5+
+Time:9092:XBoard>Engine>SAN_to_Move
+Time:9092
 {
  p_tag = Queen 
 
- poz_src = ( d , 3 ) 
-
- poz_dst = ( c , 4 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:7632:time 29117
-Time:7632:otim 24600
-Time:7632:usermove axb5
-Time:7632:XBoard>Engine>Move
-Time:7632:axb5
-Time:7632:XBoard>Engine>SAN_to_Move
-Time:7632
-{
- p_tag = Pawn 
-
- poz_src = ( a , 4 ) 
+ poz_src = ( e , 2 ) 
 
  poz_dst = ( b , 5 ) 
 
@@ -409,61 +346,19 @@ Time:7632
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:7635:time 29058
-Time:7635:otim 24300
-Time:7635:usermove Nc3
-Time:7635:XBoard>Engine>Move
-Time:7635:Nc3
-Time:7635:XBoard>Engine>SAN_to_Move
-Time:7635
-{
- p_tag = Knight 
-
- poz_src = ( b , 1 ) 
-
- poz_dst = ( c , 3 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:7638:time 29002
-Time:7638:otim 24099
-Time:7638:usermove Qxa4
-Time:7638:XBoard>Engine>Move
-Time:7638:Qxa4
-Time:7638:XBoard>Engine>SAN_to_Move
-Time:7638
+}Time:9095:time 29979
+Time:9095:otim 27462
+Time:9095:usermove Qxc6+
+Time:9095:XBoard>Engine>Move
+Time:9095:Qxc6+
+Time:9095:XBoard>Engine>SAN_to_Move
+Time:9095
 {
  p_tag = Queen 
 
- poz_src = ( c , 4 ) 
+ poz_src = ( b , 5 ) 
 
- poz_dst = ( a , 4 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:7647:time 28953
-Time:7647:otim 23200
-Time:7647:usermove Bd2
-Time:7647:XBoard>Engine>Move
-Time:7647:Bd2
-Time:7647:XBoard>Engine>SAN_to_Move
-Time:7647
-{
- p_tag = Bishop 
-
- poz_src = ( c , 1 ) 
-
- poz_dst = ( d , 2 ) 
+ poz_dst = ( c , 6 ) 
 
  m_tag = 0 
 
@@ -472,90 +367,6 @@ Time:7647
  p_rock = ( a , 1 ) 
 
  what_col = White 
-}Time:7649:time 28946
-Time:7649:otim 22999
-Time:7649:usermove Qxa8
-Time:7649:XBoard>Engine>Move
-Time:7649:Qxa8
-Time:7649:XBoard>Engine>SAN_to_Move
-Time:7649
-{
- p_tag = Queen 
-
- poz_src = ( a , 4 ) 
-
- poz_dst = ( a , 8 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:7651:time 28942
-Time:7651:otim 22800
-Time:7651:usermove Qxc8
-Time:7651:XBoard>Engine>Move
-Time:7651:Qxc8
-Time:7651:XBoard>Engine>SAN_to_Move
-Time:7651
-{
- p_tag = Queen 
-
- poz_src = ( a , 8 ) 
-
- poz_dst = ( c , 8 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:7656:time 28853
-Time:7656:otim 22400
-Time:7656:usermove Qa8
-Time:7656:XBoard>Engine>Move
-Time:7656:Qa8
-Time:7656:XBoard>Engine>SAN_to_Move
-Time:7656
-{
- p_tag = Queen 
-
- poz_src = ( c , 8 ) 
-
- poz_dst = ( a , 8 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:7658:time 28774
-Time:7658:otim 22299
-Time:7658:usermove Rxa2
-Time:7658:XBoard>Engine>Move
-Time:7658:Rxa2
-Time:7658:XBoard>Engine>SAN_to_Move
-Time:7658
-{
- p_tag = Rock 
-
- poz_src = ( a , 1 ) 
-
- poz_dst = ( a , 2 ) 
-
- m_tag = 0 
-
- p_tag_pro = White 
-
- p_rock = ( a , 1 ) 
-
- what_col = White 
-}Time:7674:result * {xboard exit}
-Time:7674:force
-Time:7674:quit
+}Time:9332:result * {xboard exit}
+Time:9332:force
+Time:9332:quit
