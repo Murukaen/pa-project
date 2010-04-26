@@ -290,7 +290,7 @@ LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
 char* Move_to_SAN(MOVE s) {
 	
 	if (move_get_m_tag(s) && (move_get_p_tag(s) == T_K)) {
-		if (move_get_p_rock(s).row == 3){
+		if (move_get_p_rock(s).row == 0){
 			char *msg = (char*) malloc(5 * sizeof(char));
 			msg = "O-O-O";
 			return msg;
