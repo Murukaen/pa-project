@@ -380,7 +380,7 @@ MOVE SAN_to_Move(STATE cur , char* s ) {
 			LOCp_set_both(&dst, 6, 0);
 			move_set_poz_dst(m, dst);
 			LOC castle;
-			LOCp_set_both(&castle, 5, 0);
+			LOCp_set_both(&castle, 7, 0);
 			move_set_p_rock(m, castle);
 			move_set_m_tag(m, 1);
 			move_set_p_tag(m, T_K);
@@ -392,7 +392,7 @@ MOVE SAN_to_Move(STATE cur , char* s ) {
 			LOCp_set_both(&dst, 6, 7);
 			move_set_poz_dst(m, dst);
 			LOC castle;
-			LOCp_set_both(&castle, 5, 7);
+			LOCp_set_both(&castle, 7, 7);
 			move_set_p_rock(m, castle);
 			move_set_m_tag(m, 1);
 			move_set_p_tag(m, T_K);
@@ -409,7 +409,7 @@ MOVE SAN_to_Move(STATE cur , char* s ) {
 			LOCp_set_both(&dst, 2, 0);
 			move_set_poz_dst(m, dst);
 			LOC castle;
-			LOCp_set_both(&castle, 3, 0);
+			LOCp_set_both(&castle, 0, 0);
 			move_set_p_rock(m, castle);
 			move_set_m_tag(m, 1);
 			move_set_p_tag(m, T_K);
@@ -421,7 +421,7 @@ MOVE SAN_to_Move(STATE cur , char* s ) {
 			LOCp_set_both(&dst, 2, 7);
 			move_set_poz_dst(m, dst);
 			LOC castle;
-			LOCp_set_both(&castle, 3, 7);
+			LOCp_set_both(&castle, 0, 7);
 			move_set_p_rock(m, castle);
 			move_set_m_tag(m, 1);
 			move_set_p_tag(m, T_K);
