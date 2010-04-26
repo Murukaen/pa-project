@@ -31,9 +31,8 @@ void update_state_init(void) {
 	cur_state_set(Read_initial_state());
 }
 
-void update_state(STATE cur,MOVE mov) {
+void update_state(STATE cur, MOVE mov) {
 
-	
 	UCHAR piesa = move_get_p_tag(mov);
 	LOC src = move_get_poz_src(mov);
 	LOC dst = move_get_poz_dst(mov);
@@ -43,23 +42,23 @@ void update_state(STATE cur,MOVE mov) {
 	ST_set_bitmap(cur, piesa, bm_piesa); // setare bitmap
 	ST_set_tag_Table_What(cur, src.row, src.col, T_NA); // eliminare piesa din tabel
 	int boo = ST_get_tag_Table_What(cur, dst.row, dst.col) == T_NA;
-	if (move_get_p_tag(mov) == T_P){
-		if ((move_get_poz_src(mov).row != move_get_poz_dst(mov).row)){
+	if (move_get_p_tag(mov) == T_P) {
+		if ((move_get_poz_src(mov).row != move_get_poz_dst(mov).row)) {
 			boo = 0;
 			if (ST_get_tag_Table_What(cur, dst.row, dst.col) == T_NA)
 				boo_en = 1;
-		}
-		else{
+		} else {
 			boo = 1;
 		}
-		
-			// Verificare daca este rocada
+	}
 
-	if(move_get_m_tag(mov) && (piesa == T_K)){
+	// Verificare daca este rocada
+
+	if (move_get_m_tag(mov) && (piesa == T_K)) {
 		LOC tura = move_get_p_rock(mov);
 		UCHAR culoare = ST_get_col_on_move(cur);
 		BITMAP bm_piesa = ST_get_bitmap(cur, T_R) ^ BM_Make_coord(tura.row, tura.col);// eliminare piesa de la locul sursei (Tura)
-		if (dst.row == 2){
+		if (dst.row == 2) {
 			BM_Put_piece_at_coord(&bm_piesa, 3, tura.col);
 			ST_set_bitmap(cur, T_R, bm_piesa);
 			bm_piesa = ST_get_bitmap(cur, culoare);
@@ -74,7 +73,7 @@ void update_state(STATE cur,MOVE mov) {
 			list = ST_get_List_Table_Location(cur, culoare, T_R); // extragem lista
 			P_LOC loc = find_nod_list(list, &tura, fequ_loc);
 			LOCp_set_both(loc, 3, tura.col);
-		}else{
+		} else {
 			BM_Put_piece_at_coord(&bm_piesa, 5, tura.col);
 			ST_set_bitmap(cur, T_R, bm_piesa);
 			bm_piesa = ST_get_bitmap(cur, culoare);
@@ -90,7 +89,6 @@ void update_state(STATE cur,MOVE mov) {
 			P_LOC loc = find_nod_list(list, &tura, fequ_loc);
 			LOCp_set_both(loc, 5, tura.col);
 		}
-	}
 	}
 	if (boo) { //verificare daca e captura
 		bm_piesa = ST_get_bitmap(cur, piesa) | BM_Make_coord(dst.row, dst.col); // punem un 1 la locul destinatiei
@@ -108,17 +106,17 @@ void update_state(STATE cur,MOVE mov) {
 		P_LOC loc = find_nod_list(list, &src, fequ_loc);
 		LOCp_set_both(loc, dst.row, dst.col);
 		ST_set_col_on_move(cur, not(culoare));
-		ST_set_piece_to_move( cur, ANALYZED_PIECE );
+		ST_set_piece_to_move(cur, ANALYZED_PIECE );
 		ST_set_move_index(cur, 0);
-		
+
 	} else { // e captura
-		if (boo_en){ // en_passant
+		if (boo_en) { // en_passant
 			UCHAR culoare = ST_get_col_on_move(cur);
 			LOC dst_en;
-			if (culoare){
-				LOCp_set_both(&dst_en, dst.row-1, dst.col);
-			}else{
-				LOCp_set_both(&dst_en, dst.row+1, dst.col);
+			if (culoare) {
+				LOCp_set_both(&dst_en, dst.row - 1, dst.col);
+			} else {
+				LOCp_set_both(&dst_en, dst.row + 1, dst.col);
 			}
 			UCHAR adv;
 			if (!culoare)
@@ -138,11 +136,10 @@ void update_state(STATE cur,MOVE mov) {
 			BM_Clear_piece_at_coord(&bm_piesa, src.row, src.col); // scoatem piesa din bmap'ul culorii
 			bm_piesa = bm_piesa | BM_Make_coord(dst.row, dst.col);
 			ST_set_bitmap(cur, culoare, bm_piesa);
-			if (culoare){
+			if (culoare) {
 				ST_set_tag_Table_What(cur, dst.row, dst.col, (piesa + BWP_OFF)); // adaugam piesa la destinatie
 				ST_set_tag_Table_What(cur, dst_en.row, dst_en.col, T_NA);
-			}
-			else{
+			} else {
 				ST_set_tag_Table_What(cur, dst.row, dst.col, piesa); // adaugam piesa la destinatie
 				ST_set_tag_Table_What(cur, dst_en.row, dst_en.col, T_NA);
 			}
@@ -154,7 +151,7 @@ void update_state(STATE cur,MOVE mov) {
 			ST_set_piece_to_move(cur, ANALYZED_PIECE );
 			ST_set_move_index(cur, 0);
 			ST_set_col_on_move(cur, not(culoare));
-		}else{
+		} else {
 			UCHAR culoare = ST_get_col_on_move(cur);
 			UCHAR adv;
 			if (!culoare)
@@ -188,22 +185,22 @@ void update_state(STATE cur,MOVE mov) {
 			ST_set_col_on_move(cur, not(culoare));
 		}
 	}
-	ST_set_cur_poz_in_list(cur, ST_get_List_Table_Location(cur, ST_get_col_on_move(cur) , ANALYZED_PIECE));
-	
+	ST_set_cur_poz_in_list(cur, ST_get_List_Table_Location(cur, ST_get_col_on_move(cur), ANALYZED_PIECE));
+
 	/* LOG */
-	log_print ("Updated State\n" , LOG_UPDATE_STATE_FILE);
-	log_print ("Color on move:" , LOG_UPDATE_STATE_FILE);
+	log_print("Updated State\n", LOG_UPDATE_STATE_FILE);
+	log_print("Color on move:", LOG_UPDATE_STATE_FILE);
 	char text[10];
-	tag_to_text ( ST_get_col_on_move ( cur_state_get () ) , text );
-	log_print ( text , LOG_UPDATE_STATE_FILE);
-	log_print_state_Table_What ( cur_state_get () , LOG_UPDATE_STATE_FILE );
-	log_print ("~~~ Current State ~~~ \n" , LOG_CURRENT_STATE_FILE);
-	log_print_state ( cur_state_get () , LOG_CURRENT_STATE_FILE , WRITE_TAG_ADD );
+	tag_to_text(ST_get_col_on_move(cur_state_get()), text);
+	log_print(text, LOG_UPDATE_STATE_FILE);
+	log_print_state_Table_What(cur_state_get(), LOG_UPDATE_STATE_FILE );
+	log_print("~~~ Current State ~~~ \n", LOG_CURRENT_STATE_FILE);
+	log_print_state(cur_state_get(), LOG_CURRENT_STATE_FILE, WRITE_TAG_ADD );
 	/* END LOG */
 
 }
 
 void flip_state(void) {
 
-	set_engine_col ( not (get_engine_col() )); // flips the flag
+	set_engine_col(not(get_engine_col())); // flips the flag
 }
