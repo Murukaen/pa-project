@@ -117,7 +117,7 @@ void update_state(STATE cur, MOVE mov) {
 			ST_set_tag_Table_What(cur, dst.row, dst.col, piesa); // adaugam piesa la destinatie
 		list = ST_get_List_Table_Location(cur, culoare, piesa); // extragem lista
 		if (!boo_pro){
-			P_LOC loc = find_nod_list(list, &src, fequ_loc);
+			P_LOC loc = (P_LOC) find_nod_list(list, &src, fequ_loc);
 			LOCp_set_both(loc, dst.row, dst.col);
 		}else{
 			P_LOC pro = LOC_new();
