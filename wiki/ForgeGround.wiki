@@ -116,7 +116,7 @@ The project is consisted of several interrelated structures of modules, each wit
 == Common issues  ==
 
 Since the beginning of this project we've come up to a series of common mistakes. I will state the most important ones :
- # Pay attention to cast. Several functions have the *void \** return type.
+ # Pay attention to cast. Several functions have the <b>void *</b> return type.
 
 
  
