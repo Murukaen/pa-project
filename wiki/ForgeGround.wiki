@@ -117,6 +117,8 @@ The project is consisted of several interrelated structures of modules, each wit
 
 Since the beginning of this project we've come up to a series of common mistakes. I will state the most important ones :
  # Pay attention to cast. Several functions have the *void {{{*}}}* return type.
+ # For each main function ( in test modules ) the initialization Init(INIT_ALL) *must* be used.
+ # Every commit of non-test modules must include no test-purpose printf calls.
 
 
  
