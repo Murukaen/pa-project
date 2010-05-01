@@ -1,18 +1,3 @@
 #sidebar TableOfContents
 
-[ForgeGround Home]
-
-  * [ForgeGround#Prerequisites Prerequisites]
-   * [ForgeGround#C_Programming_Language C Programming Language]
-   * [ForgeGround#XBoard_Protocol XBoard Protocol]
-   * [ForgeGround#Basic_Linux_Commands Basic Linux Commands]
-   * [ForgeGround#SVN SVN]
-   * [ForgeGround#Rules_of_chess Rules of chess]
-  * [ForgeGround#Project_Standards Project Standards]
-   * [ForgeGround#Coding_style Coding style]
-   * [ForgeGround#Modular_strategy Modular strategy]
-   * [ForgeGround#Notation_Agreements Notation Agreements]
-  * [ForgeGround#General_Structure General Structure]
-   * [ForgeGround#Xboard_-_Engine_Flow Xboard - Engine Flow]
-   * [ForgeGround#Main_method Main method]
-  * [ForgeGround#Common_issues Common issues]
+[ForgeGround ForgeGround]
