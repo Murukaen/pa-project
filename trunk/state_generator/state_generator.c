@@ -41,8 +41,7 @@ STATE ST_gen(STATE start_state) {
 
 	}
 	int * nr_of_pieces_checking = (int*) calloc(1, sizeof(int));
-	UCHAR index = ST_get_move_index(start_state), i, j, k, iter;
-	UCHAR col_on_move = ST_get_col_on_move(start_state);
+	UCHAR index = ST_get_move_index(start_state), i, j, k, iter, col_on_move = ST_get_col_on_move(start_state), promotion = 0;
 	List L = ST_get_cur_poz_in_list(start_state);
 	P_LOC loc, index_loc = first_nod_list(&L), loc_pinning_piece = LOC_new(), loc_checking_piece = LOC_new();
 	BITMAP valid_moves, new_bmap, valid_moves_when_check = 0;
@@ -58,6 +57,9 @@ STATE ST_gen(STATE start_state) {
 			L = ST_get_List_Table_Location(start_state, col_on_move, iter);
 			index_loc = first_nod_list(&L);
 		}
+		if (iter == T_P) {
+			promotion = 1;// e posibila promotia
+		}
 
 		for (loc = index_loc; loc; index = 0, loc = first_nod_list(&L)) {
 
@@ -71,6 +73,7 @@ STATE ST_gen(STATE start_state) {
 				}
 			} else {// daca nu intra in sah daca muta
 				valid_moves = VM_valid_moves(start_state, loc);
+
 			}
 
 			for (i = index; i < 64; i++) {
@@ -174,6 +177,8 @@ STATE ST_gen(STATE start_state) {
 					ST_set_col_on_move(new_state, not(col_on_move));
 
 					ST_set_new_st_gen(new_state, 0);
+
+
 
 					log_print_state(new_state, LOG_STATE_GENERATOR_FILE, WRITE_TAG_ADD);
 					return new_state;

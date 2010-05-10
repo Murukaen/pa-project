@@ -53,12 +53,14 @@ BITMAP VM_is_Check(STATE st, int* nr, P_LOC checking_piece) {
 			for (j = col_king + 1; j <= i; j++) {
 				rez |= BM_Make_coord(row_king, j);
 			}
+			break;
 		} else if (tag == R) {
 			LOCp_set_both(checking_piece, row_king, i);
 			nr[0] += 1;
 			for (j = col_king + 1; j <= i; j++) {
 				rez |= BM_Make_coord(row_king, j);
 			}
+			break;
 		} else {
 			break;
 		}
@@ -77,12 +79,14 @@ BITMAP VM_is_Check(STATE st, int* nr, P_LOC checking_piece) {
 			for (j = col_king - 1; j >= i; j--) {
 				rez |= BM_Make_coord(row_king, j);
 			}
+			break;
 		} else if (tag == R) {
 			LOCp_set_both(checking_piece, row_king, i);
 			nr[0] += 1;
 			for (j = col_king - 1; j >= i; j--) {
 				rez |= BM_Make_coord(row_king, j);
 			}
+			break;
 		} else {
 			break;
 		}
@@ -100,12 +104,14 @@ BITMAP VM_is_Check(STATE st, int* nr, P_LOC checking_piece) {
 			for (j = row_king - 1; j >= i; j--) {
 				rez |= BM_Make_coord(j, col_king);
 			}
+			break;
 		} else if (tag == R) {
 			LOCp_set_both(checking_piece, i, col_king);
 			nr[0] += 1;
 			for (j = row_king - 1; j >= i; j--) {
 				rez |= BM_Make_coord(j, col_king);
 			}
+			break;
 		} else {
 			break;
 		}
@@ -122,13 +128,14 @@ BITMAP VM_is_Check(STATE st, int* nr, P_LOC checking_piece) {
 			for (j = row_king + 1; j <= i; j++) {
 				rez |= BM_Make_coord(j, col_king);
 			}
+			break;
 
 		} else if (tag == R) {
 			LOCp_set_both(checking_piece, i, col_king);
 			nr[0] += 1;
 			for (j = row_king + 1; j <= i; j++) {
 				rez |= BM_Make_coord(j, col_king);
-			}
+			}break;
 		} else {
 			break;
 		}
@@ -146,16 +153,19 @@ BITMAP VM_is_Check(STATE st, int* nr, P_LOC checking_piece) {
 			for (k = row_king - 1, l = col_king + 1; k >= i && l <= j; k--, l++) {
 				rez |= BM_Make_coord(k, l);
 			}
+			break;
 		} else if (tag == B) {
 			LOCp_set_both(checking_piece, i, j);
 			nr[0] += 1;
 			for (k = row_king - 1, l = col_king - 1; k >= i && l <= j; k--, l++) {
 				rez |= BM_Make_coord(k, l);
 			}
+			break;
 		} else if ((i == row_king - 1) && (j == col_king + 1) && (col_on_move == 0) && (tag == P)) {
 			LOCp_set_both(checking_piece, i, j);
 			nr[0] += 1;
 			rez |= BM_Make_coord(i, j);
+			break;
 		} else {
 			break;
 		}
@@ -175,16 +185,19 @@ BITMAP VM_is_Check(STATE st, int* nr, P_LOC checking_piece) {
 			for (k = row_king + 1, l = col_king + 1; k <= i && l <= j; k++, l++) {
 				rez |= BM_Make_coord(k, l);
 			}
+			break;
 		} else if (tag == B) {
 			LOCp_set_both(checking_piece, i, j);
 			nr[0] += 1;
 			for (k = row_king + 1, l = col_king + 1; k <= i && l <= j; k++, l++) {
 				rez |= BM_Make_coord(k, l);
 			}
+			break;
 		} else if ((i == row_king + 1) && (j == col_king + 1) && (col_on_move == 0) && (tag == P)) {
 			LOCp_set_both(checking_piece, i, j);
 			nr[0] += 1;
 			rez |= BM_Make_coord(i, j);
+			break;
 		} else {
 			break;
 		}
@@ -204,16 +217,19 @@ BITMAP VM_is_Check(STATE st, int* nr, P_LOC checking_piece) {
 			for (k = row_king + 1, l = col_king - 1; k <= i && l >= j; k++, l--) {
 				rez |= BM_Make_coord(k, l);
 			}
+			break;
 		} else if (tag == B) {
 			LOCp_set_both(checking_piece, i, col_king);
 			nr[0] += 1;
 			for (k = row_king + 1, l = col_king - 1; k <= i && l <= j; k++, l--) {
 				rez |= BM_Make_coord(k, l);
 			}
+			break;
 		} else if ((i == row_king + 1) && (j == col_king - 1) && (col_on_move == 1) && (tag == P)) {
 			LOCp_set_both(checking_piece, i, j);
 			nr[0] += 1;
 			rez |= BM_Make_coord(i, j);
+			break;
 		} else {
 			break;
 		}
@@ -232,16 +248,19 @@ BITMAP VM_is_Check(STATE st, int* nr, P_LOC checking_piece) {
 			for (k = row_king - 1, l = col_king - 1; k >= i && l >= j; k--, l--) {
 				rez |= BM_Make_coord(k, l);
 			}
+			break;
 		} else if (tag == B) {
 			LOCp_set_both(checking_piece, i, col_king);
 			nr[0] += 1;
 			for (k = row_king - 1, l = col_king - 1; k >= i && l >= j; k--, l--) {
 				rez |= BM_Make_coord(k, l);
 			}
+			break;
 		} else if ((i == row_king - 1) && (j == col_king - 1) && (col_on_move == 1) && (tag == P)) {
 			LOCp_set_both(checking_piece, i, j);
 			nr[0] += 1;
 			rez |= BM_Make_coord(i, j);
+			break;
 		} else {
 			break;
 		}
@@ -763,6 +782,7 @@ int VM_validate_King_move(STATE st, LOC loc) {
 			} else {
 				break;
 			}
+
 		}
 	}
 
@@ -1179,14 +1199,14 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 
 	if (ce_piesa_e_la_loc_piesa == K) {
 
-		UCHAR C_DIR[8] = { 1, 1, 1, 0, -1, -1, -1, 0 }, L_DIR[8] = { -1, 0, 1, 1, 1, 0, -1, -1 };
+		UCHAR L_DIR[8] = { -1, 0, 1, 1, 1, 0, -1, -1 }, C_DIR[8] = { 1, 1, 1, 0, -1, -1, -1, 0 };
 		LOC Locuri[8];
 
 		for (i = 0; i < 8; i++) {
 			Locuri[i].row = piece_row + L_DIR[i];
 			Locuri[i].col = piece_col + C_DIR[i];
 		}
-
+		ST_set_tag_Table_What(st, piece_row, piece_col, T_NA);
 		for (i = 0; i < 8; i++) {
 
 			if (VM_validate_King_move(st, Locuri[i]) == 0) {
@@ -1195,6 +1215,7 @@ BITMAP VM_valid_moves(STATE st, P_LOC loc_piesa) {
 				}
 			}
 		}
+		ST_set_tag_Table_What(st, piece_row, piece_col, K);
 		List l = ST_get_List_Table_Location(st, not(ST_get_col_on_move(st)), T_K);
 		P_LOC poz = first_nod_list(&l);
 		rezultat &= ~Moves[T_K - PIECES_OFF][LOC_get_row(poz)][LOC_get_col(poz)];
