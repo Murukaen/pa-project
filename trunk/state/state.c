@@ -262,7 +262,7 @@ void state_print(STATE st, FILE * fout) {
 
 	/* Print piece_to_move */
 	tag_to_text(st -> piece_to_move, text1);
-	fprintf(fout, "\nPiece to move: %s\n", text1);
+	fprintf(fout, "\n\nPiece to move: %s\n", text1);
 	/* END Print piece_to_move */
 
 	/* Print move_index */
@@ -396,6 +396,8 @@ void state_print_Table_What(STATE st, FILE *fout) {
 
 int check_state ( STATE st ) {
 	
-}
 	// TODO
+	return 0;
+}
+	
 

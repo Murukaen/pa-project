@@ -60,6 +60,7 @@ void update_state(STATE cur, MOVE mov) {
 	}
 
 	if (boo_pro){
+		culoare = ST_get_col_on_move(cur);
 		list = ST_get_List_Table_Location(cur, culoare, piesa);
 		delete_elem_list(list, &src, fequ_loc, LOC_free);
 		piesa = move_get_p_tag_pro(mov);
