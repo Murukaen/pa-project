@@ -7,12 +7,16 @@
 #include "../../bitmap/bitmap.h"
 #include "../../Flags/flags.h"
 #include "../../Init/init.h"
-#include "../../Log/log.h"
+#include "../../log/log.h"
+
+#define LOG_TEST_FILE "Log/test.log"
 
 int main() {
 
+	/*
 	FILE * fout = fopen("./Test/test_state_generator/test_st_generator.out",
 			"w");
+	*/
 	FILE * fin = fopen("./Test/test_state_generator/stare_initiala.in", "r");
 	if (fin == NULL) {
 		printf("eroare deschidere fisier intrare");
@@ -27,11 +31,8 @@ int main() {
 	/* END Inits */
 
 	st = state_read(fin);
-	//state_print(st,stdout);
-	//st1 = ST_gen(st);
-	state_print(ST_gen(st), stdout);
-
-	printf("fara");
-	fflush(stdout);
+	STATE son;
+	for(son=ST_gen(st);son;log_print_state_Table_What(son , LOG_TEST_FILE), son=ST_gen(st));
+	
 	return 0;
 }
