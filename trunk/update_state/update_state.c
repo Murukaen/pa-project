@@ -13,7 +13,7 @@
 #include "../bitmap/bitmap.h"
 #include "../list/list.h"
 #include "../Util/util.h"
-#include "../Log/log.h"
+#include "../log/log.h"
 /* ---- Macro #define ---- */
 #define LOG_UPDATE_STATE_FILE "Log/update_state.log"
 #define LOG_CURRENT_STATE_FILE "Log/current_state.log"

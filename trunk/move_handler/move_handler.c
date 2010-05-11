@@ -9,7 +9,7 @@
 #include "../cur_state/cur_state.h"
 #include "../Flags/flags.h"
 #include "../Util/util.h"
-#include "../Log/log.h"
+#include "../log/log.h"
 
 
 /* ---- Macro #define ---- */

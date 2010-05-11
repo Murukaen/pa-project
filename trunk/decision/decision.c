@@ -21,6 +21,8 @@
 
 STATE decide ( void ) {
 	
+	
+	
 	return ST_gen ( cur_state_get () );
 }
 

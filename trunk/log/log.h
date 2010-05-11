@@ -40,3 +40,4 @@ void log_print_bitmap ( BITMAP , char * );
 
 #endif
 
+

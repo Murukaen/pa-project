@@ -394,3 +394,8 @@ void state_print_Table_What(STATE st, FILE *fout) {
 
 }
 
+int check_state ( STATE st ) {
+	
+}
+	// TODO
+

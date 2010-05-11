@@ -13,7 +13,7 @@
 /* ----- Local #inlcudes ----- */
 #include "xboard_com.h"
 #include "../command/command.h"
-#include "../Log/log.h"
+#include "../log/log.h"
 #include "../Flags/flags.h"
 
 /* ---- Macro #define ---- */

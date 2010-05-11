@@ -12,7 +12,7 @@
 #include "../update_state/update_state.h"
 #include "../san_conv/san_conv.h"
 #include "../move_conv/move_conv.h"
-#include "../Log/log.h"
+#include "../log/log.h"
 #include "../Init/init.h"
 #include "../cur_state/cur_state.h"
 

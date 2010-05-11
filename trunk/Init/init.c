@@ -8,7 +8,7 @@
 #include "../bitmap/bitmap.h"
 #include "../update_state/update_state.h"
 #include "../state_generator/state_generator.h"
-#include "../Log/log.h"
+#include "../log/log.h"
 #include "../xboard_com/xboard_com.h"
 #include "../Flags/flags.h"
 #include "init.h"
