@@ -36,21 +36,26 @@ STATE ST_gen(STATE start_state) {
 		ST_set_new_st_gen(start_state, 1);
 		ST_set_piece_to_move(start_state, T_P);
 		ST_set_move_index(start_state, 0);
-		ST_set_cur_poz_in_list(start_state, ST_get_List_Table_Location(start_state, ST_get_col_on_move(start_state), ST_get_piece_to_move(
-				start_state)));
+		ST_set_cur_poz_in_list(start_state, ST_get_List_Table_Location(
+				start_state, ST_get_col_on_move(start_state),
+				ST_get_piece_to_move(start_state)));
 
 	}
 	int * nr_of_pieces_checking = (int*) calloc(1, sizeof(int));
-	UCHAR index = ST_get_move_index(start_state), i, j, k, iter, col_on_move = ST_get_col_on_move(start_state), promotion = 0;
+	UCHAR index = ST_get_move_index(start_state), i, j, k, iter, col_on_move =
+			ST_get_col_on_move(start_state), promotion = 0;
 	List L = ST_get_cur_poz_in_list(start_state);
-	P_LOC loc, index_loc = first_nod_list(&L), loc_pinning_piece = LOC_new(), loc_checking_piece = LOC_new();
+	P_LOC loc, index_loc = first_nod_list(&L), loc_pinning_piece = LOC_new(),
+			loc_checking_piece = LOC_new();
 	BITMAP valid_moves, new_bmap, valid_moves_when_check = 0;
 
 	STATE new_state = ST_new();
 
-	valid_moves_when_check = VM_is_Check(start_state, nr_of_pieces_checking, loc_checking_piece);
+	valid_moves_when_check = VM_is_Check(start_state, nr_of_pieces_checking,
+			loc_checking_piece);
 
-	for (iter = ST_get_piece_to_move(start_state); iter >= T_K; --iter, index = 0, L = ST_get_List_Table_Location(start_state, col_on_move, iter), index_loc
+	for (iter = ST_get_piece_to_move(start_state); iter >= T_K; --iter, index
+			= 0, L = ST_get_List_Table_Location(start_state, col_on_move, iter), index_loc
 			= first_nod_list(&L)) {
 		if (nr_of_pieces_checking[0] > 1) {// daca e sah de la mai mult de o piesa, tre sa mut regele
 			iter = T_K;
@@ -65,15 +70,16 @@ STATE ST_gen(STATE start_state) {
 
 			UCHAR old_c = LOC_get_col(loc), old_r = LOC_get_row(loc);
 
-			if (VM_is_Check_if_piece_moves(start_state, loc, loc_pinning_piece) == 1) { // daca e sah daca muta piesa
+			if (VM_is_Check_if_piece_moves(start_state, loc, loc_pinning_piece)
+					== 1) { // daca e sah daca muta piesa
 
-				valid_moves = VM_get_valid_if_check(start_state, loc, loc_pinning_piece);
+				valid_moves = VM_get_valid_if_check(start_state, loc,
+						loc_pinning_piece);
 				if (valid_moves == 0) {// daca nu poate sa mute efectiv
 					continue;
 				}
 			} else {// daca nu intra in sah daca muta
 				valid_moves = VM_valid_moves(start_state, loc);
-
 			}
 
 			for (i = index; i < 64; i++) {
@@ -94,62 +100,75 @@ STATE ST_gen(STATE start_state) {
 
 					for (j = 0; j < 8; j++) { // le recopiez pe toate
 
-						ST_set_bitmap(new_state, j, ST_get_bitmap(start_state, j));
+						ST_set_bitmap(new_state, j, ST_get_bitmap(start_state,
+								j));
 
 					}
 
 					/*refac bitmapul pieselor de culoarea celui care muta */
 
 					new_bmap = ST_get_bitmap(start_state, col_on_move);
-					BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(old_r, old_c));
+					BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(old_r,
+							old_c));
 					BM_Put_piece_at_coord(&new_bmap, new_r, new_c);
 					ST_set_bitmap(new_state, col_on_move, new_bmap);
 
 					/*refac bitmapul pentru iter*/
 
 					new_bmap = ST_get_bitmap(start_state, iter);
-					BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(old_r, old_c));
+					BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(old_r,
+							old_c));
 					BM_Put_piece_at_coord(&new_bmap, new_r, new_c);
 					ST_set_bitmap(new_state, iter, new_bmap);
 
 					/*copiez in new_state vechea lista de pozitii pt piese*/
 					for (j = 0; j < 2; j++) {
 						for (k = 0; k < 6; k++) {
-							ST_set_List_Table_Location(new_state, j, k + PIECES_OFF, list_copy(
-									ST_get_List_Table_Location(start_state, j, k + PIECES_OFF), LOC_alloc));
+							ST_set_List_Table_Location(new_state, j, k
+									+ PIECES_OFF, list_copy(
+									ST_get_List_Table_Location(start_state, j,
+											k + PIECES_OFF), LOC_alloc));
 						}
 					}
 
 					/*daca a fost captura*/
-					if (BM_Equal1_BMAPs(ST_get_bitmap(start_state, not(col_on_move)), BM_Make_coord(new_r, new_c)) == 1) {
+					if (BM_Equal1_BMAPs(ST_get_bitmap(start_state, not(
+							col_on_move)), BM_Make_coord(new_r, new_c)) == 1) {
 
 						/*identific piesa capturata*/
-						UCHAR piece_to_delete = ST_get_tag_Table_What(start_state, new_r, new_c);
+						UCHAR piece_to_delete = ST_get_tag_Table_What(
+								start_state, new_r, new_c);
 						if (col_on_move == 0) {
 							piece_to_delete -= BWP_OFF;
 						}
 						/* iau bitmapul pieselor de tipul celei capturate si il modific*/
 						if (piece_to_delete != iter) {
-							new_bmap = ST_get_bitmap(start_state, piece_to_delete);
-							BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(new_r, new_c));
+							new_bmap = ST_get_bitmap(start_state,
+									piece_to_delete);
+							BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(
+									new_r, new_c));
 							ST_set_bitmap(new_state, piece_to_delete, new_bmap);
 						}
 
 						/*modific bitmapul pieselor ~col_on_move*/
 						new_bmap = ST_get_bitmap(start_state, not(col_on_move));
-						BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(new_r, new_c));
+						BM_Clear_piece_at_BMAP(&new_bmap, BM_Make_coord(new_r,
+								new_c));
 						ST_set_bitmap(new_state, not(col_on_move), new_bmap);
 
 						/* sterg din lista new_state piesa care a fost capturata*/
-						List aux_l = ST_get_List_Table_Location(new_state, not(col_on_move), piece_to_delete);
+						List aux_l = ST_get_List_Table_Location(new_state, not(
+								col_on_move), piece_to_delete);
 						P_LOC to_del = LOC_new();
 						LOCp_set_both(to_del, new_r, new_c);
-						delete_elem_list(aux_l, (void *) to_del, fequ_loc, LOC_free);
+						delete_elem_list(aux_l, (void *) to_del, fequ_loc,
+								LOC_free);
 					}
 
 					/*modific din lista lui new_state locatia piesei mutate*/
-					P_LOC loc_modificat = (P_LOC) find_nod_list(ST_get_List_Table_Location(new_state, col_on_move, iter), loc,
-							fequ_loc);
+					P_LOC loc_modificat = (P_LOC) find_nod_list(
+							ST_get_List_Table_Location(new_state, col_on_move,
+									iter), loc, fequ_loc);
 
 					LOCp_set_both(loc_modificat, new_r, new_c);
 
@@ -160,12 +179,15 @@ STATE ST_gen(STATE start_state) {
 
 							if (j == new_r && k == new_c) {
 								if (col_on_move == 0) {
-									ST_set_tag_Table_What(new_state, new_r, new_c, iter);
+									ST_set_tag_Table_What(new_state, new_r,
+											new_c, iter);
 								} else {
-									ST_set_tag_Table_What(new_state, new_r, new_c, iter + BWP_OFF);
+									ST_set_tag_Table_What(new_state, new_r,
+											new_c, iter + BWP_OFF);
 								}
 							} else if (j == old_r && k == old_c) {
-								ST_set_tag_Table_What(new_state, old_r, old_c, 255);
+								ST_set_tag_Table_What(new_state, old_r, old_c,
+										255);
 							} else {
 								temp = ST_get_tag_Table_What(start_state, j, k);
 								ST_set_tag_Table_What(new_state, j, k, temp);
@@ -178,9 +200,8 @@ STATE ST_gen(STATE start_state) {
 
 					ST_set_new_st_gen(new_state, 0);
 
-
-
-					log_print_state(new_state, LOG_STATE_GENERATOR_FILE, WRITE_TAG_ADD);
+					log_print_state(new_state, LOG_STATE_GENERATOR_FILE,
+							WRITE_TAG_ADD);
 					return new_state;
 				}
 

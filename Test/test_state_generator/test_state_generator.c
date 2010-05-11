@@ -22,16 +22,16 @@ int main() {
 
 	/* Inits */
 
-	Init ( INIT_ALL );
-
+	Init(INIT_ALL);
 
 	/* END Inits */
 
 	st = state_read(fin);
 	//state_print(st,stdout);
 	//st1 = ST_gen(st);
-	state_print(ST_gen(st),stdout);
+	state_print(ST_gen(st), stdout);
 
-	printf("fardsaa");
+	printf("fara");
+	fflush(stdout);
 	return 0;
 }

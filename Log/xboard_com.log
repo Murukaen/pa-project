@@ -1,588 +1,551 @@
-Time:8587:Engine>XBoard>Line>
-Time:8587:feature done=0
-
-Time:8587:WAIT Input
-Time:8587:RECEIVED Input:
-Time:8587:xboard
-
-Time:8587:Engine>XBoard>Line>
-Time:8587:
-
-Time:8587:END poll_input
-Time:8587:WAIT Input
-Time:8587:RECEIVED Input:
-Time:8587:protover 2
-
-Time:8587:Engine>XBoard>Line>
-Time:8587:feature usermove=1 san=1 sigint=0 done=1
-
-Time:8587:END poll_input
-Time:8587:WAIT Input
-Time:8587:RECEIVED Input:
-Time:8587:accepted done
-
-Time:8587:END poll_input
-Time:8587:WAIT Input
-Time:8587:RECEIVED Input:
-Time:8587:accepted usermove
-
-Time:8587:END poll_input
-Time:8587:WAIT Input
-Time:8587:RECEIVED Input:
-Time:8587:accepted san
-
-Time:8587:END poll_input
-Time:8587:WAIT Input
-Time:8587:RECEIVED Input:
-Time:8587:accepted sigint
-
-Time:8587:END poll_input
-Time:8587:WAIT Input
-Time:8587:RECEIVED Input:
-Time:8587:accepted done
-
-Time:8587:END poll_input
-Time:8587:WAIT Input
-Time:8587:RECEIVED Input:
-Time:8587:new
-
-Time:8587:END poll_input
-Time:8587:WAIT Input
-Time:8587:RECEIVED Input:
-Time:8587:random
-
-Time:8587:END poll_input
-Time:8587:WAIT Input
-Time:8587:RECEIVED Input:
-Time:8587:level 40 5 0
-
-Time:8587:END poll_input
-Time:8587:WAIT Input
-Time:8587:RECEIVED Input:
-Time:8587:post
-
-Time:8587:END poll_input
-Time:8587:WAIT Input
-Time:8587:RECEIVED Input:
-Time:8587:hard
-
-Time:8587:END poll_input
-Time:8587:WAIT Input
-Time:8588:RECEIVED Input:
-Time:8588:time 30000
-
-Time:8588:END poll_input
-Time:8588:WAIT Input
-Time:8588:RECEIVED Input:
-Time:8588:otim 30000
-
-Time:8588:END poll_input
-Time:8588:WAIT Input
-Time:8588:RECEIVED Input:
-Time:8588:usermove e4
-
-Time:8588:END poll_input
-Time:8588:Engine>XBoard>Line>
-Time:8588:move h5
-
-Time:8588:WAIT Input
-Time:8590:RECEIVED Input:
-Time:8590:time 29999
-
-Time:8590:END poll_input
-Time:8590:WAIT Input
-Time:8590:RECEIVED Input:
-Time:8590:otim 29854
-
-Time:8590:END poll_input
-Time:8590:WAIT Input
-Time:8590:RECEIVED Input:
-Time:8590:usermove Qxh5
-
-Time:8590:END poll_input
-Time:8590:Engine>XBoard>Line>
-Time:8590:move g5
-
-Time:8590:WAIT Input
-Time:8590:RECEIVED Input:
-Time:8590:time 29998
-
-Time:8590:END poll_input
-Time:8590:WAIT Input
-Time:8590:RECEIVED Input:
-Time:8590:otim 29787
-
-Time:8590:END poll_input
-Time:8590:WAIT Input
-Time:8590:RECEIVED Input:
-Time:8590:usermove Qxg5
-
-Time:8590:END poll_input
-Time:8590:Engine>XBoard>Line>
-Time:8590:move f5
-
-Time:8590:WAIT Input
-Time:8591:RECEIVED Input:
-Time:8591:time 29998
-
-Time:8591:END poll_input
-Time:8591:WAIT Input
-Time:8591:RECEIVED Input:
-Time:8591:otim 29734
-
-Time:8591:END poll_input
-Time:8591:WAIT Input
-Time:8591:RECEIVED Input:
-Time:8591:usermove Qxf5
-
-Time:8591:END poll_input
-Time:8591:Engine>XBoard>Line>
-Time:8591:move e5
-
-Time:8591:WAIT Input
-Time:8592:RECEIVED Input:
-Time:8592:time 29998
-
-Time:8592:END poll_input
-Time:8592:WAIT Input
-Time:8592:RECEIVED Input:
-Time:8592:otim 29639
-
-Time:8592:END poll_input
-Time:8592:WAIT Input
-Time:8592:RECEIVED Input:
-Time:8592:usermove Qxe5+
-
-Time:8592:END poll_input
-Time:8592:Engine>XBoard>Line>
-Time:8592:move Ne7
-
-Time:8592:WAIT Input
-Time:8594:RECEIVED Input:
-Time:8594:time 29997
-
-Time:8594:END poll_input
-Time:8594:WAIT Input
-Time:8594:RECEIVED Input:
-Time:8594:otim 29395
-
-Time:8594:END poll_input
-Time:8594:WAIT Input
-Time:8594:RECEIVED Input:
-Time:8594:usermove Bc4
-
-Time:8594:END poll_input
-Time:8594:Engine>XBoard>Line>
-Time:8594:move d5
-
-Time:8594:WAIT Input
-Time:8597:RECEIVED Input:
-Time:8597:time 29997
-
-Time:8597:END poll_input
-Time:8597:WAIT Input
-Time:8597:RECEIVED Input:
-Time:8597:otim 29102
-
-Time:8597:END poll_input
-Time:8597:WAIT Input
-Time:8597:RECEIVED Input:
-Time:8597:usermove exd5
-
-Time:8597:END poll_input
-Time:8597:Engine>XBoard>Line>
-Time:8597:move c5
-
-Time:8597:WAIT Input
-Time:8599:RECEIVED Input:
-Time:8599:time 29996
-
-Time:8599:END poll_input
-Time:8599:WAIT Input
-Time:8599:RECEIVED Input:
-Time:8599:otim 28918
-
-Time:8599:END poll_input
-Time:8599:WAIT Input
-Time:8599:RECEIVED Input:
-Time:8599:usermove d6
-
-Time:8599:END poll_input
-Time:8599:Engine>XBoard>Line>
-Time:8599:move b5
-
-Time:8599:WAIT Input
-Time:8601:RECEIVED Input:
-Time:8601:time 29996
-
-Time:8601:END poll_input
-Time:8601:WAIT Input
-Time:8601:RECEIVED Input:
-Time:8601:otim 28719
-
-Time:8601:END poll_input
-Time:8601:WAIT Input
-Time:8601:RECEIVED Input:
-Time:8601:usermove Bxb5+
-
-Time:8601:END poll_input
-Time:8601:Engine>XBoard>Line>
-Time:8601:move N8c6
-
-Time:8601:WAIT Input
-Time:8603:RECEIVED Input:
-Time:8603:time 29995
-
-Time:8603:END poll_input
-Time:8603:WAIT Input
-Time:8603:RECEIVED Input:
-Time:8603:otim 28514
-
-Time:8603:END poll_input
-Time:8603:WAIT Input
-Time:8603:RECEIVED Input:
-Time:8603:usermove Bxc6+
-
-Time:8603:END poll_input
-Time:8603:Engine>XBoard>Line>
-Time:8603:move Bd7
-
-Time:8603:WAIT Input
-Time:8605:RECEIVED Input:
-Time:8605:time 29994
-
-Time:8605:END poll_input
-Time:8605:WAIT Input
-Time:8605:RECEIVED Input:
-Time:8605:otim 28387
-
-Time:8605:END poll_input
-Time:8605:WAIT Input
-Time:8605:RECEIVED Input:
-Time:8605:usermove Bxd7+
-
-Time:8605:END poll_input
-Time:8605:Engine>XBoard>Line>
-Time:8605:move Qd7
-
-Time:8605:WAIT Input
-Time:8606:RECEIVED Input:
-Time:8606:time 29993
-
-Time:8606:END poll_input
-Time:8606:WAIT Input
-Time:8606:RECEIVED Input:
-Time:8606:otim 28244
-
-Time:8606:END poll_input
-Time:8606:WAIT Input
-Time:8606:RECEIVED Input:
-Time:8606:usermove Qxc5
-
-Time:8606:END poll_input
-Time:8606:Engine>XBoard>Line>
-Time:8606:move a5
-
-Time:8606:WAIT Input
-Time:8608:RECEIVED Input:
-Time:8608:time 29993
-
-Time:8608:END poll_input
-Time:8608:WAIT Input
-Time:8608:RECEIVED Input:
-Time:8608:otim 28023
-
-Time:8608:END poll_input
-Time:8608:WAIT Input
-Time:8608:RECEIVED Input:
-Time:8608:usermove dxe7
-
-Time:8608:END poll_input
-Time:8608:Engine>XBoard>Line>
-Time:8608:move a4
-
-Time:8608:WAIT Input
-Time:8610:RECEIVED Input:
-Time:8610:time 29992
-
-Time:8610:END poll_input
-Time:8610:WAIT Input
-Time:8610:RECEIVED Input:
-Time:8610:otim 27854
-
-Time:8610:END poll_input
-Time:8610:WAIT Input
-Time:8610:RECEIVED Input:
-Time:8610:usermove Qa5
-
-Time:8610:END poll_input
-Time:8610:Engine>XBoard>Line>
-Time:8610:move a3
-
-Time:8610:WAIT Input
-Time:8611:RECEIVED Input:
-Time:8611:time 29992
-
-Time:8611:END poll_input
-Time:8611:WAIT Input
-Time:8611:RECEIVED Input:
-Time:8611:otim 27756
-
-Time:8611:END poll_input
-Time:8611:WAIT Input
-Time:8611:RECEIVED Input:
-Time:8611:usermove Qxa3
-
-Time:8611:END poll_input
-Time:8611:Engine>XBoard>Line>
-Time:8611:move Be7
-
-Time:8611:WAIT Input
-Time:8616:RECEIVED Input:
-Time:8616:time 29991
-
-Time:8616:END poll_input
-Time:8616:WAIT Input
-Time:8616:RECEIVED Input:
-Time:8616:otim 27264
-
-Time:8616:END poll_input
-Time:8616:WAIT Input
-Time:8616:RECEIVED Input:
-Time:8616:usermove Qe3
-
-Time:8616:END poll_input
-Time:8616:Engine>XBoard>Line>
-Time:8616:move Rf8
-
-Time:8616:WAIT Input
-Time:8618:RECEIVED Input:
-Time:8618:time 29991
-
-Time:8618:END poll_input
-Time:8618:WAIT Input
-Time:8618:RECEIVED Input:
-Time:8618:otim 27073
-
-Time:8618:END poll_input
-Time:8618:WAIT Input
-Time:8618:RECEIVED Input:
-Time:8618:usermove f3
-
-Time:8618:END poll_input
-Time:8618:Engine>XBoard>Line>
-Time:8618:move Rf3
-
-Time:8618:WAIT Input
-Time:8620:RECEIVED Input:
-Time:8620:time 29990
-
-Time:8620:END poll_input
-Time:8620:WAIT Input
-Time:8620:RECEIVED Input:
-Time:8620:otim 26873
-
-Time:8620:END poll_input
-Time:8620:WAIT Input
-Time:8620:RECEIVED Input:
-Time:8620:usermove Nxf3
-
-Time:8620:END poll_input
-Time:8620:Engine>XBoard>Line>
-Time:8620:move Ra2
-
-Time:8620:WAIT Input
-Time:8622:RECEIVED Input:
-Time:8622:time 29989
-
-Time:8622:END poll_input
-Time:8622:WAIT Input
-Time:8622:RECEIVED Input:
-Time:8622:otim 26682
-
-Time:8622:END poll_input
-Time:8622:WAIT Input
-Time:8622:RECEIVED Input:
-Time:8622:usermove Rxa2
-
-Time:8622:END poll_input
-Time:8622:Engine>XBoard>Line>
-Time:8622:move Qa4
-
-Time:8622:WAIT Input
-Time:8623:RECEIVED Input:
-Time:8623:time 29988
-
-Time:8623:END poll_input
-Time:8623:WAIT Input
-Time:8623:RECEIVED Input:
-Time:8623:otim 26551
-
-Time:8623:END poll_input
-Time:8623:WAIT Input
-Time:8623:RECEIVED Input:
-Time:8623:usermove Rxa4
-
-Time:8623:END poll_input
-Time:8623:Engine>XBoard>Line>
-Time:8623:move Kd7
-
-Time:8623:WAIT Input
-Time:8628:RECEIVED Input:
-Time:8628:time 29988
-
-Time:8628:END poll_input
-Time:8628:WAIT Input
-Time:8628:RECEIVED Input:
-Time:8628:otim 26031
-
-Time:8628:END poll_input
-Time:8628:WAIT Input
-Time:8628:RECEIVED Input:
-Time:8628:usermove Ra7+
-
-Time:8628:END poll_input
-Time:8628:Engine>XBoard>Line>
-Time:8628:move Kc6
-
-Time:8628:WAIT Input
-Time:8632:RECEIVED Input:
-Time:8632:time 29987
-
-Time:8632:END poll_input
-Time:8632:WAIT Input
-Time:8632:RECEIVED Input:
-Time:8632:otim 25694
-
-Time:8632:END poll_input
-Time:8632:WAIT Input
-Time:8632:RECEIVED Input:
-Time:8632:usermove Qh6+
-
-Time:8632:END poll_input
-Time:8632:Engine>XBoard>Line>
-Time:8632:move Bd6
-
-Time:8632:WAIT Input
-Time:8634:RECEIVED Input:
-Time:8634:time 29987
-
-Time:8634:END poll_input
-Time:8634:WAIT Input
-Time:8634:RECEIVED Input:
-Time:8634:otim 25467
-
-Time:8634:END poll_input
-Time:8634:WAIT Input
-Time:8634:RECEIVED Input:
-Time:8634:usermove Nd4+
-
-Time:8634:END poll_input
-Time:8634:Engine>XBoard>Line>
-Time:8634:move Kb6
-
-Time:8634:WAIT Input
-Time:8641:RECEIVED Input:
-Time:8641:time 29987
-
-Time:8641:END poll_input
-Time:8641:WAIT Input
-Time:8641:RECEIVED Input:
-Time:8641:otim 24716
-
-Time:8641:END poll_input
-Time:8641:WAIT Input
-Time:8641:RECEIVED Input:
-Time:8641:usermove Ra8
-
-Time:8641:END poll_input
-Time:8641:Engine>XBoard>Line>
-Time:8641:move Kb7
-
-Time:8641:WAIT Input
-Time:8651:RECEIVED Input:
-Time:8651:time 29986
-
-Time:8651:END poll_input
-Time:8651:WAIT Input
-Time:8651:RECEIVED Input:
-Time:8651:otim 23780
-
-Time:8651:END poll_input
-Time:8651:WAIT Input
-Time:8651:RECEIVED Input:
-Time:8651:usermove Ra4
-
-Time:8651:END poll_input
-Time:8651:Engine>XBoard>Line>
-Time:8651:move Ba3
-
-Time:8651:WAIT Input
-Time:8657:RECEIVED Input:
-Time:8657:time 29985
-
-Time:8657:END poll_input
-Time:8657:WAIT Input
-Time:8657:RECEIVED Input:
-Time:8657:otim 23188
-
-Time:8657:END poll_input
-Time:8657:WAIT Input
-Time:8657:RECEIVED Input:
-Time:8657:usermove bxa3
-
-Time:8657:END poll_input
-Time:8657:Engine>XBoard>Line>
-Time:8657:move Kb8
-
-Time:8657:WAIT Input
-Time:8662:RECEIVED Input:
-Time:8662:time 29985
-
-Time:8662:END poll_input
-Time:8662:WAIT Input
-Time:8662:RECEIVED Input:
-Time:8662:otim 22666
-
-Time:8662:END poll_input
-Time:8662:WAIT Input
-Time:8662:RECEIVED Input:
-Time:8662:usermove Qh8+
-
-Time:8662:END poll_input
-Time:8662:Engine>XBoard>Line>
-Time:8662:move Kb7
-
-Time:8662:WAIT Input
-Time:8664:RECEIVED Input:
-Time:8664:time 29984
-
-Time:8664:END poll_input
-Time:8664:WAIT Input
-Time:8664:RECEIVED Input:
-Time:8664:otim 22485
-
-Time:8664:END poll_input
-Time:8664:WAIT Input
-Time:8664:RECEIVED Input:
-Time:8664:usermove Rc4
-
-Time:8664:END poll_input
-Time:8664:Engine>XBoard>Line>
-Time:8664:move Ka6
-
-Time:8664:WAIT Input
-Time:8668:RECEIVED Input:
-Time:8668:time 29984
-
-Time:8668:END poll_input
-Time:8668:WAIT Input
-Time:8668:RECEIVED Input:
-Time:8668:otim 22061
-
-Time:8668:END poll_input
-Time:8668:WAIT Input
-Time:8668:RECEIVED Input:
-Time:8668:usermove Qb8
-
-Time:8668:END poll_input
+Time:803:Engine>XBoard>Line>
+Time:803:feature done=0
+
+Time:803:WAIT Input
+Time:803:RECEIVED Input:
+Time:803:xboard
+
+Time:803:Engine>XBoard>Line>
+Time:803:
+
+Time:803:END poll_input
+Time:803:WAIT Input
+Time:803:RECEIVED Input:
+Time:803:protover 2
+
+Time:803:Engine>XBoard>Line>
+Time:803:feature usermove=1 san=1 sigint=0 done=1
+
+Time:803:END poll_input
+Time:803:WAIT Input
+Time:803:RECEIVED Input:
+Time:803:accepted done
+
+Time:803:END poll_input
+Time:803:WAIT Input
+Time:803:RECEIVED Input:
+Time:803:accepted usermove
+
+Time:803:END poll_input
+Time:803:WAIT Input
+Time:803:RECEIVED Input:
+Time:803:accepted san
+
+Time:803:END poll_input
+Time:803:WAIT Input
+Time:803:RECEIVED Input:
+Time:803:accepted sigint
+
+Time:803:END poll_input
+Time:803:WAIT Input
+Time:803:RECEIVED Input:
+Time:803:accepted done
+
+Time:803:END poll_input
+Time:803:WAIT Input
+Time:803:RECEIVED Input:
+Time:803:new
+
+Time:803:END poll_input
+Time:803:WAIT Input
+Time:803:RECEIVED Input:
+Time:803:random
+
+Time:803:END poll_input
+Time:803:WAIT Input
+Time:803:RECEIVED Input:
+Time:803:level 40 5 0
+
+Time:803:END poll_input
+Time:803:WAIT Input
+Time:803:RECEIVED Input:
+Time:803:post
+
+Time:803:END poll_input
+Time:803:WAIT Input
+Time:803:RECEIVED Input:
+Time:803:hard
+
+Time:803:END poll_input
+Time:803:WAIT Input
+Time:807:RECEIVED Input:
+Time:807:time 30000
+
+Time:807:END poll_input
+Time:807:WAIT Input
+Time:807:RECEIVED Input:
+Time:807:otim 30000
+
+Time:807:END poll_input
+Time:807:WAIT Input
+Time:807:RECEIVED Input:
+Time:807:usermove d4
+
+Time:807:END poll_input
+Time:807:Engine>XBoard>Line>
+Time:807:move h5
+
+Time:807:WAIT Input
+Time:808:RECEIVED Input:
+Time:808:time 29999
+
+Time:808:END poll_input
+Time:808:WAIT Input
+Time:808:RECEIVED Input:
+Time:808:otim 29908
+
+Time:808:END poll_input
+Time:808:WAIT Input
+Time:808:RECEIVED Input:
+Time:808:usermove d5
+
+Time:808:END poll_input
+Time:808:Engine>XBoard>Line>
+Time:808:move h4
+
+Time:808:WAIT Input
+Time:810:RECEIVED Input:
+Time:810:time 29998
+
+Time:810:END poll_input
+Time:810:WAIT Input
+Time:810:RECEIVED Input:
+Time:810:otim 29761
+
+Time:810:END poll_input
+Time:810:WAIT Input
+Time:810:RECEIVED Input:
+Time:810:usermove d6
+
+Time:810:END poll_input
+Time:810:Engine>XBoard>Line>
+Time:810:move h3
+
+Time:810:WAIT Input
+Time:812:RECEIVED Input:
+Time:812:time 29997
+
+Time:812:END poll_input
+Time:812:WAIT Input
+Time:812:RECEIVED Input:
+Time:812:otim 29554
+
+Time:812:END poll_input
+Time:812:WAIT Input
+Time:812:RECEIVED Input:
+Time:812:usermove Qd3
+
+Time:812:END poll_input
+Time:812:Engine>XBoard>Line>
+Time:812:move hxg2
+
+Time:812:WAIT Input
+Time:813:RECEIVED Input:
+Time:813:time 29997
+
+Time:813:END poll_input
+Time:813:WAIT Input
+Time:813:RECEIVED Input:
+Time:813:otim 29404
+
+Time:813:END poll_input
+Time:813:WAIT Input
+Time:813:RECEIVED Input:
+Time:813:usermove Bxg2
+
+Time:813:END poll_input
+Time:813:Engine>XBoard>Line>
+Time:813:move g5
+
+Time:813:WAIT Input
+Time:815:RECEIVED Input:
+Time:815:time 29996
+
+Time:815:END poll_input
+Time:815:WAIT Input
+Time:815:RECEIVED Input:
+Time:815:otim 29189
+
+Time:815:END poll_input
+Time:815:WAIT Input
+Time:815:RECEIVED Input:
+Time:815:usermove Qe3
+
+Time:815:END poll_input
+Time:815:Engine>XBoard>Line>
+Time:815:move g4
+
+Time:815:WAIT Input
+Time:818:RECEIVED Input:
+Time:818:time 29996
+
+Time:818:END poll_input
+Time:818:WAIT Input
+Time:818:RECEIVED Input:
+Time:818:otim 28972
+
+Time:818:END poll_input
+Time:818:WAIT Input
+Time:818:RECEIVED Input:
+Time:818:usermove h3
+
+Time:818:END poll_input
+Time:818:Engine>XBoard>Line>
+Time:818:move g3
+
+Time:818:WAIT Input
+Time:819:RECEIVED Input:
+Time:819:time 29995
+
+Time:819:END poll_input
+Time:819:WAIT Input
+Time:819:RECEIVED Input:
+Time:819:otim 28861
+
+Time:819:END poll_input
+Time:819:WAIT Input
+Time:819:RECEIVED Input:
+Time:819:usermove fxg3
+
+Time:819:END poll_input
+Time:819:Engine>XBoard>Line>
+Time:819:move f5
+
+Time:819:WAIT Input
+Time:821:RECEIVED Input:
+Time:821:time 29994
+
+Time:821:END poll_input
+Time:821:WAIT Input
+Time:821:RECEIVED Input:
+Time:821:otim 28630
+
+Time:821:END poll_input
+Time:821:WAIT Input
+Time:821:RECEIVED Input:
+Time:821:usermove Rh2
+
+Time:821:END poll_input
+Time:821:Engine>XBoard>Line>
+Time:821:move f4
+
+Time:821:WAIT Input
+Time:823:RECEIVED Input:
+Time:823:time 29994
+
+Time:823:END poll_input
+Time:823:WAIT Input
+Time:823:RECEIVED Input:
+Time:823:otim 28412
+
+Time:823:END poll_input
+Time:823:WAIT Input
+Time:823:RECEIVED Input:
+Time:823:usermove gxf4
+
+Time:823:END poll_input
+Time:823:Engine>XBoard>Line>
+Time:823:move e5
+
+Time:823:WAIT Input
+Time:827:RECEIVED Input:
+Time:827:time 29994
+
+Time:827:END poll_input
+Time:827:WAIT Input
+Time:827:RECEIVED Input:
+Time:827:otim 28068
+
+Time:827:END poll_input
+Time:827:WAIT Input
+Time:827:RECEIVED Input:
+Time:827:usermove Qxe5+
+
+Time:827:END poll_input
+Time:827:Engine>XBoard>Line>
+Time:827:move Ne7
+
+Time:827:WAIT Input
+Time:830:RECEIVED Input:
+Time:830:time 29993
+
+Time:830:END poll_input
+Time:830:WAIT Input
+Time:830:RECEIVED Input:
+Time:830:otim 27724
+
+Time:830:END poll_input
+Time:830:WAIT Input
+Time:830:RECEIVED Input:
+Time:830:usermove Qxh8
+
+Time:830:END poll_input
+Time:830:Engine>XBoard>Line>
+Time:830:move c5
+
+Time:830:WAIT Input
+Time:832:RECEIVED Input:
+Time:832:time 29993
+
+Time:832:END poll_input
+Time:832:WAIT Input
+Time:832:RECEIVED Input:
+Time:832:otim 27521
+
+Time:832:END poll_input
+Time:832:WAIT Input
+Time:832:RECEIVED Input:
+Time:832:usermove Qc3
+
+Time:832:END poll_input
+Time:832:Engine>XBoard>Line>
+Time:832:move c4
+
+Time:832:WAIT Input
+Time:833:RECEIVED Input:
+Time:833:time 29992
+
+Time:833:END poll_input
+Time:833:WAIT Input
+Time:833:RECEIVED Input:
+Time:833:otim 27451
+
+Time:833:END poll_input
+Time:833:WAIT Input
+Time:833:RECEIVED Input:
+Time:833:usermove Qxc4
+
+Time:833:END poll_input
+Time:833:Engine>XBoard>Line>
+Time:833:move b5
+
+Time:833:WAIT Input
+Time:834:RECEIVED Input:
+Time:834:time 29991
+
+Time:834:END poll_input
+Time:834:WAIT Input
+Time:834:RECEIVED Input:
+Time:834:otim 27355
+
+Time:834:END poll_input
+Time:834:WAIT Input
+Time:834:RECEIVED Input:
+Time:834:usermove Qxb5
+
+Time:834:END poll_input
+Time:834:Engine>XBoard>Line>
+Time:834:move a5
+
+Time:834:WAIT Input
+Time:835:RECEIVED Input:
+Time:835:time 29991
+
+Time:835:END poll_input
+Time:835:WAIT Input
+Time:835:RECEIVED Input:
+Time:835:otim 27243
+
+Time:835:END poll_input
+Time:835:WAIT Input
+Time:835:RECEIVED Input:
+Time:835:usermove Qxa5
+
+Time:835:END poll_input
+Time:835:Engine>XBoard>Line>
+Time:835:move N7c6
+
+Time:835:WAIT Input
+Time:839:RECEIVED Input:
+Time:839:time 29991
+
+Time:839:END poll_input
+Time:839:WAIT Input
+Time:839:RECEIVED Input:
+Time:839:otim 26870
+
+Time:839:END poll_input
+Time:839:WAIT Input
+Time:839:RECEIVED Input:
+Time:839:usermove Qxa8
+
+Time:839:END poll_input
+Time:839:Engine>XBoard>Line>
+Time:839:move Na5
+
+Time:839:WAIT Input
+Time:840:RECEIVED Input:
+Time:840:time 29990
+
+Time:840:END poll_input
+Time:840:WAIT Input
+Time:840:RECEIVED Input:
+Time:840:otim 26741
+
+Time:840:END poll_input
+Time:840:WAIT Input
+Time:840:RECEIVED Input:
+Time:840:usermove Qxa5
+
+Time:840:END poll_input
+Time:840:Engine>XBoard>Line>
+Time:840:move Na6
+
+Time:840:WAIT Input
+Time:841:RECEIVED Input:
+Time:841:time 29989
+
+Time:841:END poll_input
+Time:841:WAIT Input
+Time:841:RECEIVED Input:
+Time:841:otim 26636
+
+Time:841:END poll_input
+Time:841:WAIT Input
+Time:841:RECEIVED Input:
+Time:841:usermove Qxa6
+
+Time:841:END poll_input
+Time:841:Engine>XBoard>Line>
+Time:841:move Bd6
+
+Time:841:WAIT Input
+Time:842:RECEIVED Input:
+Time:842:time 29989
+
+Time:842:END poll_input
+Time:842:WAIT Input
+Time:842:RECEIVED Input:
+Time:842:otim 26489
+
+Time:842:END poll_input
+Time:842:WAIT Input
+Time:842:RECEIVED Input:
+Time:842:usermove Qxd6
+
+Time:842:END poll_input
+Time:842:Engine>XBoard>Line>
+Time:842:move Ba6
+
+Time:842:WAIT Input
+Time:843:RECEIVED Input:
+Time:843:time 29988
+
+Time:843:END poll_input
+Time:843:WAIT Input
+Time:843:RECEIVED Input:
+Time:843:otim 26386
+
+Time:843:END poll_input
+Time:843:WAIT Input
+Time:843:RECEIVED Input:
+Time:843:usermove Qxa6
+
+Time:843:END poll_input
+Time:843:Engine>XBoard>Line>
+Time:843:move d5
+
+Time:843:WAIT Input
+Time:845:RECEIVED Input:
+Time:845:time 29987
+
+Time:845:END poll_input
+Time:845:WAIT Input
+Time:845:RECEIVED Input:
+Time:845:otim 26235
+
+Time:845:END poll_input
+Time:845:WAIT Input
+Time:845:RECEIVED Input:
+Time:845:usermove Qe6+
+
+Time:845:END poll_input
+Time:845:Engine>XBoard>Line>
+Time:845:move Qe7
+
+Time:845:WAIT Input
+Time:847:RECEIVED Input:
+Time:847:time 29987
+
+Time:847:END poll_input
+Time:847:WAIT Input
+Time:847:RECEIVED Input:
+Time:847:otim 26048
+
+Time:847:END poll_input
+Time:847:WAIT Input
+Time:847:RECEIVED Input:
+Time:847:usermove Qc6+
+
+Time:847:END poll_input
+Time:847:Engine>XBoard>Line>
+Time:847:move Qd7
+
+Time:847:WAIT Input
+Time:848:RECEIVED Input:
+Time:848:time 29986
+
+Time:848:END poll_input
+Time:848:WAIT Input
+Time:848:RECEIVED Input:
+Time:848:otim 25898
+
+Time:848:END poll_input
+Time:848:WAIT Input
+Time:848:RECEIVED Input:
+Time:848:usermove Qg6+
+
+Time:848:END poll_input
+Time:848:Engine>XBoard>Line>
+Time:848:move Qf7
+
+Time:848:WAIT Input
+Time:849:RECEIVED Input:
+Time:849:time 29985
+
+Time:849:END poll_input
+Time:849:WAIT Input
+Time:849:RECEIVED Input:
+Time:849:otim 25790
+
+Time:849:END poll_input
+Time:849:WAIT Input
+Time:849:RECEIVED Input:
+Time:849:usermove Qe6+
+
+Time:849:END poll_input
+Time:849:Engine>XBoard>Line>
+Time:849:move Qe6
+
+Time:849:WAIT Input
+Time:852:RECEIVED Input:
+Time:852:time 29985
+
+Time:852:END poll_input
+Time:852:WAIT Input
+Time:852:RECEIVED Input:
+Time:852:otim 25545
+
+Time:852:END poll_input
+Time:852:WAIT Input
+Time:852:RECEIVED Input:
+Time:852:usermove Bxd5
+
+Time:852:END poll_input
+Time:852:Engine>XBoard>Line>
+Time:852:move Qa6
+
+Time:852:WAIT Input
+Time:855:RECEIVED Input:
+Time:855:result * {xboard exit}
+
+Time:855:END poll_input
+Time:855:WAIT Input
+Time:855:RECEIVED Input:
+Time:855:force
+
+Time:855:END poll_input
+Time:855:WAIT Input
+Time:855:RECEIVED Input:
+Time:855:quit
+
