@@ -1,6 +1,6 @@
 #include "valid_moves.h"
 #include <stdlib.h>
-#include "../Log/log.h"
+#include "../log/log.h"
 #include "../list/list.h"
 #include "../Util/util.h"
 #include "../state_generator/state_generator.h"

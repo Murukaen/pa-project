@@ -15,7 +15,7 @@
 #include "../valid_moves/valid_moves.h"
 #include "../list/list.h"
 #include "../Util/util.h"
-#include "../Log/log.h"
+#include "../log/log.h"
 
 /* ---- Macro #define ---- */
 

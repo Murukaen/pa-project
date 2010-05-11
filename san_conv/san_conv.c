@@ -11,7 +11,7 @@
 /* ----- Local #inlcudes ----- */
 #include "san_conv.h"
 #include "../valid_moves/valid_moves.h"
-#include "../Log/log.h"
+#include "../log/log.h"
 
 /* ---- Macro #define ---- */
 #define LOG_SAN_CONV_FILE "Log/san_conv.log"

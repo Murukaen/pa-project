@@ -14,7 +14,7 @@
 #include "../Init/init.h"
 #include "../xboard_com/xboard_com.h"
 #include "../Flags/flags.h"
-#include "../Log/log.h"
+#include "../log/log.h"
 #include "../bitmap/bitmap.h"
 #include "../state/state.h"
 #include "../move/move.h"

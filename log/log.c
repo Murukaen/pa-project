@@ -171,3 +171,4 @@ void log_print_bitmap ( BITMAP b , char * FILE_NAME ) {
 }
 	
 
+

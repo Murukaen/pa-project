@@ -188,6 +188,8 @@ void ST_set_en_passant ( STATE , P_LOC );
  */
 void state_print ( STATE , FILE * );
 
+int check_state ( STATE );
+
 void state_print_Table_What( STATE, FILE *);
 
 /* Desc:
