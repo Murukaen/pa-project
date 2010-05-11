@@ -60,6 +60,9 @@ void log_init ( void ) {
 	
 	fout = fopen ("Log/move_handler.log" , "w");
 	fclose(fout);
+	
+	fout = fopen ("Log/test.log" , "w");
+	fclose(fout);
 }
 
 void log_print ( char * text , char * FILE_NAME ) {
@@ -114,9 +117,29 @@ void log_print_state_Table_What ( STATE st , char * FILE_NAME ) {
 		fprintf(fout, "\n~~~Table_What~~~:\n\n");
 		if ( st ) {
 			/* Print Table_What */
-			for(i=0;i<SIZE_BMAP;++i, fprintf(fout, "\n") )
-				for(j=0;j<SIZE_BMAP;++j, fprintf(fout, " ") )
-					fprintf(fout, "%c" , tag_to_letter ( ST_get_tag_Table_What ( st ,  BM_row(i,j) , BM_col(i,j) ) ));
+			int linie = 8, litera = 65;
+	for (i = 0; i < 18; ++i, fprintf(fout, "\n")) {
+		for (j = -1; j < 8; ++j) {
+
+			if (j == -1) {
+				if (i % 2 == 0 && i != 17) {
+					fprintf(fout, " +");
+				} else {
+					fprintf(fout, "%d|", linie--);
+					continue;
+				}
+			}
+			if (i % 2 == 1 && i != 17) {
+				fprintf(fout, " %c |", tag_to_letter(ST_get_tag_Table_What( st , BM_row((i- 1) / 2, j) , BM_col((i - 1) / 2, j))));
+			} else if (i % 2 == 0 && i != 17) {
+				if (j != 7) {
+					fprintf(fout, "---+");
+				}
+			} else {
+				fprintf(fout, " %c  ", litera++);
+			}
+		}
+	}
 			/* END Print Table_What */
 		}
 		else fprintf(fout, "\n Void State \n" );
