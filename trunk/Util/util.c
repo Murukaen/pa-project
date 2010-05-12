@@ -118,7 +118,7 @@ UCHAR not ( UCHAR b) {
 
 int is_tag_of_col ( UCHAR tag , UCHAR col ) {
 	
-	return ( ( 2 + BWP_OFF * col ) <= tag && tag <= ( 7 + BWP_OFF ) );
+	return ( ( 2 + BWP_OFF * col ) <= tag && tag <= ( 7 + BWP_OFF * col ) );
 }
 
 UCHAR letter_to_tag ( char c ) {
@@ -169,7 +169,7 @@ void tag_to_text ( UCHAR tag , char text [] ) {
 		case 1 : strcpy ( text , "Black" ); break;
 		case 2 : strcpy ( text , "King" ); break;
 		case 3 : strcpy ( text , "Queen" ); break;
-		case 4 : strcpy ( text , "Rock" ); break;
+		case 4 : strcpy ( text , "Rook" ); break;
 		case 5 : strcpy ( text , "Bishop" ); break;
 		case 6 : strcpy ( text , "Knight" ); break;
 		case 7 : strcpy ( text , "Pawn" ); break;
@@ -243,7 +243,7 @@ UCHAR text_to_tag ( char * text ) {
 	if ( ! strcmp ( text , "BLACK" ) ) return T_BP;
 	if ( ! strcmp ( text , "KING" ) ) return T_K;
 	if ( ! strcmp ( text , "QUEEN" ) ) return T_Q;
-	if ( ! strcmp ( text , "ROCK" ) ) return T_R;
+	if ( ! strcmp ( text , "ROOK" ) ) return T_R;
 	if ( ! strcmp ( text , "BISHOP" ) ) return T_B;
 	if ( ! strcmp ( text , "KNIGHT" ) ) return T_N;
 	if ( ! strcmp ( text , "PAWN" ) ) return T_P;
