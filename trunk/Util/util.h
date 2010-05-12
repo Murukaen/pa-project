@@ -120,7 +120,9 @@ UINT get_time ( int );
 
 int is_tag_of_col ( UCHAR , UCHAR );
 
+int ok_col_tag ( int );
 
+int ok_piece_tag ( int );
 
 #endif
 

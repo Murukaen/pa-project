@@ -32,7 +32,8 @@ int main() {
 
 	st = state_read(fin);
 	STATE son;
-	for(son=ST_gen(st);son;log_print_state_Table_What(son , LOG_TEST_FILE), son=ST_gen(st));
+	for(son=ST_gen(st);son;log_print_state_Table_What(son , LOG_TEST_FILE), son=ST_gen(st))
+		log_print_state_Table_What(son , LOG_TEST_FILE );
 	//state_print(st,stdout);
 	/*int i;
 	for (i = 0; i < 5; i++) {
