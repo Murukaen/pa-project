@@ -143,6 +143,7 @@ BITMAP VM_is_Check(STATE st, int* nr, P_LOC checking_piece) {
 	}
 	// ma uit pe diag sus-stanga
 
+
 	for (i = row_king - 1, j = col_king + 1; i >= 0 && j < 8; i--, j++) {
 
 		tag = ST_get_tag_Table_What(st, i, j);
@@ -158,7 +159,7 @@ BITMAP VM_is_Check(STATE st, int* nr, P_LOC checking_piece) {
 		} else if (tag == B) {
 			LOCp_set_both(checking_piece, i, j);
 			nr[0] += 1;
-			for (k = row_king - 1, l = col_king - 1; k >= i && l <= j; k--, l++) {
+			for (k = row_king - 1, l = col_king + 1; k >=i && l <= j; k--, l++) {
 				rez |= BM_Make_coord(k, l);
 			}
 			break;
