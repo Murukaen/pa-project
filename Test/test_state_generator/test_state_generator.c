@@ -41,6 +41,7 @@ int main() {
 	 state_print(son, stdout);
 	 }*/
 
+
 	printf("fara");
 	return 0;
 }
