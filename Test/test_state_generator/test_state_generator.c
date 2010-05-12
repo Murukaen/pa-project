@@ -32,15 +32,15 @@ int main() {
 
 	st = state_read(fin);
 	STATE son;
-	for(son=ST_gen(st);son;log_print_state_Table_What(son , LOG_TEST_FILE), son=ST_gen(st))
-		log_print_state_Table_What(son , LOG_TEST_FILE );
+	for (son = ST_gen(st); son; log_print_state_Table_What(son, LOG_TEST_FILE), son = ST_gen(st))
+		;
 	//state_print(st,stdout);
 	/*int i;
-	for (i = 0; i < 5; i++) {
-		son = ST_gen(st);
-		state_print(son, stdout);
-	}*/
+	 for (i = 0; i < 5; i++) {
+	 son = ST_gen(st);
+	 state_print(son, stdout);
+	 }*/
 
-
+	printf("fara");
 	return 0;
 }
