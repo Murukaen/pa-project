@@ -1,12 +1,12 @@
-{ p_tag=Knight ; poz_src=(b,1) ; poz_dst=(c,3) ; m_tag=0 ; p_tag_pro=Queen ; p_rock=(h,1) ; what_col=White }
+{ p_tag=Pawn ; poz_src=(h,7) ; poz_dst=(h,6) ; m_tag=0 ; p_tag_pro=Queen ; p_rock=(h,1) ; what_col=Black }
 
->>>White
-r n b q k b - r 
-- - - - n - - - 
-- - - - - - - - 
-R - - - P - - - 
-- - P - - - Q P 
-- P - - - - R - 
-- - N - - - B - 
-- N B - K - - - 
+>>>>Black
+r n b q k b n r
+p p p p p p p p
+- - - - - - - -
+- - - - - - - -
+- - - - P - - -
+- - - - - - - -
+P P P P - P P P
+R N B Q K B N R
 

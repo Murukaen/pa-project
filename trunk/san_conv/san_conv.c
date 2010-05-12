@@ -24,34 +24,33 @@
 
 /* Prototip is_check */
 
-int is_check(MOVE m, STATE cur){
+int is_check(MOVE m, STATE cur) {
 	return 0;
 }
 
 /* Prototip is_check_mate */
 
-int is_check_mate(MOVE m, STATE cur){
+int is_check_mate(MOVE m, STATE cur) {
 	return 0;
 }
 
 /* Prototip validate_move */
 
-int validate_move(MOVE m, STATE cur){
+int validate_move(MOVE m, STATE cur) {
 	//UCHAR piesa = move_get_p_tag(m);
 	LOC l = move_get_poz_dst(m);
 	LOC s = move_get_poz_src(m);
 	/* LOG */
 	/*
-	log_print ( "Row" ,  LOG_SAN_CONV_FILE );
-	log_print_integer ( s.row ,  LOG_SAN_CONV_FILE );
-	log_print ( "Col" , LOG_SAN_CONV_FILE );
-	log_print_integer ( s.col ,  LOG_SAN_CONV_FILE );
-	log_print_bitmap ( VM_valid_moves ( cur , &s ) , LOG_SAN_CONV_FILE );
-	*/
+	 log_print ( "Row" ,  LOG_SAN_CONV_FILE );
+	 log_print_integer ( s.row ,  LOG_SAN_CONV_FILE );
+	 log_print ( "Col" , LOG_SAN_CONV_FILE );
+	 log_print_integer ( s.col ,  LOG_SAN_CONV_FILE );
+	 log_print_bitmap ( VM_valid_moves ( cur , &s ) , LOG_SAN_CONV_FILE );
+	 */
 	/* END LOG */
-	return BM_Make_coord(l.row, l.col) & VM_valid_moves ( cur , &s ) & ~(ST_get_bitmap(cur, ST_get_col_on_move ( cur ))) ? 1 : 0;
+	return BM_Make_coord(l.row, l.col) & VM_valid_moves(cur, &s) & ~(ST_get_bitmap(cur, ST_get_col_on_move(cur))) ? 1 : 0;
 }
-
 
 /* Conversie UCHAR - SAN */
 
@@ -127,7 +126,7 @@ char convertFromLetters(char a) {
 int is_capture(MOVE h, STATE cur) {
 	if (move_get_p_tag(h) == T_P)
 		return (move_get_poz_src(h).row != move_get_poz_dst(h).row) ? 1 : 0;
-	BITMAP b = ST_get_bitmap(cur, ST_get_col_on_move ( cur ));
+	BITMAP b = ST_get_bitmap(cur, ST_get_col_on_move(cur));
 	LOC l = move_get_poz_dst(h);
 	BITMAP d = BM_Make_coord(l.row, l.col);
 	return (b & d) ? 1 : 0;
@@ -140,7 +139,7 @@ void set_flags(int j, char* msg, STATE cur, MOVE h) {
 	if (is_capture(h, cur)) {
 		msg[j++] = 'x';
 	}
-	sprintf(&c, "%d", l.col+1);
+	sprintf(&c, "%d", l.col + 1);
 	msg[j++] = convertToLetters(l.row);
 	msg[j++] = c;
 	if (is_check(h, cur)) {
@@ -195,17 +194,15 @@ int is_dezambiguu(char* c) {
 
 /* Alegere piesa corecta - dezambiguizare */
 
-char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
-		STATE cur) {
+char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa, STATE cur) {
 	UCHAR lk, ck;
 	UCHAR lg, cg;
 	int k;
 	LOC l;
 	LOC d;
 	int boo = 1;
-	BITMAP s = ST_get_bitmap(cur, piesa) & ST_get_bitmap(cur, ST_get_col_on_move ( cur ));
+	BITMAP s = ST_get_bitmap(cur, piesa) & ST_get_bitmap(cur, ST_get_col_on_move(cur));
 	BM_Clear_piece_at_coord(&s, lp, cp);
-
 
 	/* Pt. fiecare element din b verificam daca se poate muta pe poz d */
 
@@ -219,23 +216,22 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 		LOCp_set_both(&d, ld, cd);
 		move_set_poz_dst(m, d);
 
-		if (validate_move(m,cur)) {
+		if (validate_move(m, cur)) {
 			lg = lk;
 			cg = ck;
 			boo = 0;
 		}
 		if (!boo) {
-			if (cp == cg){
+			if (cp == cg) {
 				move_free(m);
 				return convertToLetters(lp);
-			}
-			else {
+			} else {
 				char c;
 				sprintf(&c, "%d", cp + 1);
 				move_free(m);
 				return c;
 			}
-		} else{
+		} else {
 			move_free(m);
 			BM_Clear_piece_at_coord(&s, lk, ck);
 		}
@@ -247,7 +243,7 @@ char correct_piece(UCHAR lp, UCHAR cp, UCHAR ld, UCHAR cd, UCHAR piesa,
 /* Gasirea piesei care trebuie mutata */
 
 LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
-	BITMAP b = ST_get_bitmap(cur, c) & ST_get_bitmap (cur, ST_get_col_on_move(cur));
+	BITMAP b = ST_get_bitmap(cur, c) & ST_get_bitmap(cur, ST_get_col_on_move(cur));
 	LOC d;
 	UCHAR k, lk, ck;
 	int bool = 0, booc = 0;
@@ -269,14 +265,14 @@ LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
 		LOCp_set_both(&d, lk, ck);
 		move_set_poz_src(m, d);
 
-		if (validate_move(m, cur )) {
-			if (bool && booc){
+		if (validate_move(m, cur)) {
+			if (bool && booc) {
 				move_free(m);
 				return d;
-			}else{
+			} else {
 				move_free(m);
 			}
-		}else{
+		} else {
 			move_free(m);
 		}
 
@@ -288,13 +284,16 @@ LOC gasire_piesa(STATE cur, int cg, int lg, LOC l, UCHAR c) {
 /* --- Procedures --- */
 
 char* Move_to_SAN(MOVE s) {
-	
+
+	log_print_state(cur_state_get(), LOG_SAN_CONV_FILE, WRITE_TAG_ADD);
+	log_print_move(s, LOG_SAN_CONV_FILE);
+
 	if (move_get_m_tag(s) && (move_get_p_tag(s) == T_K)) {
-		if (move_get_p_rock(s).row == 0){
+		if (move_get_p_rock(s).row == 0) {
 			char *msg = (char*) malloc(5 * sizeof(char));
 			msg = "O-O-O";
 			return msg;
-		}else{
+		} else {
 			char *msg = (char*) malloc(3 * sizeof(char));
 			msg = "O-O";
 			return msg;
@@ -357,19 +356,19 @@ char* Move_to_SAN(MOVE s) {
 		}
 		/* RAZVAN A SCRIS AICI: :), MIHAI SE UITA */
 		char text[10];
-		if(msg[0] == 'x' ) {
-			
-			text[0] = row_to_letter ( lp );
+		if (msg[0] == 'x') {
+
+			text[0] = row_to_letter(lp);
 			text[1] = '\0';
-			strcat(text , msg);
-			strcpy (msg , text );
+			strcat(text, msg);
+			strcpy(msg, text);
 		}
-		
+
 		return msg;
 	}
 }
 
-MOVE SAN_to_Move(STATE cur , char* s ) {
+MOVE SAN_to_Move(STATE cur, char* s) {
 	MOVE m = move_new();
 	if (strcmp(s, "O-O") == 0 || strcmp(s, "o-o") == 0 || strcmp(s, "0-0") == 0) {
 		if (!ST_get_col_on_move(cur)) {
@@ -399,8 +398,7 @@ MOVE SAN_to_Move(STATE cur , char* s ) {
 		}
 		return m;
 	}
-	if (strcmp(s, "O-O-O") == 0 || strcmp(s, "o-o-o") == 0
-			|| strcmp(s, "0-0-0") == 0) {
+	if (strcmp(s, "O-O-O") == 0 || strcmp(s, "o-o-o") == 0 || strcmp(s, "0-0-0") == 0) {
 		if (!ST_get_col_on_move(cur)) {
 			LOC src;
 			LOCp_set_both(&src, 4, 0);
@@ -435,7 +433,7 @@ MOVE SAN_to_Move(STATE cur , char* s ) {
 			if (!is_dezambiguu(s)) {
 				if (isdigit(s[j])) {
 					j++;
-					cg = s[j-1]-'1';
+					cg = s[j - 1] - '1';
 				} else {
 					j++;
 					lg = convertFromLetters(s[j - 1]) - 1;
@@ -445,7 +443,7 @@ MOVE SAN_to_Move(STATE cur , char* s ) {
 				j++;
 			}
 			lp = convertFromLetters(s[j++]) - 1;
-			cp = s[j++]-'1';
+			cp = s[j++] - '1';
 			LOC l;
 			l.row = lp;
 			l.col = cp;
@@ -460,7 +458,7 @@ MOVE SAN_to_Move(STATE cur , char* s ) {
 			if (!is_dezambiguu(s)) {
 				if (isdigit(s[j])) {
 					j++;
-					cg = s[j-1]-'1';
+					cg = s[j - 1] - '1';
 				} else {
 					j++;
 					lg = convertFromLetters(s[j - 1]) - 1;
@@ -470,15 +468,15 @@ MOVE SAN_to_Move(STATE cur , char* s ) {
 				j++;
 			}
 			lp = convertFromLetters(s[j++]) - 1;
-			cp = s[j++]-'1';
+			cp = s[j++] - '1';
 			LOC l;
 			l.row = lp;
 			l.col = cp;
 			move_set_poz_dst(m, l);
 			LOC h = gasire_piesa(cur, cg, lg, l, T_P);
 			move_set_poz_src(m, h);
-			move_set_p_tag ( m , T_P);
-			if (s[j++] == '='){
+			move_set_p_tag(m, T_P);
+			if (s[j++] == '=') {
 				move_set_m_tag(m, 1);
 				move_set_p_tag_pro(m, get_piece(s[j]));
 			}
