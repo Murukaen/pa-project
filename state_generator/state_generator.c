@@ -50,8 +50,8 @@ STATE ST_gen(STATE start_state) {
 
 	valid_moves_when_check = VM_is_Check(start_state, nr_of_pieces_checking, loc_checking_piece);
 
-	for (iter = ST_get_piece_to_move(start_state); iter >= T_K; --iter, index = 0, L = ST_get_List_Table_Location(start_state, col_on_move,
-			iter), aux = L, index_loc = first_nod_list(&L)) {
+	for (iter = ST_get_piece_to_move(start_state); iter >= T_K; --iter, index = 0, L = ST_get_List_Table_Location(start_state, col_on_move, iter), aux
+			= L, index_loc = first_nod_list(&L)) {
 		if (nr_of_pieces_checking[0] > 1) {// daca e sah de la mai mult de o piesa, tre sa mut regele
 			iter = T_K;
 			aux = L;
@@ -175,8 +175,31 @@ STATE ST_gen(STATE start_state) {
 					ST_set_col_on_move(new_state, not(col_on_move));
 					ST_set_piece_to_move(start_state, iter);
 					ST_set_new_st_gen(new_state, 0);
+					if (promotion == 1) {
+						if ((new_c == 7 && col_on_move == 0) || (new_c == 0 && col_on_move == 1)) {
+							UCHAR regina, pion, cul;
+							if (col_on_move == 0) {
+								regina = T_Q, pion = T_P, cul = T_WP;
+							} else {
+								regina = T_Q + BWP_OFF, pion = T_P + BWP_OFF, cul = T_BP;
+							}
+							BITMAP b_queen, old_queen = ST_get_bitmap(new_state, regina) & ST_get_bitmap(new_state, cul), new_queen =
+									BM_Make_coord(new_r, new_c), pro_pawn, new_pawns;
+							b_queen = old_queen | new_queen;
+							ST_set_bitmap(new_state, regina, b_queen);
+							ST_set_tag_Table_What(new_state, new_r, new_c, regina);
+							BM_Put_piece_at_coord(&pro_pawn, new_r, new_c);
+							new_pawns = ST_get_bitmap(new_state, pion) & ST_get_bitmap(new_state, cul);
+							BM_Clear_piece_at_coord(&new_pawns, new_r, new_c);
+							ST_set_bitmap(new_state, pion, new_pawns);
+							delete_elem_list(ST_get_List_Table_Location(new_state, cul, pion), loc, fequ_loc, LOC_free);
+							add_nod_list(ST_get_List_Table_Location(new_state, cul, regina), loc);
+						}
+
+					}
 
 					log_print_state(new_state, LOG_STATE_GENERATOR_FILE, WRITE_TAG_ADD);
+					free(nr_of_pieces_checking);
 					return new_state;
 				}
 
