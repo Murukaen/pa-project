@@ -93,6 +93,10 @@ UCHAR ST_get_tag_Table_What(STATE st, int row, int col) {
 
 List ST_get_List_Table_Location(STATE st, int col_tag, int piece_tag) {
 
+	if ( !ok_col_tag ( col_tag) || !ok_piece_tag (piece_tag) ) {
+		List l = new_list();
+		return l;
+	}
 	return st -> Table_Location[col_tag][piece_tag - PIECES_OFF];
 }
 

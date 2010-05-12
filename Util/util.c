@@ -258,5 +258,17 @@ UINT get_time ( int prec ) {
 	
 	return cur_time % pow_ten[prec];
 }
+
+int ok_col_tag ( int col_tag ) {
+	
+	if ( col_tag == 0 || col_tag == 1 ) return 1;
+	return 0;
+}
+
+int ok_piece_tag ( int piece_tag ) {
+	
+	if ( 2<= piece_tag && piece_tag <=7 ) return 1;
+	return 0;
+}
 		
 		
