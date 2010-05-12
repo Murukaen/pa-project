@@ -21,13 +21,13 @@ RM := rm -rf
 -include move_conv/subdir.mk
 -include move/subdir.mk
 -include main/subdir.mk
+-include log/subdir.mk
 -include list/subdir.mk
 -include decision/subdir.mk
 -include cur_state/subdir.mk
 -include command/subdir.mk
 -include bitmap/subdir.mk
 -include Util/subdir.mk
--include Log/subdir.mk
 -include Init/subdir.mk
 -include Flags/subdir.mk
 -include objects.mk

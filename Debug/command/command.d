@@ -21,9 +21,9 @@ command/command.d command/command.o: ../command/command.c \
  ../command/../san_conv/../state_generator/../state/state.h \
  ../command/../san_conv/../Flags/flags.h \
  ../command/../move_conv/move_conv.h \
- ../command/../move_conv/../move/move.h ../command/../Log/log.h \
- ../command/../Log/../state/state.h ../command/../Log/../move/move.h \
- ../command/../Log/../bitmap/bitmap.h ../command/../Init/init.h \
+ ../command/../move_conv/../move/move.h ../command/../log/log.h \
+ ../command/../log/../state/state.h ../command/../log/../move/move.h \
+ ../command/../log/../bitmap/bitmap.h ../command/../Init/init.h \
  ../command/../cur_state/cur_state.h
 
 ../command/command.h:
@@ -74,13 +74,13 @@ command/command.d command/command.o: ../command/command.c \
 
 ../command/../move_conv/../move/move.h:
 
-../command/../Log/log.h:
+../command/../log/log.h:
 
-../command/../Log/../state/state.h:
+../command/../log/../state/state.h:
 
-../command/../Log/../move/move.h:
+../command/../log/../move/move.h:
 
-../command/../Log/../bitmap/bitmap.h:
+../command/../log/../bitmap/bitmap.h:
 
 ../command/../Init/init.h:
 

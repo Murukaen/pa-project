@@ -14,8 +14,8 @@ san_conv/san_conv.d san_conv/san_conv.o: ../san_conv/san_conv.c \
  ../san_conv/../valid_moves/../state/state.h \
  ../san_conv/../valid_moves/../Util/util.h \
  ../san_conv/../valid_moves/../state_generator/state_generator.h \
- ../san_conv/../Log/log.h ../san_conv/../Log/../state/state.h \
- ../san_conv/../Log/../move/move.h ../san_conv/../Log/../bitmap/bitmap.h
+ ../san_conv/../log/log.h ../san_conv/../log/../state/state.h \
+ ../san_conv/../log/../move/move.h ../san_conv/../log/../bitmap/bitmap.h
 
 ../san_conv/san_conv.h:
 
@@ -59,10 +59,10 @@ san_conv/san_conv.d san_conv/san_conv.o: ../san_conv/san_conv.c \
 
 ../san_conv/../valid_moves/../state_generator/state_generator.h:
 
-../san_conv/../Log/log.h:
+../san_conv/../log/log.h:
 
-../san_conv/../Log/../state/state.h:
+../san_conv/../log/../state/state.h:
 
-../san_conv/../Log/../move/move.h:
+../san_conv/../log/../move/move.h:
 
-../san_conv/../Log/../bitmap/bitmap.h:
+../san_conv/../log/../bitmap/bitmap.h:

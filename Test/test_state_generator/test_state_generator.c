@@ -14,9 +14,9 @@
 int main() {
 
 	/*
-	FILE * fout = fopen("./Test/test_state_generator/test_st_generator.out",
-			"w");
-	*/
+	 FILE * fout = fopen("./Test/test_state_generator/test_st_generator.out",
+	 "w");
+	 */
 	FILE * fin = fopen("./Test/test_state_generator/stare_initiala.in", "r");
 	if (fin == NULL) {
 		printf("eroare deschidere fisier intrare");
@@ -33,6 +33,13 @@ int main() {
 	st = state_read(fin);
 	STATE son;
 	for(son=ST_gen(st);son;log_print_state_Table_What(son , LOG_TEST_FILE), son=ST_gen(st));
-	
+	//state_print(st,stdout);
+	/*int i;
+	for (i = 0; i < 5; i++) {
+		son = ST_gen(st);
+		state_print(son, stdout);
+	}*/
+
+
 	return 0;
 }
