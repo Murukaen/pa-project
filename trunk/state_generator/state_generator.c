@@ -50,10 +50,11 @@ STATE ST_gen(STATE start_state) {
 
 	valid_moves_when_check = VM_is_Check(start_state, nr_of_pieces_checking, loc_checking_piece);
 
-	for (iter = ST_get_piece_to_move(start_state); iter >= T_K; --iter, index = 0, L = ST_get_List_Table_Location(start_state, col_on_move, iter), aux
-			= L, index_loc = first_nod_list(&L)) {
+	for (iter = ST_get_piece_to_move(start_state); iter >= T_K; --iter, index = 0, L = ST_get_List_Table_Location(start_state, col_on_move,
+			iter), aux = L, index_loc = first_nod_list(&L)) {
 		if (nr_of_pieces_checking[0] > 1) {// daca e sah de la mai mult de o piesa, tre sa mut regele
 			iter = T_K;
+			aux = L;
 			L = ST_get_List_Table_Location(start_state, col_on_move, iter);
 			index_loc = first_nod_list(&L);
 		}

@@ -54,7 +54,7 @@ void add_nod_list(List L, key content) {
 
 key first_nod_list(List* L) {
 
-	if ((*L) -> next == NULL) { // daca lista vida
+	if (*L == NULL || (*L) -> next == NULL) { // daca lista vida
 		return 0;
 	}
 
@@ -98,8 +98,7 @@ void delete_elem_list(List L, key k, FEQU fequ, FFREE ffree) {
 	}
 }
 
-List create_without_elem_list(List L, key k, FEQU fequ, FFREE ffree,
-		FALLOC falloc) {
+List create_without_elem_list(List L, key k, FEQU fequ, FFREE ffree, FALLOC falloc) {
 
 	List l_cp = list_copy(L, falloc);
 

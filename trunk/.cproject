@@ -48,7 +48,7 @@
 </toolChain>
 </folderInfo>
 <sourceEntries>
-<entry excluding="Test|Test/test_read_openings|Test/test_get_valid_if_check|Test/testu_lu_rahat_in_prastie|Test/test_xboard_com|Test/test_X_to_move|Test/test_all_possible_moves|Test/test_valid_moves|Test/test_update_state|Test/test_san_to_move|Test/test_read_from_file|Test/test_move_to_X|Test/test_move_to_san|Test/test_move_handler|Test/test_initial_state|Test/test_if_check|list|test_all_possible_moves|Test/test_san|test_state_generator|test_read_from_file|read_from_file|File_generator|test_get_valid_if_check.c|valid_moves" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+<entry excluding="main|Test/test_read_openings|Test/test_get_valid_if_check|Test/testu_lu_rahat_in_prastie|Test/test_xboard_com|Test/test_X_to_move|Test/test_all_possible_moves|Test/test_valid_moves|Test/test_update_state|Test/test_san_to_move|Test/test_read_from_file|Test/test_move_to_X|Test/test_move_to_san|Test/test_move_handler|Test/test_initial_state|Test/test_if_check|list|test_all_possible_moves|Test/test_san|test_state_generator|test_read_from_file|read_from_file|File_generator|test_get_valid_if_check.c|valid_moves" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="valid_moves"/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="read_from_file"/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="list"/>
@@ -349,7 +349,7 @@
 </toolChain>
 </folderInfo>
 <sourceEntries>
-<entry excluding="Test|Test/test_read_openings|Test/test_get_valid_if_check|Test/testu_lu_rahat_in_prastie|Test/test_xboard_com|Test/test_X_to_move|Test/test_all_possible_moves|Test/test_valid_moves|Test/test_update_state|Test/test_san_to_move|Test/test_read_from_file|Test/test_move_to_X|Test/test_move_to_san|Test/test_move_handler|Test/test_initial_state|Test/test_if_check|test_get_valid_if_check.c|test_state_generator|test_all_possible_moves|test_read_from_file|Test/test_san|valid_moves|list|file_generator|File_generator|read_from_file" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+<entry excluding="main|Test/test_read_openings|Test/test_get_valid_if_check|Test/testu_lu_rahat_in_prastie|Test/test_xboard_com|Test/test_X_to_move|Test/test_all_possible_moves|Test/test_valid_moves|Test/test_update_state|Test/test_san_to_move|Test/test_read_from_file|Test/test_move_to_X|Test/test_move_to_san|Test/test_move_handler|Test/test_initial_state|Test/test_if_check|test_get_valid_if_check.c|test_state_generator|test_all_possible_moves|test_read_from_file|Test/test_san|valid_moves|list|file_generator|File_generator|read_from_file" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="list"/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="read_from_file"/>
 <entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="valid_moves"/>
