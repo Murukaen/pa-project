@@ -27,6 +27,8 @@
 #define T_NA 255 // N/A / Empty square
 /* END Tags */
 
+#define WHITE_COLOR 0
+#define BLACK_COLOR 1
 #define NR_PIECES 6 // number of all types of pieces
 #define PIECES_OFF 2 // tags pieces offset ( 2 - 7 )
 #define BWP_OFF 6 // black/white pieces offset ( white : 2 - 7 ; black : 8 - 13 )

@@ -11,6 +11,7 @@
 #include "../log/log.h"
 #include "../xboard_com/xboard_com.h"
 #include "../Flags/flags.h"
+#include "../evaluation/evaluation.h"
 #include "init.h"
 
 /* ---- Macro #define ---- */
@@ -34,6 +35,7 @@ void Init ( int loc ) {
 					
 		case INIT_POSX: 	BM_init ();
 							ST_gen_init ();
+							eval_init ();
 							break;
 							
 		case INIT_ALL:     	log_init ();
