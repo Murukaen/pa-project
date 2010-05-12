@@ -9,9 +9,9 @@ Init/init.d Init/init.o: ../Init/init.c ../Init/../bitmap/bitmap.h \
  ../Init/../update_state/../state/../list/list.h \
  ../Init/../update_state/../state/../Util/util.h \
  ../Init/../state_generator/state_generator.h \
- ../Init/../state_generator/../state/state.h ../Init/../Log/log.h \
- ../Init/../Log/../state/state.h ../Init/../Log/../move/move.h \
- ../Init/../Log/../bitmap/bitmap.h ../Init/../xboard_com/xboard_com.h \
+ ../Init/../state_generator/../state/state.h ../Init/../log/log.h \
+ ../Init/../log/../state/state.h ../Init/../log/../move/move.h \
+ ../Init/../log/../bitmap/bitmap.h ../Init/../xboard_com/xboard_com.h \
  ../Init/../Flags/flags.h ../Init/init.h
 
 ../Init/../bitmap/bitmap.h:
@@ -40,13 +40,13 @@ Init/init.d Init/init.o: ../Init/init.c ../Init/../bitmap/bitmap.h \
 
 ../Init/../state_generator/../state/state.h:
 
-../Init/../Log/log.h:
+../Init/../log/log.h:
 
-../Init/../Log/../state/state.h:
+../Init/../log/../state/state.h:
 
-../Init/../Log/../move/move.h:
+../Init/../log/../move/move.h:
 
-../Init/../Log/../bitmap/bitmap.h:
+../Init/../log/../bitmap/bitmap.h:
 
 ../Init/../xboard_com/xboard_com.h:
 

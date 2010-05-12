@@ -1,12 +1,12 @@
 main/engine.d main/engine.o: ../main/engine.c ../main/../Init/init.h \
  ../main/../xboard_com/xboard_com.h ../main/../Flags/flags.h \
- ../main/../Flags/../Util/util.h ../main/../Log/log.h \
- ../main/../Log/../state/state.h \
- ../main/../Log/../state/../bitmap/bitmap.h \
- ../main/../Log/../state/../bitmap/../Util/util.h \
- ../main/../Log/../state/../list/list.h \
- ../main/../Log/../state/../Util/util.h ../main/../Log/../move/move.h \
- ../main/../Log/../move/../Util/util.h ../main/../Log/../bitmap/bitmap.h \
+ ../main/../Flags/../Util/util.h ../main/../log/log.h \
+ ../main/../log/../state/state.h \
+ ../main/../log/../state/../bitmap/bitmap.h \
+ ../main/../log/../state/../bitmap/../Util/util.h \
+ ../main/../log/../state/../list/list.h \
+ ../main/../log/../state/../Util/util.h ../main/../log/../move/move.h \
+ ../main/../log/../move/../Util/util.h ../main/../log/../bitmap/bitmap.h \
  ../main/../bitmap/bitmap.h ../main/../state/state.h \
  ../main/../move/move.h ../main/../decision/decision.h \
  ../main/../decision/../state/state.h ../main/../cur_state/cur_state.h \
@@ -29,23 +29,23 @@ main/engine.d main/engine.o: ../main/engine.c ../main/../Init/init.h \
 
 ../main/../Flags/../Util/util.h:
 
-../main/../Log/log.h:
+../main/../log/log.h:
 
-../main/../Log/../state/state.h:
+../main/../log/../state/state.h:
 
-../main/../Log/../state/../bitmap/bitmap.h:
+../main/../log/../state/../bitmap/bitmap.h:
 
-../main/../Log/../state/../bitmap/../Util/util.h:
+../main/../log/../state/../bitmap/../Util/util.h:
 
-../main/../Log/../state/../list/list.h:
+../main/../log/../state/../list/list.h:
 
-../main/../Log/../state/../Util/util.h:
+../main/../log/../state/../Util/util.h:
 
-../main/../Log/../move/move.h:
+../main/../log/../move/move.h:
 
-../main/../Log/../move/../Util/util.h:
+../main/../log/../move/../Util/util.h:
 
-../main/../Log/../bitmap/bitmap.h:
+../main/../log/../bitmap/bitmap.h:
 
 ../main/../bitmap/bitmap.h:
 

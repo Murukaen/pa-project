@@ -25,13 +25,13 @@ move_handler \
 move_conv \
 move \
 main \
+log \
 list \
 decision \
 cur_state \
 command \
 bitmap \
 Util \
-Log \
 Init \
 Flags \
 
