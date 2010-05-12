@@ -63,6 +63,9 @@ void log_init ( void ) {
 	
 	fout = fopen ("Log/test.log" , "w");
 	fclose(fout);
+	
+	fout = fopen ("Log/decision.log" , "w");
+	fclose(fout);
 }
 
 void log_print ( char * text , char * FILE_NAME ) {
